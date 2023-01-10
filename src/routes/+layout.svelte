@@ -7,6 +7,7 @@
 </script>
 
 <svelte:head>
+    <title>GROS</title>
     <link rel="stylesheet" href="/theme-{$theme}.css">
 </svelte:head>
 
