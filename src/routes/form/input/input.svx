@@ -5,15 +5,20 @@
 
 # Input
 
+
+<SmallForm/>
+
+<br>
+
 Les entrées sont par défaut de type `text`. On peut leur attribuer un type `password` grâce au paramètre `type`.
 
-Le paramètre `mandatory` est optionnel. Il fait apparaître un astérisque, indiquant à l'utilisateur que la saisie du champ est requise.
+Le paramètre `mandatory` est optionnel : il fait apparaître un astérisque, indiquant à l'utilisateur que la saisie du champ est requise.
 
 Le paramètre `icon` est optionnel. 
 
 ````svelte
 <script>
-    import { Input } from '$lib/form'
+    import { Input } from 'gros/form'
     const form = { email: null, password: null }
 </script>
 
@@ -34,19 +39,21 @@ Le paramètre `icon` est optionnel.
 
 <br><br>
 
-## Formulaire d'exemple
+
+
+
+## Gros formulaire
+
 
 <Form/>
 
 <br><br>
 
-## Petits champs texte 
-
-Le composant `Input` comprend un paramètre `small` (booléen) qui détermine sa mise en forme.
+Pour obtenir un gros `Input`, on définit le paramètre `small` à `false`
 
 ````svelte
 <Input 
-    small={true}
+    small={false}
     icon={'mail'} 
     label={'Email'} 
     mandatory={true} 
@@ -54,9 +61,6 @@ Le composant `Input` comprend un paramètre `small` (booléen) qui détermine sa
 />
 ````
 
-<br>
-
-<SmallForm/>
 
 <br><br>
 

@@ -2,6 +2,9 @@
     import Dropdown from './dropdown.svx'
 </script>
 
-<Dropdown/>
+
+<div class="svx">
+    <Dropdown/>
+</div>
 
 

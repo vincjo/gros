@@ -1,5 +1,7 @@
 <script>
-    import Doc from './doc.svx' 
+    import Datatable from './datatable.svx' 
 </script>
 
-<Doc/>
+<div class="svx">
+    <Datatable/>
+</div>

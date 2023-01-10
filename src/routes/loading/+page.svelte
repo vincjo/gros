@@ -2,4 +2,7 @@
     import Loading from './loading.svx'
 </script>
 
-<Loading/>
+
+<div class="svx">
+    <Loading/>
+</div>

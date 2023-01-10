@@ -9,13 +9,20 @@
 
 Trois types de chargements sont réunis dans un même composant `Loading` :
 
-1. Le type par défaut, `waiting` : le composant est inséré dans un bloc `{#await}` .
+1. Le type par défaut, `await` : le composant est inséré dans un bloc `{#await}`.
 2. Le type `bootstrap` lors du chargement initial de l'application.
 3. Le type `process` déclenché de manière opportuniste lors de l'exécution d'une fonction asynchrone.
 
 <br><br>
 
-## Dans un bloc `{#await}` : `waiting`
+## Dans un bloc `{#await}` : `await`
+
+
+Le composant de chargement est contenu par l'élément parent.
+
+<Waiting/>
+
+<br>
 
 ````svelte
 <script>
@@ -34,14 +41,16 @@ Trois types de chargements sont réunis dans un même composant `Loading` :
 ````
 <br>
 
-Le composant de chargement est contenu par l'élément parent.
-
-<Waiting/>
-
 
 <br><br>
 
 ## Chargement initial de l'application : `bootstrap`
+
+Le composant se superpose entièrement à la fenêtre courante et masque l'arrière plan.
+
+<BootstrapButton/>
+
+<br>
 
 Le paramètre `type={'bootstrap'}` est précisé.
 
@@ -62,18 +71,17 @@ Le paramètre `type={'bootstrap'}` est précisé.
 
 <br>
 
-Le composant se superpose entièrement à la fenêtre courante et masque l'arrière plan.
-
-<BootstrapButton/>
-
 
 <br><br>
 
 ## Exécution asynchrone : `process`
 
+<ProcessExample/>
+<br>
+
 Lorsqu'une fonction asynchrone est exécutée, on souhaite limiter les intéractions de l'utilisateur.
 
-Le composant `<Loading type={process}/>` est placé une seule fois à la racine du projet dans `+layout.svelte`.
+Le composant `<Loading type={'process'}/>` est placé une seule fois à la racine du projet dans `+layout.svelte`.
 
 > +layout.svelte
 
@@ -83,7 +91,7 @@ Le composant `<Loading type={process}/>` est placé une seule fois à la racine 
 </script>
 
 <slot/>
-<Loading type={'process'}>
+<Loading type={'process'}/>
 ````
 <br>
 
@@ -95,7 +103,7 @@ En paramètre de la fonction `start`, on peut préciser un message et un sous-me
 
 ````svelte
 <script>
-    import { loading } from '$lib/loading'
+    import { loading } from 'gros/loading'
 
     const handleClick = async () =>  {
         loading.start(message, submessage)
@@ -110,11 +118,6 @@ En paramètre de la fonction `start`, on peut préciser un message et un sous-me
 
 ````
 
-<br>
-
-### Exemple
-
-<ProcessExample/>
 
 <br><br><br><br>
 <br><br><br><br>

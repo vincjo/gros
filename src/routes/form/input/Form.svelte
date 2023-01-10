@@ -33,11 +33,11 @@
 </script>
 
 <form>
-    <Input {errors} icon={'mail'} label={'Email'} field={'email'} mandatory={true} bind:value={form.email}/>
-    <Input {errors} icon={'person'} label={'First name'} field={'firstname'} bind:value={form.firstname}/>
-    <Input {errors} icon={'person'} label={'Name'}  field={'name'}  bind:value={form.name}/>
-    <Input {errors} icon={'lock'} label={'Password'} field={'password'} mandatory={true} bind:value={form.password} type={'password'} />
-    <Input {errors} icon={'lock'} label={'Confirm password'} field={'password_confirmed'} mandatory={true} bind:value={form.password_confirmed} type={'password'} />
+    <Input small={false} {errors} icon={'mail'} label={'Email'} field={'email'} mandatory={true} bind:value={form.email}/>
+    <Input small={false} {errors} icon={'person'} label={'First name'} field={'firstname'} bind:value={form.firstname}/>
+    <Input small={false} {errors} icon={'person'} label={'Name'}  field={'name'}  bind:value={form.name}/>
+    <Input small={false} {errors} icon={'lock'} label={'Password'} field={'password'} mandatory={true} bind:value={form.password} type={'password'} />
+    <Input small={false} {errors} icon={'lock'} label={'Confirm password'} field={'password_confirmed'} mandatory={true} bind:value={form.password_confirmed} type={'password'} />
 
     <button class="btn z-depth-1" type="submit" on:click|preventDefault={handleClick}>
         <i class="material-icons">save</i>

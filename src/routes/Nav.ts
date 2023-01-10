@@ -26,4 +26,8 @@ export default [
         name: 'modal',
         path: '/modal',
     },
+    {
+        name: 'icons',
+        path: '/icons',
+    },
 ]

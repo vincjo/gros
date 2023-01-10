@@ -1,7 +1,7 @@
 <script>
     import ErrorMessage from './ErrorMessage.svelte'
     import ErrorAlert from './ErrorAlert.svelte'
-    export let small = false
+    export let small = true
     export let value = ''
     export let label = ''
     export let type = 'text'

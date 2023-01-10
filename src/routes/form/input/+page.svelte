@@ -2,5 +2,6 @@
     import Input from './input.svx'
 </script>
 
-
-<Input/>
+<div class="svx">
+    <Input/>
+</div>

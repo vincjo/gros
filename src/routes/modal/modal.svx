@@ -19,7 +19,7 @@ Il faut donc importer le conteneur de boîte pour activer le fonctionnement du s
 
 ````svelte
 <script>
-    import { ModalContainer } from 'urbs/modal'
+    import { ModalContainer } from 'gros/modal'
 </script>
 
 
@@ -37,7 +37,7 @@ Pour l'exemple nous créons un composant de type boîte de dialogue nommé `Exam
 
 ````svelte
 <script>
-    import { Modal } from 'urbs/modal'
+    import { Modal } from 'gros/modal'
     export let close
     export let props
 
@@ -75,7 +75,7 @@ Pour déclencher l'ouverture de la boîte de dialogue exposée ci-dessus, nous u
 
 ````svelte
 <script>
-    import { modal } from '$lib/modal'
+    import { modal } from 'gros/modal'
     import ExampleModal from './ExampleModal.svelte'
 </script>
 

@@ -14,5 +14,5 @@ npm i -D gros
 
 <style>
     aside{max-width:400px;}
-    h2{font-size:24px;color:var(--active-dark);font-weight:400;margin:24px 0 8px 0;}
+    h2{font-size:24px;color:var(--primary);font-weight:400;margin:48px 0 8px 0;}
 </style>

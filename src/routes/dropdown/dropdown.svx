@@ -9,11 +9,11 @@
 
 <br><br><br>
 
-Le contenu du menu déroulant est placé dans un `slot` appelé "content"
+Le contenu du menu déroulant est placé dans un `slot` très "content"
 
 ````svelte
 <script>
-    import { Dropdown } from '$lib/dropdown'
+    import { Dropdown } from 'gros/dropdown'
 </script>
 
 

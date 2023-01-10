@@ -22,7 +22,7 @@
 
 </section>
 <style>
-    section{margin-left:80px;}
+    section{margin-left:80px;margin-top:80px;}
     aside{display:flex;justify-content:start;margin-top:32px;color:var(--primary-lighten)}
     h1 {font-size:32px;line-height:32px; text-align: left; font-weight:400; margin: 0; }
     h1 b{font-family:Cursive, sans-serif;font-weight:2000;color:var(--secondary)}

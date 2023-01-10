@@ -2,4 +2,6 @@
     import Modal from './modal.svx'
 </script>
 
-<Modal/>
+<div class="svx">
+    <Modal/>
+</div>

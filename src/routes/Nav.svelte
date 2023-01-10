@@ -47,7 +47,7 @@
 
 
 <style>
-    nav{position:relative;min-height:100vh;width:240px;min-width:200px;background:#fff;z-index:1;padding:24px 0 0 24px;overflow-y:auto;}
+    nav{position:relative;min-height:100vh;width:240px;min-width:200px;background:#fff;z-index:1;padding:24px 0 0 24px;overflow-y:auto;font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;}
 
     article{height:88px;}
     aside{display:flex;justify-content:start;margin:0;height:48px;}
@@ -55,8 +55,8 @@
     h1 b{font-family:Cursive, sans-serif;font-weight:2000;color:var(--secondary);font-size:22px;}
     i.icon{width:48px;height:48px;color:var(--primary);margin:0 8px;}
 
-    h2{color:#333;font-weight:200;margin:0;font-size:32px;line-height:40px;transition:all,0.1s;}
-    h2:hover{font-weight:600;color:#676778;}
+    h2{color:#333;font-weight:200;margin:0;font-size:24px;line-height:40px;transition:all,0.1s;}
+    h2:hover{color:var(--secondary);}
     h2.active{color:var(--primary);font-weight:600;}
     a{text-decoration:none;}
     ul{margin:8px 0 0 0;list-style-type:none;background:#fff;padding:0 16px 0 0;}
