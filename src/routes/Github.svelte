@@ -2,7 +2,7 @@
 <header>
 	<div>
 		<a href="https://github.com/vincjo/datatables">
-			<img alt="github logo" src="/github.svg"/><span>Github</span>
+			<img alt="github logo" src="github.svg"/><span>Github</span>
 		</a>
 	</div>
 </header>
