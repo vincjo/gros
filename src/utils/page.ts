@@ -18,7 +18,7 @@ export const hash = derived(
 export const anchor = writable(null)
 
 export const getPath = (url: string) => {
-    if(base === '/datatables') {
+    if(base === '/gros') {
         return `${base}${url}`.replace('//', '/').replace(/\/$/, '')
     }
     else {
@@ -27,7 +27,7 @@ export const getPath = (url: string) => {
 }
 
 export const goTo = (url: string) => {
-    if(base === '/datatables') {
+    if(base === '/gros') {
         goto( `${base}${url}`.replace('//', '/').replace(/\/$/, '') )
     }
     else {

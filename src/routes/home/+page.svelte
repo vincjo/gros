@@ -16,8 +16,8 @@
             <h1><b>GROS</b> ui toolkit</h1>
             <p>Jeu de composants <code>Svelte</code> réutilisables</p>
             <div>
-                <img src="https://img.shields.io/npm/dt/@vincjo/datatables?color=%23{$color}" alt="npm downloads"/>
-                <img src="https://img.shields.io/npm/v/@vincjo/datatables?color=%23{$color}" alt="npm version"/>
+                <img src="https://img.shields.io/npm/dt/gros?color=%23{$color}" alt="npm downloads"/>
+                <img src="https://img.shields.io/npm/v/gros?color=%23{$color}" alt="npm version"/>
             </div>
         </div>
     </aside>
