@@ -1,0 +1,92 @@
+<script>
+    import Form from './Form.svelte'
+    import SmallForm from './SmallForm.svelte'
+</script>
+
+# Input
+
+Les entrées sont par défaut de type `text`. On peut leur attribuer un type `password` grâce au paramètre `type`.
+
+Le paramètre `mandatory` est optionnel. Il fait apparaître un astérisque, indiquant à l'utilisateur que la saisie du champ est requise.
+
+Le paramètre `icon` est optionnel. 
+
+````svelte
+<script>
+    import { Input } from '$lib/form'
+    const form = { email: null, password: null }
+</script>
+
+<Input 
+    icon={'mail'} 
+    label={'Email'} 
+    mandatory={true} 
+    bind:value={form.email}
+/>
+<Input 
+    icon={'lock'} 
+    label={'Password'} 
+    mandatory={true} 
+    bind:value={form.password} 
+    type={'password'}
+/>
+````
+
+<br><br>
+
+## Formulaire d'exemple
+
+<Form/>
+
+<br><br>
+
+## Petits champs texte 
+
+Le composant `Input` comprend un paramètre `small` (booléen) qui détermine sa mise en forme.
+
+````svelte
+<Input 
+    small={true}
+    icon={'mail'} 
+    label={'Email'} 
+    mandatory={true} 
+    bind:value={form.email}
+/>
+````
+
+<br>
+
+<SmallForm/>
+
+<br><br>
+
+## Gestion des erreurs
+
+Les erreurs sont systématiquement gérées côté serveur.
+Après soumission d'un formulaire, la réponse contient éventuellement un tableau d'erreurs.
+
+L'objet `errors` peut être tranmis aux composants `Input`. La forme est normalisée conformément à l'exemple ci-dessous :
+
+````ts
+const errors = [
+    { field: 'email', message: 'Non valid email'},
+    { field: 'password', message: 'Non secured'},
+]
+````
+<br>
+
+La totalité du tableau d'erreurs sera transmise à chaque composant `Input` via le paramètre `errors` . On précisera également le nom du champ grâce au paramètre `field` :
+
+
+````svelte
+<Input 
+    {errors}
+    field={'email'}
+    label={'Email'} 
+    mandatory={true} 
+    bind:value={form.email}
+/>
+````
+
+<br><br><br><br>
+<br><br><br><br>

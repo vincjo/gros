@@ -1,0 +1,93 @@
+<script>
+    import Button from './Button.svelte'
+</script>
+
+
+# Modals
+
+<Button/>
+
+<br><br>
+
+## Initialisation
+
+Les boîtes de dialogue sont téléportées à la racine du projet dans le fichier  `+layout.svelte`
+
+Il faut donc importer le conteneur de boîte pour activer le fonctionnement du système.
+
+> +layout.svelte
+
+````svelte
+<script>
+    import { ModalContainer } from 'urbs/modal'
+</script>
+
+
+<slot/>
+<ModalContainer/>
+
+````
+
+<br><br>
+
+
+## Créer une boîte de dialogue
+
+Pour l'exemple nous créons un composant de type boîte de dialogue nommé `ExampleModal.svelte`
+
+````svelte
+<script>
+    import { Modal } from 'urbs/modal'
+    export let close
+    export let props
+
+    const save = () => {
+        close()
+        alert('You clicked on "save" button')
+    }
+</script>
+
+<Modal icon={'account_circle'} title={'User informations'}>
+    <p>Some content</p>
+    <b>User</b>
+    <ul>
+        <li>{props.id}</li>
+        <li>{props.name}</li>
+        <li>{props.email}</li>
+    </ul>
+
+    <svelte:fragment slot="footer">
+        <button on:click={save}>Save</button>
+        <button on:click={close}>Cancel</button>
+    </svelte:fragment>
+</Modal>
+
+````
+
+<br><br>
+
+## Déclencher l'ouverture de la boîte
+
+Pour déclencher l'ouverture de la boîte de dialogue exposée ci-dessus, nous utilisons la fonction `open` qui prend 2 paramètres :
+- Un composant svelte
+- Les données "props" à transmettre au composant (optionnel)
+
+
+````svelte
+<script>
+    import { modal } from '$lib/modal'
+    import ExampleModal from './ExampleModal.svelte'
+</script>
+
+<button on:click={() => modal.open(ExampleModal, { 
+    id: 1, 
+    name: 'John Doe', 
+    email: 'john.doe@live.com' 
+})}>
+    OPEN
+</button>
+````
+
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>

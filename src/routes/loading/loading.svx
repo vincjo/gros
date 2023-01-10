@@ -1,0 +1,121 @@
+<script>
+    import Waiting from './Waiting.svelte'
+    import BootstrapButton from './BootstrapButton.svelte'
+    import ProcessExample from './ProcessExample.svelte'
+
+</script>
+
+# Loading
+
+Trois types de chargements sont réunis dans un même composant `Loading` :
+
+1. Le type par défaut, `waiting` : le composant est inséré dans un bloc `{#await}` .
+2. Le type `bootstrap` lors du chargement initial de l'application.
+3. Le type `process` déclenché de manière opportuniste lors de l'exécution d'une fonction asynchrone.
+
+<br><br>
+
+## Dans un bloc `{#await}` : `waiting`
+
+````svelte
+<script>
+    import { Loading } from '$lib/loading'
+
+    const myAsyncFunction = async () => { /*do asynchronous shit*/ }
+</script>
+
+
+{#await myAsyncFunction()}
+    <Loading/>
+{:then}
+    <!-- stuff -->
+{/await}
+
+````
+<br>
+
+Le composant de chargement est contenu par l'élément parent.
+
+<Waiting/>
+
+
+<br><br>
+
+## Chargement initial de l'application : `bootstrap`
+
+Le paramètre `type={'bootstrap'}` est précisé.
+
+````svelte
+<script>
+    import { Loading } from '$lib/loading'
+
+    const bootstrap = async () => {  /*load application data*/ }
+</script>
+
+
+{#await bootstrap()}
+    <Loading type={'bootstrap'}/>
+{:then}
+    <!-- stuff -->
+{/await}
+````
+
+<br>
+
+Le composant se superpose entièrement à la fenêtre courante et masque l'arrière plan.
+
+<BootstrapButton/>
+
+
+<br><br>
+
+## Exécution asynchrone : `process`
+
+Lorsqu'une fonction asynchrone est exécutée, on souhaite limiter les intéractions de l'utilisateur.
+
+Le composant `<Loading type={process}/>` est placé une seule fois à la racine du projet dans `+layout.svelte`.
+
+> +layout.svelte
+
+````svelte
+<script>
+    import { Loading } from '$lib/loading'
+</script>
+
+<slot/>
+<Loading type={'process'}>
+````
+<br>
+
+### Déclenchement 
+
+Pour déclencher le chargement, on utilise les fonctions `start` et `stop` du magasin `loading` à l'intéreur d'un processus asynchrone.
+
+En paramètre de la fonction `start`, on peut préciser un message et un sous-message.
+
+````svelte
+<script>
+    import { loading } from '$lib/loading'
+
+    const handleClick = async () =>  {
+        loading.start(message, submessage)
+
+        await stuff()
+
+        loading.stop()
+    }
+</script>
+
+<button on:click={handleClick}>CLICK ME</button>
+
+````
+
+<br>
+
+### Exemple
+
+<ProcessExample/>
+
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>

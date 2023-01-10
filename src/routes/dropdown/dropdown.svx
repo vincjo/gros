@@ -1,0 +1,29 @@
+<script>
+    import Button from './Button.svelte'
+</script>
+
+
+# Dropdown
+
+<Button/>
+
+<br><br><br>
+
+Le contenu du menu déroulant est placé dans un `slot` appelé "content"
+
+````svelte
+<script>
+    import { Dropdown } from '$lib/dropdown'
+</script>
+
+
+<Dropdown>
+    <button>Drop me!</button>
+    <ul slot="content">
+        <li>Option 1</li>
+        <li>Option 2</li>
+        <li>Option 3</li>
+        <li>Option 4</li>
+    </ul>
+</Dropdown>
+````
