@@ -1,7 +1,7 @@
 
 <header>
 	<div>
-		<a href="https://github.com/vincjo/datatables">
+		<a href="https://github.com/vincjo/gros">
 			<img alt="github logo" src="github.svg"/><span>Github</span>
 		</a>
 	</div>
