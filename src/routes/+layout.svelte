@@ -1,4 +1,5 @@
 <script>
+    import { base } from '$app/paths'
     import Nav from './Nav.svelte'
     import Github from './Github.svelte'
     import { theme } from '$utils/theme'
@@ -8,7 +9,7 @@
 
 <svelte:head>
     <title>GROS</title>
-    <link rel="stylesheet" href="theme-{$theme}.css">
+    <link rel="stylesheet" href="{base}/theme-{$theme}.css">
 </svelte:head>
 
 <Github/>

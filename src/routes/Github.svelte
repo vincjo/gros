@@ -1,8 +1,12 @@
+<script>
+	import { base } from '$app/paths'
+</script>
+
 
 <header>
 	<div>
 		<a href="https://github.com/vincjo/gros">
-			<img alt="github logo" src="github.svg"/><span>Github</span>
+			<img alt="github logo" src="{base}/github.svg"/><span>Github</span>
 		</a>
 	</div>
 </header>
