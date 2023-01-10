@@ -1,0 +1,74 @@
+<script>
+    import BigTextarea from './BigTextarea.svelte'
+    import SmallTextarea from './SmallTextarea.svelte'
+</script>
+
+# Textarea
+
+
+<SmallTextarea/>
+
+
+<br><br>
+
+````svelte
+<script>
+    import { Textarea } from 'gros/form'
+    let value = `Lorem ipsum dolor sit amet, [...]`
+</script>
+
+<Textarea 
+    icon={'message'} 
+    label={'Comment'}
+    bind:value
+/>
+````
+<br>
+<div class="table">
+
+| param  | default  | required  | 
+|---|---|---|
+| **icon**  |  *undefined* | false  |
+|  **label** | *''*  | false  |
+|  **spellcheck** | *false*  | false  |
+|  **height** | *'72px'*  | false  |
+|  **small** | *false*  | false  |
+|  **mandatory** | *false*  | false  |
+| **field** | *undefined* | false
+| **errors** | *undefined* | false
+
+</div>
+
+<br><br>
+
+
+
+
+## Gros champ de saisie
+
+
+<BigTextarea/>
+
+<br><br>
+
+Pour obtenir un gros `Textarea`, on définit le paramètre `small` à `false`
+
+````svelte
+<Textarea 
+    small={false}
+    icon={'message'} 
+    label={'Comment'}
+    height={'200px'} 
+    bind:value
+/>
+````
+
+
+<br><br>
+
+## Gestion des erreurs
+
+voir `Input`
+
+<br><br><br><br>
+<br><br><br><br>

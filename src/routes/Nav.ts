@@ -16,6 +16,7 @@ export default [
         path: '/form',
         pages: [
             { name: 'Input', path: '/input' },
+            { name: 'Textarea', path: '/textarea' },
         ],
     },
     {
