@@ -24,6 +24,10 @@ export default [
         path: '/modal',
     },
     {
+        name: 'tooltip',
+        path: '/tooltip',
+    },
+    {
         name: 'icons',
         path: '/icons',
     },

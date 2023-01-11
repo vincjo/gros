@@ -1,0 +1,46 @@
+<script>
+    import TooltipExample from './TooltipExample.svelte'
+</script>
+
+
+# Tooltips
+
+Les info-bulles sont créées grâce au composant `Tooltip`.
+
+<TooltipExample/>
+
+<br><br>
+
+L'élément qui contient l'info-bulle doit avoir la classe `tooltip` ou bien la propriété css `position: relative`
+
+````svelte
+<script>
+    import { Tooltip } from 'gros/tooltip'
+</script>
+
+
+<button class="tooltip">
+    <Tooltip position={'top'} content={'Tooltip top'}/>
+    Top
+</button>
+
+<button class="tooltip">
+    <Tooltip position={'bottom'} content={'Tooltip bottom'}/>
+    Bottom
+</button>
+
+<button class="tooltip">
+    <Tooltip position={'left'} content={'Tooltip left'}/>
+    <i class="material-icons">keyboard_arrow_left</i>
+    Left
+</button>
+
+<button class="tooltip">
+    <Tooltip position={'right'} content={'Tooltip right'}/>
+    Right
+</button>
+````
+
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
