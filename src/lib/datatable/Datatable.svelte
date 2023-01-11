@@ -45,7 +45,7 @@
 
     article {
         position:relative;
-        height:calc(100% - 56px);
+        height:calc(100% - 48px);
         overflow:auto;
         scrollbar-width:thin;
     }
