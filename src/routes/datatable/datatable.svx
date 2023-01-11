@@ -15,15 +15,15 @@ Les tableaux sont adaptés en Français. Ils incluent une barre de défilement v
 
 ````svelte
 <script>
+    import { myData } from './somewhere'
     import { 
         DataHandler, 
         Datatable, 
         Th, 
         ThFilter 
     } from 'gros/datatable'
-    import myJSON from './myJSON'
 
-    const handler = new DataHandler(myJSON, { rowsPerPage: 50 })
+    const handler = new DataHandler(myData, { rowsPerPage: 50 })
     const rows = handler.getRows()
 </script>
 
@@ -55,7 +55,7 @@ Les tableaux sont adaptés en Français. Ils incluent une barre de défilement v
 ````
 <br>
 
-Voir la documentation détaillée sur [vincjo.fr/datatables](https://vincjo.fr/datatables)
+Pour plus de détail sur le fonctionnement des tableaux de données, voir [vincjo.fr/datatables](https://vincjo.fr/datatables)
 
 
 <br><br><br><br>
