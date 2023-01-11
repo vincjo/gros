@@ -7,7 +7,7 @@
     export let value = ''
     export let label = ''
     export let icon
-    export let mandatory = false
+    export let required = false
     export let errors
     export let field
 
@@ -23,7 +23,7 @@
             {/if}
             <span>
                 {label}
-                {#if mandatory}
+                {#if required}
                     <b>*</b>
                 {/if}
             </span>

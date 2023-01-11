@@ -2,11 +2,12 @@
     import ErrorMessage from './ErrorMessage.svelte'
     import ErrorAlert from './ErrorAlert.svelte'
     export let small = true
+    export let spellcheck = false
     export let value = ''
     export let label = ''
     export let type = 'text'
     export let icon
-    export let mandatory = false
+    export let required = false
     export let errors
     export let field
 
@@ -22,7 +23,7 @@
             {/if}
             <span>
                 {label}
-                {#if mandatory}
+                {#if required}
                     <b>*</b>
                 {/if}
             </span>
@@ -39,7 +40,7 @@
     {#if type === 'password'}
         <input type="password" id="{id}" spellcheck="false" bind:value={value}/>
     {:else}
-        <input type="text" id="{id}" spellcheck="false" bind:value={value}/>
+        <input type="text" id="{id}" bind:value={value} spellcheck={spellcheck}/>
     {/if}
 
     {#if small}

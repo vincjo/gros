@@ -28,12 +28,13 @@
 
 | param  | default  | required  | 
 |---|---|---|
+| **value**  |  *''* | false  |
 | **icon**  |  *undefined* | false  |
 |  **label** | *''*  | false  |
 |  **spellcheck** | *false*  | false  |
 |  **height** | *'72px'*  | false  |
 |  **small** | *false*  | false  |
-|  **mandatory** | *false*  | false  |
+|  **required** | *false*  | false  |
 | **field** | *undefined* | false
 | **errors** | *undefined* | false
 

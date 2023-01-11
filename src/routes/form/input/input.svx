@@ -12,7 +12,7 @@
 
 Les entrées sont par défaut de type `text`. On peut leur attribuer un type `password` grâce au paramètre `type`.
 
-Le paramètre `mandatory` est optionnel : il fait apparaître un astérisque, indiquant à l'utilisateur que la saisie du champ est requise.
+Le paramètre `required` est optionnel : il fait apparaître un astérisque, indiquant à l'utilisateur que la saisie du champ est obligatoire.
 
 Le paramètre `icon` est optionnel. 
 
@@ -25,17 +25,33 @@ Le paramètre `icon` est optionnel.
 <Input 
     icon={'mail'} 
     label={'Email'} 
-    mandatory={true} 
+    required={true} 
     bind:value={form.email}
 />
 <Input 
     icon={'lock'} 
     label={'Password'} 
-    mandatory={true} 
+    required={true} 
     bind:value={form.password} 
     type={'password'}
 />
 ````
+<br>
+<div class="table">
+
+| param  | default  | required  | 
+|---|---|---|
+| **value**  |  *''* | false  |
+| **icon**  |  *undefined* | false  |
+|  **label** | *''*  | false  |
+|  **spellcheck** | *false*  | false  |
+|  **type** | *'text'*  | false  |
+|  **small** | *false*  | false  |
+|  **required** | *false*  | false  |
+| **field** | *undefined* | false
+| **errors** | *undefined* | false
+
+</div>
 
 <br><br>
 
@@ -56,7 +72,7 @@ Pour obtenir un gros `Input`, on définit le paramètre `small` à `false`
     small={false}
     icon={'mail'} 
     label={'Email'} 
-    mandatory={true} 
+    required={true} 
     bind:value={form.email}
 />
 ````
@@ -87,7 +103,7 @@ La totalité du tableau d'erreurs sera transmise à chaque composant `Input` via
     {errors}
     field={'email'}
     label={'Email'} 
-    mandatory={true} 
+    required={true} 
     bind:value={form.email}
 />
 ````

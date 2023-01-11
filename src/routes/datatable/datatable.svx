@@ -1,2 +1,63 @@
-# Datatables
+<script>
+    import DatatableExample from './DatatableExample.svelte'
+</script>
 
+# Datatables
+<br>
+
+<div class="example">
+<DatatableExample/>
+</div>
+
+<br>
+
+Les tableaux sont adaptés en Français. Ils incluent une barre de défilement verticale par défaut (entête collant).
+
+````svelte
+<script>
+    import { 
+        DataHandler, 
+        Datatable, 
+        Th, 
+        ThFilter 
+    } from 'gros/datatable'
+    import myJSON from './myJSON'
+
+    const handler = new DataHandler(myJSON, { rowsPerPage: 50 })
+    const rows = handler.getRows()
+</script>
+
+<Datatable {handler}>
+    <table>
+        <thead>
+            <tr>
+                <Th {handler} orderBy={'first_name'}>First Name</Th>
+                <Th {handler} orderBy={'last_name'}>Last Name</Th>
+                <Th {handler} orderBy={'email'}>Email</Th>
+            </tr>
+            <tr>
+                <ThFilter {handler} FilterBy={'first_name'}/>
+                <ThFilter {handler} FilterBy={'last_name'}/>
+                <ThFilter {handler} FilterBy={'email'}/>
+            </tr>
+        </thead>
+        <tbody>
+            {#each $rows as row}
+                <tr>
+                    <td>{row.first_name}</td>
+                    <td>{row.last_name}</td>
+                    <td>{row.email}</td>
+                </tr>
+            {/each}
+        </tbody>
+    </table>
+</Datatable>
+````
+<br>
+
+Voir la documentation détaillée sur [vincjo.fr/datatables](https://vincjo.fr/datatables)
+
+
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>

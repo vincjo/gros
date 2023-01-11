@@ -69,8 +69,13 @@ Pour l'exemple nous créons un composant de type boîte de dialogue nommé `Exam
 ## Déclencher l'ouverture de la boîte
 
 Pour déclencher l'ouverture de la boîte de dialogue exposée ci-dessus, nous utilisons la fonction `open` qui prend 2 paramètres :
-- Un composant svelte
-- Les données "props" à transmettre au composant (optionnel)
+
+<div class="ul">
+
+- Un composant svelte : `ExampleModal`
+- Des données `props` à transmettre au composant (optionnel)
+
+</div>
 
 
 ````svelte

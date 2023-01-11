@@ -34,13 +34,6 @@
         height:inherit;
     }
 
-    section :global(table) {
-        text-align:center;
-        border-collapse:separate;
-        border-spacing:0;
-        width:100%;
-    }
-
     footer {
         height:48px;
         padding:0 16px;
@@ -52,15 +45,34 @@
 
     article {
         position:relative;
-        height:calc(100% - 96px);
+        height:calc(100% - 56px);
         overflow:auto;
         scrollbar-width:thin;
+    }
+
+    article :global(table) {
+        text-align:center;
+        border-collapse:separate;
+        border-spacing:0;
+        width:100%;
     }
 
     article :global(thead) {
         position:sticky;
         inset-block-start:0;
         background:#fff;
+    }
+    article :global(tbody tr) {
+        transition:background, 0.2s;
+    }
+    article :global(tbody tr:nth-child(even)){
+        background:#fafafa;
+    }
+    article :global(tbody tr:hover) {
+        background:#f5f5f5;
+    }
+    article :global(tbody tr td) {
+        padding:4px;
     }
     article::-webkit-scrollbar {width: 6px;height: 6px;}
     article::-webkit-scrollbar-track {background: #f5f5f5;}

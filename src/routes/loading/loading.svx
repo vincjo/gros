@@ -9,9 +9,15 @@
 
 Trois types de chargements sont réunis dans un même composant `Loading` :
 
+<div class="ul">
+
 1. Le type par défaut, `await` : le composant est inséré dans un bloc `{#await}`.
-2. Le type `bootstrap` lors du chargement initial de l'application.
+2. Le type `bootstrap` dédié au chargement initial de l'application.
 3. Le type `process` déclenché de manière opportuniste lors de l'exécution d'une fonction asynchrone.
+
+</div>
+
+
 
 <br><br>
 
@@ -26,7 +32,7 @@ Le composant de chargement est contenu par l'élément parent.
 
 ````svelte
 <script>
-    import { Loading } from '$lib/loading'
+    import { Loading } from 'gros/loading'
 
     const myAsyncFunction = async () => { /*do asynchronous shit*/ }
 </script>
@@ -56,7 +62,7 @@ Le paramètre `type={'bootstrap'}` est précisé.
 
 ````svelte
 <script>
-    import { Loading } from '$lib/loading'
+    import { Loading } from 'gros/loading'
 
     const bootstrap = async () => {  /*load application data*/ }
 </script>
@@ -87,7 +93,7 @@ Le composant `<Loading type={'process'}/>` est placé une seule fois à la racin
 
 ````svelte
 <script>
-    import { Loading } from '$lib/loading'
+    import { Loading } from 'gros/loading'
 </script>
 
 <slot/>
@@ -99,14 +105,14 @@ Le composant `<Loading type={'process'}/>` est placé une seule fois à la racin
 
 Pour déclencher le chargement, on utilise les fonctions `start` et `stop` du magasin `loading` à l'intéreur d'un processus asynchrone.
 
-En paramètre de la fonction `start`, on peut préciser un message et un sous-message.
+En paramètre de la fonction `start`, on peut préciser un message et un sous-message (optionnels).
 
 ````svelte
 <script>
     import { loading } from 'gros/loading'
 
     const handleClick = async () =>  {
-        loading.start(message, submessage)
+        loading.start('Loading data', 'It may take a few seconds')
 
         await stuff()
 

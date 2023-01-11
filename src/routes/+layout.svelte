@@ -1,10 +1,16 @@
 <script>
     import { base } from '$app/paths'
+    import { afterNavigate } from "$app/navigation"
     import Nav from './Nav.svelte'
     import Github from './Github.svelte'
     import { theme } from '$utils/theme'
     import { ModalContainer } from '$lib/modal'
     import Theme from './Theme.svelte'
+
+    let element
+    afterNavigate(() => {
+        if (element) element.scrollTop = 0
+    })
 </script>
 
 <svelte:head>
@@ -17,7 +23,7 @@
 <nav class="thin-scrollbar">
     <Nav/>
 </nav>
-<section>
+<section bind:this={element}>
     <article>
         <slot/>
     </article>

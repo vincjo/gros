@@ -16,7 +16,7 @@
     }
 </script>
 
-<form>
+<section>
     <Textarea small={false} {errors} icon={'message'} label={'Comment'} field={'textarea'} height={'200px'}  bind:value/>
 
     <button class="btn z-depth-1" type="submit" on:click|preventDefault={handleClick}>
@@ -25,11 +25,11 @@
     </button>
 
     <button class="reset" on:click={reset}>reset</button>
-</form>
+</section>
 
 
 <style>
-    form{border:1px solid #e0e0e0;border-radius:16px;padding:16px 24px;width: 400px;}
+    section{border:1px solid #e0e0e0;border-radius:16px;padding:16px 24px;width: 400px;}
     button.btn{height:48px;width:100%;background:var(--primary);font-size:16px;color:#fff;margin-top:16px;}
     button.btn:hover{background:var(--primary-darken)}
     button.btn i{margin:8px;}

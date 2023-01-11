@@ -21,7 +21,7 @@
     
     <button class="btn" on:click={launch}>
         <i class="material-icons">play_circle_outline</i>
-        Process 3 seconds
+        Run Process 3 seconds
     </button>
 </section>
 

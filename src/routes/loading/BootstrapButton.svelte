@@ -13,7 +13,7 @@
 
 <button class="btn" on:click={launch}>
     <i class="material-icons">play_circle_outline</i>
-    Bootstrap 3 seconds
+    Run Bootstrap 3 seconds
 </button>
 
 {#if active}
