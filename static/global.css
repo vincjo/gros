@@ -10,7 +10,7 @@ pre{border-radius:2px;}
 .svx code{background:#f5f5f5;border:1px solid #e0e0e0;border-radius:2px;padding:0 2px;}
 .svx pre code{border:none;}
 .svx blockquote{background:#f5f5f5;margin:0;padding:8px;border:1px solid #e0e0e0;border-bottom:none;border-radius:8px 8px 0 0;}
-.svx blockquote p{margin:0;color:var(--secondary);font-family: 'Courier New', Courier, monospace;}
+.svx blockquote p{margin:0;color:var(--secondary-darken);font-family:Varela;}
 .svx pre{margin-top:0 !important;}
 
 .svx .table table {text-align:center;}

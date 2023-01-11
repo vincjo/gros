@@ -15,7 +15,7 @@ Les boîtes de dialogue sont téléportées à la racine du projet dans le fichi
 
 Il faut donc importer le conteneur de boîte pour activer le fonctionnement du système.
 
-> +layout.svelte
+> /src/routes/+layout.svelte
 
 ````svelte
 <script>

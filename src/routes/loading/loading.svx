@@ -89,7 +89,7 @@ Lorsqu'une fonction asynchrone est exécutée, on souhaite limiter les intéract
 
 Le composant `<Loading type={'process'}/>` est placé une seule fois à la racine du projet dans `+layout.svelte`.
 
-> +layout.svelte
+> /src/routes/+layout.svelte
 
 ````svelte
 <script>

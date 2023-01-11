@@ -281,7 +281,7 @@ img {
 .thin-scrollbar-dark::-webkit-scrollbar-thumb:hover {background: #212121;}
 .thin-scrollbar-dark::-webkit-scrollbar-track-piece:start {top:40px;}
 
-i.material-icons, i.mi {
+i.material-icons, i.micon {
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;

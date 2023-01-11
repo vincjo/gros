@@ -1,2 +1,16 @@
+<script>
+    import IconList from './IconList.svelte'
+</script>
 
 # Icons
+
+````svelte
+    <i class="micon">3d_rotation</i>
+````
+
+<br><br>
+<IconList/>
+
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>

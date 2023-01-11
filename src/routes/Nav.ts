@@ -16,6 +16,10 @@ export default [
         ],
     },
     {
+        name: 'icons',
+        path: '/icons',
+    },
+    {
         name: 'loading',
         path: '/loading',
     },
@@ -26,9 +30,5 @@ export default [
     {
         name: 'tooltip',
         path: '/tooltip',
-    },
-    {
-        name: 'icons',
-        path: '/icons',
     },
 ]
