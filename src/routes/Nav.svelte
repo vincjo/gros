@@ -4,7 +4,7 @@
     import { getPath, url, anchor } from '$utils/page'
 </script>
 
-<nav class="thin-scrollbar">
+<section>
     <a href="{getPath('/home')}">
         <article>
             <aside transition:fade={{ duration:100 }}>
@@ -52,11 +52,11 @@
         </ul>
         {/if}
     {/each}
-</nav>
+</section>
 
 
 <style>
-    nav{position:relative;min-height:100vh;width:240px;min-width:200px;background:#fff;z-index:1;padding:24px 0 0 24px;overflow-y:auto;font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;}
+    section{width:200px;background:#fff;padding:24px 0 0 24px;font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;}
 
     article{height:88px;}
     aside{display:flex;justify-content:start;margin:0;height:48px;}

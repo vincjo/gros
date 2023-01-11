@@ -1,0 +1,19 @@
+:root {
+    --primary:#00796b;
+    --primary-lighten: #4db6ac;
+    --primary-lighten-1: rgba(0,121,107,0.1);
+    --primary-lighten-2: rgba(0,121,107,0.2);
+    --primary-lighten-3: rgba(0,121,107,0.3);
+    --primary-darken: #004c40;
+
+    --secondary: #0288d1;
+    --secondary-lighten: #03a9f4;
+    --secondary-darken: #005b9f;
+
+    --ternary: #e64a19;
+  }
+
+::selection {
+    background: #00796b;
+    color: #fff;
+}
