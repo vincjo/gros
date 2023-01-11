@@ -74,7 +74,7 @@
     a{text-decoration:none;}
     ul{margin:0 0 0 0;padding:0 16px 0 0;}
     ul li{display:block;margin:0;background:#fff;transition:all,0.2s;padding:0 8px;font-size:16px;color:#757575;font-weight:400;line-height:24px;border-radius:2px;border:1px solid transparent;border-right:4px solid transparent;}
-    ul li:hover{color:var(--secondary-lighten);background:#f5f5f5;}
+    ul li:hover{color:var(--secondary);background:#f5f5f5;}
     ul li.active{color:var(--secondary);font-weight:bold;background:#eee;border:1px solid #eee;border-right:4px solid var(--secondary)}
     /* ul li.active a {background:#fafafa;} */
     ul a{display:block;text-decoration:none;color:inherit;padding:0px 8px;}

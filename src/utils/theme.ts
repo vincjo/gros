@@ -1,6 +1,6 @@
 import { writable, derived } from 'svelte/store'
 
-export const theme = writable('resources')
+export const theme = writable('onb')
 
 export const color = derived(theme, ($theme) => {
     if ($theme === 'resources') {
