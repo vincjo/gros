@@ -2,24 +2,7 @@
     import { modal, fadeScale, isActive } from '$lib/modal'
     import { fade } from 'svelte/transition'
     import { cubicInOut } from 'svelte/easing'
-    import interact from 'interactjs'
-    import { onMount } from 'svelte'
-
-
-    onMount( () => {
-        interact('.draggable-modal').draggable({
-            allowFrom: 'header',
-            onmove: (event) => {
-                const target = event.target
-                const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx
-                const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy
-                target.style.webkitTransform = 'translate(' + x + 'px, ' + y + 'px)'
-                target.style.transform = 'translate(' + x + 'px, ' + y + 'px)'
-                target.setAttribute('data-x', x)
-                target.setAttribute('data-y', y)
-            }
-        })
-    })
+    import { draggable } from '@neodrag/svelte'
 
     const close = () => {
         modal.close()
@@ -32,7 +15,7 @@
 {#if $isActive}
     <section transition:fade={{ duration:150 }} on:click|self={close}>
 
-        <article class="draggable-modal" transition:fadeScale={{ duration:150, easing:cubicInOut, baseScale:0.5 }}>
+        <article use:draggable={{ handle: '.handle' }} transition:fadeScale={{ duration:150, easing:cubicInOut, baseScale:0.5 }}>
            <svelte:component this={$modal.component} props={$modal.props} {close}/>
         </article>
 

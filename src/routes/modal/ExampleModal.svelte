@@ -3,6 +3,8 @@
     export let close
     export let props
 
+    const user = props 
+
     const save = () => {
         close()
         alert('You clicked on "save" button')
@@ -13,9 +15,9 @@
     <p>Some content</p>
     <b>User</b>
     <ul>
-        <li>{props.id}</li>
-        <li>{props.name}</li>
-        <li>{props.email}</li>
+        <li>{user.id}</li>
+        <li>{user.name}</li>
+        <li>{user.email}</li>
     </ul>
 
     <svelte:fragment slot="footer">

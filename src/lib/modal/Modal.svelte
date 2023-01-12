@@ -5,11 +5,11 @@
 </script>
 
 
-    <header>
-        <h1>
+    <header class="handle">
+        <aside>
             <i class="material-icons">{@html icon}</i>
             <span>{@html title}</span>
-        </h1>
+        </aside>
         <button on:click={() => modal.close()}>
             <i class="material-icons">clear</i>
         </button>
@@ -30,10 +30,10 @@
     header button{cursor:pointer;border-radius:4px;border:none;background:transparent;transition:all,0.2s;color:#e57373;height:32px;width:32px;padding:0;}
     header button:hover{color:#d32f2f}
     header button i{margin:0;line-height:32px;}
-    header h1{color:#616161;font-weight:normal;font-size:16px;}
-    header h1 i{margin:0 4px;color:#757575;}
+    header aside{color:#616161;font-weight:normal;font-size:16px;}
+    header aside i{margin:0 4px;color:#757575;}
 
-    h1{font-size:16px;margin:0;margin-right:8px;display:flex;justify-content:flex-start;align-items:center}
+    aside{font-size:16px;margin:0;margin-right:8px;display:flex;justify-content:flex-start;align-items:center}
 
 
     footer{height:56px;border-top:1px solid #eee;display:flex;justify-content:flex-end;align-items:center;padding:0;background:#fdfdfd;border-radius:0 0 4px 4px;}

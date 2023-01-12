@@ -26,6 +26,7 @@
     "format": "prettier --plugin-search-dir . --write ."
   },
   "devDependencies": {
+    "@neodrag/svelte": "^2.0.1",
     "@popperjs/core": "^2.11.6",
     "@sveltejs/adapter-node": "^1.0.0-next.100",
     "@sveltejs/kit": "next",
@@ -50,7 +51,6 @@
   "dependencies": {
     "@vincjo/datatables": "^0.9.99",
     "dotenv": "^16.0.3",
-    "interactjs": "^1.10.17",
     "sortablejs": "^1.15.0",
     "svelte-loading-spinners": "^0.3.4"
   }
