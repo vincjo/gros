@@ -31,7 +31,6 @@ L'élément qui contient l'info-bulle doit avoir la classe `tooltip` ou bien la 
 
 <button class="tooltip">
     <Tooltip position={'left'} content={'Tooltip left'}/>
-    <i class="material-icons">keyboard_arrow_left</i>
     Left
 </button>
 

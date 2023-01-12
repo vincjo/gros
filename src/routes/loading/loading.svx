@@ -11,76 +11,15 @@ Trois types de chargements sont réunis dans un même composant `Loading` :
 
 <div class="ul">
 
-1. Le type par défaut, `await` : le composant est inséré dans un bloc `{#await}`.
-2. Le type `bootstrap` dédié au chargement initial de l'application.
-3. Le type `process` déclenché de manière opportuniste lors de l'exécution d'une fonction asynchrone.
+1. `<Loading type={'process}/>` - type `process` déclenché par un utilitaire au sein d'une fonction asynchrone.
+2. `<Loading type={'bootstrap}/>` - type `bootstrap` dédié au chargement initial de l'application.
+3. `<Loading/>` - type par défaut : le composant est inclut dans un bloc `{#await}`.
 
 </div>
 
-
-
 <br><br>
 
-## Dans un bloc `{#await}` : `await`
-
-
-Le composant de chargement est contenu par l'élément parent.
-
-<Waiting/>
-
-<br>
-
-````svelte
-<script>
-    import { Loading } from 'gros/loading'
-
-    const myAsyncFunction = async () => { /*do asynchronous shit*/ }
-</script>
-
-
-{#await myAsyncFunction()}
-    <Loading/>
-{:then}
-    <!-- stuff -->
-{/await}
-
-````
-<br>
-
-
-<br><br>
-
-## Chargement initial de l'application : `bootstrap`
-
-Le composant se superpose entièrement à la fenêtre courante et masque l'arrière plan.
-
-<BootstrapButton/>
-
-<br>
-
-Le paramètre `type={'bootstrap'}` est précisé.
-
-````svelte
-<script>
-    import { Loading } from 'gros/loading'
-
-    const bootstrap = async () => {  /*load application data*/ }
-</script>
-
-
-{#await bootstrap()}
-    <Loading type={'bootstrap'}/>
-{:then}
-    <!-- stuff -->
-{/await}
-````
-
-<br>
-
-
-<br><br>
-
-## Exécution asynchrone : `process`
+## `<Loading type={'process}/>`
 
 <ProcessExample/>
 <br>
@@ -123,6 +62,71 @@ En paramètre de la fonction `start`, on peut préciser un message et un sous-me
 <button on:click={handleClick}>CLICK ME</button>
 
 ````
+<br><br>
+
+## `<Loading type={'bootstrap}/>`
+
+Le type `bootstrap` est dédié au chargement initial de l'application.
+
+Le composant se superpose entièrement à la fenêtre courante et masque l'arrière plan.
+
+<BootstrapButton/>
+
+<br>
+
+Le paramètre `type={'bootstrap'}` est précisé.
+
+````svelte
+<script>
+    import { Loading } from 'gros/loading'
+
+    const bootstrap = async () => {  /*load application data*/ }
+</script>
+
+
+{#await bootstrap()}
+    <Loading type={'bootstrap'}/>
+{:then}
+    <!-- stuff -->
+{/await}
+````
+
+<br>
+
+
+<br><br>
+
+## `<Loading/>`
+
+
+Le composant de chargement est contenu par l'élément parent.
+
+<Waiting/>
+
+<br>
+
+````svelte
+<script>
+    import { Loading } from 'gros/loading'
+
+    const myAsyncFunction = async () => { /*do asynchronous shit*/ }
+</script>
+
+
+{#await myAsyncFunction()}
+    <Loading/>
+{:then}
+    <!-- stuff -->
+{/await}
+
+````
+<br>
+
+
+
+
+
+
 
 
 <br><br><br><br>
