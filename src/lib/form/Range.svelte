@@ -1,7 +1,7 @@
 <script>
     import RangeSlider from './RangeSlider.svelte'
     export let big = false
-    export let values
+    export let value
     export let min = 0
     export let max = 100
     export let tooltip = true
@@ -10,8 +10,8 @@
     export let prefix = ''
 </script>
 
-{#if values.length === 1}
-    <RangeSlider bind:values range="min" float={tooltip}  {min} {max} {suffix} {prefix} {big}/>
+{#if value.length === 1}
+    <RangeSlider bind:values={value} range="min" float={tooltip}  {min} {max} {suffix} {prefix} {big}/>
 {:else}
-    <RangeSlider bind:values range pushy pips={pips} float={tooltip}  {min} {max} {suffix} {prefix} first="label" last="label" {big}/>
+    <RangeSlider bind:values={value} range pushy pips={pips} float={tooltip}  {min} {max} {suffix} {prefix} first="label" last="label" {big}/>
 {/if}

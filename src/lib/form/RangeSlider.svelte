@@ -573,94 +573,79 @@
 
 
 
+<section class:small={!big}>
+    <div
+        {id}
+        bind:this={slider}
+        class="rangeSlider"
+        class:range
+        class:disabled
+        class:hoverable
+        class:vertical
+        class:reversed
+        class:focus
+        class:min={range === 'min'}
+        class:max={range === 'max'}
+        class:pips
+        class:pip-labels={all === 'label' || first === 'label' || last === 'label' || rest === 'label'}
+        on:mousedown={sliderInteractStart}
+        on:mouseup={sliderInteractEnd}
+        on:touchstart|preventDefault={sliderInteractStart}
+        on:touchend|preventDefault={sliderInteractEnd}
+    >
+        {#each values as value, index}
+            <span
+                role="slider"
+                class="rangeHandle"
+                class:active={focus && activeHandle === index}
+                class:press={handlePressed && activeHandle === index}
+                data-handle={index}
+                on:blur={sliderBlurHandle}
+                on:focus={sliderFocusHandle}
+                on:keydown={sliderKeydown}
+                style="{orientationStart}: {$springPositions[index]}%; z-index: {activeHandle === index ? 3 : 2};"
+                aria-valuemin={range === true && index === 1 ? values[0] : min}
+                aria-valuemax={range === true && index === 0 ? values[1] : max}
+                aria-valuenow={value}
+                aria-valuetext="{prefix}{handleFormatter(value,index,percentOf(value))}{suffix}"
+                aria-orientation={vertical ? 'vertical' : 'horizontal'}
+                aria-disabled={disabled}
+                {disabled}
+                tabindex="{ disabled ? -1 : 0 }"
+            >
+                <span class="rangeNub"/>
+                {#if float}
+                    <span class="rangeFloat">
+                        {#if prefix}
+                            <span class="rangeFloat-prefix">{prefix}</span>
+                        {/if}
+                        {handleFormatter(value,index,percentOf(value))}
+                        {#if suffix}
+                            <span class="rangeFloat-suffix">{suffix}</span>
+                        {/if}
+                    </span>
+                {/if}
+            </span>
+        {/each}
+        {#if range}
+            <span
+                class="rangeBar"
+                style="{orientationStart}: {rangeStart($springPositions)}%; {orientationEnd}: {rangeEnd($springPositions)}%;" 
+            />
+        {/if}
+    { #if pips}
+            <RangePips
+                {values} {min} {max} {step} {range} {vertical} {reversed}
+                {orientationStart} {hoverable} {disabled} {all} {first}
+                {last} {rest} {pipstep} {prefix} {suffix} {formatter}
+                {focus} {percentOf} {moveHandle} {fixFloat} 
+            />
+        {/if}
 
-<div
-    {id}
-    bind:this={slider}
-    class="rangeSlider"
-    class:range
-    class:disabled
-    class:hoverable
-    class:vertical
-    class:reversed
-    class:focus
-    class:min={range === 'min'}
-    class:max={range === 'max'}
-    class:pips
-    class:pip-labels={all === 'label' || first === 'label' || last === 'label' || rest === 'label'}
-    on:mousedown={sliderInteractStart}
-    on:mouseup={sliderInteractEnd}
-    on:touchstart|preventDefault={sliderInteractStart}
-    on:touchend|preventDefault={sliderInteractEnd}
->
-    {#each values as value, index}
-        <span
-            role="slider"
-            class="rangeHandle"
-            class:active={focus && activeHandle === index}
-            class:press={handlePressed && activeHandle === index}
-            data-handle={index}
-            on:blur={sliderBlurHandle}
-            on:focus={sliderFocusHandle}
-            on:keydown={sliderKeydown}
-            style="{orientationStart}: {$springPositions[index]}%; z-index: {activeHandle === index ? 3 : 2};"
-            aria-valuemin={range === true && index === 1 ? values[0] : min}
-            aria-valuemax={range === true && index === 0 ? values[1] : max}
-            aria-valuenow={value}
-            aria-valuetext="{prefix}{handleFormatter(value,index,percentOf(value))}{suffix}"
-            aria-orientation={vertical ? 'vertical' : 'horizontal'}
-            aria-disabled={disabled}
-            {disabled}
-            tabindex="{ disabled ? -1 : 0 }"
-        >
-            <span class="rangeNub"/>
-            {#if float}
-                <span class="rangeFloat">
-                    {#if prefix}
-                        <span class="rangeFloat-prefix">{prefix}</span>
-                    {/if}
-                    {handleFormatter(value,index,percentOf(value))}
-                    {#if suffix}
-                        <span class="rangeFloat-suffix">{suffix}</span>
-                    {/if}
-                </span>
-            {/if}
-        </span>
-    {/each}
-    {#if range}
-        <span
-            class="rangeBar"
-            style="{orientationStart}: {rangeStart($springPositions)}%; {orientationEnd}: {rangeEnd($springPositions)}%;" 
-        />
-    {/if}
-  { #if pips}
-        <RangePips
-            {values}
-            {min}
-            {max}
-            {step}
-            {range}
-            {vertical}
-            {reversed}
-            {orientationStart}
-            {hoverable}
-            {disabled}
-            {all}
-            {first}
-            {last}
-            {rest}
-            {pipstep}
-            {prefix}
-            {suffix}
-            {formatter}
-            {focus}
-            {percentOf}
-            {moveHandle}
-            {fixFloat}
-        />
-    {/if}
+    </div>
 
-</div>
+
+</section>
 
 <svelte:window
     on:mousedown={bodyInteractStart}
@@ -673,22 +658,7 @@
 />
 
 
-
-
-
 <style>
-    .rangeSlider {
-        --slider: var(--range-slider, #d7dada);
-        --handle-inactive: var(--range-handle-inactive, #99a2a2);
-        --handle: var(--range-handle, #838de7);
-        --handle-focus: var(--range-handle-focus, #4a40d4);
-        --handle-border: var(--range-handle-border, var(--handle));
-        --range-inactive: var(--range-range-inactive, var(--handle-inactive));
-        --range: var(--range-range, var(--handle-focus));
-        --float-inactive: var(--range-float-inactive, var(--handle-inactive));
-        --float: var(--range-float, var(--handle-focus));
-        --float-text: var(--range-float-text, white);
-    }
     .rangeSlider {
         position: relative;
         border-radius: 2px;
@@ -716,7 +686,6 @@
         margin-bottom: 0;
     }
     .rangeSlider.vertical.pip-labels {
-        border:1px solid red;
         margin-right: 0;
         margin-bottom: 0;
     }
@@ -743,63 +712,39 @@
     }
     .rangeSlider .rangeNub,
     .rangeSlider .rangeHandle:before {
-        border:1px solid red;
         position: absolute;
         left: 0;
         top: 0;
         display: block;
-        border-radius: 10em;
+        border-radius: 100%;
         height: 100%;
         width: 100%;
         transition: box-shadow 0.2s ease;
     }
     .rangeSlider .rangeHandle:before {
-      content: "";
-      left: 1px;
-      top: 1px;
-      bottom: 1px;
-      right: 1px;
-      height: auto;
-      width: auto;
-      box-shadow: 0 0 0 0px var(--handle-border);
-      opacity: 0;
+        content: "";
+        left: 1px;
+        top: 1px;
+        bottom: 1px;
+        right: 1px;
+        height: auto;
+        width: auto;
+        box-shadow: 0 0 0 0px rgba(0,0,0,.3);
+        opacity: 0;
     }
     .rangeSlider.hoverable:not(.disabled) .rangeHandle:hover:before {
-      box-shadow: 0 0 0 8px var(--handle-border);
+      box-shadow: 0 0 0 8px rgba(0,0,0,.3);
       opacity: 0.2;
     }
     .rangeSlider.hoverable:not(.disabled) .rangeHandle.press:before,
     .rangeSlider.hoverable:not(.disabled) .rangeHandle.press:hover:before {
-      box-shadow: 0 0 0 12px var(--handle-border);
+      box-shadow: 0 0 0 12px rgba(0,0,0,.3);
       opacity: 0.4;
     }
     .rangeSlider.range:not(.min):not(.max) .rangeNub {
-      border-radius: 10em 10em 10em 1.6em;
+      border-radius: 50%;
     }
-    .rangeSlider.range .rangeHandle:nth-of-type(1) .rangeNub {
-      transform: rotate(-135deg);
-    }
-    .rangeSlider.range .rangeHandle:nth-of-type(2) .rangeNub {
-      transform: rotate(45deg);
-    }
-    .rangeSlider.range.reversed .rangeHandle:nth-of-type(1) .rangeNub {
-      transform: rotate(45deg);
-    }
-    .rangeSlider.range.reversed .rangeHandle:nth-of-type(2) .rangeNub {
-      transform: rotate(-135deg);
-    }
-    .rangeSlider.range.vertical .rangeHandle:nth-of-type(1) .rangeNub {
-      transform: rotate(135deg);
-    }
-    .rangeSlider.range.vertical .rangeHandle:nth-of-type(2) .rangeNub {
-      transform: rotate(-45deg);
-    }
-    .rangeSlider.range.vertical.reversed .rangeHandle:nth-of-type(1) .rangeNub {
-      transform: rotate(-45deg);
-    }
-    .rangeSlider.range.vertical.reversed .rangeHandle:nth-of-type(2) .rangeNub {
-      transform: rotate(135deg);
-    }
+
     .rangeSlider .rangeFloat {
       display: block;
       position: absolute;
@@ -837,44 +782,53 @@
       height: auto;
     }
     .rangeSlider {
-      background-color: #d7dada;
-      background-color: var(--slider);
+      background-color: #e0e0e0;
     }
     .rangeSlider .rangeBar {
-      background-color: #99a2a2;
-      background-color: var(--range-inactive);
+      background-color: #9e9e9e;
     }
     .rangeSlider.focus .rangeBar {
-      background-color: #838de7;
-      background-color: var(--range);
+      background-color: #757575;
     }
     .rangeSlider .rangeNub {
-      background-color: #99a2a2;
-      background-color: var(--handle-inactive);
+      background-color: #616161;
     }
     .rangeSlider.focus .rangeNub {
-      background-color: #838de7;
-      background-color: var(--handle);
+      background-color: #424242;
     }
     .rangeSlider .rangeHandle.active .rangeNub {
-      background-color: #4a40d4;
-      background-color: var(--handle-focus);
+      background-color: #424242;
     }
     .rangeSlider .rangeFloat {
       color: white;
-      color: var(--float-text);
-      background-color: #99a2a2;
-      background-color: var(--float-inactive);
+      color: #fff;
+      background-color: rgba(0,0,0,0.7);
     }
     .rangeSlider.focus .rangeFloat {
-      background-color: #4a40d4;
-      background-color: var(--float);
+      background-color: rgba(0,0,0,0.7);
     }
     .rangeSlider.disabled {
       opacity: 0.5;
     }
     .rangeSlider.disabled .rangeNub {
-      background-color: #d7dada;
-      background-color: var(--slider);
+      background-color: #eee;
+    }
+
+
+
+
+    .small .rangeSlider {
+        height: 4px;
+    }
+    .small .rangeSlider.vertical {
+        width: 4px;
+    }
+    .small .rangeSlider .rangeHandle {
+        height: 14px;
+        width: 14px;
+        top: 2px;
+    }
+    .small  .rangeSlider .rangeBar {
+      height: 4px;
     }
   </style>
