@@ -7,11 +7,11 @@
 
     <header class="handle">
         <aside>
-            <i class="material-icons">{@html icon}</i>
+            <i class="micon">{@html icon}</i>
             <span>{@html title}</span>
         </aside>
         <button on:click={() => modal.close()}>
-            <i class="material-icons">clear</i>
+            <i class="micon">clear</i>
         </button>
     </header>
 

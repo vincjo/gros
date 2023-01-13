@@ -10,7 +10,7 @@
 
 <br>
 
-Les entrées sont par défaut de type `text`. On peut leur attribuer un type `password` grâce au paramètre `type`.
+Les entrées sont par défaut de type `text`. On peut préciser le paramètre `password`.
 
 Le paramètre `required` est optionnel : il fait apparaître un astérisque, indiquant à l'utilisateur que la saisie du champ est obligatoire.
 
@@ -30,6 +30,7 @@ Le paramètre `icon` est optionnel.
 />
 <Input 
     required
+    password
     icon={'lock'} 
     label={'Password'} 
     type={'password'}
@@ -45,7 +46,7 @@ Le paramètre `icon` est optionnel.
 | **icon**  |  *undefined* | false  |
 |  **label** | *''*  | false  |
 |  **spellcheck** | *false*  | false  |
-|  **type** | *'text'*  | false  |
+|  **password** | *'false'*  | false  |
 |  **required** | *false*  | false  |
 | **field** | *undefined* | false
 | **errors** | *undefined* | false
@@ -69,8 +70,8 @@ Pour obtenir un gros `Input`, on ajout le paramètre `big`.
 
 ````svelte
 <Input 
-    required big
-    small={false}
+    big
+    required 
     icon={'mail'} 
     label={'Email'} 
     bind:value={form.email}
@@ -101,9 +102,9 @@ La totalité du tableau d'erreurs sera transmise à chaque composant `Input` via
 ````svelte
 <Input 
     {errors}
+    required
     field={'email'}
     label={'Email'} 
-    required={true} 
     bind:value={form.email}
 />
 ````

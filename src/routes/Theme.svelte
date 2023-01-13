@@ -6,15 +6,15 @@
 <nav>
     <h3>Thème</h3>
     <button class:active={$theme === 'onb'      } on:click={() => $theme = 'onb'      } class="btn">
-        <i class="material-icons">{$theme === 'onb' ? 'radio_button_checked' : 'radio_button_unchecked'}</i>
+        <i class="micon">{$theme === 'onb' ? 'radio_button_checked' : 'radio_button_unchecked'}</i>
         Cyan-pink
     </button>
     <button class:active={$theme === 'resources'} on:click={() => $theme = 'resources'} class="btn">
-        <i class="material-icons">{$theme === 'resources' ? 'radio_button_checked' : 'radio_button_unchecked'}</i>
+        <i class="micon">{$theme === 'resources' ? 'radio_button_checked' : 'radio_button_unchecked'}</i>
         Teal-blue
     </button>
     <button class:active={$theme === 'imope'    } on:click={() => $theme = 'imope'    } class="btn">
-        <i class="material-icons">{$theme === 'imope' ? 'radio_button_checked' : 'radio_button_unchecked'}</i>
+        <i class="micon">{$theme === 'imope' ? 'radio_button_checked' : 'radio_button_unchecked'}</i>
         Gold-red
     </button>
 </nav>

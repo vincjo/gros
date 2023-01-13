@@ -20,7 +20,7 @@
 
 
 {#if message}
-    <i class="material-icons tooltip">
+    <i class="micon tooltip">
         <Tooltip position={'left'} content={message}/>
         error
     </i>

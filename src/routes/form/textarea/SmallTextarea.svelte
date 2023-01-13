@@ -21,7 +21,7 @@
 
     <button class="btn z-depth-1" type="submit" on:click|preventDefault={handleClick}>
         Send
-        <i class="material-icons">send</i>
+        <i class="micon">send</i>
     </button>
 
     <button class="reset" on:click={reset}>reset</button>

@@ -19,7 +19,7 @@
 
     <a href="{getPath('/home')}">
         <h2 class:active={$url === getPath('/home')}>
-            <i class="material-icons"></i>
+            <i class="micon"></i>
             home
         </h2>
     </a>

@@ -6,7 +6,7 @@
 <aside>
     {#each icons as icon}
         <div>
-            <i class="material-icons">{icon}</i>
+            <i class="micon">{icon}</i>
             <span>{icon}</span>
         </div>
     {/each}

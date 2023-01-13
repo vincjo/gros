@@ -36,13 +36,13 @@
     <Input required {errors} icon={'mail'} label={'Email'} field={'email'} bind:value={form.email}/>
     <Input          {errors} icon={'person'} label={'First name'} field={'firstname'} bind:value={form.firstname}/>
     <Input          {errors} icon={'person'} label={'Name'}  field={'name'}  bind:value={form.name}/>
-    <Input required {errors} icon={'lock'} label={'Password'} field={'password'} bind:value={form.password} type={'password'} />
-    <Input required {errors} icon={'lock'} label={'Confirm password'} field={'password_confirmed'} bind:value={form.password_confirmed} type={'password'} />
+    <Input required {errors} icon={'lock'} label={'Password'} field={'password'} bind:value={form.password} password/>
+    <Input required {errors} icon={'lock'} label={'Confirm password'} field={'password_confirmed'} bind:value={form.password_confirmed} password />
 
     <button class="btn z-depth-1" type="submit" on:click|preventDefault={handleClick}>
-        <i class="material-icons">save</i>
+        <i class="micon">save</i>
         Register
-        <i class="material-icons">chevron_right</i>
+        <i class="micon">chevron_right</i>
     </button>
 
     <button class="reset" on:click={reset}>reset</button>

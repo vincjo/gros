@@ -5,7 +5,7 @@
     export let spellcheck = false
     export let value = ''
     export let label = ''
-    export let type = 'text'
+    export let password = false
     export let icon
     export let required = false
     export let errors
@@ -19,7 +19,7 @@
     <label for="{id}">
         <div class="flex">
             {#if icon}
-                <i class="material-icons">{icon}</i>
+                <i class="micon">{icon}</i>
             {/if}
             <span>
                 {label}
@@ -37,7 +37,7 @@
 
     </label>
 
-    {#if type === 'password'}
+    {#if password}
         <input type="password" id="{id}" spellcheck="false" bind:value={value}/>
     {:else}
         <input type="text" id="{id}" bind:value={value} spellcheck={spellcheck}/>
@@ -56,13 +56,13 @@
     label .error{text-align:right;margin-left:40px;line-height:12px;}
     label b{color:var(--ternary);}
 
-    label i.material-icons{padding-right:8px;color:var(--primary);font-size:22px;}
+    label i.micon{padding-right:8px;color:var(--primary);font-size:22px;}
     input{ color:#626262;}
 
     section.small{display:flex;justify-content:flex-start;align-items:center;margin-bottom:8px;}
     section.small label{font-size:12px;min-width:96px;white-space:normal;margin-right:8px;}
     section.small label .flex{white-space:normal;}
     section.small label .flex span{line-height:12px;}
-    section.small i.material-icons{font-size:16px;}
+    section.small i.micon{font-size:16px;}
     section.small input{font-size:14px;color:#424242;height:32px;}
 </style>

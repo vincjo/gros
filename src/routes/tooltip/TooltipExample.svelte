@@ -6,25 +6,25 @@
     <button class="tooltip btn">
         <Tooltip position={'top'} content={'Tooltip top'}/>
         Top
-        <i class="material-icons">keyboard_arrow_up</i>
+        <i class="micon">keyboard_arrow_up</i>
     </button>
 
     <button class="tooltip btn">
         <Tooltip position={'bottom'} content={'Tooltip bottom'}/>
         Bottom
-        <i class="material-icons">keyboard_arrow_down</i>
+        <i class="micon">keyboard_arrow_down</i>
     </button>
 
     <button class="tooltip btn">
         <Tooltip position={'left'} content={'Tooltip left'}/>
-        <i class="material-icons">keyboard_arrow_left</i>
+        <i class="micon">keyboard_arrow_left</i>
         Left
     </button>
 
     <button class="tooltip btn">
         <Tooltip position={'right'} content={'Tooltip right'}/>
         Right
-        <i class="material-icons">keyboard_arrow_right</i>
+        <i class="micon">keyboard_arrow_right</i>
     </button>
 </section>
 
