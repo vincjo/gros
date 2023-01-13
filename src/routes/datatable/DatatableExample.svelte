@@ -16,9 +16,9 @@
                     <Th {handler} orderBy={'email'}>Email</Th>
                 </tr>
                 <tr>
-                    <ThFilter {handler} FilterBy={'first_name'}/>
-                    <ThFilter {handler} FilterBy={'last_name'}/>
-                    <ThFilter {handler} FilterBy={'email'}/>
+                    <ThFilter {handler} filterBy={'first_name'}/>
+                    <ThFilter {handler} filterBy={'last_name'}/>
+                    <ThFilter {handler} filterBy={'email'}/>
                 </tr>
             </thead>
             <tbody>

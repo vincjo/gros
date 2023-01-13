@@ -26,4 +26,8 @@
     button i{margin:0 8px 0 0;}
     button:hover{background:#eee;background:rgba(230,230,230,0.8)}
     button.active{background:rgba(240,240,240,0.8);}
+
+    @media (max-width: 980px) { 
+        nav{display:none;}
+    }
 </style>
