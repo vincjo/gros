@@ -25,7 +25,7 @@
     section{margin-left:80px;margin-top:80px;}
     aside{display:flex;justify-content:start;margin-top:32px;color:var(--primary-lighten)}
     h1 {font-size:32px;line-height:32px; text-align: left; font-weight:400; margin: 0; }
-    h1 b{font-family:Cursive, sans-serif;font-weight:2000;color:var(--secondary)}
+    h1 b{font-family:Gros, sans-serif;font-weight:200;color:var(--secondary)}
     i.icon{width:96px;height:96px;color:var(--primary);margin-right:16px;}
     img {width: 88px;max-width: 400px;margin: 0 16px 0 0;background:var(--secondary)}
     p {margin:0;color:#676778;padding:0;line-height:16px;font-size:16px;margin:8px;}

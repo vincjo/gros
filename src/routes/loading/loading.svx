@@ -11,9 +11,9 @@ Trois types de chargements sont réunis dans un même composant `Loading` :
 
 <div class="ul">
 
-1. `<Loading type={'process}/>` - type `process` déclenché par un utilitaire au sein d'une fonction asynchrone.
-2. `<Loading type={'bootstrap}/>` - type `bootstrap` dédié au chargement initial de l'application.
-3. `<Loading/>` - type par défaut : le composant est inclut dans un bloc `{#await}`.
+1. `<Loading type={'process'}/>` - type `process` déclenché de manière impérative grâce aux fonction du magasin : `loading.start()` `loading.stop()`.
+2. `<Loading type={'bootstrap'}/>` - type `bootstrap` dédié au chargement initial de l'application.
+3. `<Loading/>` - par défaut : le composant peut être utilisé dans un bloc `{#await}` par exemple. Il est contenu par l'élément parent.
 
 </div>
 
@@ -64,7 +64,7 @@ En paramètre de la fonction `start`, on peut préciser un message et un sous-me
 ````
 <br><br>
 
-## `<Loading type={'bootstrap}/>`
+## `<Loading type={'bootstrap'}/>`
 
 Le type `bootstrap` est dédié au chargement initial de l'application.
 

@@ -13,6 +13,7 @@ export default [
         pages: [
             { name: 'Input', path: '/input' },
             { name: 'Textarea', path: '/textarea' },
+            { name: 'Range', path: '/range' },
         ],
     },
     {

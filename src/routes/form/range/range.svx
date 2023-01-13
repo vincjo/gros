@@ -1,0 +1,10 @@
+
+
+
+
+
+
+Pour plus de détail sur le fonctionnement des entrées de type plage de valeur, voir [svelte-range-slider-pips](https://simeydotme.github.io/svelte-range-slider-pips/)
+
+
+

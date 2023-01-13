@@ -14,7 +14,7 @@
 </script>
 
 <svelte:head>
-    <title>GROS</title>
+    <title>GROS ui</title>
     <link rel="stylesheet" href="{base}/gros-theme-{$theme}.css">
 </svelte:head>
 

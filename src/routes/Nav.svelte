@@ -61,7 +61,7 @@
     article{height:88px;}
     aside{display:flex;justify-content:start;margin:0;height:48px;}
 	aside h1 {font-size:16px;line-height:18px; text-align:left;font-weight:400; margin:8px 0 0 0;color:var(--primary-lighten); }
-    h1 b{font-family:Cursive, sans-serif;font-weight:2000;color:var(--secondary);font-size:22px;}
+    h1 b{font-family:Gros, sans-serif;font-weight:200;color:var(--secondary);font-size:22px;}
     i.icon{width:48px;height:48px;color:var(--primary);margin:0 8px;}
 
     h2{display:flex;justify-content:flex-start;align-items:center;color:#424242;font-weight:200;margin:0;font-size:18px;line-height:40px;transition:all,0.1s;margin-bottom:8px;}

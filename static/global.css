@@ -1,3 +1,4 @@
+@font-face {font-family:"Gros";src: url('./fonts/Chango-Regular.ttf');}
 pre{border-radius:2px;}
 
 .svx p, .svx ol, .svx ul{font-family:Roboto; letter-spacing: .01em;}
