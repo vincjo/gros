@@ -33,9 +33,9 @@
 
 
 <style>
-    nav{position:absolute;top:0;bottom:0;left:0;width:22vw;display:flex;justify-content:flex-end;border-right:1px solid #e0e0e0;overflow-y:auto;}
-    section{position:absolute;top:0;bottom:0;right:0;width:77vw;display:flex;justify-content:flex-start;overflow-y:auto;}
-    article{padding:0 80px;width:720px;background:#fff;}
+    nav{position:absolute;top:0;bottom:0;left:0;width:24vw;display:flex;justify-content:flex-end;border-right:1px solid #e0e0e0;overflow-y:auto;}
+    section{position:absolute;top:0;bottom:0;right:0;width:76vw;display:flex;justify-content:flex-start;overflow-y:auto;}
+    article{padding:0 80px;width:880px;min-width:760px;background:#fff;}
 
     @media (max-width: 800px) { 
         section{position:unset;width:100%;padding:16px 24px;}

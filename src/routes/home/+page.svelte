@@ -1,6 +1,7 @@
 <script>
     import Home from './home.svx'
     import { color } from '$utils/theme'
+    import Download from './Download.svelte'
 </script>
 
 
@@ -17,10 +18,14 @@
         </div>
     </aside>
 
-    <Home/>
+    <div class="svx">
+        <Home/>
+    </div>
 
-
+    <Download/>
 </section>
+
+
 <style>
     section{margin-left:80px;margin-top:80px;}
     aside{display:flex;justify-content:start;margin-top:32px;color:var(--primary-lighten)}

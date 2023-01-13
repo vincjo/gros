@@ -1,5 +1,5 @@
 <script>
-    import Form from './Form.svelte'
+    import BigForm from './BigForm.svelte'
     import SmallForm from './SmallForm.svelte'
 </script>
 
@@ -46,7 +46,7 @@ Le paramètre `icon` est optionnel.
 | **icon**  |  *undefined* | false  |
 |  **label** | *''*  | false  |
 |  **spellcheck** | *false*  | false  |
-|  **password** | *'false'*  | false  |
+|  **password** | *false*  | false  |
 |  **required** | *false*  | false  |
 | **field** | *undefined* | false
 | **errors** | *undefined* | false
@@ -62,7 +62,7 @@ Le paramètre `icon` est optionnel.
 ## Gros formulaire
 
 
-<Form/>
+<BigForm/>
 
 <br><br>
 

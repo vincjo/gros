@@ -7,7 +7,7 @@ export const color = derived(theme, ($theme) => {
         return '00796b'
     }
     else if ($theme === 'imope') {
-        return 'bf9b30'
+        return 'a67c00'
     }
     else if ($theme === 'onb') {
         return '006064'

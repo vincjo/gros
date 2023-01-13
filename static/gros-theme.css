@@ -1,19 +1,19 @@
 :root {
-    --primary:#00796b;
-    --primary-lighten: #4db6ac;
-    --primary-lighten-1: rgba(0,121,107,0.1);
-    --primary-lighten-2: rgba(0,121,107,0.2);
-    --primary-lighten-3: rgba(0,121,107,0.3);
-    --primary-darken: #004c40;
+    --primary:#006064;
+    --primary-lighten: #00bcd4;
+    --primary-lighten-1: rgba(0,96,100,0.1);
+    --primary-lighten-2: rgba(0,96,100,0.2);
+    --primary-lighten-3: rgba(0,96,100,0.3);
+    --primary-darken: #00363a;
 
-    --secondary: #0288d1;
-    --secondary-lighten: #03a9f4;
-    --secondary-darken: #005b9f;
+    --secondary: #ad1457;
+    --secondary-lighten: #e91e63;
+    --secondary-darken: #78002e;
 
-    --ternary: #e64a19;
-  }
+    --ternary: #fbc02d;
+}
 
 ::selection {
-    background: #00796b;
+    background: #006064;
     color: #fff;
 }

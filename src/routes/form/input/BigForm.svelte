@@ -50,7 +50,7 @@
 
 
 <style>
-    section{border:1px solid #e0e0e0;border-radius:16px;padding:24px 32px;width:344px;}
+    section{border:1px solid #e0e0e0;border-radius:16px;padding:24px 32px;width:400px;}
     button.btn{height:58px;width:100%;background:var(--primary);font-size:16px;color:#fff;}
     button.btn:hover{background:var(--primary-darken)}
     button.btn i{margin:8px;}

@@ -21,11 +21,11 @@
 
 <style>
     h3{color:var(--secondary);text-transform:uppercase;text-align:center;margin:8px 0;}
-    nav{position:fixed;top:64px;right:40px;z-index:99;width:120px;padding:8px 8px 16px 8px;border:1px solid #e0e0e0;border-radius:16px;background:rgba(255,255,255,0.8)}
+    nav{position:fixed;top:64px;right:40px;z-index:99;width:160px;padding:8px 8px 16px 8px;border:1px solid #e0e0e0;border-radius:16px;background:rgba(255,255,255,0.8)}
     button{height:32px;padding:0 8px;width:100%;margin:2px 0;color:var(--primary);justify-content:flex-start;font-weight:bold;background:transparent}
-    button i{margin:0 8px 0 0;}
     button:hover{background:#eee;background:rgba(230,230,230,0.8)}
     button.active{background:rgba(240,240,240,0.8);}
+    button i{margin-right:8px;}
 
     @media (max-width: 980px) { 
         nav{display:none;}

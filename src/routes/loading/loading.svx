@@ -19,7 +19,7 @@ Trois types de chargements sont réunis dans un même composant `Loading` :
 
 <br><br>
 
-## `<Loading type={'process}/>`
+## `<Loading type={'process'}/>`
 
 <ProcessExample/>
 <br>

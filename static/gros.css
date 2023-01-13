@@ -2,7 +2,6 @@
 @font-face {font-family: "Roboto";src: url('./fonts/Roboto/Roboto-Regular.ttf');}
 @font-face {font-family: "Roboto";font-style: italic;src: url('./fonts/Roboto/Roboto-Italic.ttf');}
 @font-face {font-family: "Roboto";font-weight: bold;src: url('./fonts/Roboto/Roboto-Bold.ttf');}
-@font-face{font-family: "Varela";src: url('./fonts/VarelaRound-Regular.ttf')};
 
 *,
 *:after,
@@ -54,6 +53,7 @@ input[type='submit'] {
 .btn {
   text-transform: uppercase;
   letter-spacing:.1rem;
+  padding: 8px 16px;
 }
 
 .button:focus, .button:hover,
@@ -120,24 +120,6 @@ select:focus {
   outline: 0;
 }
 
-select {
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%23d1d1d1" d="M0,0l6,8l6-8"/></svg>') center right no-repeat;
-  padding-right: 3.0rem;
-}
-
-select:focus {
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%239b4dca" d="M0,0l6,8l6-8"/></svg>');
-}
-
-select[multiple] {
-  background: none;
-  height: auto;
-}
-
-textarea {
-  min-height: 6.5rem;
-}
-
 label,
 legend {
   display: block;
@@ -149,11 +131,6 @@ legend {
 fieldset {
   border-width: 0;
   padding: 0;
-}
-
-input[type='checkbox'],
-input[type='radio'] {
-  display: inline;
 }
 
 a {
@@ -180,36 +157,13 @@ ul {
   list-style-type:none;
 }
 
-
-
 table {
-  border-spacing: 0;
-  display: block;
-  overflow-x: auto;
-  text-align: left;
+  text-align: center;
   width: 100%;
+  border-collapse:separate;
+  border-spacing:0;
 }
 
-td {
-  padding: 1.2rem 1.5rem;
-}
-
-td:first-child,
-th:first-child {
-  padding-left: 0;
-}
-
-td:last-child,
-th:last-child {
-  padding-right: 0;
-}
-
-@media (min-width: 40rem) {
-  table {
-    display: table;
-    overflow-x: initial;
-  }
-}
 
 b,
 strong {

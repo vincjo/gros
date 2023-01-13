@@ -31,7 +31,7 @@
 
 <style>
     section {
-        height:inherit;
+        height:100%;
     }
 
     footer {

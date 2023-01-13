@@ -7,34 +7,34 @@
 
 
 <div class="example">
-    <Datatable {handler}>
-        <table>
-            <thead>
-                <tr>
-                    <Th {handler} orderBy={'first_name'}>First Name</Th>
-                    <Th {handler} orderBy={'last_name'}>Last Name</Th>
-                    <Th {handler} orderBy={'email'}>Email</Th>
-                </tr>
-                <tr>
-                    <ThFilter {handler} filterBy={'first_name'}/>
-                    <ThFilter {handler} filterBy={'last_name'}/>
-                    <ThFilter {handler} filterBy={'email'}/>
-                </tr>
-            </thead>
-            <tbody>
-                {#each $rows as row}
+        <Datatable {handler}>
+            <table>
+                <thead>
                     <tr>
-                        <td>{row.first_name}</td>
-                        <td>{row.last_name}</td>
-                        <td>{row.email}</td>
+                        <Th {handler} orderBy={'first_name'}>First Name</Th>
+                        <Th {handler} orderBy={'last_name'}>Last Name</Th>
+                        <Th {handler} orderBy={'email'}>Email</Th>
                     </tr>
-                {/each}
-            </tbody>
-        </table>
-    </Datatable>
+                    <tr>
+                        <ThFilter {handler} filterBy={'first_name'}/>
+                        <ThFilter {handler} filterBy={'last_name'}/>
+                        <ThFilter {handler} filterBy={'email'}/>
+                    </tr>
+                </thead>
+                <tbody>
+                    {#each $rows as row}
+                        <tr>
+                            <td>{row.first_name}</td>
+                            <td>{row.last_name}</td>
+                            <td>{row.email}</td>
+                        </tr>
+                    {/each}
+                </tbody>
+            </table>
+        </Datatable>
 </div>
 
 
 <style>
-    div.example{height:400px;border:1px solid #e0e0e0;border-radius:8px;padding:8px 0 0 0;}
+    div.example{height:408px;border:1px solid #e0e0e0;border-radius:8px;padding-top:8px;}
 </style>

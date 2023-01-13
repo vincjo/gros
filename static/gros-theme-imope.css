@@ -1,14 +1,14 @@
 :root {
-    --primary:#bf9b30;
+    --primary:#a67c00;
     --primary-lighten: #ffbf00;
-    --primary-lighten-1: rgba(191,155,48,0.1);
-    --primary-lighten-2: rgba(191,155,48,0.2);
-    --primary-lighten-3: rgba(191,155,48,0.3);
-    --primary-darken: #a67c00;
+    --primary-lighten-1: rgba(166,124,0,0.1);
+    --primary-lighten-2: rgba(166,124,0,0.2);
+    --primary-lighten-3: rgba(166,124,0,0.3);
+    --primary-darken: #735000;
 
-    --secondary: #f44336;
-    --secondary-lighten: #ff7961;
-    --secondary-darken: #ba000d;
+    --secondary: #d84315;
+    --secondary-lighten: #ff7043;
+    --secondary-darken: #9f0000;
 
     --ternary: #424242;
   }
