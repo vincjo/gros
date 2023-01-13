@@ -52,11 +52,11 @@
 
 <br><br>
 
-Pour obtenir un gros `Textarea`, on définit le paramètre `small` à `false`
+Pour obtenir un gros `Textarea`, on ajoute le paramètre `big`.
 
 ````svelte
 <Textarea 
-    small={false}
+    big
     icon={'message'} 
     label={'Comment'}
     height={'200px'} 

@@ -1,7 +1,7 @@
 <script>
     import ErrorMessage from './ErrorMessage.svelte'
     import ErrorAlert from './ErrorAlert.svelte'
-    export let small = true
+    export let big = false
     export let spellcheck = false
     export let value = ''
     export let label = ''
@@ -15,7 +15,7 @@
 </script>
 
 
-<section class:small={small}>
+<section class:small={!big}>
     <label for="{id}">
         <div class="flex">
             {#if icon}
@@ -29,7 +29,7 @@
             </span>
 
         </div>
-        {#if !small}
+        {#if big}
         <div class="error">
             <ErrorMessage {field} {errors}/>
         </div>
@@ -43,7 +43,7 @@
         <input type="text" id="{id}" bind:value={value} spellcheck={spellcheck}/>
     {/if}
 
-    {#if small}
+    {#if !big}
         <ErrorAlert {field} {errors}/>
     {/if}
 </section>

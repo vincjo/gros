@@ -17,7 +17,7 @@
 </script>
 
 <section>
-    <Textarea small={false} {errors} icon={'message'} label={'Comment'} field={'textarea'} height={'144px'}  bind:value/>
+    <Textarea big small={false} {errors} icon={'message'} label={'Comment'} field={'textarea'} height={'144px'}  bind:value/>
 
     <button class="btn z-depth-1" type="submit" on:click|preventDefault={handleClick}>
         Send

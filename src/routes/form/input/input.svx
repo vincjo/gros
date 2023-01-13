@@ -23,17 +23,17 @@ Le paramètre `icon` est optionnel.
 </script>
 
 <Input 
+    required
     icon={'mail'} 
     label={'Email'} 
-    required={true} 
     bind:value={form.email}
 />
 <Input 
+    required
     icon={'lock'} 
     label={'Password'} 
-    required={true} 
-    bind:value={form.password} 
     type={'password'}
+    bind:value={form.password} 
 />
 ````
 <br>
@@ -46,10 +46,10 @@ Le paramètre `icon` est optionnel.
 |  **label** | *''*  | false  |
 |  **spellcheck** | *false*  | false  |
 |  **type** | *'text'*  | false  |
-|  **small** | *false*  | false  |
 |  **required** | *false*  | false  |
 | **field** | *undefined* | false
 | **errors** | *undefined* | false
+|  **big** | *false*  | false  |
 
 </div>
 
@@ -65,14 +65,14 @@ Le paramètre `icon` est optionnel.
 
 <br><br>
 
-Pour obtenir un gros `Input`, on définit le paramètre `small` à `false`
+Pour obtenir un gros `Input`, on ajout le paramètre `big`.
 
 ````svelte
 <Input 
+    required big
     small={false}
     icon={'mail'} 
     label={'Email'} 
-    required={true} 
     bind:value={form.email}
 />
 ````
