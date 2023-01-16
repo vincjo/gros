@@ -34,12 +34,12 @@
         }
         if (
             event.target.classList.contains('close-dropdown')
-            && !event.target.parentNode.classList.contains('close-dropdown')
+            || event.target.parentNode.classList.contains('close-dropdown')
         ) {
             active = false 
             return
         }
-        else if (dropdownElement && dropdownElement.firstChild.contains(event.target)) {
+        else if (dropdownElement && dropdownElement.firstChild && dropdownElement.firstChild.contains(event.target)) {
             return
         }
         else {

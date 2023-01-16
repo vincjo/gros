@@ -1,6 +1,8 @@
 <script>
     import Button from './Button.svelte'
     import Placement from './Placement.svelte'
+    import PreventClosing from './PreventClosing.svelte'
+    import FixedWidth from './FixedWidth.svelte'
 </script>
 
 
@@ -54,6 +56,59 @@ Le placement du menu s'adapte à l'espace disponible dans la fenêtre.
     <aside slot="content">
         <!-- stuff -->
     </aside>
+</Dropdown>
+````
+
+<br><br>
+
+## Empêcher la fermeture du menu
+
+<PreventClosing/>
+
+<br>
+
+Par défaut le composant `Dropdown` se ferme sur l'évènement `click`.
+
+En passant le paramètre `preventClosing` au composant, le menu demeure affiché.
+
+On peut définir un ou plusieurs éléments de fermeture en attributant la `class` `close-dropdown`.
+
+````svelte
+<Dropdown preventClosing>
+    <button>Drop me!</button>
+    <ul slot="content">
+        <li>No closure</li>
+        <li class="close-dropdown">Close</li>
+        <li>No closure</li>
+        <li class="close-dropdown">Close</li>
+    </ul>
+</Dropdown>
+````
+<br><br>
+
+## Largeur prédéfinie du menu
+
+Par défault le menu sera redimensionné de manière à avoir une largeur égale ou supérieure à la largeur du déclencheur.
+
+Dans certains cas, le menu a une largeur plus petite, prédéfinie, et un placement particulier.
+
+<FixedWidth/>
+
+<br>
+
+On passe le paramètre `fixedWidth` pour empêcher le redimensionnement du menu.
+
+````svelte
+<Dropdown fixedWidth position="bottom-end">
+    <button>
+        Drop me!
+    </button>
+    <ul slot="content">
+        <li>Option 1</li>
+        <li>Option 2</li>
+        <li>Option 3</li>
+        <li>Option 4</li>
+    </ul>
 </Dropdown>
 ````
 
