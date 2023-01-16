@@ -92,6 +92,12 @@ On ajoute le paramètre `big` au composant.
     big 
     icon="child_friendly" 
     label="Date de naissance" 
+    format={{ 
+        year: 'numeric',
+        month: 'long',
+        weekday: 'long',
+        day: 'numeric'
+    }}
     bind:value={date}
 />
 ````

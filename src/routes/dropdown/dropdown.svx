@@ -67,7 +67,7 @@ Le placement du menu s'adapte à l'espace disponible dans la fenêtre.
 
 <br>
 
-Par défaut le composant `Dropdown` se ferme sur l'évènement `click`.
+Par défaut le composant `Dropdown` se ferme dès le premier évènement `click`.
 
 En passant le paramètre `preventClosing` au composant, le menu demeure affiché.
 
@@ -88,7 +88,7 @@ On peut définir un ou plusieurs éléments de fermeture en attributant la `clas
 
 ## Largeur prédéfinie du menu
 
-Par défault le menu sera redimensionné de manière à avoir une largeur égale ou supérieure à la largeur du déclencheur.
+Par défault le menu est redimensionné de manière à avoir une largeur égale ou supérieure à la largeur du déclencheur.
 
 Dans certains cas, le menu a une largeur plus petite, prédéfinie, et un placement particulier.
 
