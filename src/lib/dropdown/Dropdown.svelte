@@ -17,6 +17,7 @@
     let active = false
     let minWidth = 'auto'
     let element
+    let dropdownElement
 
     const open = () => {
         active = !active
@@ -37,6 +38,13 @@
             active = false 
             return
         }
+        else if (dropdownElement && dropdownElement.contains(event.target)) {
+            return
+        }
+        else {
+            active = false 
+            return
+        }
     }
 </script>
 
@@ -49,6 +57,7 @@
     <div
         transition:fade={{ duration:120 }}
         use:popperContent={extraOpts}
+        bind:this={dropdownElement}
         style:min-width={minWidth}
         class="dropdown"
         data-position="{position}"
