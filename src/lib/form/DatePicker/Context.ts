@@ -49,7 +49,7 @@ export default class Context
     {
         const navDate = this.subscribe()
         navDate.setFullYear(year)
-        this.date.set(navDate)
+        this.navDate.set(navDate)
     }
 
     public getCalendar(): Readable<Calendar[]>

@@ -1,13 +1,13 @@
-<script>
+<script lang="ts">
     import Header from './DatePicker/Header.svelte'
     import Calendar from './DatePicker/Calendar.svelte'
     import DateHandler from './DatePicker/DateHandler'
 
-    export let value = null
+    export let value: string
     const handler = new DateHandler(value)
     const date = handler.getDate()
 
-    $: value = $date
+    $: value = $date.toISOString()
 </script>
 
 <section class="z-depth-1">

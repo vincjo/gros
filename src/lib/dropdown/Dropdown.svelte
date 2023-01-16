@@ -1,9 +1,10 @@
 <script>
-    import { clickOutside } from '$lib/dropdown' 
+    import { clickOutside } from '$lib/dropdown'
     import { fade } from 'svelte/transition'
     import { createPopperActions } from '$lib/tooltip'
-    
+
     export let position = 'bottom'
+    export let preventClosing = false
     const [popperRef, popperContent] = createPopperActions({
         placement: position,
         strategy: 'fixed',
@@ -17,25 +18,39 @@
     let minWidth = 'auto'
     let element
 
-    const open = () => { 
-        active = !active 
+    const open = () => {
+        active = !active
         if (element) {
             minWidth = element.offsetWidth + 'px'
+        }
+    }
+
+    const close = (event) => {
+        if (!preventClosing) {
+            active = false 
+            return
+        }
+        if (
+            event.target.classList.contains('close-dropdown')
+            && !event.target.parentNode.classList.contains('close-dropdown')
+        ) {
+            active = false 
+            return
         }
     }
 </script>
 
 
-<button on:click={open} bind:this={element} use:popperRef use:clickOutside on:clickOutside={() => active = false}>
+<button class="dropdown-trigger" on:click={open} bind:this={element} use:popperRef use:clickOutside={close}>
     <slot></slot>
 </button>
 
 {#if active}
-    <div 
+    <div
         transition:fade={{ duration:120 }}
-        use:popperContent={extraOpts} 
+        use:popperContent={extraOpts}
         style:min-width={minWidth}
-        class="dropdown" 
+        class="dropdown"
         data-position="{position}"
     >
         <slot name="content"/>
@@ -51,5 +66,6 @@
     }
     .dropdown{
         z-index:9999;
+        user-select: none;
     }
 </style>

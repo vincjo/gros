@@ -1,0 +1,103 @@
+<script>
+    import SmallForm from './SmallForm.svelte'
+    import BigForm from './BigForm.svelte'
+    import DateFormats from './DateFormats.svelte'
+</script>
+
+# Date inputs
+
+
+<SmallForm/>
+
+<br>
+
+Le composant `DateInput` peut être utilisé dans un formulaire.
+
+````svelte
+<script>
+    import { DateInput }  from 'gros/form'
+    let date = '2017-08-24'
+</script>
+
+<DateInput icon="child_friendly" label="Date de naissance" bind:value={date}/>
+````
+
+
+<br><br>
+
+<div class="table">
+
+| param  | default  | required  | 
+|---|---|---|
+| **value**  |  *null* | false  |
+| **format**  |  *`{ year: 'numeric', month: 'numeric', day: 'numeric' }`* | false  |
+| **icon**  |  *undefined* | false  |
+|  **label** | *undefined*  | false  |
+|  **required** | *false*  | false  |
+| **field** | *undefined* | false
+| **errors** | *undefined* | false
+|  **big** | *false*  | false  |
+
+</div>
+
+<br>
+
+
+Le paramètre `label` est optionnel. Cela permet de disposer du composant dans d'autres contextes qu'un formulaire standard, comme le montre l'exemple ci-dessous.
+
+<br><br>
+
+## Format des dates
+
+
+Le format date est paramétrable conformément à l'API d'internationalisation ECMAscript `Intl.DateTime`.
+
+<DateFormats/>
+
+<br>
+
+````svelte
+<DateInput  value="1999-02-23" format={{ 
+    year: '2-digit', 
+    day: 'numeric', 
+    month: 'short' 
+}}/>
+
+<DateInput value="2001-12-25" format={{ 
+    year: 'numeric', 
+    day: 'numeric', 
+    month: 'long', 
+    weekday: 'long' 
+}}/>
+
+<DateInput value="2048-04-01" format={{ 
+    year: 'numeric', 
+    day: 'numeric', 
+    month: 'numeric' 
+}}/>
+````
+<br><br>
+
+## Gros champ date
+
+On ajoute le paramètre `big` au composant.
+
+
+<BigForm/>
+
+<br>
+
+````svelte
+<DateInput 
+    big 
+    icon="child_friendly" 
+    label="Date de naissance" 
+    bind:value={date}
+/>
+````
+
+
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>

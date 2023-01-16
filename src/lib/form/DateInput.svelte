@@ -1,17 +1,23 @@
-<script>
+<script lang="ts">
     import ErrorMessage from './ErrorMessage.svelte'
     import ErrorAlert from './ErrorAlert.svelte'
     import { Dropdown } from '$lib/dropdown'
+    import { DateTime, type format } from '$lib/date'
     import DatePicker from './DatePicker.svelte'
     export let big = false
     export let value = ''
-    export let label = ''
-    export let icon
+    export let label: string | undefined
+    export let icon: string | undefined
     export let required = false
-    export let errors
-    export let field
+    export let errors: { field: string, message: string }[]
+    export let field: string
+    export let format: format
 
     let id = 'id' + (Math.random() + 1).toString(36).substring(7)
+
+    let date = value
+    $: date = DateTime.format(value, format)
+
 </script>
 
 
@@ -37,9 +43,9 @@
         </label>
     {/if}
 
-    <Dropdown position="bottom-start">
-        <button>
-            {value}
+    <Dropdown position="bottom-start" preventClosing>
+        <button class:big={big}>
+            {date}
             <i class="micon">arrow_drop_down</i>
         </button>
         <svelte:fragment slot="content">
@@ -62,7 +68,9 @@
     label b{color:var(--ternary);}
 
     label i.micon{padding-right:8px;color:var(--primary);font-size:22px;}
-    button{ color:#626262;border:1px solid #d1d1d1;border-radius:.4rem;padding:.6rem 1rem .7rem}
+    button{ color:#626262;border:1px solid #d1d1d1;border-radius:.4rem;padding:.6rem 1rem .7rem;font-size:14px;}
+    button.big{width:100%;justify-content:space-between;}
+    section:not(.small) :global(button.dropdown-trigger) {width:100%;}
     button i{margin-left:8px;}
     button:focus{border-color: var(--primary-lighten);}
 
@@ -71,5 +79,5 @@
     section.small label .flex{white-space:normal;}
     section.small label .flex span{line-height:12px;}
     section.small i.micon{font-size:18px;}
-    section.small button{font-size:14px;color:#424242;height:32px;}
+    section.small button{font-size:14px;color:#424242;height:32px;width:auto;}
 </style>

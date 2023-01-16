@@ -27,6 +27,7 @@
                 {#each $calendar.slice(weekIndex * 7, weekIndex * 7 + 7) as day}
                     <td>
                         <button
+                            class="close-dropdown"
                             on:click={() => handler.setDate(day)}
                             class:selected={
                                 day.year === $date.getFullYear() &&
