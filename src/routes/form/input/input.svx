@@ -10,7 +10,7 @@
 
 <br>
 
-Les entrées sont par défaut de type `text`. On peut préciser le paramètre `password`.
+Les entrées sont par défaut de type `text`. On peut préciser le type en indiquant `password` ou `number`.
 
 Le paramètre `required` est optionnel : il fait apparaître un astérisque, indiquant à l'utilisateur que la saisie du champ est obligatoire.
 
@@ -24,16 +24,15 @@ Le paramètre `icon` est optionnel.
 
 <Input 
     required
-    icon={'mail'} 
-    label={'Email'} 
+    icon="mail" 
+    label="Email" 
     bind:value={form.email}
 />
 <Input 
     required
     password
-    icon={'lock'} 
-    label={'Password'} 
-    type={'password'}
+    icon="lock"
+    label="Password"
     bind:value={form.password} 
 />
 ````
@@ -47,6 +46,7 @@ Le paramètre `icon` est optionnel.
 |  **label** | *''*  | false  |
 |  **spellcheck** | *false*  | false  |
 |  **password** | *false*  | false  |
+|  **number** | *false*  | false  |
 |  **required** | *false*  | false  |
 | **field** | *undefined* | false
 | **errors** | *undefined* | false
@@ -72,8 +72,8 @@ Pour obtenir un gros `Input`, on ajout le paramètre `big`.
 <Input 
     big
     required 
-    icon={'mail'} 
-    label={'Email'} 
+    icon="mail" 
+    label="Email" 
     bind:value={form.email}
 />
 ````
@@ -103,8 +103,8 @@ La totalité du tableau d'erreurs sera transmise à chaque composant `Input` via
 <Input 
     {errors}
     required
-    field={'email'}
-    label={'Email'} 
+    field="email"
+    label="Email" 
     bind:value={form.email}
 />
 ````

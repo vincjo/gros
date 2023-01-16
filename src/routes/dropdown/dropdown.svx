@@ -1,5 +1,6 @@
 <script>
     import Button from './Button.svelte'
+    import Placement from './Placement.svelte'
 </script>
 
 
@@ -9,7 +10,7 @@
 
 <br><br><br>
 
-Le contenu du menu déroulant est placé dans un `slot` très "content"
+Le contenu du menu déroulant est placé dans un `slot="content"`, qui peut être n'importe quel élément `HTML`.
 
 ````svelte
 <script>
@@ -27,3 +28,36 @@ Le contenu du menu déroulant est placé dans un `slot` très "content"
     </ul>
 </Dropdown>
 ````
+<br><br>
+
+## Placement
+
+<div class="table">
+
+| param  | default  | options  | required  | 
+|---|---|---|---|
+| **position**  |  *'bottom'* | bottom, bottom-start, bottom-end<br> left, left-start, left-end<br> top, top-start, top-end<br> left, right-start, right-end<br> | false  |
+
+</div>
+
+<br>
+
+Le placement du menu s'adapte à l'espace disponible dans la fenêtre.
+
+<Placement/>
+
+<br>
+
+````svelte
+<Dropdown position="bottom-start">
+    <button>Click</button>
+    <aside slot="content">
+        <!-- stuff -->
+    </aside>
+</Dropdown>
+````
+
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>

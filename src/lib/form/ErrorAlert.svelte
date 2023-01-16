@@ -14,19 +14,26 @@
         }
         const error = errors.find(item => item.field === field)
         message = error?.message
-        console.log(message)
     }
 </script>
 
 
 {#if message}
-    <i class="micon tooltip">
-        <Tooltip position={'left'} content={message}/>
-        error
-    </i>
+    <div class="tooltip">
+        <Tooltip left content={message}/>
+    </div>
 {/if}
 
 <style>
-    i{color:#e57373;position:absolute;right:8px;font-size:18px;}
-    i :global(.tooltip){color:#e57373;background:rgba(255,255,255,0.9)}
+    div{
+        background:#e57373;
+        width: 8px;
+        height: 8px;
+        border-radius:50%;
+        position:absolute;
+        right:-2px; 
+        top:-2px;
+        font-size:14px;
+    }
+    div :global(.tooltip){color:#e57373;background:#ffebee}
 </style>

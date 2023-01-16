@@ -20,22 +20,22 @@ L'élément qui contient l'info-bulle doit avoir la classe `tooltip` ou bien la 
 
 
 <button class="tooltip">
-    <Tooltip position={'top'} content={'Tooltip top'}/>
+    <Tooltip top content="Tooltip top"/>
     Top
 </button>
 
 <button class="tooltip">
-    <Tooltip position={'bottom'} content={'Tooltip bottom'}/>
+    <Tooltip bottom content="Tooltip bottom"/>
     Bottom
 </button>
 
 <button class="tooltip">
-    <Tooltip position={'left'} content={'Tooltip left'}/>
+    <Tooltip left content="Tooltip left"/>
     Left
 </button>
 
 <button class="tooltip">
-    <Tooltip position={'right'} content={'Tooltip right'}/>
+    <Tooltip right content="Tooltip right"/>
     Right
 </button>
 ````

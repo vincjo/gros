@@ -659,6 +659,7 @@
 
 
 <style>
+    section{width:auto;}
     .rangeSlider {
         position: relative;
         border-radius: 2px;
@@ -757,9 +758,11 @@
       pointer-events: none;
       white-space: nowrap;
       transition: all 0.2s ease;
-      font-size: 0.9em;
-      padding: 0.2em 0.4em;
-      border-radius: 0.2em;
+      font-size: 12px;
+      padding:2px 4px;
+      border-radius: 2px;
+      height:22px;
+      line-height:18px;
     }
     .rangeSlider .rangeHandle.active .rangeFloat,
     .rangeSlider.hoverable .rangeHandle:hover .rangeFloat {

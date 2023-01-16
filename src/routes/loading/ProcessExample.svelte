@@ -25,7 +25,7 @@
     </button>
 </section>
 
-<Loading type={'process'}/>
+<Loading process/>
 
 <style>
     section{width:400px;}

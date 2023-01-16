@@ -4,25 +4,25 @@
 
 <section>
     <button class="tooltip btn">
-        <Tooltip position={'top'} content={'Tooltip top'}/>
+        <Tooltip top content="Tooltip top"/>
         Top
         <i class="micon">keyboard_arrow_up</i>
     </button>
 
     <button class="tooltip btn">
-        <Tooltip position={'bottom'} content={'Tooltip bottom'}/>
+        <Tooltip bottom content="Tooltip bottom"/>
         Bottom
         <i class="micon">keyboard_arrow_down</i>
     </button>
 
     <button class="tooltip btn">
-        <Tooltip position={'left'} content={'Tooltip left'}/>
+        <Tooltip left content="Tooltip left"/>
         <i class="micon">keyboard_arrow_left</i>
         Left
     </button>
 
     <button class="tooltip btn">
-        <Tooltip position={'right'} content={'Tooltip right'}/>
+        <Tooltip right content={'Tooltip right'}/>
         Right
         <i class="micon">keyboard_arrow_right</i>
     </button>

@@ -1,5 +1,4 @@
 export { default as Dropdown } from './Dropdown.svelte'
-import { slide } from 'svelte/transition'
 
 export const clickOutside = (node) => {
 	const handleClick = (event) => {
@@ -15,15 +14,4 @@ export const clickOutside = (node) => {
 			document.removeEventListener('click', handleClick, true)
 		}
 	}
-}
-
-export const fadeSlide = (node, options) => {
-	const slideTrans = slide(node, options)
-	return {
-		duration: options.duration,
-		css: (t, u) => `
-			${slideTrans.css(t, u)}
-			opacity: ${t};
-		`
-	};
 }

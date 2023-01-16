@@ -2,12 +2,13 @@
     import Waiting from './Waiting.svelte'
     import Bootstrap from './Bootstrap.svelte'
     import Process from './Process.svelte'
-    export let type
+    export let process
+    export let bootstrap
 </script>
 
-{#if type === 'process'}
+{#if process}
     <Process/>
-{:else if type === 'bootstrap'}
+{:else if bootstrap}
     <Bootstrap/>
 {:else}
     <Waiting/>

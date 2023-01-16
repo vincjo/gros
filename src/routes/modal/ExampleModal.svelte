@@ -11,7 +11,7 @@
     }
 </script>
 
-<Modal icon={'account_circle'} title={'User informations'}>
+<Modal icon="account_circle" title="User informations">
     <p>Some content</p>
     <b>User</b>
     <ul>

@@ -14,7 +14,7 @@
 
 ````svelte
 <script>
-    import { Range } from '$lib/form'
+    import { Range } from 'gros/form'
     let value = [14]
 </script>
 
@@ -27,7 +27,7 @@ Plage de valeurs :
 
 ````svelte
 <script>
-    import { Range } from '$lib/form'
+    import { Range } from 'gros/form'
     let range = [25, 75]
 </script>
 
@@ -64,7 +64,7 @@ On ajoute le paramètre `big` au composant `Range`.
 
 ````svelte
 <script>
-    import { Range } from '$lib/form'
+    import { Range } from 'gros/form'
     let range = [25, 75]
 </script>
 

@@ -18,8 +18,8 @@
 </script>
 
 <Textarea 
-    icon={'message'} 
-    label={'Comment'}
+    icon="message" 
+    label="Comment"
     bind:value
 />
 ````
@@ -57,9 +57,9 @@ Pour obtenir un gros `Textarea`, on ajoute le paramètre `big`.
 ````svelte
 <Textarea 
     big
-    icon={'message'} 
-    label={'Comment'}
-    height={'200px'} 
+    icon="message" 
+    label="Comment"
+    height="200px" 
     bind:value
 />
 ````

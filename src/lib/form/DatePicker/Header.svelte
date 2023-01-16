@@ -1,0 +1,83 @@
+<script lang="ts">
+    import { Dropdown } from '$lib/dropdown'
+    import type DateHandler from './DateHandler'
+
+    export let handler: DateHandler
+    const date = handler.getDate()
+
+    const locale = {
+        weekdays: 'dim._lun._mar._mer._jeu._ven._sam.'.split('_'),
+        months: 'janvier_février_mars_avril_mai_juin_juillet_août_septembre_octobre_novembre_décembre'.split('_')
+    }
+
+    const getYears = () => {
+        const min = $date.getFullYear() - 5
+        const max = $date.getFullYear() + 5
+        let years = []
+        for (let i = min; i <= max; i++) {
+            years.push(i)
+        }
+        return years
+    }
+</script>
+
+
+<header>
+
+    <button on:click={() => handler.setMonth($date.getMonth() - 1)} class="nav">
+        <i class="micon">chevron_left</i>
+    </button>
+
+    <Dropdown>
+        <button class="month">
+            {locale.months[$date.getMonth()]}
+            <i class="micon">arrow_drop_down</i>
+        </button>
+        <div slot="content" class="nav">
+            {#each locale.months as month, i}
+                <button on:click={() => handler.setMonth(i)} class:active={$date.getMonth() === i}>
+                    {month}
+                </button>
+            {/each}
+        </div>
+    </Dropdown>
+
+    <Dropdown>
+        <button class="year">
+            {$date.getFullYear()}
+            <i class="micon">arrow_drop_down</i>
+        </button>
+        <div slot="content" class="select">
+            {#each getYears() as year}
+                <button on:click={() => handler.setYear(year)} class:active={$date.getFullYear() === year}>
+                    {year}
+                </button>
+            {/each}
+        </div>
+    </Dropdown>
+
+    <button on:click={() => handler.setMonth($date.getMonth() + 1)} class="nav">
+        <i class="micon">chevron_right</i>
+    </button>
+
+</header>
+
+
+<style>
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding:0 4px;
+        height:40px;
+        border-bottom: 1px solid #eee;
+        background:#fafafa;
+    }
+
+    button.nav{height:32px;width:32px;border-radius:50%;color:#757575;}
+    button.nav:hover{background:#eee;}
+    button.month, button.year{justify-content:space-between;height:32px;border:1px solid #e0e0e0;padding:0 4px 0 8px;height:24px;font-size:13px;background:#fff;}
+    button.month i, button.year i{color:#757575;font-size:20px;margin-left:4px;}
+    button.month{width:96px;}
+    button.year{width:64px;}
+</style>

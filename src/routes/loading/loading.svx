@@ -11,22 +11,22 @@ Trois types de chargements sont réunis dans un même composant `Loading` :
 
 <div class="ul">
 
-1. `<Loading type={'process'}/>` - type `process` déclenché de manière impérative grâce aux fonction du magasin : `loading.start()` `loading.stop()`.
-2. `<Loading type={'bootstrap'}/>` - type `bootstrap` dédié au chargement initial de l'application.
+1. `<Loading process/>` - type `process` déclenché de manière impérative grâce aux fonctions du magasin : `loading.start()` `loading.stop()`.
+2. `<Loading bootstrap/>` - type `bootstrap` dédié au chargement initial de l'application.
 3. `<Loading/>` - par défaut : le composant peut être utilisé dans un bloc `{#await}` par exemple. Il est contenu par l'élément parent.
 
 </div>
 
 <br><br>
 
-## `<Loading type={'process'}/>`
+## `<Loading process/>`
 
 <ProcessExample/>
 <br>
 
 Lorsqu'une fonction asynchrone est exécutée, on souhaite limiter les intéractions de l'utilisateur.
 
-Le composant `<Loading type={'process'}/>` est placé une seule fois à la racine du projet dans `+layout.svelte`.
+Le composant `<Loading process/>` est placé une seule fois à la racine du projet dans `+layout.svelte`.
 
 > /src/routes/+layout.svelte
 
@@ -36,7 +36,7 @@ Le composant `<Loading type={'process'}/>` est placé une seule fois à la racin
 </script>
 
 <slot/>
-<Loading type={'process'}/>
+<Loading process/>
 ````
 <br>
 
@@ -64,7 +64,7 @@ En paramètre de la fonction `start`, on peut préciser un message et un sous-me
 ````
 <br><br>
 
-## `<Loading type={'bootstrap'}/>`
+## `<Loading bootstrap/>`
 
 Le type `bootstrap` est dédié au chargement initial de l'application.
 
@@ -74,7 +74,7 @@ Le composant se superpose entièrement à la fenêtre courante et masque l'arri�
 
 <br>
 
-Le paramètre `type={'bootstrap'}` est précisé.
+Le paramètre `bootstrap` est précisé.
 
 ````svelte
 <script>
@@ -85,7 +85,7 @@ Le paramètre `type={'bootstrap'}` est précisé.
 
 
 {#await bootstrap()}
-    <Loading type={'bootstrap'}/>
+    <Loading bootstrap/>
 {:then}
     <!-- stuff -->
 {/await}

@@ -13,8 +13,8 @@
     const handleClick = () => {
         errors = [
             {field: 'email', message: 'Non valid email address'},
-            {field: 'firstname', message: 'This firstname is not authorized'},
             {field: 'name', message: 'This name is not authorized'},
+            {field: 'age', message: 'This age is not authorized'},
             {field: 'password', message: 'Not secured'},
             {field: 'password_confirmed', message: 'Passwords are different'},
         ]
@@ -24,8 +24,8 @@
         errors= []
         form = {
             email: null,
-            firstname: null,
             name: null,
+            age: null,
             password: null,
             password_confirmed: null,
         }
@@ -33,11 +33,11 @@
 </script>
 
 <section>
-    <Input required {errors} icon={'mail'} label={'Email'} field={'email'} bind:value={form.email}/>
-    <Input          {errors} icon={'person'} label={'First name'} field={'firstname'} bind:value={form.firstname}/>
-    <Input          {errors} icon={'person'} label={'Name'}  field={'name'}  bind:value={form.name}/>
-    <Input required {errors} icon={'lock'} label={'Password'} field={'password'} bind:value={form.password} password/>
-    <Input required {errors} icon={'lock'} label={'Confirm password'} field={'password_confirmed'} bind:value={form.password_confirmed} password />
+    <Input required {errors} icon="mail"   label="Email"            field="email"               bind:value={form.email}/>
+    <Input          {errors} icon="person" label="Name"             field="name"                bind:value={form.name}/>
+    <Input          {errors} icon="child_care" label="Age"             field="age"                bind:value={form.age} number/>
+    <Input required {errors} icon="lock"   label="Password"         field="password"            bind:value={form.password} password/>
+    <Input required {errors} icon="lock"   label="Confirm password" field="password_confirmed"  bind:value={form.password_confirmed} password />
 
     <button class="btn z-depth-1" type="submit" on:click|preventDefault={handleClick}>
         <i class="micon">save</i>

@@ -17,7 +17,7 @@
 </button>
 
 {#if active}
-    <Loading type={'bootstrap'}/>
+    <Loading bootstrap/>
 {/if}
 
 

@@ -6,5 +6,3 @@
 <div class="svx">
     <Dropdown/>
 </div>
-
-

@@ -1,9 +1,15 @@
 <script>
     import { createPopperActions } from '$lib/tooltip'
-    import { slide, fade } from 'svelte/transition'
-    export let position = 'bottom'
+    import { fade } from 'svelte/transition'
+    export let top
+    export let right
+    export let bottom
+    export let left
+    export let position = top ? 'top' : right ? 'right' : bottom ? 'bottom' : left ? 'left' : 'bottom'
 
     export let content = ''
+
+    
     const [popperRef, popperContent] = createPopperActions({
         placement: position,
         strategy: 'fixed',
@@ -32,7 +38,8 @@
             out:fade={{ duration:200 }}
             use:popperContent={extraOpts} 
             class="tooltip" 
-            data-position="{position}">
+            data-position="{position}"
+        >
             {@html content}
         </div>
     {/if}
@@ -54,7 +61,7 @@
         padding: 8px 14px;
         font-size: 12px;
         border-radius: 2px;
-        z-index: 99999;
+        z-index: 9999;
         text-transform:none;
         font-family: Roboto;
     }
