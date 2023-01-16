@@ -43,7 +43,7 @@
         </label>
     {/if}
 
-    <Dropdown position="bottom-start" preventClosing>
+    <Dropdown position="bottom-start" preventClosing fixedWidth>
         <button class:big={big}>
             {date}
             <i class="micon">arrow_drop_down</i>

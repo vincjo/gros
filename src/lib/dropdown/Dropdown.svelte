@@ -5,6 +5,7 @@
 
     export let position = 'bottom'
     export let preventClosing = false
+    export let fixedWidth = false
     const [popperRef, popperContent] = createPopperActions({
         placement: position,
         strategy: 'fixed',
@@ -21,7 +22,7 @@
 
     const open = () => {
         active = !active
-        if (element) {
+        if (element && !fixedWidth) {
             minWidth = element.offsetWidth + 'px'
         }
     }
@@ -38,7 +39,7 @@
             active = false 
             return
         }
-        else if (dropdownElement && dropdownElement.contains(event.target)) {
+        else if (dropdownElement && dropdownElement.firstChild.contains(event.target)) {
             return
         }
         else {
