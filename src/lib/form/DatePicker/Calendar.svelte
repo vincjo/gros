@@ -1,14 +1,10 @@
 <script lang="ts">
     import type DateHandler from './DateHandler'
-    import type { Calendar } from './Context'
 
     export let handler: DateHandler
     const calendar = handler.getCalendar()
     const date = handler.getDate()
-
-    const selectDay = (day: Calendar) => {
-        $date = new Date(day.year, day.month, day.number, 1, 0, 0)
-    }
+    const navDate = handler.getNavDate()
 </script>
 
 
@@ -31,13 +27,13 @@
                 {#each $calendar.slice(weekIndex * 7, weekIndex * 7 + 7) as day}
                     <td>
                         <button
-                            on:click={() => selectDay(day)}
+                            on:click={() => handler.setDate(day)}
                             class:selected={
                                 day.year === $date.getFullYear() &&
                                 day.month === $date.getMonth() &&
                                 day.number === $date.getDate()
                             }
-                            class:other-month={day.month !== $date.getMonth()}
+                            class:other-month={day.month !== $navDate.getMonth()}
                         >
                             {day.number}
                         </button>

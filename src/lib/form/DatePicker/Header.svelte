@@ -3,7 +3,7 @@
     import type DateHandler from './DateHandler'
 
     export let handler: DateHandler
-    const date = handler.getDate()
+    const navDate = handler.getNavDate()
 
     const locale = {
         weekdays: 'dim._lun._mar._mer._jeu._ven._sam.'.split('_'),
@@ -11,8 +11,8 @@
     }
 
     const getYears = () => {
-        const min = $date.getFullYear() - 5
-        const max = $date.getFullYear() + 5
+        const min = $navDate.getFullYear() - 5
+        const max = $navDate.getFullYear() + 5
         let years = []
         for (let i = min; i <= max; i++) {
             years.push(i)
@@ -24,18 +24,18 @@
 
 <header>
 
-    <button on:click={() => handler.setMonth($date.getMonth() - 1)} class="nav">
+    <button on:click={() => handler.setMonth($navDate.getMonth() - 1)} class="nav">
         <i class="micon">chevron_left</i>
     </button>
 
     <Dropdown>
         <button class="month">
-            {locale.months[$date.getMonth()]}
+            {locale.months[$navDate.getMonth()]}
             <i class="micon">arrow_drop_down</i>
         </button>
         <div slot="content" class="nav">
             {#each locale.months as month, i}
-                <button on:click={() => handler.setMonth(i)} class:active={$date.getMonth() === i}>
+                <button on:click={() => handler.setMonth(i)} class:active={$navDate.getMonth() === i}>
                     {month}
                 </button>
             {/each}
@@ -44,19 +44,19 @@
 
     <Dropdown>
         <button class="year">
-            {$date.getFullYear()}
+            {$navDate.getFullYear()}
             <i class="micon">arrow_drop_down</i>
         </button>
         <div slot="content" class="select">
             {#each getYears() as year}
-                <button on:click={() => handler.setYear(year)} class:active={$date.getFullYear() === year}>
+                <button on:click={() => handler.setYear(year)} class:active={$navDate.getFullYear() === year}>
                     {year}
                 </button>
             {/each}
         </div>
     </Dropdown>
 
-    <button on:click={() => handler.setMonth($date.getMonth() + 1)} class="nav">
+    <button on:click={() => handler.setMonth($navDate.getMonth() + 1)} class="nav">
         <i class="micon">chevron_right</i>
     </button>
 

@@ -1,7 +1,7 @@
 import Context from './Context'
 import type { Writable, Readable } from 'svelte/store'
-import type { Calendar } from './Context'
 
+export type Calendar = { year: number; month: number; number: number }
 
 export default class DateHandler
 {
@@ -17,9 +17,14 @@ export default class DateHandler
         return this.context.date
     }
 
-    public setDay(day: number): void
+    public setDate(day: Calendar): void
     {
-        this.context.setDay(day)
+        this.context.date.set(new Date(day.year, day.month, day.number, 5, 0, 0))
+    }
+
+    public getNavDate(): Writable<Date>
+    {
+        return this.context.navDate
     }
 
     public setMonth(month: number): void

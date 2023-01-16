@@ -1,11 +1,11 @@
 import { writable, derived, type Writable, type Readable } from 'svelte/store'
 
-export type Calendar = { year: number; month: number; number: number }
+import type { Calendar } from './DateHandler'
 
-export default class DateStores
+export default class Context
 {
     public date         : Writable<Date>
-    public dateString   : string
+    public navDate      : Writable<Date>
     public day          : Readable<number>
     public month        : Readable<number>
     public year         : Readable<number>
@@ -14,26 +14,16 @@ export default class DateStores
     constructor(dateString: string | null)
     {
         this.date       = writable(dateString ? new Date(dateString) : new Date())
-        this.dateString = dateString
-        this.day        = this.getDay()
+        this.navDate    = writable(dateString ? new Date(dateString) : new Date())
         this.month      = this.getMonth()
         this.year       = this.getYear()
         this.calendar   = this.getCalendar()
     }
 
-    public getDay(): Readable<number>
-    {
-        return derived(
-            this.date, ($date) => {
-                return $date.getDate()
-            }
-        )
-    }
-
     public getMonth(): Readable<number>
     {
         return derived(
-            this.date, ($date) => {
+            this.navDate, ($date) => {
                 return $date.getMonth()
             }
         )
@@ -42,31 +32,24 @@ export default class DateStores
     public getYear(): Readable<number>
     {
         return derived(
-            this.date, ($date) => {
+            this.navDate, ($date) => {
                 return $date.getFullYear()
             }
         )
     }
 
-    public setDay(day: number): void
-    {
-        const date = this.subscribe()
-        date.setDate(day)
-        this.date.set(date)
-    }
-
     public setMonth(month: number): void
     {
-        const date = this.subscribe()
-        date.setMonth(month)
-        this.date.set(date)
+        const navDate = this.subscribe()
+        navDate.setMonth(month)
+        this.navDate.set(navDate)
     }
 
     public setYear(year: number): void
     {
-        const date = this.subscribe()
-        date.setFullYear(year)
-        this.date.set(date)
+        const navDate = this.subscribe()
+        navDate.setFullYear(year)
+        this.date.set(navDate)
     }
 
     public getCalendar(): Readable<Calendar[]>
@@ -135,8 +118,8 @@ export default class DateStores
 
     private subscribe(): Date
     {
-        let $date
-        this.date.subscribe( store => $date = store )
-        return $date
+        let $navDate: Date
+        this.navDate.subscribe( store => $navDate = store )
+        return $navDate
     }
 }
