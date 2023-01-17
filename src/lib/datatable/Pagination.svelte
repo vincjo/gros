@@ -82,6 +82,7 @@
         border:1px solid #e0e0e0;
         border-right:none;
         outline:none;
+        border-radius:none;
     }
     button:first-child {
         border-radius: 4px 0 0 4px;

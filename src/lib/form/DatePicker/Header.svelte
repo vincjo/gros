@@ -81,7 +81,11 @@
         justify-content: space-around;
         align-items: center;
     }
-
+    button {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
     button.nav{height:32px;width:32px !important;border-radius:50%;color:#757575;}
     button.nav:hover{background:#eee;}
     button.month, button.year{justify-content:space-between;height:32px;border:1px solid #e0e0e0;padding:0 4px 0 8px;height:24px;font-size:13px;background:#fff;margin-right:2px;}

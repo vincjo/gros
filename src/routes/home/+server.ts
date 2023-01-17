@@ -3,7 +3,7 @@ import type { RequestHandler } from './$types'
 
 
 export const GET = (async () => {
-    const path = './download/gros.css.zip'
+    const path = './static/gros.css.zip'
     const file = fs.readFileSync(path)
     return new Response(file, {
         headers: {

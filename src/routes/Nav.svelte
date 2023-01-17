@@ -40,17 +40,6 @@
             {/each}
         </ul>
         {/if}
-        {#if page.anchors && $url.includes(page.path)}
-        <ul transition:slide={{ duration:200}}>
-            {#each page.anchors as hash}
-                <a href="{hash.slug}" on:click={() => $anchor = hash.slug}>
-                    <li class:active={$anchor === hash.slug} >
-                        {hash.name}
-                    </li>
-                </a>
-            {/each}
-        </ul>
-        {/if}
     {/each}
 </section>
 
@@ -73,7 +62,7 @@
     h3.active{color:var(--primary);font-weight:600;}
     a{text-decoration:none;}
     ul{margin:0 0 0 0;padding:0 16px 0 0;}
-    ul li{display:block;margin:0;background:#fff;transition:all,0.2s;padding:0 8px;font-size:16px;color:#757575;font-weight:400;line-height:24px;border-radius:2px;border:1px solid transparent;border-right:4px solid transparent;}
+    ul li{display:block;margin:0;background:#fff;transition:all,0.2s;padding:0 8px;font-size:16px;color:#757575;font-weight:400;line-height:24px;border-radius:2px;border:1px solid transparent;border-right:4px solid transparent;font-family:'Roboto';}
     ul li:hover{color:var(--secondary);background:#f5f5f5;}
     ul li.active{color:var(--secondary);font-weight:bold;background:#eee;border:1px solid #eee;border-right:4px solid var(--secondary)}
     /* ul li.active a {background:#fafafa;} */

@@ -48,7 +48,7 @@ Le placement du menu s'adapte à l'espace disponible dans la fenêtre.
 
 <Placement/>
 
-<br>
+<br><br>
 
 ````svelte
 <Dropdown position="bottom-start">
@@ -65,7 +65,7 @@ Le placement du menu s'adapte à l'espace disponible dans la fenêtre.
 
 <PreventClosing/>
 
-<br>
+<br><br>
 
 Par défaut le composant `Dropdown` se ferme dès le premier évènement `click`.
 
@@ -94,7 +94,7 @@ Dans certains cas, le menu a une largeur plus petite, prédéfinie, et un placem
 
 <FixedWidth/>
 
-<br>
+<br><br>
 
 On passe le paramètre `fixedWidth` pour empêcher le redimensionnement du menu.
 

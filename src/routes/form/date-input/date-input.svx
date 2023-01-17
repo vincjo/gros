@@ -4,7 +4,7 @@
     import DateFormats from './DateFormats.svelte'
 </script>
 
-# Date inputs
+# Date input
 
 
 <SmallForm/>

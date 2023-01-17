@@ -68,7 +68,7 @@
     label b{color:var(--ternary);}
 
     label i.micon{padding-right:8px;color:var(--primary);font-size:22px;}
-    button{ color:#626262;border:1px solid #d1d1d1;border-radius:.4rem;padding:.6rem 1rem .7rem;font-size:14px;}
+    button{display:flex;justify-content:flex-start;align-items:center;color:#626262;border:1px solid #d1d1d1;border-radius:.4rem;padding:.6rem 1rem .7rem;font-size:14px;}
     button.big{width:100%;justify-content:space-between;}
     section:not(.small) :global(button.dropdown-trigger) {width:100%;}
     button i{margin-left:8px;}

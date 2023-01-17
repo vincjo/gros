@@ -14,7 +14,7 @@ export default [
             { name: 'Input', path: '/input' },
             { name: 'Textarea', path: '/textarea' },
             { name: 'Range', path: '/range' },
-            { name: 'DateInput', path: '/date' },
+            { name: 'DateInput', path: '/date-input' },
         ],
     },
     {

@@ -37,6 +37,7 @@
         font-size:13px;
     }
     input:focus{
-        outline: 1px solid #bdbdbd;
+        border:none;
+        border-bottom: 1px solid #e0e0e0;
     }
 </style>
