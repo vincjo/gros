@@ -1,7 +1,8 @@
-<script>
+<script lang="ts">
     import { Tooltip } from '$lib/tooltip'
-    export let errors
-    export let field
+    import type { error } from './'
+    export let errors: error[]
+    export let field: string
 
     let message = null
 
@@ -35,5 +36,8 @@
         top:-2px;
         font-size:14px;
     }
-    div :global(.tooltip){color:#e57373;background:#ffebee}
+    div :global(.tooltip){
+        color:#e57373;
+        background:#ffebee
+    }
 </style>

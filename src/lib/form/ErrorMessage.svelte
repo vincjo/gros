@@ -1,6 +1,7 @@
-<script>
-    export let errors
-    export let field
+<script lang="ts">
+    import type { error } from './'
+    export let errors: error[]
+    export let field: string
 
     let message = null
 
@@ -24,5 +25,8 @@
 {/if}
 
 <style>
-    span{color:#e57373;font-size:11px;}
+    span{
+        color:#e57373;
+        font-size:11px;
+    }
 </style>

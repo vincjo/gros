@@ -1,14 +1,12 @@
 <script lang="ts">
     import { Dropdown } from '$lib/dropdown'
     import type DateHandler from './DateHandler'
+    import type { locale } from '../'
 
     export let handler: DateHandler
     const navDate = handler.getNavDate()
 
-    const locale = {
-        weekdays: 'dim._lun._mar._mer._jeu._ven._sam.'.split('_'),
-        months: 'janvier_février_mars_avril_mai_juin_juillet_août_septembre_octobre_novembre_décembre'.split('_')
-    }
+    export let locale: locale
 
     const getYears = () => {
         const min = $navDate.getFullYear() - 5

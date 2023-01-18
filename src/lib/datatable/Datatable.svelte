@@ -17,7 +17,7 @@
 
 <section bind:clientWidth={clientWidth}>
 
-    <article bind:this={element}>
+    <article bind:this={element} class="thin-scrollbar">
         <slot/>
     </article>
 
@@ -74,9 +74,4 @@
     article :global(tbody tr td) {
         padding:4px;
     }
-    article::-webkit-scrollbar {width: 6px;height: 6px;}
-    article::-webkit-scrollbar-track {background: #f5f5f5;}
-    article::-webkit-scrollbar-thumb {background: #c2c2c2;}
-    article::-webkit-scrollbar-thumb:hover {background: #9e9e9e;}
-
 </style>

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import { fade } from 'svelte/transition'
     import { Diamonds } from 'svelte-loading-spinners'
 </script>
@@ -10,6 +10,18 @@
 </section>
 
 <style>
-    section{position:fixed;z-index:99999;top:0;left:0;bottom:0;right:0;background:#fff;}
-    aside{width:104px;height:32px;margin:24vh auto 0 auto;}
+    section{
+        position:fixed;
+        z-index:99999;
+        top:0;
+        left:0;
+        bottom:0;
+        right:0;
+        background:#fff;
+    }
+    aside{
+        width:104px;
+        height:32px;
+        margin:24vh auto 0 auto;
+    }
 </style>

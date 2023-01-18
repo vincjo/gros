@@ -3,13 +3,14 @@
     import ErrorAlert from './ErrorAlert.svelte'
     import { Dropdown } from '$lib/dropdown'
     import { DateTime, type format } from '$lib/date'
+    import type { error } from './'
     import DatePicker from './DatePicker.svelte'
     export let big = false
     export let value = ''
     export let label: string | undefined
     export let icon: string | undefined
     export let required = false
-    export let errors: { field: string, message: string }[]
+    export let errors: error[]
     export let field: string
     export let format: format
 

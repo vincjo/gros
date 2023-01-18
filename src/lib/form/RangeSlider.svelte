@@ -9,7 +9,7 @@
 
     // range slider props
     export let big = false
-    export let range = false
+    export let range
     export let pushy = false
     export let min = 0
     export let max = 100

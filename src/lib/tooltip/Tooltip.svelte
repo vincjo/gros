@@ -1,25 +1,24 @@
-<script>
+<script lang="ts">
     import { createPopperActions } from '$lib/tooltip'
+    import type { Placement } from '@popperjs/core'
     import { fade } from 'svelte/transition'
-    export let top
-    export let right
-    export let bottom
-    export let left
-    export let position = top ? 'top' : right ? 'right' : bottom ? 'bottom' : left ? 'left' : 'bottom'
+    export let top = false
+    export let right = false
+    export let bottom = false
+    export let left = false
+    export let position: Placement = top ? 'top' : right ? 'right' : bottom ? 'bottom' : left ? 'left' : 'bottom'
 
     export let content = ''
 
-    
     const [popperRef, popperContent] = createPopperActions({
         placement: position,
         strategy: 'fixed',
     })
-    const extraOpts = {
+    const params = {
         modifiers: [
             { name: 'offset', options: { offset: [0, 8] } }
         ],
     }
-
     let show = false
 </script>
 
@@ -36,7 +35,7 @@
             class:active={show}
             in:fade={{ duration:120 }}
             out:fade={{ duration:200 }}
-            use:popperContent={extraOpts} 
+            use:popperContent={params} 
             class="tooltip" 
             data-position="{position}"
         >
@@ -53,7 +52,6 @@
         right: 0;
         left: 0;
     }
-
 
     .tooltip {
         background: rgba(0,0,0,0.7);

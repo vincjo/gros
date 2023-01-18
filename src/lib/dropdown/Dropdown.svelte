@@ -1,9 +1,10 @@
-<script>
+<script lang="ts">
     import { clickOutside } from '$lib/dropdown'
     import { fade } from 'svelte/transition'
     import { createPopperActions } from '$lib/tooltip'
+    import type { Placement } from '@popperjs/core'
 
-    export let position = 'bottom'
+    export let position: Placement = 'bottom'
     export let preventClosing = false
     export let fixedWidth = false
     const [popperRef, popperContent] = createPopperActions({

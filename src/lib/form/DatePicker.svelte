@@ -4,6 +4,10 @@
     import DateHandler from './DatePicker/DateHandler'
 
     export let value: string
+    export let locale = {
+        weekdays: 'dim._lun._mar._mer._jeu._ven._sam.'.split('_'),
+        months: 'janvier_février_mars_avril_mai_juin_juillet_août_septembre_octobre_novembre_décembre'.split('_')
+    }
     const handler = new DateHandler(value)
     const date = handler.getDate()
 
@@ -11,7 +15,7 @@
 </script>
 
 <section class="z-depth-1">
-    <Header {handler}/>
+    <Header {handler} {locale}/>
     <Calendar {handler}/>
 </section>
 
