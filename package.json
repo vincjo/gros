@@ -1,6 +1,6 @@
 {
   "name": "gros",
-  "version": "0.10.5",
+  "version": "0.10.6",
   "keywords": [
     "Jeu de composants Svelte réutilisables"
   ],
@@ -26,7 +26,6 @@
     "format": "prettier --plugin-search-dir . --write ."
   },
   "devDependencies": {
-    "@neodrag/svelte": "^2.0.1",
     "@sveltejs/adapter-node": "^1.0.0-next.100",
     "@sveltejs/kit": "next",
     "@sveltejs/package": "next",
@@ -48,10 +47,10 @@
   },
   "type": "module",
   "dependencies": {
-    "@vincjo/datatables": "^0.9.99",
-    "dotenv": "^16.0.3",
-    "sortablejs": "^1.15.0",
-    "svelte-loading-spinners": "^0.3.4",
-    "@popperjs/core": "^2.11.6"
+    "@neodrag/svelte": "~2.0.1",
+    "@vincjo/datatables": "~0.9.99",
+    "sortablejs": "~1.15.0",
+    "svelte-loading-spinners": "~0.3.4",
+    "@popperjs/core": "~2.11.6"
   }
 }
