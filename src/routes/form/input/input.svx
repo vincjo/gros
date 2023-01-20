@@ -83,7 +83,7 @@ Pour obtenir un gros `Input`, on ajout le paramètre `big`.
 
 ## Gestion des erreurs
 
-Les erreurs sont systématiquement gérées côté serveur.
+Les erreurs sont gérées côté serveur.
 Après soumission d'un formulaire, la réponse contient éventuellement un tableau d'erreurs.
 
 L'objet `errors` est normé conformément à l'exemple ci-dessous :
@@ -107,6 +107,22 @@ La totalité du tableau d'erreurs sera transmise à chaque composant `Input` via
     label="Email" 
     bind:value={form.email}
 />
+````
+
+<br>
+
+### Côté client
+
+Dans un contexte d'administration, la vérification des formulaires peut s'opérer côté client.
+
+Cette vérification est sommaire, elle ne prend en compte que la règle des informations requises. 
+
+````svelte
+<script>
+    import { check } from 'gros/form'
+
+    const errors = check(form, ['email', 'name', 'firstname'])
+</script>
 ````
 
 <br><br><br><br>
