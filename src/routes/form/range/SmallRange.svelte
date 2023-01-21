@@ -9,7 +9,7 @@
     <aside>
         <p>valeur : <b>{value}</b></p>
 
-        <Range bind:value={value} min={0} max={50} suffix="kg"/>
+        <Range bind:value={value} min={0} max={50} step={0.1} suffix="kg"/>
 
         <span>1 valeur</span>
     </aside>

@@ -31,7 +31,7 @@
                 {locale.months[$navDate.getMonth()]}
                 <i class="micon">arrow_drop_down</i>
             </button>
-            <div slot="content" class="select z-depth-1">
+            <div slot="content" class="select month z-depth-2">
                 {#each locale.months as month, i}
                     <button on:click={() => handler.setMonth(i)} class:active={$navDate.getMonth() === i}>
                         {month}
@@ -45,7 +45,7 @@
                 {$navDate.getFullYear()}
                 <i class="micon">arrow_drop_down</i>
             </button>
-            <div slot="content" class="select z-depth-1">
+            <div slot="content" class="select year z-depth-2">
                 {#each getYears() as year}
                     <button on:click={() => handler.setYear(year)} class:active={$navDate.getFullYear() === year}>
                         {year}
@@ -88,12 +88,13 @@
     button.nav:hover{background:#eee;}
     button.month, button.year{justify-content:space-between;height:32px;border:1px solid #e0e0e0;padding:0 4px 0 8px;height:24px;font-size:13px;background:#fff;margin-right:2px;}
     button.month i, button.year i{color:#757575;font-size:20px;margin-left:4px;}
-    button.month{width:96px;}
-    button.year{width:64px;}
+    .month{width:96px;}
+    .year{width:64px;}
 
-    div.select{background:#fff;border:1px solid #e0e0e0;border-top:none;border-radius:0 0 4px 4px;padding:0 4px;}
+    div.select{background:#fff;border:1px solid #e0e0e0;border-top:1px solid #eee;border-radius:0 0 4px 4px;padding:0 4px;}
     div.select button{justify-content:flex-start;font-size:12px;width:100%;height:20px;padding:0 8px;}
     div.select button:hover{background:#eee;}
     div.select button.active{background:#424242;color:#fff;}
+
 
 </style>

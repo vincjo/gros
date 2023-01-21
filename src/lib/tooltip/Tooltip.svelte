@@ -16,7 +16,7 @@
     })
     const params = {
         modifiers: [
-            { name: 'offset', options: { offset: [0, 8] } }
+            { name: 'offset', options: { offset: [0, 4] } }
         ],
     }
     let show = false
@@ -56,11 +56,12 @@
     .tooltip {
         background: rgba(0,0,0,0.7);
         color: white;
-        padding: 8px 14px;
-        font-size: 12px;
+        padding: 4px 12px;
+        font-size: 13px;
         border-radius: 2px;
         z-index: 9999;
         text-transform:none;
         font-family: Roboto;
+        letter-spacing: .02em;
     }
 </style>

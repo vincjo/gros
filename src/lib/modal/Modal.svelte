@@ -33,6 +33,7 @@
         background:#f5f5f5;
         cursor:move;
         border-radius:4px 4px 0 0;
+        user-select: none;
     }
     header button{
         cursor:pointer;
@@ -81,17 +82,18 @@
         padding:0;
         background:#fdfdfd;
         border-radius:0 0 4px 4px;
+        user-select: none;
     }
 
     footer :global(button){
         border:1px solid #e0e0e0;
         outline:none;
         width:auto;
-        height:38px;
+        height:34px;
         background:#eee;
         transition:all,0.5s;
         cursor:pointer;
-        margin-right:8px;
+        margin-right:12px;
         padding:0 16px;
         color:#212121;
         border-radius:2px;

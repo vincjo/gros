@@ -7,7 +7,6 @@
         })
 
         const blob = await response.blob()
-        console.log(blob)
         const url = window.URL || window.webkitURL
         const link = url.createObjectURL(blob)
 
