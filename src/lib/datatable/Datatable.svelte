@@ -2,6 +2,7 @@
     import RowCount from './RowCount.svelte'
     import Pagination from './Pagination.svelte'
     export let handler
+    export let withPagination = true
     let element
     let clientWidth = 1000
 
@@ -23,7 +24,9 @@
 
     <footer>
         <RowCount   {handler} small={clientWidth < 600}/>
-        <Pagination {handler} small={clientWidth < 600}/>
+        {#if withPagination}
+            <Pagination {handler} small={clientWidth < 600}/>
+        {/if}
     </footer>
 </section>
 
@@ -64,9 +67,6 @@
     }
     article :global(tbody tr) {
         transition:background, 0.2s;
-    }
-    article :global(tbody tr:nth-child(even)){
-        background:#fafafa;
     }
     article :global(tbody tr:hover) {
         background:#f5f5f5;
