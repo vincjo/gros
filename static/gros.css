@@ -219,11 +219,11 @@ img {
 .thin-scrollbar::-webkit-scrollbar-thumb:hover {background: #9e9e9e;}
 .thin-scrollbar::-webkit-scrollbar-track-piece:start {top: 40px;}
 
-.thin-scrollbar-dark::-webkit-scrollbar {width:8px;height:8px;}
-.thin-scrollbar-dark::-webkit-scrollbar-track {background:#424242;}
-.thin-scrollbar-dark::-webkit-scrollbar-thumb {background:#000;}
-.thin-scrollbar-dark::-webkit-scrollbar-thumb:hover {background: #212121;}
-.thin-scrollbar-dark::-webkit-scrollbar-track-piece:start {top:40px;}
+.thin-scrollbar-darken::-webkit-scrollbar {width:8px;height:8px;}
+.thin-scrollbar-darken::-webkit-scrollbar-track {background:#424242;}
+.thin-scrollbar-darken::-webkit-scrollbar-thumb {background:#000;}
+.thin-scrollbar-darken::-webkit-scrollbar-thumb:hover {background: #212121;}
+.thin-scrollbar-darken::-webkit-scrollbar-track-piece:start {top:40px;}
 
 i.material-icons, i.micon {
     font-family: 'Material Icons';

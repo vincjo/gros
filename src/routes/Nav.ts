@@ -37,6 +37,7 @@ export default [
         name: 'utils',
         path: '/utils',
         pages: [
+            { name: 'css', path: '/css' },
             { name: 'date', path: '/date' },
             { name: 'page', path: '/page' },
         ],
