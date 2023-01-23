@@ -1,0 +1,46 @@
+<script>
+    import { url, getPath } from '$lib/page'
+</script>
+
+# Navigation
+
+````svelte
+<script>
+    import { url, getPath } from 'gros/page'
+</script>
+````
+<br>
+
+## URL courante
+
+````svelte
+<span> {$url} </span>
+````
+
+{$url}
+
+<br>
+
+## Liens
+
+````svelte
+<a href="{getPath('/home')}">
+    Lien qui fonctionne en environnement
+    de développement et en production
+</a>
+
+````
+
+<a href="{getPath('/home')}">
+    Lien qui fonctionne en environnement
+    de développement et en production
+</a>
+
+
+
+
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+

@@ -1,0 +1,81 @@
+<script>
+    import Relative from './Relative.svelte'
+    import Format from './Format.svelte'
+    import Plus from './Plus.svelte'
+    import Minus from './Minus.svelte'
+</script>
+
+# DateTime
+
+## Formatage des dates
+
+````svelte
+<script>
+    import { DateTime } from 'gros/date'
+
+    const date = DateTime.format('2022-01-01', { 
+        year: 'numeric', 
+        month: 'short', 
+        day: '2-digit'
+    })
+</script>
+
+<p>{date}</p>
+// 01 janv. 2022
+````
+
+<br>
+
+<Format/>
+
+<br>
+
+````ts
+type Format = {
+    year    ?: 'numeric' | '2-digit'
+    month   ?: 'numeric' | '2-digit' | 'narrow' | 'short' | 'long'
+    day     ?: 'numeric' | '2-digit'
+    weekday ?: 'narrow'  | 'short'   | 'long'
+}
+````
+
+<br><br>
+
+## Temps relatif
+
+<Relative/>
+
+<br>
+
+````svelte
+<script>
+    import { DateTime } from 'gros/date'
+</script>
+
+<p>{DateTime.relative('2021-06-04')}</p>
+````
+<br><br>
+
+## Opérations
+
+
+### Ajouter une durée
+
+<Plus/>
+
+<br>
+
+### Soustraire une durée
+
+<Minus/>
+
+<br>
+
+````ts
+type Unit = 'year' | 'month' | 'week' | 'day'
+````
+
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>

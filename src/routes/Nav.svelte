@@ -1,7 +1,7 @@
 <script>
     import { slide, fade } from 'svelte/transition'
     import pages from './Nav'
-    import { getPath, url, anchor } from '$utils/page'
+    import { getPath, url } from '$lib/page'
 </script>
 
 <section>

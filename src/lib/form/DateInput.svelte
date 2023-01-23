@@ -2,7 +2,7 @@
     import ErrorMessage from './ErrorMessage.svelte'
     import ErrorAlert from './ErrorAlert.svelte'
     import { Dropdown } from '$lib/dropdown'
-    import { DateTime, type format } from '$lib/date'
+    import { DateTime, type Format } from '$lib/date'
     import type { error } from './'
     import DatePicker from './DatePicker.svelte'
     export let big = false
@@ -12,7 +12,7 @@
     export let required = false
     export let errors: error[]
     export let field: string
-    export let format: format
+    export let format: Format
 
     let id = 'id' + (Math.random() + 1).toString(36).substring(7)
 

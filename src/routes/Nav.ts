@@ -33,4 +33,12 @@ export default [
         name: 'tooltip',
         path: '/tooltip',
     },
+    {
+        name: 'utils',
+        path: '/utils',
+        pages: [
+            { name: 'date', path: '/date' },
+            { name: 'page', path: '/page' },
+        ],
+    },
 ]
