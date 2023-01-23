@@ -10,7 +10,7 @@
             <span>{@html $loading.message}</span>
         {/if}
         <aside>
-            <Jumper size="80" color="var(--primary)" unit="px"></Jumper>
+            <Jumper size="80" color="var(--primary)"/>
         </aside>
         {#if $loading.submessage}
             <strong>{@html $loading.submessage}</strong>
@@ -21,7 +21,7 @@
 <style>
     section{
         position:fixed;
-        z-index:700;
+        z-index:99999;
         top:0;
         left:0;
         bottom:0;

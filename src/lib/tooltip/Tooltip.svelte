@@ -60,6 +60,7 @@
         font-size: 13px;
         border-radius: 2px;
         z-index: 9999;
+        position: fixed;
         text-transform:none;
         font-family: Roboto;
         letter-spacing: .02em;

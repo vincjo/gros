@@ -1,16 +1,20 @@
 <script lang="ts">
     import { fade } from 'svelte/transition'
-    import { Diamonds } from 'svelte-loading-spinners'
+    import { Jumper } from 'svelte-loading-spinners'
 </script>
 
 <aside transition:fade>
-    <Diamonds size="40" color="var(--primary)" duration="1s"/>
+    <Jumper size="64" color="var(--primary)"/>
 </aside>
 
 <style>
     aside{
-        width:100%;
-        height:100%;
+        position: absolute;
+        z-index:99999;
+        top:0;
+        left:0;
+        bottom:0;
+        right:0;
         background:rgba(255,255,255,0.3);
         display:flex;
         align-items:center;
