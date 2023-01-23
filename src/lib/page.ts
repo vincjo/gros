@@ -1,6 +1,5 @@
 import { page } from '$app/stores'
 import { base } from '$app/paths'
-import { goto } from '$app/navigation'
 import { derived } from 'svelte/store'
 
 export const url = derived(
@@ -10,7 +9,7 @@ export const url = derived(
 )
 
 export const getPath = (url: string) => {
-    if (base) {
+    if (base === '/gros') {
         return `${base}${url}`.replace('//', '/').replace(/\/$/, '')
     }
     return url
