@@ -1,6 +1,6 @@
 {
   "name": "gros",
-  "version": "0.12.5",
+  "version": "0.13.0",
   "keywords": [
     "Jeu de composants Svelte réutilisables"
   ],
@@ -48,8 +48,7 @@
   "type": "module",
   "dependencies": {
     "@neodrag/svelte": "^2.0.1",
-    "@vincjo/datatables": "^1.0.0",
-    "sortablejs": "^1.15.0",
+    "@vincjo/datatables": "^1.0.1",
     "svelte-loading-spinners": "^0.3.4",
     "@popperjs/core": "^2.11.6"
   }
