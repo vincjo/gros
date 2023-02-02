@@ -9,7 +9,7 @@ export const url = derived(
 )
 
 export const getPath = (url: string) => {
-    if (base === '/gros') {
+    if (base) {
         return `${base}${url}`.replace('//', '/').replace(/\/$/, '')
     }
     return url
