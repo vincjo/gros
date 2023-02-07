@@ -6,22 +6,25 @@
 </script>
 
 
-<button on:click={() => checked = !checked}>
-    <span 
-        style:height={size + 'px'} 
-        style:width={size + 'px'}
-        style:margin={margin.join('px ')}
-    >
-        {#if checked}
-            <i 
-                class="micon" 
-                transition:scale|local={{ duration:150 }}
-                style:font-size="{(size * 0.9) + 'px'}"
-                style:line-height="{(size - 2) + 'px'}"
-            >check</i>
-        {/if}
-    </span>
-    <slot/>
+<button on:click>
+    <button class="checkbox" on:click={() => checked = !checked}>
+        <span 
+            style:height={size + 'px'} 
+            style:width={size + 'px'}
+            style:margin={margin.join('px ')}
+        >
+            {#if checked}
+                <i 
+                    class="micon" 
+                    transition:scale|local={{ duration:150 }}
+                    style:font-size="{(size * 0.9) + 'px'}"
+                    style:line-height="{(size - 2) + 'px'}"
+                >check</i>
+            {/if}
+        </span>
+        <slot/>
+    </button>
+
 </button>
 
 <style>
