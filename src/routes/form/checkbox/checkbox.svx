@@ -1,0 +1,38 @@
+<script>
+    import Example from './Example.svelte'
+
+</script>
+
+
+# Checkbox
+
+<Example/>
+
+<br>
+
+````svelte
+<script>
+    import { Checkbox } from 'gros/form'
+    let checked = false
+</script>
+
+<Checkbox bind:checked size={20} margin={[0,8,0,0]}>
+    J'approuve les conditions générales d'utilisation
+</Checkbox>
+````
+<br>
+
+<div class="table">
+
+| param  | default  | required  | 
+|---|---|---|
+| **checked**  |  *false* | true  |
+| **size**  |  *18* | false  |
+| **margin**  |  *[0]* | false  |
+
+</div>
+
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>

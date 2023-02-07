@@ -13,6 +13,7 @@ export default [
         pages: [
             { name: 'Input', path: '/input' },
             { name: 'Textarea', path: '/textarea' },
+            { name: 'Checkbox', path: '/checkbox' },
             { name: 'Range', path: '/range' },
             { name: 'DateInput', path: '/date-input' },
         ],
