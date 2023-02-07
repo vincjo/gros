@@ -1,6 +1,6 @@
 <script>
     import Example from './Example.svelte'
-
+    import Advanced from './Advanced.svelte'
 </script>
 
 
@@ -32,7 +32,25 @@
 
 </div>
 
+<br>
 
+## Placement
+
+Les contenus peuvent-êtes situés avant la `checkbox` en utilisant le paramètre `slot="before"`
+
+<Advanced/>
+
+<br>
+
+````svelte
+<Checkbox bind:checked={isVisible} size={22} margin={[16,8]}>
+    <aside slot="before" class:active={isVisible}>
+        <i class="micon">{isVisible ? 'visibility' : 'visibility_off'}</i>
+        <span>Visible</span>
+    </aside>
+</Checkbox>
+
+````
 
 <br><br><br><br>
 <br><br><br><br>

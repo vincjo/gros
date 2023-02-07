@@ -8,6 +8,7 @@
 
 <button on:click>
     <button class="checkbox" on:click={() => checked = !checked}>
+        <slot name="before"/>
         <span 
             style:height={size + 'px'} 
             style:width={size + 'px'}
