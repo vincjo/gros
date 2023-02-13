@@ -1,5 +1,6 @@
 <script>
     import TooltipExample from './TooltipExample.svelte'
+    import Gap from './Gap.svelte'
 </script>
 
 
@@ -37,6 +38,22 @@ L'élément qui contient l'info-bulle doit avoir la classe `tooltip` ou bien la 
 <button class="tooltip">
     <Tooltip right content="Tooltip right"/>
     Right
+</button>
+````
+<br>
+
+## Décalage
+
+Le paramètre `gap` permet de décaller les info-bulles.
+
+<Gap/>
+
+<br>
+
+````svelte
+<button class="tooltip">
+    <Tooltip gap={16} top content="Tooltip top"/>
+    Gap = 16
 </button>
 ````
 

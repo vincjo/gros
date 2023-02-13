@@ -2,6 +2,7 @@
     import { createPopperActions } from '$lib/tooltip'
     import type { Placement } from '@popperjs/core'
     import { fade } from 'svelte/transition'
+    export let gap = 4
     export let top = false
     export let right = false
     export let bottom = false
@@ -16,7 +17,7 @@
     })
     const params = {
         modifiers: [
-            { name: 'offset', options: { offset: [0, 4] } }
+            { name: 'offset', options: { offset: [0, gap] } }
         ],
     }
     let show = false
