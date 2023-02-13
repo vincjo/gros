@@ -86,15 +86,40 @@
     }
     button.nav{height:32px;width:32px !important;border-radius:50%;color:#757575;}
     button.nav:hover{background:#eee;}
-    button.month, button.year{justify-content:space-between;height:32px;border:1px solid #e0e0e0;padding:0 4px 0 8px;height:24px;font-size:13px;background:#fff;margin-right:2px;}
+    button.month, button.year{
+        justify-content:space-between;
+        height:32px;border:1px solid #e0e0e0;
+        padding:0 4px 0 8px;
+        height:24px;
+        font-size:13px;
+        background:#fff;
+        margin-right:2px;
+    }
     button.month i, button.year i{color:#757575;font-size:20px;margin-left:4px;}
     .month{width:96px;}
     .year{width:64px;}
 
-    div.select{background:#fff;border:1px solid #e0e0e0;border-top:1px solid #eee;border-radius:0 0 4px 4px;padding:0 4px;}
-    div.select button{justify-content:flex-start;font-size:12px;width:100%;height:20px;padding:0 8px;}
-    div.select button:hover{background:#eee;}
-    div.select button.active{background:#424242;color:#fff;}
+    div.select{
+        background:#fff;
+        border:1px solid #e0e0e0;
+        border-top:1px solid #eee;
+        border-radius:0 0 4px 4px;
+        padding:0 4px 4px 4px;
+    }
+    div.select button{
+        justify-content:flex-start;
+        font-size:12px;
+        width:100%;
+        height:20px;
+        padding:0 8px;
+    }
+    div.select button:hover{
+        background:#eee;
+    }
+    div.select button.active{
+        background:#424242;
+        color:#fff;
+    }
 
 
 </style>

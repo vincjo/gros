@@ -11,7 +11,7 @@ export class DateTime
 {
     public static format(
         dateString: string, 
-        format: Format = { year: 'numeric', month: 'numeric', day: 'numeric' }, 
+        format: Format = { year: 'numeric', month: 'short', day: 'numeric' }, 
         locale = 'fr-FR'
     ): string 
     {

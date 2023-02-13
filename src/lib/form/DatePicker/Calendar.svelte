@@ -51,7 +51,18 @@
     td, th{text-align:center;}
     thead tr{height:32px;font-size:12px;}
     td{padding:0;}
-    button{width:28px;height:28px;margin:0 auto;border-radius:4px;font-size:12px;line-height:24px;margin:2px 0 0 0;}
+    button{
+        width:28px;
+        height:28px;
+        border-radius:4px;
+        font-size:12px;
+        line-height:24px;
+        margin:2px 0 0 0;
+    }
     button.selected{background:#424242;color:#fff;}
     button.other-month{color:#bdbdbd;}
+    button:hover {
+        background: #424242;
+        color: #fff;
+    }
 </style>

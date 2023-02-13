@@ -9,8 +9,8 @@
     </div>
 
     <div class="flex">
-        <span>{DateTime.format("2022-01-01", { year: 'numeric', month: 'short', day: '2-digit'})}</span>
-        <code>{`{ year: 'numeric', month: 'short', day: '2-digit'}`}</code>
+        <span>{DateTime.format("2022-01-01", { year: 'numeric', month: 'numeric', day: 'numeric'})}</span>
+        <code>{`{ year: 'numeric', month: 'numeric', day: 'numeric'}`}</code>
     </div>
 
     <div class="flex">
