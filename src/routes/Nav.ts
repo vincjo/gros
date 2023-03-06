@@ -16,6 +16,7 @@ export default [
             { name: 'Checkbox', path: '/checkbox' },
             { name: 'Range', path: '/range' },
             { name: 'DateInput', path: '/date-input' },
+            { name: 'ColorPicker', path: '/color-picker' },
         ],
     },
     {

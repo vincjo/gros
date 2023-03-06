@@ -1,0 +1,28 @@
+<script>
+    import { ColorPicker, ColorHandler } from '$lib/form'
+
+    const handler = new ColorHandler('#248a79', 0.58)
+</script>
+
+# Color picker
+
+<ColorPicker {handler}/>
+
+<br><br>
+<br><br>
+
+````svelte
+<script>
+    import { ColorPicker, ColorHandler } from 'gros/form'
+
+    const handler = new ColorHandler('#006064', 0.58)
+    const hex = handler.getHEX()
+</script>
+
+<ColorPicker {handler}/>
+````
+
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
