@@ -1,5 +1,5 @@
 export { default as Dropdown } from './Dropdown.svelte'
-
+export { default as Autocomplete } from './Autocomplete.svelte'
 
 export const clickOutside = (node: HTMLElement, handler: (event: any) => void ): { destroy: () => void } => {
     const onClick = (event: any) => {

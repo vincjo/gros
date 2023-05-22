@@ -6,7 +6,6 @@
 
     export let position: Placement = 'bottom'
     export let preventClosing = false
-    export let preventClickOutside = false
     export let fixedWidth = false
     const [popperRef, popperContent] = createPopperActions({
         placement: position,
@@ -30,9 +29,6 @@
     }
 
     const close = (event) => {
-        if (preventClickOutside && !preventClosing) {
-            return
-        }
         if (!preventClosing) {
             return active = false 
         }
@@ -57,7 +53,6 @@
 </button>
 
 {#if active}
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
     <div
         transition:fade={{ duration:120 }}
         use:popperContent={extraOpts}
@@ -65,9 +60,6 @@
         style:min-width={minWidth}
         class="dropdown"
         data-position="{position}"
-        on:click={() => {
-            if (preventClickOutside && !preventClosing) return active = false
-        }}
     >
         <slot name="content"/>
     </div>
