@@ -3,7 +3,7 @@
 </script>
 
 
-<Dropdown preventClickOutside>
+<Dropdown>
     <button class="btn z-depth-1">
         Drop me!
     </button>
