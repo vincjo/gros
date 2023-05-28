@@ -31,6 +31,10 @@ export default [
         name: 'modal',
         path: '/modal',
     },
+    // {
+    //     name: 'treestructure',
+    //     path: '/treestructure',
+    // },
     {
         name: 'tooltip',
         path: '/tooltip',

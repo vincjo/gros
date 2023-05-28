@@ -2,6 +2,7 @@
 	"extends": "./.svelte-kit/tsconfig.json",
 	"moduleResolution": "NodeNext",
 	"compilerOptions": {
+		"ignoreDeprecations": "5.0",
 		"paths": {
 			"$utils/*": ["./src/utils/*"],
 			"$lib":["./src/lib"],
