@@ -270,3 +270,7 @@ i.material-icons, i.micon {
     letter-spacing:.1rem;
     padding: 8px 16px;
 }
+
+#svelte-inspector-toggle{
+    z-index:999999 !important;
+}
