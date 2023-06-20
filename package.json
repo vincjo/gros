@@ -1,6 +1,6 @@
 {
   "name": "gros",
-  "version": "0.18.8",
+  "version": "0.18.9",
   "keywords": [
     "Jeu de composants Svelte réutilisables"
   ],
@@ -23,7 +23,9 @@
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "lint": "prettier --plugin-search-dir . --check . && eslint .",
-    "format": "prettier --plugin-search-dir . --write ."
+    "format": "prettier --plugin-search-dir . --write .",
+    "pack": "npm run package && cd package && npm publish && cd ../",
+    "deploy": "pm2 deploy ecosystem.config.cjs production"
   },
   "devDependencies": {
     "@sveltejs/adapter-node": "^1.0.0-next.100",

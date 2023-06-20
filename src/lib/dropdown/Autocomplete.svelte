@@ -38,6 +38,7 @@
         margin:0;
         padding:0;
         background:transparent;
+        transform: none;
     }
     .dropdown{
         z-index:9999;
