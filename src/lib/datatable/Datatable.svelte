@@ -1,17 +1,23 @@
-<script>
+<script lang="ts">
+    import type { DataHandler, Row } from '@vincjo/datatables'
     import Search from './Search.svelte'
     import RowCount from './RowCount.svelte'
     import Pagination from './Pagination.svelte'
-    export let handler
 
-    export let search = false
-    export let rowCount = true
-    export let pagination = true
+    type T = $$Generic<Row>
 
-    let element
+    export let handler: DataHandler<T>
+
+    export let search       = true
+    export let rowsPerPage  = true
+    export let rowCount     = true
+    export let pagination   = true
+
+    let element: HTMLElement
     let clientWidth = 1000
 
-    const height = (search ? 48 : 8) + (rowCount || pagination ? 48 : 8)
+    const height = (search || rowsPerPage ? 48 : 8) + (rowCount || pagination ? 48 : 8)
+
     const triggerChange = handler.getTriggerChange()
     $: $triggerChange, scrollTop()
 
@@ -20,26 +26,25 @@
     }
 </script>
 
-
-
-<section bind:clientWidth={clientWidth}>
-
-    <header class:container={search}>
+<section bind:clientWidth>
+    <header class:container={search || rowsPerPage}>
         {#if search}
-            <Search {handler}/>
+            <Search {handler} />
         {/if}
     </header>
 
-    <article bind:this={element} class="thin-scrollbar" style="height:calc(100% - {height}px)">
-        <slot/>
+    <article bind:this={element} style="height:calc(100% - {height}px)"  class="thin-scrollbar">
+        <slot />
     </article>
 
     <footer class:container={rowCount || pagination}>
         {#if rowCount}
-            <RowCount {handler} small={clientWidth < 600}/>
+            <RowCount {handler} small={clientWidth < 600} />
+        {:else}
+            <div/>
         {/if}
         {#if pagination}
-            <Pagination {handler} small={clientWidth < 600}/>
+            <Pagination {handler} small={clientWidth < 600} />
         {/if}
     </footer>
 </section>

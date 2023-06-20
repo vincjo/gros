@@ -39,8 +39,11 @@
 
 <style>
     aside{
-        color:#616161;
+        color:#757575;
         line-height:32px;
         font-size:14px;
+    }
+    aside :global(b) {
+        color: #616161;
     }
 </style>
