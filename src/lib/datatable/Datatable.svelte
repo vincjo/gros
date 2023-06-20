@@ -96,7 +96,7 @@
         transition:background, 0.2s;
     }
     article :global(tbody tr:hover) {
-        background:#f5f5f5;
+        background:#fafafa;
     }
     article :global(tbody tr td) {
         padding:4px 20px 4px 20px;

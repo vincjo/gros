@@ -1,5 +1,9 @@
-<script>
-    export let handler
+<script lang="ts">
+    import type { DataHandler, Row } from '@vincjo/datatables'
+
+    type T = $$Generic<Row>
+
+    export let handler: DataHandler<T>
     let value = ''
 </script>
 

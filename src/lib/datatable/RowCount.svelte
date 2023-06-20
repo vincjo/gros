@@ -1,5 +1,9 @@
-<script>
-    export let handler
+<script lang="ts">
+    import type { DataHandler, Row } from '@vincjo/datatables'
+
+    type T = $$Generic<Row>
+
+    export let handler: DataHandler<T>
     const i18n = { 
         noRows: 'Aucun résultat', 
         rowCount: 'Lignes {start} à {end} sur {total}' 
@@ -41,7 +45,7 @@
     aside{
         color:#757575;
         line-height:32px;
-        font-size:14px;
+        font-size:13px;
     }
     aside :global(b) {
         color: #616161;
