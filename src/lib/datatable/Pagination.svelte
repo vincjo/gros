@@ -49,17 +49,18 @@
             <svg width="100%" height="100%" viewBox="0 0 24 24"><path fill="currentColor" d="M14.71 6.71a.996.996 0 0 0-1.41 0L8.71 11.3a.996.996 0 0 0 0 1.41l4.59 4.59a.996.996 0 1 0 1.41-1.41L10.83 12l3.88-3.88c.39-.39.38-1.03 0-1.41z"></path></svg>
         </button>
         {#each $pages as page}
-            <button type="button"
-                class:active={$pageNumber === page}
-                class:ellipse={page === null}
-                on:click={() => handler.setPage(page)}
-            >
-                {#if page}
+            {#if page === null}
+                <button type="button" class="ellipse">
+                    <svg width="100%" height="100%" viewBox="0 0 24 24"><path fill="currentColor" d="M4.5 12a1.5 1.5 0 1 1 3 0a1.5 1.5 0 0 1-3 0Zm6 0a1.5 1.5 0 1 1 3 0a1.5 1.5 0 0 1-3 0Zm6 0a1.5 1.5 0 1 1 3 0a1.5 1.5 0 0 1-3 0Z"></path></svg>
+                </button>
+            {:else}
+                <button type="button"
+                    class:active={$pageNumber === page}
+                    on:click={() => handler.setPage(page)}
+                >
                     {page}
-                {:else}
-                    <svg width="100%" height="100%" viewBox="0 0 1024 1024"><path fill="currentColor" d="M176 511a56 56 0 1 0 112 0a56 56 0 1 0-112 0zm280 0a56 56 0 1 0 112 0a56 56 0 1 0-112 0zm280 0a56 56 0 1 0 112 0a56 56 0 1 0-112 0z"></path></svg>
-                {/if}
-            </button>
+                </button>
+            {/if}
         {/each}
         <button type="button"
             class:disabled={$pageNumber === $pageCount}
@@ -106,7 +107,8 @@
         background: #fafafa;
     }
     button.ellipse {
-        border: 1px solid transparent;
+        padding: 5px;
+        border: none;
     }
     button.ellipse:hover {
         background: inherit;
