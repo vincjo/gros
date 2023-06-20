@@ -44,7 +44,9 @@ input[type='submit'] {
     padding: 0;
     margin: 0;
 }
-
+button:active {
+    transform: translateY(0.8px);
+}
 
 button:focus,
 input[type='button']:focus,

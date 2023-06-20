@@ -32,6 +32,9 @@
     button {
         display:flex; justify-content: center; align-items: center;
     }
+    button:active{
+        transform:none;
+    }
     span {
         border: 1px solid #d1d1d1;
         border-radius: 2px;
