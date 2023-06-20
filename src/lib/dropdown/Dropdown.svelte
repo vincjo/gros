@@ -18,8 +18,8 @@
     }
     let active = false
     let minWidth = 'auto'
-    let element
-    let dropdownElement
+    let element: HTMLButtonElement
+    let dropdownElement: HTMLDivElement
 
     const open = () => {
         active = !active
@@ -54,7 +54,7 @@
 
 {#if active}
     <div
-        transition:fade={{ duration:120 }}
+        transition:fade|local={{ duration:120 }}
         use:popperContent={extraOpts}
         bind:this={dropdownElement}
         style:min-width={minWidth}

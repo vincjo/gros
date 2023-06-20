@@ -13,11 +13,11 @@
 
     const [popperRef, popperContent] = createPopperActions({
         placement: position,
-        strategy: 'fixed',
+        strategy: 'absolute',
     })
     const params = {
         modifiers: [
-            { name: 'offset', options: { offset: [0, gap] } }
+            { name: 'offset', options: { offset: [0, gap] } },
         ],
     }
     let show = false
@@ -33,11 +33,10 @@
 
     {#if show}
         <div 
-            class:active={show}
-            in:fade={{ duration:120 }}
-            out:fade={{ duration:200 }}
-            use:popperContent={params} 
             class="tooltip" 
+            in:fade|local={{ duration:120 }}
+            out:fade|local={{ duration:200 }}
+            use:popperContent={params} 
             data-position="{position}"
         >
             {@html content}
@@ -60,8 +59,7 @@
         padding: 4px 12px;
         font-size: 13px;
         border-radius: 2px;
-        z-index: 9999;
-        position: fixed;
+        z-index: 999999;
         text-transform:none;
         font-family: Roboto;
         letter-spacing: .02em;
