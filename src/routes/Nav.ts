@@ -14,6 +14,7 @@ export default [
             { name: 'Input', path: '/input' },
             { name: 'Textarea', path: '/textarea' },
             { name: 'Checkbox', path: '/checkbox' },
+            { name: 'Select', path: '/select' },
             { name: 'Range', path: '/range' },
             { name: 'DateInput', path: '/date-input' },
             { name: 'ColorPicker', path: '/color-picker' },

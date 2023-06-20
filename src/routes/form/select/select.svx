@@ -1,0 +1,80 @@
+<script>
+    import BigForm from './BigForm.svelte'
+    import SmallForm from './SmallForm.svelte'
+</script>
+
+# Select
+
+
+<SmallForm/>
+
+<br>
+
+Les options sont passées en paramètre sous forme d'un tableau d'objet. Seule la propriété `value` est requise.
+
+La propriété `value` peut être de type `string`, `number` ou `boolean`.
+
+````svelte
+<script>
+    import { Select } from 'gros/form'
+    const form = { selectMe: null }
+    const options = [
+        { value: 'tutu' },
+        { value: true, label: `It is true` },
+        { value: 5000, label: '(4 * 1000) + 8000 - 7000', icon: 'local_florist' }
+    ]
+</script>
+
+
+<Select 
+    required
+    icon="pets" 
+    label="Select me" 
+    {options}
+    bind:value={form.selectMe}
+/>
+````
+<br>
+<div class="table">
+
+| param  | default  | required  | 
+|---|---|---|
+| **options**  |  *undefined* | true  |
+| **value**  |  *''* | false  |
+| **icon**  |  *undefined* | false  |
+|  **label** | *''*  | false  |
+|  **required** | *false*  | false  |
+| **field** | *undefined* | false
+| **errors** | *undefined* | false
+|  **big** | *false*  | false  |
+
+</div>
+
+<br><br>
+
+
+
+
+## Gros formulaire
+
+
+<BigForm/>
+
+<br><br>
+
+Pour obtenir un gros `Select`, on ajoute le paramètre `big`.
+
+````svelte
+<Select 
+    big
+    required
+    icon="pets" 
+    label="Select me" 
+    {options}
+    bind:value={form.selectMe}
+/>
+````
+
+
+<br><br><br><br>
+<br><br><br><br>

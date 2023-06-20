@@ -1,4 +1,27 @@
 :root {
+  --primary:#927826;
+  --primary-lighten: #A5904D;
+  --primary-lighten-1: rgba(166,124,0,0.1);
+  --primary-lighten-2: rgba(166,124,0,0.2);
+  --primary-lighten-3: rgba(166,124,0,0.3);
+  --primary-darken: #624400;
+
+  --secondary: #A22626;
+  --secondary-lighten: #C98080;
+  --secondary-darken: #750000;
+
+  --ternary: #366E7B;
+}
+
+::selection {
+  background: #424242;
+  color: #fff;
+}
+
+
+
+
+/* :root {
     --primary:#a67c00;
     --primary-lighten: #ffbf00;
     --primary-lighten-1: rgba(166,124,0,0.1);
@@ -16,4 +39,4 @@
 ::selection {
     background: #424242;
     color: #fff;
-}
+} */

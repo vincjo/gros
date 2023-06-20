@@ -7,6 +7,7 @@
     export let position: Placement = 'bottom'
     export let preventClosing = false
     export let fixedWidth = false
+    export let isBlock = false
     const [popperRef, popperContent] = createPopperActions({
         placement: position,
         strategy: 'fixed',
@@ -48,8 +49,14 @@
 </script>
 
 
-<button class="dropdown-trigger" on:click={open} bind:this={element} use:popperRef use:clickOutside={close}>
-    <slot></slot>
+<button 
+    class="dropdown-trigger" 
+    class:block={isBlock} 
+    on:click={open} bind:this={element} 
+    use:popperRef 
+    use:clickOutside={close}
+>
+    <slot/>
 </button>
 
 {#if active}
@@ -71,6 +78,9 @@
         margin:0;
         padding:0;
         background:transparent;
+    }
+    button.block {
+        width: 100%;
     }
     .dropdown{
         z-index:9999;
