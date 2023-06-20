@@ -54,7 +54,11 @@
                 class:ellipse={page === null}
                 on:click={() => handler.setPage(page)}
             >
-                {page ?? '...'}
+                {#if page}
+                    {page}
+                {:else}
+                    <svg width="100%" height="100%" viewBox="0 0 1024 1024"><path fill="currentColor" d="M176 511a56 56 0 1 0 112 0a56 56 0 1 0-112 0zm280 0a56 56 0 1 0 112 0a56 56 0 1 0-112 0zm280 0a56 56 0 1 0 112 0a56 56 0 1 0-112 0z"></path></svg>
+                {/if}
             </button>
         {/each}
         <button type="button"
@@ -89,7 +93,10 @@
         border-radius: 4px;
         outline:none;
     }
-    button:active:not(.disabled):not(.active) {
+    button:active {
+        transform: none;
+    }
+    button:active:not(.disabled):not(.active):not(.ellipse) {
         transform: translateY(0.8px);
     }
     svg {
@@ -97,6 +104,9 @@
     }
     button:not(.active):hover {
         background: #fafafa;
+    }
+    button.ellipse {
+        border: 1px solid transparent;
     }
     button.ellipse:hover {
         background: inherit;

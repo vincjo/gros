@@ -1,7 +1,7 @@
 <script>
     import { DataHandler, Datatable, Th, ThFilter } from '$lib/datatable'
     import data from './data'
-    const handler = new DataHandler(data, { rowsPerPage: 50 })
+    const handler = new DataHandler(data, { rowsPerPage: 20 })
     const rows = handler.getRows()
 </script>
 

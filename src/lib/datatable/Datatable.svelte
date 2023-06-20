@@ -53,15 +53,15 @@
 
 <style>
     section {
-        height:100%;
+        height: 100%;
     }
 
     header, footer {
-        min-height:8px;
-        padding:0 16px;
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
+        min-height: 8px;
+        padding: 0 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
     header.container {
         height: 48px;
