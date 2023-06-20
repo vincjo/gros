@@ -9,14 +9,13 @@
     export let handler: DataHandler<T>
 
     export let search       = true
-    export let rowsPerPage  = true
     export let rowCount     = true
     export let pagination   = true
 
     let element: HTMLElement
     let clientWidth = 1000
 
-    const height = (search || rowsPerPage ? 48 : 8) + (rowCount || pagination ? 48 : 8)
+    const height = (search ? 48 : 8) + (rowCount || pagination ? 48 : 8)
 
     const triggerChange = handler.getTriggerChange()
     $: $triggerChange, scrollTop()
@@ -27,7 +26,7 @@
 </script>
 
 <section bind:clientWidth>
-    <header class:container={search || rowsPerPage}>
+    <header class:container={search}>
         {#if search}
             <Search {handler} />
         {/if}
