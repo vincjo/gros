@@ -95,10 +95,10 @@
         outline:none;
     }
     button:active {
-        transform: none;
-    }
-    button:active:not(.disabled):not(.active):not(.ellipse) {
         transform: translateY(0.8px);
+    }
+    button.active:active, button.ellipse:active, button.disabled:active {
+        transform: none;
     }
     svg {
         height: 18px;
@@ -118,7 +118,6 @@
         color: #eee;
         background: #616161;
         border: 1px solid #fff;
-        font-weight: bold;
         cursor: default;
     }
     button.disabled:hover {
