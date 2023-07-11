@@ -8,7 +8,7 @@
     export let align: 'left' | 'right' | 'center' = 'left'
 
     const identifier = orderBy?.toString()
-    const sorted = handler.getSorted()
+    const sorted = handler.getSort()
 </script>
 
 
