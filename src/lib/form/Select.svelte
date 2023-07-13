@@ -54,13 +54,18 @@
             {/if}
             <i class="micon">arrow_drop_down</i>
         </button>
-        <aside slot="content" class="z-index-3 thin-scrollbar">
+        <aside slot="content" class="z-depth-3 thin-scrollbar" >
             {#each options as option}
-                <button class="flex" on:click={() => select(option)}>
-                    {#if option.icon}
-                        <i class="micon">{option.icon}</i>
+                <button class="flex" on:click={() => select(option)} class:active={option.value === selected?.value}>
+                    <div class="flex">
+                        {#if option.icon}
+                            <i class="micon">{option.icon}</i>
+                        {/if}
+                        {@html option.label ?? option.value}
+                    </div>
+                    {#if option.value === selected?.value}
+                        <i class="micon checked">check</i>
                     {/if}
-                    {@html option.label ?? option.value}
                 </button>
             {/each}
         </aside>
@@ -117,31 +122,30 @@
         padding: 0.6rem 1rem 0.7rem;
         user-select: none;
     }
-    button.open:focus, button.open:active {
-        border: 1px solid var(--primary-lighten);
-        border-bottom: 1px solid #bdbdbd;
-        border-radius: 4px 4px 0 0;
-    }
+
     aside {
         background: #fff;
-        border: 1px solid var(--primary-lighten);
-        border-top: none;
-        border-radius:0 0 4px 4px;
-        padding: 2px;
+        border: 1px solid #e0e0e0;
+        border-radius:4px;
+        padding: 4px;
         position: relative;
         max-height: 200px;
         overflow-y: auto;
         user-select: none;
+        margin: 2px 0;
     }
     aside button {
         width: 100%;
-        padding: 8px 16px;
+        padding: 8px 8px;
         text-align: left;
+        justify-content: space-between;
+    }
+    aside button.active {
+        background: #fafafa;
     }
     aside button:hover {
         background: var(--primary-lighten-1);
     }
-
     section.small{
         display:flex;
         justify-content:flex-start;
