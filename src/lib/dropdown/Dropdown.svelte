@@ -3,11 +3,24 @@
     import { fade } from 'svelte/transition'
     import { createPopperActions } from '$lib/tooltip'
     import type { Placement } from '@popperjs/core'
+    import { onMount } from 'svelte'
 
     export let position: Placement = 'bottom'
     export let preventClosing = false
     export let fixedWidth = false
     export let isBlock = false
+    export let active = false
+
+    let minWidth = 'auto'
+    let element: HTMLButtonElement
+    let dropdownElement: HTMLDivElement
+
+    onMount( () => {
+        if (element && !fixedWidth) {
+            minWidth = element.offsetWidth + 'px'
+        }
+    })
+
     const [popperRef, popperContent] = createPopperActions({
         placement: position,
         strategy: 'fixed',
@@ -17,16 +30,9 @@
             { name: 'offset', options: { offset: [0, 0] } }
         ],
     }
-    let active = false
-    let minWidth = 'auto'
-    let element: HTMLButtonElement
-    let dropdownElement: HTMLDivElement
 
     const open = () => {
         active = !active
-        if (element && !fixedWidth) {
-            minWidth = element.offsetWidth + 'px'
-        }
     }
 
     const close = (event) => {
@@ -52,7 +58,7 @@
 <button 
     class="dropdown-trigger" 
     class:block={isBlock} 
-    on:click={open} bind:this={element} 
+    on:click={open} bind:this={element}
     use:popperRef 
     use:clickOutside={close}
 >
