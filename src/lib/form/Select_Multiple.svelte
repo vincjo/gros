@@ -55,7 +55,7 @@
             <article class="flex">
                 {#if selected.length > 0}
                     {#each selected as option}
-                        <button on:click|preventDefault={() => set(option)} class="flex">
+                        <button on:click|preventDefault={() => set(option)} class="flex prevent-opening">
                             {option.label ?? option.value}
                             <i class="micon prevent-opening" style:font-size="14px" style:margin-left="2px">close</i>
                         </button>
