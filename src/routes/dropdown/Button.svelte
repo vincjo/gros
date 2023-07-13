@@ -1,10 +1,8 @@
 <script>
     import { Dropdown } from '$lib/dropdown'
-    let active= false
 </script>
 
-<button on:click={() => active = !active}>active: {active}</button>
-<Dropdown {active}>
+<Dropdown>
     <button class="btn z-depth-1">
         Drop me!
     </button>
