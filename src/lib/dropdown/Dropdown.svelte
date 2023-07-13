@@ -31,7 +31,13 @@
         ],
     }
 
-    const open = () => {
+    const open = (event) => {
+        if (
+            event.target.classList.contains('prevent-opening')
+            || event.target.parentNode.classList.contains('prevent-opening')
+        ) {
+            return
+        }
         active = !active
     }
 
@@ -58,7 +64,7 @@
 <button 
     class="dropdown-trigger" 
     class:block={isBlock} 
-    on:click={open} bind:this={element}
+    on:click={(event) => open(event)} bind:this={element}
     use:popperRef 
     use:clickOutside={close}
 >

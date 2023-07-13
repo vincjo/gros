@@ -41,6 +41,8 @@ La propriété `value` peut être de type `string`, `number` ou `boolean`.
 |---|---|---|
 | **options**  |  *undefined* | true  |
 | **value**  |  *''* | false  |
+| **multiple**  |  *false* | false  |
+| **values**  |  *[]* | false  |
 | **icon**  |  *undefined* | false  |
 |  **label** | *''*  | false  |
 |  **required** | *false*  | false  |

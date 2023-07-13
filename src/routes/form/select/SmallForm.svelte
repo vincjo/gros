@@ -39,6 +39,11 @@
         { value: 'cat', label: 'Cat' },
         { value: 'dog', label: 'Dog' },
         { value: 'snake', label: 'Snake' },
+        { value: 'fish', label: 'Fish' },
+        { value: 'mouse', label: 'Mouse' },
+        { value: 'tiger', label: 'Tiger' },
+        { value: 'butterfly', label: 'Butterfly' },
+        { value: 'horse', label: 'Horse' },
     ]
     const incomes = [
         { value: 25,    label: '25K€',   },
@@ -65,7 +70,7 @@
 <section>
     <Input  {errors} icon="person" label="Name" field="name" bind:value={form.name}/>
     <Select {errors} field="fruit" label="Fruit" icon="restaurant" options={fruits}/>
-    <Select {errors}  field="pet" label="Pets" required icon="pets" options={pets} bind:value={form.pet}/>
+    <Select {errors}  multiple field="pet" label="Pets" required icon="pets" options={pets} bind:value={form.pet}/>
     <Select {errors}  field="incomes" label="Incomes" icon="euro_symbol" options={incomes} bind:value={form.incomes}/>
     <Select {errors}  field="isSleeping" label="Sleeping?" icon="hotel" options={isSleeping} bind:value={form.isSleeping}/>
 
