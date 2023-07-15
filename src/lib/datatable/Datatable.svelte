@@ -68,7 +68,6 @@
     footer.container {
         height: 48px;
     }
-
     article {
         position:relative;
         /* height:calc(100% - 56px); */
@@ -82,7 +81,6 @@
         border-spacing:0;
         width:100%;
     }
-
     article :global(thead) {
         position:sticky;
         inset-block-start:0;
@@ -96,5 +94,7 @@
     }
     article :global(tbody tr td) {
         padding:4px 20px 4px 20px;
+        border-bottom: 1px solid #eee;
+        border-right: 1px solid #eee;
     }
 </style>

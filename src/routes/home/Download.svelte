@@ -22,7 +22,7 @@
 
 
 <button on:click={download} class="btn">
-    <i class="micon">file_download</i>
+    <i class="micon s24">file_download</i>
     <span>CSS</span>
 </button>
 

@@ -1,8 +1,11 @@
-<script>
-    export let handler
+<script lang="ts">
+    import type { DataHandler } from '@vincjo/datatables'
+    export let handler: DataHandler
     export let filterBy = null
     export let align = 'left'
     let value = ''
+
+    handler.on('clearFilters', () => value ='')
 </script>
 
 

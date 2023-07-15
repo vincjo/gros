@@ -5,6 +5,8 @@
 
     export let handler: DataHandler<T>
     let value = ''
+
+    handler.on('clearSearch', () => value ='')
 </script>
 
 <section>
@@ -24,32 +26,30 @@
 <style>
     section {
         position: relative;
-        height: 24px;
         width: 200px;
     }
     i {
-        position: absolute; top:4px; left: 4px;
+        position: absolute; top:6px; left: 4px;
         width: 16px;
         height: 16px;
         color: #757575;
         margin-left: 2px;
     }
     input{
-        border: none;
         outline:none;
         padding:0 8px 0 26px;
         line-height:24px;
         margin:0;
-        height:24px;
+        height:28px;
         background:transparent;
-        width:176px;
+        width: 100%;
         transition:border, 0.1s;
-        border-bottom:1px solid #e0e0e0;
+        border:1px solid #e0e0e0;
         /* border-radius:4px; */
-        border-radius: 0;
+        border-radius: 6px;
     }
     input:focus {
-        border-bottom:1px solid #e0e0e0;
+        border:1px solid #e0e0e0;
     }
     input::placeholder {
         color:#9e9e9e;

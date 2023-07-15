@@ -1,7 +1,7 @@
 <script>
     import { spring } from "svelte/motion"
     import { createEventDispatcher } from "svelte"
-    import RangePips from "./RangePips.svelte"
+    import Pips from "./Pips.svelte"
 
 
     // dom references
@@ -634,7 +634,7 @@
             />
         {/if}
     { #if pips}
-            <RangePips
+            <Pips
                 {values} {min} {max} {step} {range} {vertical} {reversed}
                 {orientationStart} {hoverable} {disabled} {all} {first}
                 {last} {rest} {pipstep} {prefix} {suffix} {formatter}

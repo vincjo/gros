@@ -1,5 +1,5 @@
 <script lang="ts">
-    import RangeSlider from './RangeSlider.svelte'
+    import Slider from './Range/Slider.svelte'
     export let big = false
     export let value: number[]
     export let min = 0
@@ -12,7 +12,7 @@
 </script>
 
 {#if value.length === 1}
-    <RangeSlider bind:values={value} {step} range="min" float={tooltip} {min} {max} {suffix} {prefix} {big}/>
+    <Slider bind:values={value} {step} range="min" float={tooltip} {min} {max} {suffix} {prefix} {big}/>
 {:else}
-    <RangeSlider bind:values={value} {step} range pushy pips={pips} float={tooltip}  {min} {max} {suffix} {prefix} first="label" last="label" {big}/>
+    <Slider bind:values={value} {step} range pushy pips={pips} float={tooltip}  {min} {max} {suffix} {prefix} first="label" last="label" {big}/>
 {/if}

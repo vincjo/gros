@@ -1,8 +1,8 @@
 <script lang="ts">
     import { Dropdown } from '$lib/dropdown'
-    import ErrorMessage from './ErrorMessage.svelte'
-    import ErrorAlert from './ErrorAlert.svelte'
-    import type { error } from './'
+    import ErrorMessage from '../ErrorMessage.svelte'
+    import ErrorAlert from '../ErrorAlert.svelte'
+    import type { error } from '../'
 
     type Option = { value?: string, label?: string, icon?: string }
 

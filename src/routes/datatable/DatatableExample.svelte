@@ -42,8 +42,4 @@
         border-radius:8px;
     }
 
-    td {
-        border: 1px solid #f5f5f5;
-        padding: 8px 20px;
-    }
 </style>

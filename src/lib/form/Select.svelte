@@ -1,6 +1,6 @@
 <script lang="ts">
-    import Simple from './Select_Simple.svelte'
-    import Multiple from './Select_Multiple.svelte'
+    import Simple from './Select/Simple.svelte'
+    import Multiple from './Select/Multiple.svelte'
     import type { error } from '.'
 
     type Option = { value?: string, label?: string, icon?: string }

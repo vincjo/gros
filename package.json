@@ -51,7 +51,7 @@
   "dependencies": {
     "@neodrag/svelte": "^2.0.1",
     "@popperjs/core": "^2.11.6",
-    "@vincjo/datatables": "^1.11.1",
+    "@vincjo/datatables": "^1.12.0",
     "sortablejs": "^1.15.0",
     "svelte-loading-spinners": "^0.3.4"
   }

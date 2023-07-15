@@ -39,6 +39,7 @@
         border: 1px solid #d1d1d1;
         border-radius: 2px;
         text-align: center;
+        background: #fff;
     }
     span i {
         font-size: 100%;
