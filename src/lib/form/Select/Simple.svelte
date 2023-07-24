@@ -14,7 +14,7 @@
     export let errors: error[]
     export let field: string | null
     export let options: Option[]
-    let selected = options.find( option => option.value === value )
+    export let selected = options.find( option => option.value === value )
     let id = 'id' + (Math.random() + 1).toString(36).substring(7)
 
     const select = (option: Option) => {

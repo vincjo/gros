@@ -10,7 +10,7 @@
 
 <br>
 
-Les options sont passées en paramètre sous forme d'un tableau d'objet. Seule la propriété `value` est requise.
+Les options sont passées en paramètre sous forme d'un tableau d'objets ou de chaînes. Seule la propriété `value` est requise.
 
 La propriété `value` peut être de type `string`, `number` ou `boolean`.
 
@@ -19,10 +19,13 @@ La propriété `value` peut être de type `string`, `number` ou `boolean`.
     import { Select } from 'gros/form'
     const form = { selectMe: null }
     const options = [
-        { value: 'tutu' },
+        { value: 'test' },
         { value: true, label: `It is true` },
         { value: 5000, label: '(4 * 1000) + 8000 - 7000', icon: 'local_florist' }
     ]
+
+    // ou
+    // const options = [ 'test', true, 5000 ]
 </script>
 
 

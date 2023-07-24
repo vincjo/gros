@@ -13,12 +13,14 @@
     export let required = false
     export let errors: error[]
     export let field: string | null
-    export let options: Option[]
+    export let options: Option[] | string[]
     export let multiple = false
+
+    const pasedOptions = (typeof options[0] === 'string') ? options.map((option: string) => ({ value: option })) : options as Option[]
 </script>
 
 {#if multiple}
-    <Multiple {big} {values} {label} {icon} {required} {errors} {field} {options}/>
+    <Multiple {big} bind:values={values} {label} {icon} {required} {errors} {field} options={pasedOptions}/>
 {:else}
-    <Simple {big} {value} {label} {icon} {required} {errors} {field} {options}/>
+    <Simple {big} bind:value={value} {label} {icon} {required} {errors} {field} options={pasedOptions}/>
 {/if}

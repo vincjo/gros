@@ -32,8 +32,7 @@
     }
 
     const fruits = [
-        { value: 'banane', label: 'Banane' },
-        { value: 'strawberry', label: 'Strawberry' },
+        'Banane', 'Strawberry'
     ]
     const pets = [
         { value: 'cat', label: 'Cat' },
@@ -69,7 +68,7 @@
 
 <section>
     <Input  {errors} icon="person" label="Name" field="name" bind:value={form.name}/>
-    <Select {errors} field="fruit" label="Fruit" icon="restaurant" options={fruits}/>
+    <Select {errors} field="fruit" label="Fruit" icon="restaurant" options={fruits} bind:value={form.fruit}/>
     <Select {errors}  multiple field="pet" label="Pets" required icon="pets" options={pets} bind:value={form.pet}/>
     <Select {errors}  field="incomes" label="Incomes" icon="euro_symbol" options={incomes} bind:value={form.incomes}/>
     <Select {errors}  field="isSleeping" label="Sleeping?" icon="hotel" options={isSleeping} bind:value={form.isSleeping}/>
