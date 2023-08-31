@@ -50,7 +50,7 @@
             {#if selected}
                 <span>{selected.label ?? selected.value}</span>
             {:else}
-                <em>Sélectionnez un item</em>
+                <em>Sélection...</em>
             {/if}
             <i class="micon">arrow_drop_down</i>
         </button>
