@@ -10,6 +10,7 @@
     export let fixedWidth = false
     export let isBlock = false
     export let active = false
+    export let disabled = false
 
     let minWidth = 'auto'
     let element: HTMLButtonElement
@@ -71,7 +72,7 @@
     <slot/>
 </button>
 
-{#if active}
+{#if active && !disabled}
     <div
         transition:fade|local={{ duration:120 }}
         use:popperContent={extraOpts}
@@ -97,5 +98,8 @@
     .dropdown{
         z-index:9999;
         user-select: none;
+    }
+    button:active{
+        transform:none;
     }
 </style>

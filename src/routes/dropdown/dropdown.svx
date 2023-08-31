@@ -39,6 +39,8 @@ Le contenu du menu déroulant est placé dans un `slot="content"`, qui peut êtr
 | param  | default  | options  | required  | 
 |---|---|---|---|
 | **position**  |  *'bottom'* | bottom, bottom-start, bottom-end<br> left, left-start, left-end<br> top, top-start, top-end<br> left, right-start, right-end<br> | false  |
+| **active** | *false* | true, false | false |
+| **disabled** | *false* | true, false | false |
 
 </div>
 
