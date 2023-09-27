@@ -63,6 +63,7 @@
 
 
 <button 
+    type="button"
     class="dropdown-trigger" 
     class:block={isBlock} 
     on:click={(event) => open(event)} bind:this={element}

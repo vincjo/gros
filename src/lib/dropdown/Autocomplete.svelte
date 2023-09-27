@@ -18,7 +18,7 @@
 </script>
 
 
-<button class="dropdown-trigger" use:popperRef>
+<button type="button" class="dropdown-trigger" use:popperRef>
     <slot></slot>
 </button>
 

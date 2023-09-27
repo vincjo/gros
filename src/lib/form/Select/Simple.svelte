@@ -46,7 +46,7 @@
     </label>
 
     <Dropdown isBlock>
-        <button class="open flex" id="{id}">
+        <button type="button" class="open flex" id="{id}">
             {#if selected}
                 <span>{selected.label ?? selected.value}</span>
             {:else}
@@ -56,7 +56,7 @@
         </button>
         <aside slot="content" class="z-depth-3 thin-scrollbar" >
             {#each options as option}
-                <button class="flex" on:click={() => select(option)} class:active={option.value === selected?.value}>
+                <button type="button" class="flex" on:click={() => select(option)} class:active={option.value === selected?.value}>
                     <div class="flex">
                         {#if option.icon}
                             <i class="micon">{option.icon}</i>

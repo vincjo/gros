@@ -51,11 +51,11 @@
     </label>
 
     <Dropdown isBlock>
-        <button class="open flex" id="{id}">
+        <button type="button" class="open flex" id="{id}">
             <article class="flex">
                 {#if selected.length > 0}
                     {#each selected as option}
-                        <button on:click|preventDefault={() => set(option)} class="flex prevent-opening">
+                        <button type="button" on:click|preventDefault={() => set(option)} class="flex prevent-opening">
                             {option.label ?? option.value}
                             <i class="micon prevent-opening" style:font-size="14px" style:margin-left="2px">close</i>
                         </button>
@@ -68,7 +68,7 @@
         </button>
         <aside slot="content" class="z-depth-3 thin-scrollbar" >
             {#each options as option}
-                <button class="flex" on:click={() => set(option)} class:active={selected.includes(option)}>
+                <button type="button" class="flex" on:click={() => set(option)} class:active={selected.includes(option)}>
                     <div class="flex">
                         {#if option.icon}
                             <i class="micon">{option.icon}</i>

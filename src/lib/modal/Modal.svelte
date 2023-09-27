@@ -10,7 +10,7 @@
         <i class="micon">{@html icon}</i>
         <span>{@html title}</span>
     </aside>
-    <button on:click={() => modal.close()}>
+    <button type="button" on:click={() => modal.close()}>
         <i class="micon">clear</i>
     </button>
 </header>
