@@ -16,7 +16,7 @@
     <section transition:fade={{ duration:150 }} on:click|self={close}>
 
         <article 
-            use:draggable={{ handle: '.handle' }} 
+            use:draggable={{ handle: '.modal.handle' }} 
             transition:fadeScale={{ duration:150, easing:cubicInOut, baseScale:0.5 }}
         >
            <svelte:component this={$modal.component} props={$modal.props} {close}/>

@@ -5,7 +5,7 @@
 </script>
 
 
-<header class="handle">
+<header class="handle modal">
     <aside>
         <i class="micon">{@html icon}</i>
         <span>{@html title}</span>
