@@ -81,6 +81,7 @@
     textarea {
         color: #626262;
         resize: none;
+        background: #fff;
     }
 
     section.small {

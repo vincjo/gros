@@ -5,35 +5,35 @@
     export let margin = [0]
 </script>
 
-
 <button type="button" on:click>
-    <button type="button" class="checkbox" on:click={() => checked = !checked}>
-        <slot name="before"/>
-        <span 
-            style:height={size + 'px'} 
+    <button type="button" class="checkbox" on:click={() => (checked = !checked)}>
+        <slot name="before" />
+        <span
+            style:height={size + 'px'}
             style:width={size + 'px'}
             style:margin={margin.join('px ')}
         >
             {#if checked}
-                <i 
-                    class="micon" 
-                    transition:scale={{ duration:150 }}
-                    style:font-size="{(size * 0.9) + 'px'}"
-                    style:line-height="{(size - 2) + 'px'}"
-                >check</i>
+                <i
+                    class="micon"
+                    transition:scale={{ duration: 150 }}
+                    style:font-size={size * 0.9 + 'px'}
+                    style:line-height={size - 2 + 'px'}>check</i
+                >
             {/if}
         </span>
-        <slot/>
+        <slot />
     </button>
-
 </button>
 
 <style>
     button {
-        display:flex; justify-content: center; align-items: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
-    button:active{
-        transform:none;
+    button:active {
+        transform: none;
     }
     span {
         border: 1px solid #d1d1d1;

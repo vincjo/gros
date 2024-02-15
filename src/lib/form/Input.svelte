@@ -90,6 +90,7 @@
     }
     input{ 
         color:#626262;
+        background: #fff;
     }
 
     section.small{

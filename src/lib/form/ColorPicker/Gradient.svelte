@@ -85,6 +85,7 @@
 	on:mousemove={mouseMove}
 />
 
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <section
     bind:this={element}
     style:--hue-color={`hsl(${Math.ceil($hsv[0])},100%,50%)`}

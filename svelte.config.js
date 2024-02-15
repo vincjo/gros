@@ -5,15 +5,23 @@ import preprocess from 'svelte-preprocess';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-  extensions: ['.svelte', ...mdsvexConfig.extensions],
-  preprocess: [preprocess(), mdsvex(mdsvexConfig)],
+    extensions: ['.svelte', ...mdsvexConfig.extensions],
+    preprocess: [preprocess(), mdsvex(mdsvexConfig)],
 
-  kit: {
-		adapter: adapter({ out: 'build' }),
-		paths: {
-			base:  '/gros',
-		},
-  }
-};
+    kit: {
+        adapter: adapter({ out: 'build' }),
+        paths: {
+            base:  '/gros',
+        },
+    },
+    vitePlugin: {
+        inspector: {
+            toggleKeyCombo: 'meta-shift',
+            holdMode: true,
+            showToggleButton: 'always',
+            toggleButtonPos: 'bottom-right',
+        }
+    }
+}
 
-export default config;
+export default config

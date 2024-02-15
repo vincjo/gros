@@ -48,6 +48,7 @@
     <div class="label flex">
         <i class="micon">opacity</i>
     </div>
+    <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
     <aside
         style="--opacity-color: {$hex}"
         bind:this={element}

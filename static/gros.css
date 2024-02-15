@@ -215,9 +215,16 @@ img {
     max-width: 100%;
 }
 
-.thin-scrollbar, .thin-scrollbar-darken {
+.thin-scrollbar {
     scrollbar-width: thin;
+    scrollbar-color: #e0e0e0;
 }
+
+.thin-scrollbar-darken {
+    scrollbar-width: thin;
+    scrollbar-color: #212121;
+}
+
 
 .thin-scrollbar::-webkit-scrollbar {width: 6px;height: 6px;}
 .thin-scrollbar::-webkit-scrollbar-track {background: #fafafa;}
@@ -277,8 +284,6 @@ i.micon.s32 { font-size: 32px; }
     display: flex;
     justify-content: center;
     align-items: center;
-    text-transform: uppercase;
-    letter-spacing:.1rem;
     padding: 8px 16px;
 }
 
