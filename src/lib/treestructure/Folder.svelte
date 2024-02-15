@@ -48,7 +48,7 @@
     </article>
 
     {#if isActive}
-        <aside transition:slide|local={{ duration: 200 }} class:current={$current === identifier}>
+        <aside transition:slide={{ duration: 200 }} class:current={$current === identifier}>
             <slot name="nested"/>
         </aside>
     {/if}

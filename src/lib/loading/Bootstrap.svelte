@@ -3,7 +3,7 @@
     import { Diamonds } from 'svelte-loading-spinners'
 </script>
 
-<section transition:fade>
+<section transition:fade|global>
     <aside>
         <Diamonds size="104" color="var(--primary)" unit="px"/>
     </aside>

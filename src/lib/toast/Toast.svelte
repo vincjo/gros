@@ -72,8 +72,8 @@
             class="alert --{alert.type}"
             use:dismiss_after={alert}
             animate:flip={{ duration: 200 }}
-            in:fly={{ y: 15 * (position === 'start' ? -1 : 1), duration: 200 }}
-            out:scale={{ duration: 200, start: 0.95 }}
+            in:fly|global={{ y: 15 * (position === 'start' ? -1 : 1), duration: 200 }}
+            out:scale|global={{ duration: 200, start: 0.95 }}
         >
             {#if alert.type === 'success'}
                 <svg viewBox="0 0 24 24" aria-hidden="true" class="icon">

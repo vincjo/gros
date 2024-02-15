@@ -16,7 +16,7 @@ module.exports = {
             ref           : "origin/master",
             repo          : "git@github.com:vincjo/gros.git",
             path          : "/home/vincjo/www/gros",
-            "post-deploy" : "npm install && npm run build && pm2 startOrRestart ecosystem.config.cjs --env production"
+            "post-deploy" : "npm install --force && npm run build && pm2 startOrRestart ecosystem.config.cjs --env production"
         },
     }
 }

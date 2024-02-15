@@ -13,11 +13,11 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 
 {#if $isActive}
-    <section transition:fade={{ duration:150 }} on:click|self={close}>
+    <section transition:fade|global={{ duration:150 }} on:click|self={close}>
 
         <article 
             use:draggable={{ handle: '.modal.handle' }} 
-            transition:fadeScale={{ duration:150, easing:cubicInOut, baseScale:0.5 }}
+            transition:fadeScale|global={{ duration:150, easing:cubicInOut, baseScale:0.5 }}
         >
            <svelte:component this={$modal.component} props={$modal.props} {close}/>
         </article>

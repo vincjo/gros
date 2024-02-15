@@ -23,7 +23,7 @@
 </button>
 
 <div
-    transition:fade={{ duration:120 }}
+    transition:fade|global={{ duration:120 }}
     use:popperContent={extraOpts}
     style:min-width={minWidth}
     class="dropdown"

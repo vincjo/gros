@@ -4,13 +4,9 @@
     import { scale } from 'svelte/transition'
 </script>
 
-
 <Dropdown position="bottom-start">
     <button>Click</button>
-    <ul slot="content"
-        transition:scale={{ duration:160, baseScale: 0.5 }}
-        class="z-depth-2"
-    >
+    <ul slot="content" transition:scale={{ duration: 160, baseScale: 0.5 }} class="z-depth-2">
         <li>
             <i class="micon">grid_on</i>
             Show attribute table
@@ -19,7 +15,7 @@
             <i class="micon">opacity</i>
             <span>Opacity</span>
             <div>
-                <Range min={0} max={100} value={[100]} suffix="%"/>
+                <Range min={0} max={100} value={[100]} suffix="%" />
             </div>
         </li>
         <li>
@@ -29,21 +25,66 @@
         <li>
             <i class="micon">file_download</i>
             Export...
-        </li> 
+        </li>
     </ul>
 </Dropdown>
 
-
 <style>
-    button{background-color:transparent;background:var(--primary);height:56px;border-radius:8px;transition:all,0.3s;color:#fff;font-size:24px;padding:0 16px;}
-    button:hover{background:var(--primary-darken)}
+    button {
+        background-color: transparent;
+        background: var(--primary);
+        height: 56px;
+        border-radius: 8px;
+        transition: all, 0.3s;
+        color: #fff;
+        font-size: 24px;
+        padding: 0 16px;
+    }
+    button:hover {
+        background: var(--primary-darken);
+    }
 
-    ul{min-width:260px;margin:0;overflow:hidden;border:1px solid #eee;background:#fff;border-radius:4px;}
-    li i{font-size:20px;color:#757575;margin:0 12px 0 8px;}
-    li{display:flex;justify-content:flex-start;align-items:center;min-height:36px;font-size:13px;color:#424242;border-bottom:1px solid #eee;cursor:pointer;transition:all,0.2s;}
-    li:hover{background:#f5f5f5;}
-    li.opacity{background:#f5f5f5;cursor:default;display:flex;justify-content:flex-start;align-items:center;}
-    li.opacity span{width:64px;}
-    li.opacity div{width:128px;}
-    li:last-child{border-bottom:none;}
+    ul {
+        min-width: 260px;
+        margin: 0;
+        overflow: hidden;
+        border: 1px solid #eee;
+        background: #fff;
+        border-radius: 4px;
+    }
+    li i {
+        font-size: 20px;
+        color: #757575;
+        margin: 0 12px 0 8px;
+    }
+    li {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        min-height: 36px;
+        font-size: 13px;
+        color: #424242;
+        border-bottom: 1px solid #eee;
+        cursor: pointer;
+        transition: all, 0.2s;
+    }
+    li:hover {
+        background: #f5f5f5;
+    }
+    li.opacity {
+        background: #f5f5f5;
+        cursor: default;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    li.opacity span {
+        width: 64px;
+    }
+    li.opacity div {
+        width: 128px;
+    }
+    li:last-child {
+        border-bottom: none;
+    }
 </style>

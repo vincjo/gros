@@ -3,7 +3,7 @@
     import { Jumper } from 'svelte-loading-spinners'
 </script>
 
-<aside transition:fade>
+<aside transition:fade|global>
     <Jumper size="64" color="var(--primary)"/>
 </aside>
 

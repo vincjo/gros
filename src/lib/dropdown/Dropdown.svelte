@@ -75,7 +75,7 @@
 
 {#if active && !disabled}
     <div
-        transition:fade|local={{ duration:120 }}
+        transition:fade={{ duration:120 }}
         use:popperContent={extraOpts}
         bind:this={dropdownElement}
         style:min-width={minWidth}

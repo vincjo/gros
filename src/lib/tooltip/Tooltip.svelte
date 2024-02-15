@@ -34,8 +34,8 @@
     {#if show}
         <div 
             class="tooltip" 
-            in:fade|local={{ duration:120 }}
-            out:fade|local={{ duration:200 }}
+            in:fade={{ duration:120 }}
+            out:fade={{ duration:200 }}
             use:popperContent={params} 
             data-position="{position}"
         >

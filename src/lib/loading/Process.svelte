@@ -5,7 +5,7 @@
 </script>
 
 {#if $loading.active}
-    <section transition:fade>
+    <section transition:fade|global>
         {#if $loading.message}
             <span>{@html $loading.message}</span>
         {/if}
