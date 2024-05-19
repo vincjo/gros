@@ -9,11 +9,11 @@
     export let value: string|number|boolean = ''
     export let values: (string|number|boolean)[] = []
     export let label = ''
-    export let icon: string | null
+    export let icon: string | null = null
     export let required = false
-    export let errors: error[]
-    export let field: string | null
-    export let options: Option[] | string[]
+    export let errors: error[] = []
+    export let field: string | null = ''
+    export let options: Option[] | string[] = []
     export let multiple = false
 
     const pasedOptions = (typeof options[0] === 'string') ? options.map((option: string) => ({ value: option })) : options as Option[]

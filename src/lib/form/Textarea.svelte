@@ -7,10 +7,10 @@
     export let height = '72px'
     export let value = ''
     export let label = ''
-    export let icon: string | null
+    export let icon: string | null = null
     export let required = false
-    export let errors: error[]
-    export let field: string
+    export let errors: error[] = []
+    export let field: string = ''
 
     let id = 'id' + (Math.random() + 1).toString(36).substring(7)
 </script>

@@ -7,12 +7,12 @@
     import DatePicker from './DatePicker.svelte'
     export let big = false
     export let value = ''
-    export let label: string | undefined
-    export let icon: string | undefined
+    export let label: string | undefined = ''
+    export let icon: string | undefined = undefined
     export let required = false
-    export let errors: error[]
-    export let field: string
-    export let format: Format
+    export let errors: error[] = []
+    export let field: string = ''
+    export let format: Format = { year: 'numeric', month: 'short', day: '2-digit' }
 
     let id = 'id' + (Math.random() + 1).toString(36).substring(7)
 

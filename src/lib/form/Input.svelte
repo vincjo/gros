@@ -2,16 +2,16 @@
     import ErrorMessage from './ErrorMessage.svelte'
     import ErrorAlert from './ErrorAlert.svelte'
     import type { error } from './'
-    export let big = false
-    export let spellcheck = false
-    export let value = ''
-    export let label = ''
-    export let password = false
-    export let number = false
-    export let icon: string | null
-    export let required = false
-    export let errors: error[]
-    export let field: string | null
+    export let big                  = false
+    export let spellcheck           = false
+    export let value                = ''
+    export let label                = ''
+    export let password             = false
+    export let number               = false
+    export let icon: string | null  = null
+    export let required             = false
+    export let errors: error[]      = []
+    export let field: string | null = ''
 
     let id = 'id' + (Math.random() + 1).toString(36).substring(7)
 </script>
