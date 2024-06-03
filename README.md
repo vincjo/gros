@@ -12,4 +12,10 @@
 
 # Doc <img src="./static/french-flag.svg"/>
 
+
 **[vincjo.fr/gros](https://vincjo.fr/gros)**
+
+
+# v1.0.0 = ne pas installer. 
+
+La v1.0.0 est expérimentale, elle intègre Svelte 5.
