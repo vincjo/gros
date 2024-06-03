@@ -1,16 +1,16 @@
+<svelte:options runes={true}/>
 <script lang="ts">
     import { Dropdown } from '$lib/dropdown'
-    import type DateHandler from './DateHandler'
-    import type { locale } from '../'
-
-    export let handler: DateHandler
-    const navDate = handler.getNavDate()
-
-    export let locale: locale
+    import type { Locale, DateHandler } from '../'
+    type Props = {
+        handler: DateHandler,
+        locale: Locale
+    }
+    let { handler, locale }: Props = $props()
 
     const getYears = () => {
-        const min = $navDate.getFullYear() - 5
-        const max = $navDate.getFullYear() + 5
+        const min = handler.year - 5
+        const max = handler.year + 5
         let years = []
         for (let i = min; i <= max; i++) {
             years.push(i)
@@ -25,41 +25,45 @@
         <i class="icon" style:width="18px" style:height="18px"><svg width="100%" height="100%" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 6v12M18 6l-6 6l6 6"></path></svg></i>
     </button> -->
 
-    <button type="button" on:click={() => handler.setMonth($navDate.getMonth() - 1)} class="nav ignore-click-outside">
+    <button type="button" onclick={() => handler.setMonth(handler.month - 1)} class="nav">
         <i class="icon"><svg width="100%" height="100%" viewBox="0 0 24 24"><path fill="currentColor" d="M14.71 6.71a.996.996 0 0 0-1.41 0L8.71 11.3a.996.996 0 0 0 0 1.41l4.59 4.59a.996.996 0 1 0 1.41-1.41L10.83 12l3.88-3.88c.39-.39.38-1.03 0-1.41z"></path></svg></i>
     </button>
     <div class="flex-around">
         <Dropdown>
-            <button type="button" class="month">
-                {locale.months[$navDate.getMonth()]}
+            <aside class="month flex">
+                {locale.months[handler.month]}
                 <i class="micon">arrow_drop_down</i>
-            </button>
-            <div slot="content" class="select month z-depth-2">
+            </aside>
+            {#snippet content()}
+            <div class="select month z-depth-2">
                 {#each locale.months as month, i}
-                    <button type="button" on:click={() => handler.setMonth(i)} class:active={$navDate.getMonth() === i}>
+                    <button type="button" onclick={() => handler.setMonth(i)} class:active={handler.month === i}>
                         {month}
                     </button>
                 {/each}
             </div>
+            {/snippet}
         </Dropdown>
 
         <Dropdown>
-            <button type="button" class="year">
-                {$navDate.getFullYear()}
+            <aside class="year flex">
+                {handler.year}
                 <i class="micon">arrow_drop_down</i>
-            </button>
-            <div slot="content" class="select year z-depth-2">
+            </aside>
+            {#snippet content()}
+            <div class="year select z-depth-2">
                 {#each getYears() as year}
-                    <button type="button" on:click={() => handler.setYear(year)} class:active={$navDate.getFullYear() === year}>
+                    <button type="button" onclick={() => handler.setYear(year)} class:active={handler.year === year}>
                         {year}
                     </button>
                 {/each}
             </div>
+            {/snippet}
         </Dropdown>
     </div>
 
 
-    <button type="button" on:click={() => handler.setMonth($navDate.getMonth() + 1)} class="nav">
+    <button type="button" onclick={() => handler.setMonth(handler.month + 1)} class="nav">
         <i class="icon"><svg width="100%" height="100%" viewBox="0 0 24 24"><path fill="currentColor" d="M9.29 6.71a.996.996 0 0 0 0 1.41L13.17 12l-3.88 3.88a.996.996 0 1 0 1.41 1.41l4.59-4.59a.996.996 0 0 0 0-1.41L10.7 6.7c-.38-.38-1.02-.38-1.41.01z"></path></svg></i>
     </button>
 
@@ -92,7 +96,7 @@
     }
     button.nav{height:24px;width:24px !important;border-radius:50%;color:#757575;}
     button.nav:hover{background:#eee;}
-    button.month, button.year{
+    aside.month, aside.year{
         justify-content:space-between;
         height:32px;border:1px solid #e0e0e0;
         padding:0 4px 0 8px;
@@ -100,8 +104,10 @@
         font-size:13px;
         background:#fff;
         margin-right:2px;
+        transition: all, 0.2s;
+        border-radius: 4px;
     }
-    button.month i, button.year i{color:#757575;font-size:20px;margin-left:4px;}
+    aside.month i, aside.year i{color:#757575;font-size:20px;margin-left:4px;}
     .month{width:96px;}
     .year{width:64px;}
 

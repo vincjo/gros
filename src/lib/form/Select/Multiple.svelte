@@ -1,22 +1,37 @@
+<svelte:options runes={true}/>
 <script lang="ts">
     import { Dropdown } from '$lib/dropdown'
+    import { preventDefault } from '$lib/events'
     import ErrorMessage from '../ErrorMessage.svelte'
     import ErrorAlert from '../ErrorAlert.svelte'
-    import type { error } from '../'
+    import type { Error, Option } from '../index'
 
-    type Option = { value?: string, label?: string, icon?: string }
 
-    export let big = false
-    export let values: (string|number|boolean)[] = []
-    export let label = ''
-    export let icon: string | null
-    export let required = false
-    export let errors: error[]
-    export let field: string | null
-    export let options: Option[]
-    let selected = options.filter( option => values.includes(option.value) )
+    type Props = {
+        big         ?: boolean,
+        values      ?: (string | number |boolean)[],
+        label       ?: string,
+        icon        ?: string,
+        required    ?: boolean,
+        errors      ?: Error[],
+        field       ?: string | null,
+        options     ?: Option[]
+    }
 
-    let id = 'id' + (Math.random() + 1).toString(36).substring(7)
+    let {
+        big         = false,
+        values      = [],
+        label       = '',
+        icon        = null,
+        required    = false,
+        errors      = [],
+        field       = '',
+        options     = [],
+    }: Props = $props()
+
+    let selected = $state(options.filter(option => values.includes(option.value)))
+
+    const id = 'id' + (Math.random() + 1).toString(36).substring(7)
 
     const set = (option: Option) => {
         if ((selected).includes(option)) {
@@ -43,32 +58,34 @@
             </span>
         </div>
         {#if big}
-        <div class="error">
-            <ErrorMessage {field} {errors}/>
-        </div>
+            <div class="error">
+                <ErrorMessage {field} {errors}/>
+            </div>
         {/if}
-
     </label>
 
     <Dropdown isBlock>
-        <button type="button" class="open flex" id="{id}">
+        <div class="open flex" id="{id}">
             <article class="flex">
                 {#if selected.length > 0}
                     {#each selected as option}
-                        <button type="button" on:click|preventDefault={() => set(option)} class="flex prevent-opening">
+                        <!-- svelte-ignore a11y_click_events_have_key_events -->
+                        <!-- svelte-ignore a11y_no_static_element_interactions -->
+                        <div onclick={() => preventDefault(set(option))} class="flex prevent-opening button">
                             {option.label ?? option.value}
                             <i class="micon prevent-opening" style:font-size="14px" style:margin-left="2px">close</i>
-                        </button>
+                        </div>
                     {/each}
                 {:else}
                     <em>Sélectionnez des items</em>
                 {/if}
             </article>
             <i class="micon dd">arrow_drop_down</i>
-        </button>
-        <aside slot="content" class="z-depth-3 thin-scrollbar" >
+        </div>
+        {#snippet content()}
+        <aside class="z-depth-3 thin-scrollbar" >
             {#each options as option}
-                <button type="button" class="flex" on:click={() => set(option)} class:active={selected.includes(option)}>
+                <button type="button" class="flex" onclick={() => set(option)} class:active={selected.includes(option)}>
                     <div class="flex">
                         {#if option.icon}
                             <i class="micon">{option.icon}</i>
@@ -81,6 +98,7 @@
                 </button>
             {/each}
         </aside>
+        {/snippet}
     </Dropdown>
 
     {#if !big}
@@ -124,7 +142,7 @@
         color:var(--primary);
         font-size:22px;
     }
-    button.open { 
+    div.open { 
         color:#626262;
         border: 0.1rem solid #d1d1d1;
         justify-content: space-between;
@@ -134,10 +152,10 @@
         padding: 0 0 4px 0;
         user-select: none;
     }
-    button.open i.dd {
+    div.open i.dd {
         padding: 4px 10px 0 0;
     }
-    button.open:active, button.open:focus {
+    div.open:active, div.open:focus {
         border: 1px solid var(--primary-lighten)
     }
 
@@ -185,12 +203,12 @@
     section.small i.micon{
         font-size:18px;
     }
-    section.small button.open{
+    section.small div.open{
         font-size:14px;
         color:#424242;
         min-height:32px;
     }
-    section:not(.small) button.open{
+    section:not(.small) div.open{
         min-height:40px;
     }
     em {
@@ -207,7 +225,7 @@
     article {
         flex-wrap: wrap;
     }
-    article button {
+    article .button {
         font-size: 12px;
         margin: 0;
         background: #f5f5f5; 
@@ -216,12 +234,12 @@
         margin: 4px 0 0 4px;
         border-radius: 2px;
     }
-    article button i {
+    article .button i {
         height: 16px;
         width: 16px;
         color: #9e9e9e;
     }
-    article button:hover i {
+    article .button:hover i {
         color: #e57373;
     }
 </style>

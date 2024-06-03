@@ -1,12 +1,15 @@
+<svelte:options runes={true}/>
 <script lang="ts">
     import { Tooltip } from '$lib/tooltip'
-    import type { error } from './'
-    export let errors: error[]
-    export let field: string
+    import type { Error } from './index'
+    let { errors, field }: { errors: Error[], field: string } = $props()
 
-    let message = null
+    let message = $state(null)
 
-    $: errors, getMessage()
+    $effect(() => {
+        errors
+        getMessage()
+    })
 
     const getMessage = () => {
         if (!errors || errors.length === 0) {
@@ -38,6 +41,10 @@
     }
     div :global(.tooltip){
         color:#e57373;
-        background:#ffebee
+        background:#ffebee;
+        line-height: 14px;
+        font-size: 12px;
+        width: 120px;
+        text-align: center;
     }
 </style>

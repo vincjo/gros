@@ -5,16 +5,17 @@
 </script>
 
 <Dropdown position="bottom-start">
-    <button>Click</button>
-    <ul slot="content" transition:scale={{ duration: 160, baseScale: 0.5 }} class="z-depth-2">
+    <aside class="flex">Click</aside>
+    {#snippet content()}
+    <ul transition:scale={{ duration: 160, baseScale: 0.5 }} class="z-depth-2">
         <li>
             <i class="micon">grid_on</i>
             Show attribute table
         </li>
-        <li class="opacity">
+        <li class="opacity open-dropdown">
             <i class="micon">opacity</i>
             <span>Opacity</span>
-            <div>
+            <div class="open-dropdown">
                 <Range min={0} max={100} value={[100]} suffix="%" />
             </div>
         </li>
@@ -27,10 +28,11 @@
             Export...
         </li>
     </ul>
+    {/snippet}
 </Dropdown>
 
 <style>
-    button {
+    aside {
         background-color: transparent;
         background: var(--primary);
         height: 56px;
@@ -39,8 +41,9 @@
         color: #fff;
         font-size: 24px;
         padding: 0 16px;
+        transition: all, 0.2s;
     }
-    button:hover {
+    aside:hover {
         background: var(--primary-darken);
     }
 

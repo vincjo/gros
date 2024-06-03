@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import { Checkbox } from '$lib/form'
     let isVisible = true
     let hasElevation = false
@@ -6,23 +6,29 @@
 </script>
 
 <section>
-    <Checkbox bind:checked={isVisible} size={22} margin={[16,8]}>
-        <aside slot="before" class:active={isVisible}>
+    <Checkbox checked={isVisible} size={22} margin={[16,8]}>
+        {#snippet before()}
+        <aside class:active={isVisible}>
             <i class="micon s24">{isVisible ? 'visibility' : 'visibility_off'}</i>
             <span>Visible</span>
         </aside>
+        {/snippet}
     </Checkbox>
-    <Checkbox bind:checked={hasElevation} size={22} margin={[16,8]}>
-        <aside slot="before" class:active={hasElevation}>
+    <Checkbox checked={hasElevation} size={22} margin={[16,8]}>
+        {#snippet before()}
+        <aside class:active={hasElevation}>
             <i class="micon s24">landscape</i>
             <span>Elevation</span>
         </aside>
+        {/snippet}
     </Checkbox>
-    <Checkbox bind:checked={hasCadastre} size={22} margin={[16,8]}>
-        <aside slot="before" class:active={hasCadastre}>
+    <Checkbox checked={hasCadastre} size={22} margin={[16,8]}>
+        {#snippet before()}
+        <aside class:active={hasCadastre}>
             <i class="micon s24">view_quilt</i>
             <span>Cadastre</span>
         </aside>
+        {/snippet}
     </Checkbox>
 </section>
 

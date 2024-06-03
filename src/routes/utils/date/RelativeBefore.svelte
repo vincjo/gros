@@ -1,42 +1,42 @@
-<script>
-    import { DateTime } from '$lib/date'
+<script lang="ts">
+    import { DateTime, type Format } from '$lib/date'
     import { DateInput } from '$lib/form'
-    const format = { year: 'numeric', day: 'numeric', month: 'long' }
+    const format: Format = { year: 'numeric', day: 'numeric', month: 'long' }
 
     const date = new Date().toISOString()
-    let y8_before = DateTime.minus(date, 8, 'year')
-    let m4_before = DateTime.minus(date, 4, 'month')
-    let w2_before = DateTime.minus(date, 2, 'week')
-    let d6_before = DateTime.minus(date, 6, 'date')
-    let d2_before = DateTime.minus(date, 2, 'date')
-    let d1_before = DateTime.minus(date, 1, 'date')
+    let y8_before = DateTime(date).minus(8, 'year').toISOString()
+    let m4_before = DateTime(date).minus(4, 'month').toISOString()
+    let w2_before = DateTime(date).minus(2, 'week').toISOString()
+    let d6_before = DateTime(date).minus(6, 'day').toISOString()
+    let d2_before = DateTime(date).minus(2, 'day').toISOString()
+    let d1_before = DateTime(date).minus(1, 'day').toISOString()
 </script>
 
 <section>
     <h3>Passé</h3>
     <aside>
         <DateInput bind:value={y8_before} {format}/> 
-        <span>{DateTime.relative(y8_before)}</span>
+        <span>{DateTime(y8_before).relative()}</span>
     </aside>
     <aside>
         <DateInput bind:value={m4_before} {format}/> 
-        <span>{DateTime.relative(m4_before)}</span>
+        <span>{DateTime(m4_before).relative()}</span>
     </aside>
     <aside>
         <DateInput bind:value={w2_before} {format}/> 
-        <span>{DateTime.relative(w2_before)}</span>
+        <span>{DateTime(w2_before).relative()}</span>
     </aside>
     <aside>
         <DateInput bind:value={d6_before} {format}/> 
-        <span>{DateTime.relative(d6_before)}</span>
+        <span>{DateTime(d6_before).relative()}</span>
     </aside>
     <aside>
         <DateInput bind:value={d2_before} {format}/> 
-        <span>{DateTime.relative(d2_before)}</span>
+        <span>{DateTime(d2_before).relative()}</span>
     </aside>
     <aside>
         <DateInput bind:value={d1_before} {format}/> 
-        <span>{DateTime.relative(d1_before)}</span>
+        <span>{DateTime(d1_before).relative()}</span>
     </aside>
 </section>
 

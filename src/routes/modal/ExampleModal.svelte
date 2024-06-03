@@ -19,11 +19,10 @@
         <li>{user.name}</li>
         <li>{user.email}</li>
     </ul>
-
-    <svelte:fragment slot="footer">
+    {#snippet footer()}
         <button on:click={save}>Save</button>
         <button on:click={close}>Cancel</button>
-    </svelte:fragment>
+    {/snippet}
 </Modal>
 
 <style>

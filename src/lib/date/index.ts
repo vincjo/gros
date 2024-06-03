@@ -7,23 +7,28 @@ export type Format = {
 }
 export type Unit = 'day' | 'month' | 'year' | 'week'
 
-export class DateTime
+export const DateTime = (date: string | Date) => new Handler(date)
+
+class Handler
 {
-    public static format(
-        dateString: string, 
-        format: Format = { year: 'numeric', month: 'short', day: 'numeric' }, 
-        locale = 'fr-FR'
-    ): string 
+    public date: Date
+
+    constructor(date: string | Date) 
     {
-        const date = new Date(dateString)
-        return new Intl.DateTimeFormat(locale, format).format(date)
+        this.date = (typeof date === 'string') ? new Date(date) : date
     }
 
-    public static relative(dateString: string, locale = 'fr-FR'): string
+    public format( format?: Format, locale = 'fr-FR'): string
+    {
+        const param = format ?? { year: 'numeric', month: 'short', day: 'numeric' }
+        return new Intl.DateTimeFormat(locale, param).format(this.date)
+    }
+
+    public relative(): string
     {
         let unit: Unit
-        const rtf = new Intl.RelativeTimeFormat(locale, { numeric: 'auto' })
-        let fromNow = (new Date(dateString).getTime() - new Date().getTime()) / (24 * 60 * 60 * 1000)
+        const rtf = new Intl.RelativeTimeFormat('fr', { numeric: 'auto' })
+        let fromNow = (this.date.getTime() - new Date().getTime()) / (24 * 60 * 60 * 1000)
 
         if (fromNow < -365 || fromNow > 365) {
             fromNow = fromNow / 365
@@ -46,45 +51,42 @@ export class DateTime
         return rtf.format(duration, unit)
     }
 
-    public static minus(dateString: string, value: number, unit: Unit = 'day'): string
+    public minus(value: number, unit: Unit = 'day'): Handler
     {
-        const date = new Date(dateString)
         if (unit === 'year') {
-            date.setFullYear(date.getFullYear() - value)
-            return date.toISOString()
+            this.date.setFullYear(this.date.getFullYear() - value)
         }
         else if (unit === 'month') {
-            date.setMonth(date.getMonth() - value)
-            return date.toISOString()
+            this.date.setMonth(this.date.getMonth() - value)
         }
         else if (unit === 'week') {
-            date.setDate(date.getDate() - (value * 7))
-            return date.toISOString()
+            this.date.setDate(this.date.getDate() - (value * 7))
         }
         else {
-            date.setDate(date.getDate() - value)
-            return date.toISOString()
+            this.date.setDate(this.date.getDate() - value)
         }
+        return this
     }
 
-    public static plus(dateString: string, value: number, unit: Unit = 'day'): string
+    public plus(value: number, unit: Unit = 'day'): Handler
     {
-        const date = new Date(dateString)
         if (unit === 'year') {
-            date.setFullYear(date.getFullYear() + value)
-            return date.toISOString()
+            this.date.setFullYear(this.date.getFullYear() + value)
         }
         else if (unit === 'month') {
-            date.setMonth(date.getMonth() + value)
-            return date.toISOString()
+            this.date.setMonth(this.date.getMonth() + value)
         }
         else if (unit === 'week') {
-            date.setDate(date.getDate() + (value * 7))
-            return date.toISOString()
+            this.date.setDate(this.date.getDate() + (value * 7))
         }
         else {
-            date.setDate(date.getDate() + value)
-            return date.toISOString()
+            this.date.setDate(this.date.getDate() + value)
         }
+        return this
+    }
+
+    public toISOString()
+    {
+        return this.date.toISOString()
     }
 }

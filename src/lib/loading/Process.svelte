@@ -1,19 +1,20 @@
+<svelte:options runes={true}/>
 <script lang="ts">
     import { loading } from '$lib/loading'
     import { fade } from 'svelte/transition'
     import { Jumper } from 'svelte-loading-spinners'
 </script>
 
-{#if $loading.active}
+{#if loading.active}
     <section transition:fade|global>
-        {#if $loading.message}
-            <span>{@html $loading.message}</span>
+        {#if loading.message}
+            <span>{@html loading.message}</span>
         {/if}
         <aside>
             <Jumper size="80" color="var(--primary)"/>
         </aside>
-        {#if $loading.submessage}
-            <strong>{@html $loading.submessage}</strong>
+        {#if loading.submessage}
+            <strong>{@html loading.submessage}</strong>
         {/if}
     </section>
 {/if}

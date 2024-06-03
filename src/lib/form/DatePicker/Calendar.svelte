@@ -1,12 +1,17 @@
+<svelte:options runes={true} />
 <script lang="ts">
-    import type DateHandler from './DateHandler'
+    import type { DateHandler } from '$lib/form'
+    type Props = {
+        handler: DateHandler,
+        value: string
+    }
+    let { handler, value = $bindable() }: Props = $props()
 
-    export let handler: DateHandler
-    const calendar = handler.getCalendar()
-    const date = handler.getDate()
-    const navDate = handler.getNavDate()
+    const handleClick = (day: { year: number, month: number, number: number }) => {
+        handler.setDate(day)
+        value = handler.date.toISOString()
+    }
 </script>
-
 
 <table>
     <thead>
@@ -24,18 +29,16 @@
     <tbody>
         {#each Array(6) as _, weekIndex}
             <tr>
-                {#each $calendar.slice(weekIndex * 7, weekIndex * 7 + 7) as day}
+                {#each handler.calendar.slice(weekIndex * 7, weekIndex * 7 + 7) as day}
                     <td>
                         <button
                             type="button"
                             class="close-dropdown"
-                            on:click={() => handler.setDate(day)}
-                            class:selected={
-                                day.year === $date.getFullYear() &&
-                                day.month === $date.getMonth() &&
-                                day.number === $date.getDate()
-                            }
-                            class:other-month={day.month !== $navDate.getMonth()}
+                            onclick={() => handleClick(day)}
+                            class:selected={day.year === handler.date.getFullYear() &&
+                                day.month === handler.date.getMonth() &&
+                                day.number === handler.date.getDate()}
+                            class:other-month={day.month !== handler.navDate.getMonth()}
                         >
                             {day.number}
                         </button>
@@ -46,22 +49,36 @@
     </tbody>
 </table>
 
-
 <style>
-    table{border-collapse:separate;}
-    td, th{text-align:center;}
-    thead tr{height:32px;font-size:12px;}
-    td{padding:0;}
-    button{
-        width:28px;
-        height:28px;
-        border-radius:4px;
-        font-size:12px;
-        line-height:24px;
-        margin:2px 0 0 0;
+    table {
+        border-collapse: separate;
     }
-    button.selected{background:#424242;color:#fff;}
-    button.other-month{color:#bdbdbd;}
+    td,
+    th {
+        text-align: center;
+    }
+    thead tr {
+        height: 32px;
+        font-size: 12px;
+    }
+    td {
+        padding: 0;
+    }
+    button {
+        width: 28px;
+        height: 28px;
+        border-radius: 4px;
+        font-size: 12px;
+        line-height: 24px;
+        margin: 2px 0 0 0;
+    }
+    button.selected {
+        background: #424242;
+        color: #fff;
+    }
+    button.other-month {
+        color: #bdbdbd;
+    }
     button:hover {
         background: #424242;
         color: #fff;

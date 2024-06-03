@@ -1,22 +1,42 @@
+<svelte:options runes={true}/>
 <script lang="ts">
-    import { clickOutside } from '$lib/dropdown'
+    import { clickOutside } from '$lib/action'
+    import type { Snippet } from 'svelte'
     import { fade } from 'svelte/transition'
     import { createPopperActions } from '$lib/tooltip'
     import type { Placement } from '@popperjs/core'
     import { onMount } from 'svelte'
 
-    export let position: Placement = 'bottom'
-    export let preventClosing = false
-    export let fixedWidth = false
-    export let isBlock = false
-    export let active = false
-    export let disabled = false
+    type Props = {
+        position        ?: Placement,
+        preventClosing  ?: boolean,
+        fixedWidth      ?: boolean,
+        isBlock         ?: boolean,
+        active          ?: boolean,
+        disabled        ?: boolean,
+        onclick         ?: () => any
+        content          : Snippet,
+        children         : Snippet
+    }
 
-    let minWidth = 'auto'
+    let {
+        position        = 'bottom',
+        preventClosing  = false,
+        fixedWidth      = false,
+        isBlock         = false,
+        active          = false,
+        disabled        = false,
+        onclick         = () => { return },
+        content,
+        children,
+    }: Props = $props()
+
+
+    let minWidth = $state('auto')
     let element: HTMLButtonElement
-    let dropdownElement: HTMLDivElement
+    let dropdownElement: HTMLDivElement = $state(undefined)
 
-    onMount( () => {
+    onMount(() => {
         if (element && !fixedWidth) {
             minWidth = element.offsetWidth + 'px'
         }
@@ -32,32 +52,36 @@
         ],
     }
 
-    const open = (event) => {
-        if (
-            event.target.classList.contains('prevent-opening')
-            || event.target.parentNode.classList.contains('prevent-opening')
-        ) {
-            return
+    const getTarget = (event: Event) => {
+        if (event.target instanceof HTMLElement || event.target instanceof SVGElement) {
+            return {
+                keep: event.target.closest('.open-dropdown') === null ? false : true,
+                leave: event.target.closest('.close-dropdown') === null ? false : true,
+                contains: dropdownElement && dropdownElement.firstChild && dropdownElement.firstChild.contains(event.target),
+                preventOpening: event.target.closest('.prevent-opening') === null ? false : true
+            }
         }
-        active = !active
+        return {}
     }
 
-    const close = (event) => {
-        if (!preventClosing) {
-            return active = false 
-        }
-        if (
-            event.target.classList.contains('close-dropdown')
-            || event.target.parentNode.classList.contains('close-dropdown')
-        ) {
-            return active = false 
-        }
-        else if (dropdownElement && dropdownElement.firstChild && dropdownElement.firstChild.contains(event.target)) {
+    const open = (event: Event) => {
+        onclick()
+        const { preventOpening } = getTarget(event)
+        if (preventOpening) {
             return
         }
-        else {
-            return active = false 
+        return active = !active
+    }
+
+    const close = (event: Event) => {
+        const { keep, leave, contains } = getTarget(event)
+        if (keep) {
+            return
         }
+        else if (preventClosing === true && leave === false) {
+            return
+        }
+        return active = false 
     }
 </script>
 
@@ -66,11 +90,11 @@
     type="button"
     class="dropdown-trigger" 
     class:block={isBlock} 
-    on:click={(event) => open(event)} bind:this={element}
+    onclick={(event) => open(event)} bind:this={element}
     use:popperRef 
     use:clickOutside={close}
 >
-    <slot/>
+    {@render children()}
 </button>
 
 {#if active && !disabled}
@@ -82,7 +106,7 @@
         class="dropdown"
         data-position="{position}"
     >
-        <slot name="content"/>
+        {@render content()}
     </div>
 {/if}
 
@@ -100,7 +124,7 @@
         z-index:9999;
         user-select: none;
     }
-    button:active{
-        transform:none;
+    button:focus {
+        transform: none;
     }
 </style>

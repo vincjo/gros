@@ -1,10 +1,13 @@
+<svelte:options runes={true}/>
 <script lang="ts">
-    import type ColorHandler from './ColorHandler'
+    import type { ColorHandler } from '$lib/form'
+    type Props = { handler: ColorHandler }
+    let { handler }: Props = $props()
 
-    export let handler: ColorHandler
-    const hex = handler.getHEX()
-    $: value = $hex.replace('#', '')
-
+    let value = $state('')
+    $effect(() => {
+        value = handler.hex.replace('#', '')
+    })
 </script>
 
 
@@ -12,8 +15,8 @@
     <div class="label flex">
         <svg width="100%" height="100%" viewBox="0 0 256 256"><path fill="currentColor" d="M144 224h-1.4a8 8 0 0 1-6.5-9.3l8.5-46.6H96.9l-9 49.4a8 8 0 1 1-15.8-2.8l8.5-46.7H32a8 8 0 0 1 0-16h51.5l8.7-48H43.6a8 8 0 1 1 0-16h51.5l9-49.4a8 8 0 1 1 15.8 2.8L111.4 88h47.7l9-49.4a8 8 0 0 1 15.8 2.8L175.4 88H224a8 8 0 0 1 0 16h-51.5l-8.7 48h48.6a8 8 0 0 1 0 16h-51.5l-9 49.4a8 8 0 0 1-7.9 6.6Zm-44.2-72h47.7l8.7-48h-47.7Z"></path></svg>
     </div>
-    <div class="color"><div style:background={$hex}/></div>
-    <input type="text" bind:value on:input={() => handler.setHEX('#' + value)}/> 
+    <div class="color"><div style:background={handler.hex}></div></div>
+    <input type="text" bind:value oninput={() => handler.setHEX('#' + value)}/> 
 </section>
 
 

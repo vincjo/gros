@@ -1,23 +1,37 @@
+<svelte:options runes={true}/>
 <script lang="ts">
     import { Dropdown } from '$lib/dropdown'
     import ErrorMessage from '../ErrorMessage.svelte'
     import ErrorAlert from '../ErrorAlert.svelte'
-    import type { error } from '../'
+    import type { Error, Option } from '../index'
 
-    type Option = { value?: string, label?: string, icon?: string }
+    type Props = {
+        big         ?: boolean,
+        value       ?:  string | number |boolean,
+        label       ?: string,
+        icon        ?: string,
+        required    ?: boolean,
+        errors      ?: Error[],
+        field       ?: string | null,
+        options     ?: Option[]
+    }
 
-    export let big = false
-    export let value: string|number|boolean = ''
-    export let label = ''
-    export let icon: string | null
-    export let required = false
-    export let errors: error[]
-    export let field: string | null
-    export let options: Option[]
-    export let selected = options.find( option => option.value === value )
-    let id = 'id' + (Math.random() + 1).toString(36).substring(7)
+    let {
+        big         = false,
+        value       = $bindable(),
+        label       = '',
+        icon        = null,
+        required    = false,
+        errors      = [],
+        field       = '',
+        options     = [],
+    }: Props = $props()
 
-    const select = (option: Option) => {
+    let selected = $state(options.find( option => option.value === value ))
+
+    const id = 'id' + (Math.random() + 1).toString(36).substring(7)
+
+    const set = (option: Option) => {
         selected = option
         value = option.value
     }
@@ -38,25 +52,25 @@
             </span>
         </div>
         {#if big}
-        <div class="error">
-            <ErrorMessage {field} {errors}/>
-        </div>
+            <div class="error">
+                <ErrorMessage {field} {errors}/>
+            </div>
         {/if}
-
     </label>
 
     <Dropdown isBlock>
-        <button type="button" class="open flex" id="{id}">
+        <div class="open flex" id="{id}">
             {#if selected}
                 <span>{selected.label ?? selected.value}</span>
             {:else}
                 <em>Sélection...</em>
             {/if}
             <i class="micon">arrow_drop_down</i>
-        </button>
-        <aside slot="content" class="z-depth-3 thin-scrollbar" >
+        </div>
+        {#snippet content()}
+        <aside class="z-depth-3 thin-scrollbar" >
             {#each options as option}
-                <button type="button" class="flex" on:click={() => select(option)} class:active={option.value === selected?.value}>
+                <button type="button" class="flex" onclick={() => set(option)} class:active={option.value === selected?.value}>
                     <div class="flex">
                         {#if option.icon}
                             <i class="micon">{option.icon}</i>
@@ -69,6 +83,7 @@
                 </button>
             {/each}
         </aside>
+        {/snippet}
     </Dropdown>
 
     {#if !big}
@@ -112,7 +127,7 @@
         color:var(--primary);
         font-size:22px;
     }
-    button.open { 
+    div.open { 
         color:#626262;
         border: 0.1rem solid #d1d1d1;
         justify-content: space-between;
@@ -122,7 +137,7 @@
         padding: 0.6rem 1rem 0.7rem;
         user-select: none;
     }
-    button.open:active, button.open:focus {
+    div.open:active, div.open:focus {
         border: 1px solid var(--primary-lighten)
     }
 
@@ -170,7 +185,7 @@
     section.small i.micon{
         font-size:18px;
     }
-    section.small button.open{
+    section.small div.open{
         font-size:14px;
         color:#424242;
         height:32px;

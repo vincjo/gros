@@ -1,25 +1,25 @@
+<svelte:options runes={true}/>
 <script lang="ts">
-    import { modal, fadeScale, isActive } from '$lib/modal'
-    import { fade } from 'svelte/transition'
-    import { cubicInOut } from 'svelte/easing'
-    import { draggable } from '@neodrag/svelte'
+    import { fadeScale }    from '$lib/transition'
+    import { modal }        from '$lib/modal'
+    import { fade }         from 'svelte/transition'
+    import { cubicInOut }   from 'svelte/easing'
+    import { draggable }    from '@neodrag/svelte'
+    import { clickOutside } from '$lib/action'
 
-    const close = () => {
-        modal.close()
-    }
+    const close = () => modal.close()
 </script>
 
 
-<!-- svelte-ignore a11y-click-events-have-key-events -->
 
-{#if $isActive}
-    <section transition:fade|global={{ duration:150 }} on:click|self={close}>
-
+{#if modal.isActive}
+    <section transition:fade|global={{ duration: 150 }}>
         <article 
             use:draggable={{ handle: '.modal.handle' }} 
-            transition:fadeScale|global={{ duration:150, easing:cubicInOut, baseScale:0.5 }}
+            use:clickOutside={close}
+            transition:fadeScale|global={{ duration: 150, easing: cubicInOut, baseScale: 0.5 }}
         >
-           <svelte:component this={$modal.component} props={$modal.props} {close}/>
+           <svelte:component this={modal.component} props={modal.props} {close}/>
         </article>
 
     </section>

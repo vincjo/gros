@@ -12,26 +12,18 @@ export { default as Tooltip } from './Tooltip.svelte'
 
 export type { VirtualElement } from '@popperjs/core'
 
-export type PopperOptions<TModifier> =
-	| Partial<OptionsGeneric<TModifier>>
-	| undefined
+export type PopperOptions<TModifier> = | Partial<OptionsGeneric<TModifier>> | undefined
 
-export type ReferenceAction = (
-	node: Element | VirtualElement | Readable<VirtualElement>
-) => {
+export type ReferenceAction = (node: Element | VirtualElement | Readable<VirtualElement>) => {
 	destroy?(): void
 }
 
-export type ContentAction<TModifier> = (
-	node: HTMLElement,
-	popperOptions?: PopperOptions<TModifier>
-) => {
+export type ContentAction<TModifier> = (node: HTMLElement, popperOptions?: PopperOptions<TModifier>) => {
 	update(popperOptions: PopperOptions<TModifier>): void
 	destroy(): void
 }
 
 export function createPopperActions<
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	TModifier extends Partial<Modifier<any, any>>
 >(
 	initOptions?: PopperOptions<TModifier>

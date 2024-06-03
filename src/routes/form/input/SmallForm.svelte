@@ -35,7 +35,7 @@
 <section>
     <Input required {errors} icon="mail"   label="Email"            field="email"               bind:value={form.email}/>
     <Input          {errors} icon="person" label="Name"             field="name"                bind:value={form.name}/>
-    <Input          {errors} icon="child_care" label="Age"             field="age"                bind:value={form.age} number/>
+    <Input          {errors} icon="child_care" label="Age"          field="age"                 bind:value={form.age} number/>
     <Input required {errors} icon="lock"   label="Password"         field="password"            bind:value={form.password} password/>
     <Input required {errors} icon="lock"   label="Confirm password" field="password_confirmed"  bind:value={form.password_confirmed} password />
 

@@ -13,7 +13,7 @@
 <script>
     import { DateTime } from 'gros/date'
 
-    const date = DateTime.format('2022-01-01', { 
+    const date = DateTime('2022-01-01').format({ 
         year: 'numeric', 
         month: 'short', 
         day: '2-digit'
@@ -52,7 +52,7 @@ type Format = {
     import { DateTime } from 'gros/date'
 </script>
 
-<p>{DateTime.relative('2021-06-04')}</p>
+<p>{DateTime('2021-06-04').relative()}</p>
 ````
 <br><br>
 

@@ -1,18 +1,20 @@
+<svelte:options runes={true}/>
 <script lang="ts">
-    import type ColorHandler from './ColorPicker/ColorHandler'
     import Gradient from './ColorPicker/Gradient.svelte'
     import Hue from './ColorPicker/Hue.svelte'
     import Opacity from './ColorPicker/Opacity.svelte'
     import Hex from './ColorPicker/Hex.svelte'
     import Rgba from './ColorPicker/Rgba.svelte'
     import Hsla from './ColorPicker/Hsla.svelte'
-
-    export let handler: ColorHandler
+    import { preventDefault } from '$lib/events'
+    import type { ColorHandler } from '$lib/form'
+    type Props = { handler: ColorHandler }
+    let { handler }: Props = $props()
 </script>
 
 
 
-<section on:touchstart|preventDefault>
+<section ontouchstart={preventDefault}>
     <aside class="flex">
         <Hue {handler}/>
         <Gradient {handler}/>

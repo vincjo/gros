@@ -1,68 +1,65 @@
+<svelte:options runes={true}/>
 <script lang="ts">
-    import type ColorHandler from './ColorHandler'
+    import type { ColorHandler } from '$lib/form'
+    import { preventDefault, stopPropagation } from '$lib/events'
+    type Props = { handler: ColorHandler }
+    let { handler }: Props = $props()
 
-    export let handler: ColorHandler
-
-    const opacity = handler.getOpacity()
-    const hex = handler.getHEX()
-    $: pct = Math.ceil($opacity * 100)
 	let element: HTMLElement
+	let position: number = $state(0)
+    let pct = $state(Math.ceil(handler.opacity * 100))
+	let isMouseDown = $state(false)
 
-	let isMouseDown = false
-	let position: number
-
-	const handleClick = (position: number): void => {
+	const update = (position: number): void => {
 		const size = element.getBoundingClientRect().width
 		const boundedPos = Math.max(0, Math.min(size, position))
-		handler.setOpacity(boundedPos / size)
+		handler.opacity = boundedPos / size
 	}
-	const mouseDown = (e: MouseEvent) => {
+	const mousedown = (e: MouseEvent) => {
 		if (e.button === 0) {
 			isMouseDown = true
-			handleClick(e.offsetX)
+			update(e.offsetX)
 		}
 	}
-	const mouseUp = () => {
+	const mouseup = () => {
 		isMouseDown = false
 	}
-	const mouseMove = (e: MouseEvent) => {
+	const mousemove = (e: MouseEvent) => {
 		if (isMouseDown)
-            handleClick(e.clientX - element.getBoundingClientRect().left)
+            update(e.clientX - element.getBoundingClientRect().left)
 	}
 	const touch = (e: TouchEvent) => {
 		e.preventDefault()
-		handleClick(e.changedTouches[0].clientX - element.getBoundingClientRect().left)
+		update(e.changedTouches[0].clientX - element.getBoundingClientRect().left)
 	}
-	$: if (typeof $opacity === 'number' && element) {
-        position = 100 * $opacity
-    }
+    $effect(() => {
+        pct = Math.ceil(handler.opacity * 100)
+        if (typeof handler.opacity === 'number' && element) {
+            position = 100 * handler.opacity
+        }
+    })
+
 </script>
 
 
-<svelte:window
-	on:mouseup={mouseUp}
-	on:mousemove={mouseMove}
-/>
+<svelte:window onmouseup={mouseup} onmousemove={mousemove}/>
 
 <section class="flex">
     <div class="label flex">
         <i class="micon">opacity</i>
     </div>
-    <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+    <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
     <aside
-        style="--opacity-color: {$hex}"
+        style="--opacity-color: {handler.hex}"
         bind:this={element}
-        on:mousedown|preventDefault|stopPropagation={mouseDown}
-        on:touchstart={touch}
-        on:touchmove|preventDefault|stopPropagation={touch}
-        on:touchend={touch}
+        onmousedown={preventDefault(stopPropagation(mousedown))}
+        ontouchstart={touch}
+        ontouchmove={preventDefault(stopPropagation(touch))}
+        ontouchend={touch}
     >
-        <div
-            class="handle"
-            style:left="calc({position}% - 4px)"
-        />
+        <div class="handle" style:left="calc({position}% - 4px)"></div>
     </aside>
-    <input type="number" bind:value={pct} min="0" max="100" step="1" on:input={() => handler.setOpacity(pct / 100)}/> 
+    <input type="number" bind:value={pct} min="0" max="100" step="1" oninput={() => handler.opacity = (pct / 100)}/> 
 </section>
 
 

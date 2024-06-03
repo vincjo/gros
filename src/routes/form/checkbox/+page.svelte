@@ -6,4 +6,3 @@
 <div class="svx">
     <Checkbox/>
 </div>
-

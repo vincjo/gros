@@ -1,25 +1,25 @@
 <script lang="ts">
     import { DateTime, type Format } from '$lib/date'
-    const date = '2022-03-01'
+    const date = new Date()
     const format: Format = { year: 'numeric', month: 'long', day: 'numeric' }
 </script>
 
 <section>
     <div class="flex">
-        <span>{DateTime.format(DateTime.plus(date, 2, 'year'), format)}</span>
-        <code>DateTime.plus('2022-03-01', 2, 'year')</code>
+        <span>{DateTime(date).plus(2, 'year').format(format)}</span>
+        <code>DateTime(date).plus(2, 'year').format()</code>
     </div>
     <div class="flex">
-        <span>{DateTime.format(DateTime.plus(date, 2, 'month'), format)}</span>
-        <code>DateTime.plus('2022-03-01', 2, 'month')</code>
+        <span>{DateTime(date).plus(2, 'month').format(format)}</span>
+        <code>DateTime(date).plus(2, 'month').format()</code>
     </div>
     <div class="flex">
-        <span>{DateTime.format(DateTime.plus(date, 2, 'week'), format)}</span>
-        <code>DateTime.plus('2022-03-01', 2, 'week')</code>
+        <span>{DateTime(date).plus(2, 'week').format(format)}</span>
+        <code>DateTime(date).plus(2, 'week').format()</code>
     </div>
     <div class="flex">
-        <span>{DateTime.format(DateTime.plus(date, 2, 'day'), format)}</span>
-        <code>DateTime.plus('2022-03-01', 2, 'day')</code>
+        <span>{DateTime(date).plus(2, 'day').format(format)}</span>
+        <code>DateTime(date).plus(2, 'day').format()</code>
     </div>
 
 </section>

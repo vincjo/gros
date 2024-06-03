@@ -1,31 +1,38 @@
+<svelte:options runes={true}/>
 <script lang="ts">
     import { modal } from '$lib/modal'
-    export let icon = 'forum'
-    export let title = ''
-</script>
+    import type { Snippet } from 'svelte'
 
+    type Props = { 
+        icon ?: string, 
+        title ?: string,
+        children: Snippet,
+        footer: Snippet
+    }
+    let { icon = 'chevron_right', title = '', children, footer }: Props = $props()
+
+</script>
 
 <header class="handle modal">
     <aside>
         <i class="micon">{@html icon}</i>
         <span>{@html title}</span>
     </aside>
-    <button type="button" on:click={() => modal.close()}>
+    <button type="button" onclick={() => modal.close()}>
         <i class="micon">clear</i>
     </button>
 </header>
 
 <section>
-    <slot/>
+    {@render children()}
 </section>
 
 <footer>
-    <slot name="footer"/>
+    {@render footer()}
 </footer>
 
 
 <style>
-
     header{
         display:flex;
         justify-content:space-between;
@@ -71,8 +78,6 @@
         justify-content:flex-start;
         align-items:center
     }
-
-
     footer{
         height:56px;
         border-top:1px solid #eee;

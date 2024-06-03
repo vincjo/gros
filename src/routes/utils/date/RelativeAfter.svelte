@@ -1,42 +1,42 @@
-<script>
-    import { DateTime } from '$lib/date'
+<script lang="ts">
+    import { DateTime, type Format } from '$lib/date'
     import { DateInput } from '$lib/form'
-    const format = { year: 'numeric', day: 'numeric', month: 'long' }
+    const format: Format = { year: 'numeric', day: 'numeric', month: 'long' }
 
     const date = new Date().toISOString()
-    let y8_after = DateTime.plus(date, 8, 'year')
-    let m4_after = DateTime.plus(date, 4, 'month')
-    let w2_after = DateTime.plus(date, 2, 'week')
-    let d6_after = DateTime.plus(date, 6, 'date')
-    let d2_after = DateTime.plus(date, 2, 'date')
-    let d1_after = DateTime.plus(date, 1, 'date')
+    let y8_after = DateTime(date).plus(8, 'year').toISOString()
+    let m4_after = DateTime(date).plus(4, 'month').toISOString()
+    let w2_after = DateTime(date).plus(2, 'week').toISOString()
+    let d6_after = DateTime(date).plus(6, 'day').toISOString()
+    let d2_after = DateTime(date).plus(2, 'day').toISOString()
+    let d1_after = DateTime(date).plus(1, 'day').toISOString()
 </script>
 
 <section>
     <h3>Futur</h3>
     <aside>
         <DateInput bind:value={y8_after} {format}/> 
-        <span>{DateTime.relative(y8_after)}</span>
+        <span>{DateTime(y8_after).relative()}</span>
     </aside>
     <aside>
         <DateInput bind:value={m4_after} {format}/> 
-        <span>{DateTime.relative(m4_after)}</span>
+        <span>{DateTime(m4_after).relative()}</span>
     </aside>
     <aside>
         <DateInput bind:value={w2_after} {format}/> 
-        <span>{DateTime.relative(w2_after)}</span>
+        <span>{DateTime(w2_after).relative()}</span>
     </aside>
     <aside>
         <DateInput bind:value={d6_after} {format}/> 
-        <span>{DateTime.relative(d6_after)}</span>
+        <span>{DateTime(d6_after).relative()}</span>
     </aside>
     <aside>
         <DateInput bind:value={d2_after} {format}/> 
-        <span>{DateTime.relative(d2_after)}</span>
+        <span>{DateTime(d2_after).relative()}</span>
     </aside>
     <aside>
         <DateInput bind:value={d1_after} {format}/> 
-        <span>{DateTime.relative(d1_after)}</span>
+        <span>{DateTime(d1_after).relative()}</span>
     </aside>
 </section>
 

@@ -1,18 +1,36 @@
+<svelte:options runes={true}/>
 <script lang="ts">
     import ErrorMessage from './ErrorMessage.svelte'
     import ErrorAlert from './ErrorAlert.svelte'
-    import type { error } from './'
-    export let big = false
-    export let spellcheck = false
-    export let height = '72px'
-    export let value = ''
-    export let label = ''
-    export let icon: string | null = null
-    export let required = false
-    export let errors: error[] = []
-    export let field: string = ''
+    import type { Error } from './index'
 
-    let id = 'id' + (Math.random() + 1).toString(36).substring(7)
+    type Props = {
+        big         ?: boolean,
+        spellcheck  ?: boolean,
+        height      ?: string,
+        value       ?: string,
+        label       ?: string,
+        icon        ?: string,
+        required    ?: boolean,
+        errors      ?: Error[],
+        field       ?: string | null,
+        oninput     ?: (event: Event) => any,
+    }
+
+    let {
+        big         = false,
+        spellcheck  = false,
+        height      = '72px',
+        value       = $bindable(),
+        label       = '',
+        icon        = null,
+        required    = false,
+        errors      = [],
+        field       = '',
+        oninput     = () => { return },
+    }: Props = $props()
+
+    const id = 'id' + (Math.random() + 1).toString(36).substring(7)
 </script>
 
 <section class:small={!big}>
@@ -35,7 +53,7 @@
         {/if}
     </label>
 
-    <textarea bind:value style:height class="thin-scrollbar" {spellcheck} />
+    <textarea bind:value style:height class="thin-scrollbar" {spellcheck} {oninput}></textarea>
 
     {#if !big}
         <ErrorAlert {field} {errors} />

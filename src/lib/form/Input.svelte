@@ -1,19 +1,38 @@
+<svelte:options runes={true}/>
 <script lang="ts">
     import ErrorMessage from './ErrorMessage.svelte'
     import ErrorAlert from './ErrorAlert.svelte'
-    import type { error } from './'
-    export let big                  = false
-    export let spellcheck           = false
-    export let value                = ''
-    export let label                = ''
-    export let password             = false
-    export let number               = false
-    export let icon: string | null  = null
-    export let required             = false
-    export let errors: error[]      = []
-    export let field: string | null = ''
+    import type { Error } from './index'
 
-    let id = 'id' + (Math.random() + 1).toString(36).substring(7)
+    type Props = {
+        big         ?: boolean,
+        spellcheck  ?: boolean,
+        value       ?: string,
+        label       ?: string,
+        password    ?: boolean,
+        number      ?: boolean,
+        icon        ?: string,
+        required    ?: boolean,
+        errors      ?: Error[],
+        field       ?: string | null,
+        oninput     ?: (event: Event) => any,
+    }
+
+    let {
+        big         = false,
+        spellcheck  = false,
+        value       = $bindable(),
+        label       = '',
+        password    = false,
+        number      = false,
+        icon        = null,
+        required    = false,
+        errors      = [],
+        field       = '',
+        oninput     = () => { return },
+    }: Props = $props()
+
+    const id = 'id' + (Math.random() + 1).toString(36).substring(7)
 </script>
 
 
@@ -40,11 +59,11 @@
     </label>
 
     {#if password}
-        <input type="password" id="{id}" spellcheck="false" bind:value={value}/>
+        <input type="password" id="{id}" bind:value={value} {oninput} spellcheck="false" />
     {:else if number}
-        <input type="number" id="{id}" spellcheck="false" bind:value={value}/>
+        <input type="number"   id="{id}" bind:value={value} {oninput} spellcheck="false" />
     {:else}
-        <input type="text" id="{id}" bind:value={value} spellcheck={spellcheck}/>
+        <input type="text"     id="{id}" bind:value={value} {oninput} spellcheck={spellcheck} />
     {/if}
 
     {#if !big}

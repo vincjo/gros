@@ -4,27 +4,27 @@
 
 <section>
     <div class="flex">
-        <span>{DateTime.format("2022-01-01")}</span>
+        <span>{DateTime('2022-01-01').format()}</span>
         <i>Default format</i>
     </div>
 
     <div class="flex">
-        <span>{DateTime.format("2022-01-01", { year: 'numeric', month: 'numeric', day: 'numeric'})}</span>
+        <span>{DateTime('2022-01-01').format({ year: 'numeric', month: 'numeric', day: 'numeric'})}</span>
         <code>{`{ year: 'numeric', month: 'numeric', day: 'numeric'}`}</code>
     </div>
 
     <div class="flex">
-        <span>{DateTime.format("2022-01-01", { year: '2-digit', month: 'numeric', weekday: 'short'})}</span>
+        <span>{DateTime('2022-01-01').format({ year: '2-digit', month: 'numeric', weekday: 'short'})}</span>
         <code>{`{ year: '2-digit', month: 'numeric', weekday: 'short'}`}</code>
     </div>
 
     <div class="flex">
-        <span>{DateTime.format("2022-01-01", { year: 'numeric', month: 'long', day: 'numeric'})}</span>
+        <span>{DateTime('2022-01-01').format({ year: 'numeric', month: 'long', day: 'numeric'})}</span>
         <code>{`{ year: 'numeric', month: 'long', day: 'numeric'}`}</code>
     </div>
 
     <div class="flex">
-        <span>{DateTime.format("2022-01-01", { month: 'long', day: '2-digit', weekday: 'long'})}</span>
+        <span>{DateTime('2022-01-01').format({ month: 'long', day: '2-digit', weekday: 'long'})}</span>
         <code>{`{  month: 'long', day: '2-digit', weekday: 'long'}`}</code>
     </div>
 

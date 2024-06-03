@@ -1,29 +1,30 @@
+<svelte:options runes={true}/>
 <script lang="ts">
+    import type { Snippet } from 'svelte'
     import { scale } from 'svelte/transition'
-    export let checked = false
-    export let size = 18
-    export let margin = [0]
+    type Props = { checked: boolean, size: number, margin: number[], children?: Snippet, before?: Snippet }
+    let { checked, size, margin, children, before }: Props = $props()
 </script>
 
-<button type="button" on:click>
-    <button type="button" class="checkbox" on:click={() => (checked = !checked)}>
-        <slot name="before" />
-        <span
-            style:height={size + 'px'}
-            style:width={size + 'px'}
-            style:margin={margin.join('px ')}
-        >
-            {#if checked}
-                <i
-                    class="micon"
-                    transition:scale={{ duration: 150 }}
-                    style:font-size={size * 0.9 + 'px'}
-                    style:line-height={size - 2 + 'px'}>check</i
-                >
-            {/if}
-        </span>
-        <slot />
-    </button>
+<button type="button" class="checkbox" onclick={() => (checked = !checked)}>
+    {#if before}{@render before()}{/if}
+    <span
+        style:height={size + 'px'}
+        style:width={size + 'px'}
+        style:margin={margin.join('px ')}
+    >
+        {#if checked}
+            <i
+                class="micon"
+                transition:scale={{ duration: 150 }}
+                style:font-size={size * 0.9 + 'px'}
+                style:line-height={size - 2 + 'px'}
+            >
+                check
+            </i>
+        {/if}
+    </span>
+    {#if children}{@render children()}{/if}
 </button>
 
 <style>

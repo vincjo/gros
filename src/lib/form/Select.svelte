@@ -1,26 +1,40 @@
+<svelte:options runes={true}/>
 <script lang="ts">
+    import type { Error, Option } from './index'
     import Simple from './Select/Simple.svelte'
     import Multiple from './Select/Multiple.svelte'
-    import type { error } from '.'
 
-    type Option = { value?: string, label?: string, icon?: string }
+    type Props = {
+        big         ?: boolean,
+        value       ?:  string | number |boolean,
+        values      ?: (string | number |boolean)[],
+        label       ?: string,
+        icon        ?: string,
+        required    ?: boolean,
+        errors      ?: Error[],
+        field       ?: string | null,
+        options     ?: Option[] | string[]
+        multiple    ?: boolean,
+    }
 
-    export let big = false
-    export let value: string|number|boolean = ''
-    export let values: (string|number|boolean)[] = []
-    export let label = ''
-    export let icon: string | null = null
-    export let required = false
-    export let errors: error[] = []
-    export let field: string | null = ''
-    export let options: Option[] | string[] = []
-    export let multiple = false
+    let {
+        big         = false,
+        value       = $bindable(),
+        values      = [],
+        label       = '',
+        icon        = null,
+        required    = false,
+        errors      = [],
+        field       = '',
+        options     = [],
+        multiple    = false,
+    }: Props = $props()
 
-    const pasedOptions = (typeof options[0] === 'string') ? options.map((option: string) => ({ value: option })) : options as Option[]
+    const args = (typeof options[0] === 'string') ? options.map((option: string) => ({ value: option })) : options as Option[]
 </script>
 
 {#if multiple}
-    <Multiple {big} bind:values={values} {label} {icon} {required} {errors} {field} options={pasedOptions}/>
+    <Multiple {big} values={values} {label} {icon} {required} {errors} {field} options={args}/>
 {:else}
-    <Simple {big} bind:value={value} {label} {icon} {required} {errors} {field} options={pasedOptions}/>
+    <Simple {big} bind:value={value} {label} {icon} {required} {errors} {field} options={args}/>
 {/if}
