@@ -1,8 +1,8 @@
 <script>
-    import Page from './page.svx'
+    import Content from './content.svx'
 </script>
 
 
 <div class="svx">
-    <Page/>
+    <Content/>
 </div>
