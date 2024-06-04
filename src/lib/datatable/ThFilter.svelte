@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { DataHandler } from '@vincjo/datatables'
+    import type { DataHandler } from '@vincjo/datatables/legacy'
     export let handler: DataHandler
     export let filterBy = null
     export let align = 'left'

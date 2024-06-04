@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { DataHandler, Field, Row } from '@vincjo/datatables'
+    import type { DataHandler, Field, Row } from '@vincjo/datatables/legacy'
 
     type T = $$Generic<Row>
 

@@ -32,6 +32,7 @@
         "@sveltejs/vite-plugin-svelte": "^3.0.0",
         "@typescript-eslint/eslint-plugin": "^5.27.0",
         "@typescript-eslint/parser": "^5.27.0",
+        "@vincjo/datatables": "^2.0.0-runes.2",
         "eslint": "^8.16.0",
         "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-svelte3": "^4.0.0",
@@ -51,13 +52,15 @@
         "dist"
     ],
     "dependencies": {
-        "@sveltejs/kit": "^2.0.0",
-        "svelte": "^5.0.0-next.148",
         "@neodrag/svelte": "^2.0.1",
         "@popperjs/core": "^2.11.6",
-        "@vincjo/datatables": "^1.14.5",
+        "@sveltejs/kit": "^2.0.0",
         "sortablejs": "^1.15.0",
+        "svelte": "^5.0.0-next.120",
         "svelte-loading-spinners": "^0.3.4"
+    },
+    "peerDependencies": {
+        "svelte": "^3.56.0 || ^4.0.0 || ^5.0.0-next.120"
     },
     "exports": {
         ".": {

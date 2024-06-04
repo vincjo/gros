@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { DataHandler, Row } from '@vincjo/datatables'
+    import type { DataHandler, Row } from '@vincjo/datatables/legacy'
     import Search from './Search.svelte'
     import RowCount from './RowCount.svelte'
     import Pagination from './Pagination.svelte'
@@ -37,7 +37,7 @@
         {#if rowCount}
             <RowCount {handler} small={clientWidth < 600} />
         {:else}
-            <div/>
+            <div></div>
         {/if}
         {#if pagination}
             <Pagination {handler} small={clientWidth < 600} />

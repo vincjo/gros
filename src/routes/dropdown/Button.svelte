@@ -2,7 +2,7 @@
     import { Dropdown } from '$lib/dropdown'
 </script>
 
-<Dropdown>
+<Dropdown position="bottom-end">
     <aside class="btn z-depth-1">Drop me!</aside>
     {#snippet content()}
     <ul class="z-depth-1">
