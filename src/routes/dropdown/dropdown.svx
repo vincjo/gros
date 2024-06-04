@@ -9,6 +9,7 @@
 # Dropdown
 
 <Button/>
+<Button/>
 
 <br><br><br>
 
@@ -18,7 +19,6 @@ Le contenu du menu déroulant est placé dans un `slot="content"`, qui peut êtr
 <script>
     import { Dropdown } from 'gros/dropdown'
 </script>
-
 
 <Dropdown>
     <div>Drop me!</div>

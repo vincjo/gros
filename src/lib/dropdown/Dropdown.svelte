@@ -78,6 +78,9 @@
         if (keep) {
             return
         }
+        else if (contains) {
+            return active = false
+        }
         else if (preventClosing === true && leave === false) {
             return
         }
