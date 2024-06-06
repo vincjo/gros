@@ -1,4 +1,4 @@
-<svelte:options runes={true}/>
+
 <script lang="ts">
     import Waiting      from './Waiting.svelte'
     import Bootstrap    from './Bootstrap.svelte'

@@ -1,4 +1,3 @@
-<svelte:options runes={true}/>
 <script lang="ts">
     import ErrorMessage from './ErrorMessage.svelte'
     import ErrorAlert from './ErrorAlert.svelte'

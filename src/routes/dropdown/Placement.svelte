@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import { Dropdown } from '$lib/dropdown'
     import { Range } from '$lib/form'
     import { scale } from 'svelte/transition'
@@ -7,7 +7,7 @@
 <Dropdown position="bottom-start">
     <aside class="flex">Click</aside>
     {#snippet content()}
-    <ul transition:scale={{ duration: 160, baseScale: 0.5 }} class="z-depth-2">
+    <ul transition:scale={{ duration: 160, start: 0.5 }} class="z-depth-2">
         <li>
             <i class="micon">grid_on</i>
             Show attribute table

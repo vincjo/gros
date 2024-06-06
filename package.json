@@ -1,6 +1,6 @@
 {
     "name": "gros",
-    "version": "1.0.0-runes.2",
+    "version": "1.0.0-runes.5",
     "keywords": [
         "Jeu de composants Svelte réutilisables"
     ],
@@ -27,18 +27,12 @@
         "deploy": "pm2 deploy ecosystem.config.cjs production"
     },
     "devDependencies": {
-        "@sveltejs/adapter-node": "^2.0.0",
-        "@sveltejs/package": "^2.1.0",
+        "@sveltejs/adapter-node": "^5.0.0",
+        "@sveltejs/package": "^2.3.1",
         "@sveltejs/vite-plugin-svelte": "^3.0.0",
-        "@typescript-eslint/eslint-plugin": "^5.27.0",
-        "@typescript-eslint/parser": "^5.27.0",
+        "@types/node": "^18.15.11",
         "@vincjo/datatables": "^2.0.0-runes.2",
-        "eslint": "^8.16.0",
-        "eslint-config-prettier": "^8.3.0",
-        "eslint-plugin-svelte3": "^4.0.0",
-        "mdsvex": "^0.10.6",
-        "prettier": "^2.6.2",
-        "prettier-plugin-svelte": "^2.10.1",
+        "mdsvex": "^0.11.2",
         "prism-svelte": "^0.5.0",
         "svelte": "^5.0.0-next.148",
         "svelte-check": "^3.4.3",
@@ -56,18 +50,10 @@
         "@popperjs/core": "^2.11.6",
         "@sveltejs/kit": "^2.0.0",
         "sortablejs": "^1.15.0",
-        "svelte": "^5.0.0-next.120",
+        "svelte": "^3.56.0 || ^4.0.0 || ^5.0.0-next.120",
         "svelte-loading-spinners": "^0.3.4"
     },
-    "peerDependencies": {
-        "svelte": "^3.56.0 || ^4.0.0 || ^5.0.0-next.120"
-    },
     "exports": {
-        ".": {
-            "types": "./dist/index.d.ts",
-            "svelte": "./dist/index.js",
-            "default": "./dist/index.js"
-        },
         "./action": {
             "types": "./dist/action/index.d.ts",
             "default": "./dist/action/index.js"

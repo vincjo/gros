@@ -1,4 +1,3 @@
-<svelte:options runes={true}/>
 <script lang="ts">
     import { clickOutside } from '$lib/action'
     import type { Snippet } from 'svelte'
@@ -78,9 +77,9 @@
         if (keep) {
             return
         }
-        // else if (contains) {
-        //     return active = false
-        // }
+        else if (preventClosing && !contains) {
+            return active = false
+        }
         else if (preventClosing === true && leave === false) {
             return
         }

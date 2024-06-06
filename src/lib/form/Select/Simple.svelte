@@ -1,4 +1,4 @@
-<svelte:options runes={true}/>
+
 <script lang="ts">
     import { Dropdown } from '$lib/dropdown'
     import ErrorMessage from '../ErrorMessage.svelte'

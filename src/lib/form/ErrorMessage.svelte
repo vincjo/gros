@@ -1,4 +1,3 @@
-<svelte:options runes={true}/>
 <script lang="ts">
     import type { Error } from './index'
     let { errors, field }: { errors: Error[], field: string } = $props()

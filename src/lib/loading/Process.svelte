@@ -1,4 +1,4 @@
-<svelte:options runes={true}/>
+
 <script lang="ts">
     import { loading } from '$lib/loading'
     import { fade } from 'svelte/transition'

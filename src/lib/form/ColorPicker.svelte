@@ -1,4 +1,3 @@
-<svelte:options runes={true}/>
 <script lang="ts">
     import Gradient from './ColorPicker/Gradient.svelte'
     import Hue from './ColorPicker/Hue.svelte'

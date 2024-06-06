@@ -1,4 +1,3 @@
-<svelte:options runes={true}/>
 <script lang="ts">
     import type { Error, Option } from './index'
     import Simple from './Select/Simple.svelte'

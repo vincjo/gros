@@ -1,4 +1,4 @@
-<svelte:options runes={true}/>
+
 <script lang="ts">
     import { modal } from '$lib/modal'
     import type { Snippet } from 'svelte'

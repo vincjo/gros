@@ -1,4 +1,3 @@
-<svelte:options runes={true}/>
 <script lang="ts">
     import { Tooltip } from '$lib/tooltip'
     import type { Error } from './index'

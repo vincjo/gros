@@ -1,4 +1,3 @@
-<svelte:options runes={true} />
 <script lang="ts">
     import Header from './DatePicker/Header.svelte'
     import Calendar from './DatePicker/Calendar.svelte'

@@ -1,4 +1,4 @@
-<svelte:options runes={true}/>
+
 <script lang="ts">
     import { fadeScale }    from '$lib/transition'
     import { modal }        from '$lib/modal'
@@ -9,8 +9,6 @@
 
     const close = () => modal.close()
 </script>
-
-
 
 {#if modal.isActive}
     <section transition:fade|global={{ duration: 150 }}>

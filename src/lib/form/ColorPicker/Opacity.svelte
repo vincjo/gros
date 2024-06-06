@@ -1,4 +1,4 @@
-<svelte:options runes={true}/>
+
 <script lang="ts">
     import type { ColorHandler } from '$lib/form'
     import { preventDefault, stopPropagation } from '$lib/events'

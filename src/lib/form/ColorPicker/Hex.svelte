@@ -1,4 +1,4 @@
-<svelte:options runes={true}/>
+
 <script lang="ts">
     import type { ColorHandler } from '$lib/form'
     type Props = { handler: ColorHandler }
