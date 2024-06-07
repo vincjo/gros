@@ -20,12 +20,3 @@ export const stopPropagation = (fn: any) => {
         fn.call(this, event)
     }
 }
-
-export const self = (fn: any) => {
-    console.log(fn)
-    return (event: Event, element) => {
-        event.preventDefault()
-        console.log('lol')
-        fn()
-    }
-}
