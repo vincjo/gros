@@ -129,12 +129,12 @@
         pointer-events: none;
     }
 
-    .toast.--start {
+    .toast--start {
         inset-block-start: 0;
         flex-direction: column-reverse;
     }
 
-    .toast.--end {
+    .toast--end {
         inset-block-end: 0;
         flex-direction: column;
     }
@@ -160,19 +160,19 @@
         scale: 1.02;
     }
 
-    .alert.--info {
+    .alert--info {
         background-color: #3a98b9;
     }
 
-    .alert.--success {
+    .alert--success {
         background-color: hsl(171, 71%, 40%);
     }
 
-    .alert.--warning {
+    .alert--warning {
         background-color: #ff6e31;
     }
 
-    .alert.--failure {
+    .alert--failure {
         background-color: hsl(333, 81%, 40%);
     }
 

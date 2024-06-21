@@ -2,8 +2,15 @@
     import { fade } from 'svelte/transition'
     import { createPopperActions } from '$lib/tooltip'
     import type { Placement } from '@popperjs/core'
+    import type { Snippet } from 'svelte'
 
-    export let position: Placement = 'bottom'
+    type Props = {
+        position?: Placement,
+        children: Snippet,
+        content: Snippet
+    }
+    let { position = 'bottom', children, content }: Props = $props()
+
     const [popperRef, popperContent] = createPopperActions({
         placement: position,
         strategy: 'fixed',
@@ -18,9 +25,9 @@
 </script>
 
 
-<button type="button" class="dropdown-trigger" use:popperRef>
-    <slot></slot>
-</button>
+<aside class="dropdown-trigger" use:popperRef>
+    {@render children()}
+</aside>
 
 <div
     transition:fade|global={{ duration:120 }}
@@ -29,16 +36,17 @@
     class="dropdown"
     data-position="{position}"
 >
-    <slot name="content"/>
+    {#if content}
+        {@render content()}
+    {/if}
 </div>
 
 
 <style>
-    button{
-        margin:0;
-        padding:0;
+    aside {
         background:transparent;
-        transform: none;
+        width: fit-content;
+        height: fit-content;
     }
     .dropdown{
         z-index:9999;

@@ -8,7 +8,7 @@ const config = {
     extensions: ['.svelte', ...mdsvexConfig.extensions],
     preprocess: [preprocess(), mdsvex(mdsvexConfig)],
     // compilerOptions: {
-    //     runes: false
+    //     runes: true
     // },
     kit: {
         adapter: adapter({ out: 'build' }),

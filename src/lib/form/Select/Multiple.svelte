@@ -1,7 +1,7 @@
 
 <script lang="ts">
     import { Dropdown } from '$lib/dropdown'
-    import { preventDefault } from '$lib/events'
+    import { preventDefault } from '$lib/event'
     import ErrorMessage from '../ErrorMessage.svelte'
     import ErrorAlert from '../ErrorAlert.svelte'
     import type { Error, Option } from '../index'

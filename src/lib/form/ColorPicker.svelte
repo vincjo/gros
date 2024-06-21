@@ -5,7 +5,7 @@
     import Hex from './ColorPicker/Hex.svelte'
     import Rgba from './ColorPicker/Rgba.svelte'
     import Hsla from './ColorPicker/Hsla.svelte'
-    import { preventDefault } from '$lib/events'
+    import { preventDefault } from '$lib/event'
     import type { ColorHandler } from '$lib/form'
     type Props = { handler: ColorHandler }
     let { handler }: Props = $props()

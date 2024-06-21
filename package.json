@@ -1,6 +1,6 @@
 {
     "name": "gros",
-    "version": "1.0.0-runes.6",
+    "version": "1.0.0-runes.12",
     "keywords": [
         "Jeu de composants Svelte réutilisables"
     ],
@@ -27,83 +27,101 @@
         "deploy": "pm2 deploy ecosystem.config.cjs production"
     },
     "devDependencies": {
-        "@sveltejs/adapter-node": "^5.0.0",
-        "@sveltejs/package": "^2.3.1",
-        "@sveltejs/vite-plugin-svelte": "^3.0.0",
-        "@types/node": "^18.15.11",
-        "@vincjo/datatables": "^2.0.0-runes.2",
+        "@sveltejs/adapter-node": "^5.2.0",
+        "@sveltejs/package": "^2.3.2",
+        "@sveltejs/vite-plugin-svelte": "^3.1.1",
+        "@types/node": "^20.14.7",
+        "@vincjo/datatables": "^2.0.0-runes.20",
         "mdsvex": "^0.11.2",
         "prism-svelte": "^0.5.0",
-        "svelte": "^5.0.0-next.148",
-        "svelte-check": "^3.4.3",
-        "svelte-preprocess": "^5.0.3",
-        "tslib": "^2.3.1",
-        "typescript": "^5.0.0",
-        "vite": "^5.0.0"
+        "svelte": "^5.0.0-next.160",
+        "svelte-check": "^3.8.1",
+        "svelte-preprocess": "^6.0.1",
+        "tslib": "^2.6.3",
+        "typescript": "^5.5.2",
+        "vite": "^5.3.1"
     },
     "type": "module",
     "files": [
         "dist"
     ],
     "dependencies": {
-        "@neodrag/svelte": "^2.0.1",
-        "@popperjs/core": "^2.11.6",
-        "@sveltejs/kit": "^2.0.0",
-        "sortablejs": "^1.15.0",
+        "@neodrag/svelte": "^2.0.6",
+        "@popperjs/core": "^2.11.8",
+        "@sveltejs/kit": "^2.5.17",
+        "sortablejs": "^1.15.2",
         "svelte": "^3.56.0 || ^4.0.0 || ^5.0.0-next.120",
-        "svelte-loading-spinners": "^0.3.4"
+        "svelte-loading-spinners": "^0.3.6"
     },
     "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "svelte": "./dist/index.js",
+            "default": "./dist/index.js"
+        },
         "./action": {
             "types": "./dist/action/index.d.ts",
+            "svelte": "./dist/action/index.js",
             "default": "./dist/action/index.js"
         },
         "./datatable": {
             "types": "./dist/datatable/index.d.ts",
+            "svelte": "./dist/datatable/index.js",
             "default": "./dist/datatable/index.js"
         },
         "./date": {
             "types": "./dist/date/index.d.ts",
+            "svelte": "./dist/date/index.js",
             "default": "./dist/date/index.js"
         },
         "./dropdown": {
             "types": "./dist/dropdown/index.d.ts",
+            "svelte": "./dist/dropdown/index.js",
             "default": "./dist/dropdown/index.js"
         },
-        "./events": {
-            "types": "./dist/events/index.d.ts",
-            "default": "./dist/events/index.js"
+        "./event": {
+            "types": "./dist/event/index.d.ts",
+            "svelte": "./dist/event/index.js",
+            "default": "./dist/event/index.js"
         },
         "./form": {
             "types": "./dist/form/index.d.ts",
+            "svelte": "./dist/form/index.js",
             "default": "./dist/form/index.js"
         },
         "./loading": {
             "types": "./dist/loading/index.d.ts",
+            "svelte": "./dist/loading/index.js",
             "default": "./dist/loading/index.js"
         },
         "./modal": {
             "types": "./dist/modal/index.d.ts",
+            "svelte": "./dist/modal/index.js",
             "default": "./dist/modal/index.js"
         },
         "./page": {
             "types": "./dist/page/index.d.ts",
+            "svelte": "./dist/page/index.js",
             "default": "./dist/page/index.js"
         },
         "./toast": {
             "types": "./dist/toast/index.d.ts",
+            "svelte": "./dist/toast/index.js",
             "default": "./dist/toast/index.js"
         },
         "./tooltip": {
             "types": "./dist/tooltip/index.d.ts",
+            "svelte": "./dist/tooltip/index.js",
             "default": "./dist/tooltip/index.js"
         },
         "./transition": {
             "types": "./dist/transition/index.d.ts",
+            "svelte": "./dist/transition/index.js",
             "default": "./dist/transition/index.js"
         },
         "./treestructure": {
             "types": "./dist/treestructure/index.d.ts",
+            "svelte": "./dist/treestructure/index.js",
             "default": "./dist/treestructure/index.js"
         }
     }

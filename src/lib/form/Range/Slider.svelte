@@ -574,6 +574,7 @@
 
 
 <section class:small={!big}>
+    <!-- svelte-ignore a11y_no_static_element_interactions -->
     <div
         {id}
         bind:this={slider}
@@ -613,7 +614,7 @@
                 {disabled}
                 tabindex="{ disabled ? -1 : 0 }"
             >
-                <span class="rangeNub"/>
+                <span class="rangeNub"></span>
                 {#if float}
                     <span class="rangeFloat">
                         {#if prefix}
@@ -631,7 +632,7 @@
             <span
                 class="rangeBar"
                 style="{orientationStart}: {rangeStart($springPositions)}%; {orientationEnd}: {rangeEnd($springPositions)}%;" 
-            />
+            ></span>
         {/if}
     { #if pips}
             <Pips

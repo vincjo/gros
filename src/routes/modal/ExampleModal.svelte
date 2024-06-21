@@ -1,7 +1,7 @@
 <script>
     import { Modal } from '$lib/modal'
-    export let close
-    export let props
+
+    let { close, props } = $props()
 
     const user = props 
 
@@ -20,8 +20,8 @@
         <li>{user.email}</li>
     </ul>
     {#snippet footer()}
-        <button on:click={save}>Save</button>
-        <button on:click={close}>Cancel</button>
+        <button onclick={save}>Save</button>
+        <button onclick={close}>Cancel</button>
     {/snippet}
 </Modal>
 

@@ -20,6 +20,7 @@ Il faut donc importer le conteneur de boîte pour activer le fonctionnement du s
 ````svelte
 <script>
     import { ModalContainer } from 'gros/modal'
+    let { children } = $props()
 </script>
 
 
@@ -38,9 +39,7 @@ Pour l'exemple nous créons un composant de type boîte de dialogue nommé `Exam
 ````svelte
 <script>
     import { Modal } from 'gros/modal'
-
     let { close, props } = $props()
-
     const user = props
 
     const save = () => {
@@ -59,8 +58,8 @@ Pour l'exemple nous créons un composant de type boîte de dialogue nommé `Exam
     </ul>
 
     {#snippet footer()}
-        <button on:click={save}>Save</button>
-        <button on:click={close}>Cancel</button>
+        <button onclick={save}>Save</button>
+        <button onclick={close}>Cancel</button>
     {/snippet}
 </Modal>
 
@@ -86,7 +85,7 @@ Pour déclencher l'ouverture de la boîte de dialogue exposée ci-dessus, nous u
     import ExampleModal from './ExampleModal.svelte'
 </script>
 
-<button on:click={() => modal.open(ExampleModal, { 
+<button onclick={() => modal.open(ExampleModal, { 
     id: 1, 
     name: 'John Doe', 
     email: 'john.doe@live.com' 

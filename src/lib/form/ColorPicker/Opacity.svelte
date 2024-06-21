@@ -1,7 +1,7 @@
 
 <script lang="ts">
     import type { ColorHandler } from '$lib/form'
-    import { preventDefault, stopPropagation } from '$lib/events'
+    import { preventDefault, stopPropagation } from '$lib/event'
     type Props = { handler: ColorHandler }
     let { handler }: Props = $props()
 
