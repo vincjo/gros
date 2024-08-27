@@ -163,7 +163,8 @@ strong {
 }
 
 p {
-    margin-top: 0;
+    margin: 0;
+    padding: 0;
 }
 
 h1,
@@ -216,7 +217,7 @@ img {
 }
 
 .thin-scrollbar {
-    scrollbar-width: thin;
+    /* scrollbar-width: thin; */
     scrollbar-color: #e0e0e0;
 }
 

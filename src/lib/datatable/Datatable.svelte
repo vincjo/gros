@@ -1,100 +1,140 @@
 <script lang="ts">
-    import type { DataHandler, Row } from '@vincjo/datatables/legacy'
-    import Search from './Search.svelte'
-    import RowCount from './RowCount.svelte'
-    import Pagination from './Pagination.svelte'
+    import type { Snippet } from 'svelte'
+    import type { TableHandlerLike  } from './'
+    import Search       from './Search.svelte'
+    import RowCount     from './RowCount.svelte'
+    import Pagination   from './Pagination.svelte'
 
     type T = $$Generic<Row>
+    type Props = {
+        table: TableHandlerLike<T>,
+        basic?: boolean,
+        header?: Snippet,
+        footer?: Snippet,
+        children: Snippet
+    }
+    let { table, basic = false, header = undefined, footer = undefined, children }: Props = $props()
 
-    export let handler: DataHandler<T>
-
-    export let search       = true
-    export let rowCount     = true
-    export let pagination   = true
-
-    let element: HTMLElement
-    let clientWidth = 1000
-
-    const height = (search ? 48 : 8) + (rowCount || pagination ? 48 : 8)
-
-    handler.on('change', () => {
-        if (element) element.scrollTop = 0
-    })
+    table.on('change', () => table.element ? table.element.scrollTop = 0 : '')
 </script>
 
-<section bind:clientWidth>
-    <header class:container={search}>
-        {#if search}
-            <Search {handler} />
+<section bind:clientWidth={table.clientWidth} class="svelte-simple-datatable">
+
+    <header class:container={basic || header}>
+        {#if basic === true}
+            <Search {table}/>
+        {:else if header}
+            {@render header()}
         {/if}
     </header>
 
-    <article bind:this={element} style="height:calc(100% - {height}px)"  class="thin-scrollbar">
-        <slot />
+    <article bind:this={table.element} class="thin-scrollbar">
+        {@render children()}
     </article>
 
-    <footer class:container={rowCount || pagination}>
-        {#if rowCount}
-            <RowCount {handler} small={clientWidth < 600} />
-        {:else}
-            <div></div>
-        {/if}
-        {#if pagination}
-            <Pagination {handler} small={clientWidth < 600} />
+    <footer class:container={basic || footer}>
+        {#if basic}
+            <RowCount {table}/>
+            <Pagination {table}/>
+        {:else if footer}
+            {@render footer()}
         {/if}
     </footer>
+
 </section>
-
-
 
 <style>
     section {
         height: 100%;
+        display: flex;
+        flex-direction: column;
+        background: inherit;
+        border-radius: inherit;
     }
 
     header, footer {
-        min-height: 8px;
-        padding: 0 16px;
+        min-height: 4px;
+        padding: 0;
+    }
+    .container {
         display: flex;
+        flex-direction: row;
         justify-content: space-between;
         align-items: center;
-    }
-    header.container {
-        height: 48px;
-    }
-    footer{ 
-        border-top: 1px solid #e0e0e0;
+        width: 100%;
     }
     footer.container {
-        height: 48px;
+        border-top: 1px solid var(--grey, #e0e0e0);
     }
     article {
-        position:relative;
-        /* height:calc(100% - 56px); */
-        overflow:auto;
-        scrollbar-width:thin;
+        position: relative;
+        height: 100%;
+        overflow: auto;
+        background: inherit;
+        /* scrollbar-width: thin; */
+    }
+    article::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+    article::-webkit-scrollbar-track {
+        background: #f5f5f5;
+    }
+    article::-webkit-scrollbar-thumb {
+        background: #c2c2c2;
+    }
+    article::-webkit-scrollbar-thumb:hover {
+        background: #9e9e9e;
     }
 
     article :global(table) {
-        text-align: left;
-        border-collapse:separate;
-        border-spacing:0;
-        width:100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        width: 100%;
+        background: inherit;
     }
-    article :global(thead) {
-        position:sticky;
-        inset-block-start:0;
-        background:#fff;
+    article :global(table thead) {
+        position: sticky;
+        inset-block-start: 0;
+        background: inherit;
+        z-index: 1;
+    }
+    article :global(thead tr) {
+        background: inherit;
+    }
+    article :global(thead tr th) {
+        background: inherit;
+    }
+    article :global(thead tr:first-child th) {
+        padding: 8px 20px;
+        background: inherit;
+    }
+    article :global(tbody) {
+        background: inherit;
     }
     article :global(tbody tr) {
-        transition:background, 0.2s;
+        transition: background, 0.2s;
+        background: inherit;
     }
     article :global(tbody tr:hover) {
-        background:#fafafa;
+        background: var(--grey-lighten-3, #fafafa);
     }
-    article :global(tbody tr td) {
-        padding:4px 20px 4px 20px;
-        border-bottom: 1px solid #eee;
-        border-right: 1px solid #eee;
+    article :global(tbody td) {
+        padding: 4px 20px;
+        border-right: 1px solid var(--grey-lighten, #eee);
+        border-bottom: 1px solid var(--grey-lighten, #eee);
+        background: inherit;
+    }
+    article :global(tbody td:first-child) {
+        border-left: 1px solid var(--grey-lighten, #eee);
+    }
+
+    article :global(.hidden) {
+        display: none;
+    }
+    article :global(u.highlight) {
+        text-decoration: none;
+        background: rgba(251, 192, 45, 0.6);
+        border-radius: 2px;
     }
 </style>

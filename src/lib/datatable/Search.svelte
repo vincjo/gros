@@ -1,12 +1,8 @@
 <script lang="ts">
-    import type { DataHandler, Row } from '@vincjo/datatables/legacy'
-
+    import type { TableHandlerLike } from './'
     type T = $$Generic<Row>
-
-    export let handler: DataHandler<T>
-    let value = ''
-
-    handler.on('clearSearch', () => value ='')
+    let { table }: { table: TableHandlerLike<T> } = $props()
+    const search = table.createSearch()
 </script>
 
 <section>
@@ -15,10 +11,10 @@
     </i>
     <input
         class="search"
-        bind:value={value} 
+        bind:value={search.value} 
         placeholder="Rechercher"
         spellcheck="false"
-        on:input={() => handler.search(value)}
+        oninput={() => search.set()}
     />
 </section>
 
@@ -27,6 +23,7 @@
     section {
         position: relative;
         width: 200px;
+        margin: 16px;
     }
     i {
         position: absolute; top:6px; left: 4px;

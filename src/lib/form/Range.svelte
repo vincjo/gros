@@ -1,18 +1,63 @@
 <script lang="ts">
-    import Slider from './Range/Slider.svelte'
-    export let big = false
-    export let value: number[]
-    export let min = 0
-    export let max = 100
-    export let step = 1
-    export let tooltip = true
-    export let pips = false
-    export let suffix = ''
-    export let prefix = ''
+    import { draggable } from '@neodrag/svelte'
+    let {
+        min     = 0,
+        max     = 100,
+        step    = 10,
+        value   = 0
+    }: { min?: number, max?: number, step?: number, value?: number } = $props()
+    let element: HTMLElement
+
+    let current = $state<number>(value)
+    let position = $state({ x: value, y: 0 })
+
+    const test = (offsetX: number, rootNode: HTMLElement) => {
+        const calc = (offsetX * max) / element.getBoundingClientRect().width
+        current = Number(calc.toFixed(step))
+    }
+
+    const set = (e: MouseEvent) => {
+        position = { x: e.offsetX - 8, y: 0 }
+    }
 </script>
 
-{#if value.length === 1}
-    <Slider bind:values={value} {step} range="min" float={tooltip} {min} {max} {suffix} {prefix} {big}/>
-{:else}
-    <Slider bind:values={value} {step} range pushy pips={pips} float={tooltip}  {min} {max} {suffix} {prefix} first="label" last="label" {big}/>
-{/if}
+<button bind:this={element} onclick={(e) => set(e)}>
+    <aside use:draggable={{
+        axis: 'x',
+        grid: [step, step],
+        bounds: 'parent',
+        position: position,
+        onDrag: ({ offsetX, rootNode }) => test(offsetX, rootNode)
+    }}>
+        <div class="label">{current}</div>
+    </aside>
+</button>
+
+<style>
+    button {
+        height: 8px;
+        width: 100%;
+        border-radius: 4px;
+        background: #eee;
+        cursor: default;
+        transform: none;
+    }
+    aside {
+        height: 16px;
+        width: 16px;
+        margin-top: -4px;
+        border-radius: 50%;
+        background: #212121;
+        cursor: pointer;
+        position: relative;
+    }
+    div.label {
+        position: absolute;
+        top: -24px;
+        padding: 4px;
+        border-radius: 4px;
+        background: #212121;
+        color: #eee;
+        margin: 0 auto;
+    }
+</style>

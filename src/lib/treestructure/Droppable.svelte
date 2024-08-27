@@ -1,19 +1,25 @@
 <script lang="ts">
-    import type TreeHandler from './TreeHandler'
+    import type TreeHandler from './TreeHandler.svelte'
     import { fade } from 'svelte/transition'
 
-    export let handler: TreeHandler
-    export let identifier: number | string
-    export let onDrop = async (data: Object, event: DragEvent) => {}
-    let timeout: number
+    let {
+        tree, 
+        identifier,
+        onDrop = async ({}, _) => {}
+    }: {
+        tree: TreeHandler,
+        identifier: number | string,
+        onDrop: (data: Object, event: DragEvent) => Promise<void>
+    } = $props()
+    let timeout: NodeJS.Timeout
 
     const dragenter = (event: DragEvent) => {
         const target = event.target as HTMLElement
         target.style.background = 'rgba(251, 192, 45, 0.2)'
         clearTimeout(timeout)
         timeout = setTimeout(() => {
-            if (!handler.isActive('folder', identifier)) {
-                handler.setActive('folder', identifier)
+            if (!tree.isActive('folder', identifier)) {
+                tree.setActive('folder', identifier)
             }
         }, 1000)
     }
@@ -26,23 +32,22 @@
     }
     const drop = async (event: DragEvent) => {
         clearTimeout(timeout)
-        const data = { ...$dragging.data, destination: identifier }
+        const data = { ...tree.dragging.data, destination: identifier }
         if (data.origin === data.destination) {
             return
         }
         await onDrop(data, event)
-        handler.drop()
+        tree.drop()
     }
-    const dragging = handler.getDragging()
 </script>
 
-{#if $dragging.status === true && $dragging.data.identifier !== identifier}
+{#if tree.dragging.status === true && tree.dragging.data.identifier !== identifier}
+    <!-- svelte-ignore a11y_no_static_element_interactions -->
     <div class="droppable" transition:fade={{ duration:200 }}
-        on:dragenter|self={(event) => dragenter(event)}
-        on:dragover|preventDefault
-        on:dragleave|self={(event) => dragleave(event)}
-        on:drop|self|preventDefault={(event) => drop(event)}
-    />
+        ondragenter={(event) => dragenter(event)}
+        ondragleave={(event) => dragleave(event)}
+        ondrop={(event) => drop(event)}
+    ></div>
 {/if}
 
 <style>

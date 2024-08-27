@@ -1,7 +1,7 @@
 
 <script lang="ts">
     import { fade } from 'svelte/transition'
-    import { Diamonds } from 'svelte-loading-spinners'
+    import Diamonds  from './spinner/Diamonds.svelte'
 </script>
 
 <section transition:fade|global>

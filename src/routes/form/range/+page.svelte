@@ -1,11 +1,16 @@
 <script>
-    import Range from './range.svx'
+    import { Range } from '$lib/form'
 </script>
 
-
-<div class="svx">
+<section>
     <Range/>
-</div>
+</section>
 
-
-
+<style>
+    section {
+        margin: 80px 0;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        padding: 32px;
+    }
+</style>

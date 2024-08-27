@@ -1,8 +1,8 @@
 
 <script lang="ts">
-    import { loading } from '$lib/loading'
-    import { fade } from 'svelte/transition'
-    import { Jumper } from 'svelte-loading-spinners'
+    import { loading }  from '$lib/loading'
+    import { fade }     from 'svelte/transition'
+    import Jumper       from './spinner/Jumper.svelte'
 </script>
 
 {#if loading.active}

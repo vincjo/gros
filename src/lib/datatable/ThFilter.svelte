@@ -1,22 +1,27 @@
 <script lang="ts">
-    import type { DataHandler } from '@vincjo/datatables/legacy'
-    export let handler: DataHandler
-    export let filterBy = null
-    export let align = 'left'
-    let value = ''
+    import type { TableHandlerLike, FieldLike } from './'
+    import type { Check } from '@vincjo/datatables'
 
-    handler.on('clearFilters', () => value ='')
+    type T = $$Generic<Row>
+    type Props = {
+        table  : TableHandlerLike<T>,
+        field  : FieldLike<T>,
+        check ?: Check
+    }
+    let { table, field, check = undefined }: Props = $props()
+
+    // "field as any" for compatibility between client and server
+    const filter = table.createFilter(field as any, check)
 </script>
 
 
 <th>
     <input 
-        style:text-align={align}
         type="text"
         placeholder="Filtrer"
         spellcheck="false"
-        bind:value
-        on:input={() => handler.filter(value, filterBy)}
+        bind:value={filter.value}
+        oninput={() => filter.set()}
     />
 </th>
 

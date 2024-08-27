@@ -1,51 +1,46 @@
 <script lang="ts">
-    import type { DataHandler, Row } from '@vincjo/datatables/legacy'
+    import type { TableHandlerLike } from './'
 
     type T = $$Generic<Row>
+    let { table, selection = false }: { table: TableHandlerLike<T>, selection?: boolean } = $props()
 
-    export let handler: DataHandler<T>
-    const i18n = { 
-        noRows: 'Aucun résultat', 
-        rowCount: 'Lignes {start} à {end} sur {total}' 
-    }
-    export let small = false
-
-    const rowCount = handler.getRowCount()
+    const { start, end, total, selected } = $derived(table.rowCount)
 </script>
 
 
-{#if small}
-    {#if $rowCount.total > 0}
-        <aside>
-            <b>{$rowCount.start}</b>-
-            <b>{$rowCount.end}</b>/
-            <b>{$rowCount.total}</b>
-        </aside>
+<aside>
+    {#if table.clientWidth < 640}
+        {@render small()}
     {:else}
-        {i18n.noRows}
+        {@render rowCount()}
     {/if}
-{:else}
-    <aside>
-        {#if $rowCount.total > 0}
-            {@html i18n.rowCount
-                .replace('{start}', `<b>${$rowCount.start}</b>`)
-                .replace('{end}', `<b>${$rowCount.end}</b>`)
-                .replace('{total}', `<b>${$rowCount.total}</b>`)
-            }
-        {:else}
-            {i18n.noRows}
-        {/if}
-    </aside>
-{/if}
+</aside>
+
+{#snippet small()}
+    {#if total > 0}
+        <b>{start}</b>-
+        <b>{end}</b>/
+        <b>{total}</b>
+    {:else}
+        {table.i18n.noRows}
+    {/if}
+{/snippet}
 
 
-
+{#snippet rowCount()}
+    {#if total > 0}
+        Lignes <b>{start}</b> à <b>{end}</b> sur <b>{total}</b>
+    {:else}
+        Aucun résultat
+    {/if}
+{/snippet}
 
 <style>
     aside{
         color:#757575;
         line-height:32px;
         font-size:13px;
+        margin: 16px;
     }
     aside :global(b) {
         color: #616161;

@@ -1,7 +1,7 @@
 
 <script lang="ts">
     import { fade } from 'svelte/transition'
-    import { Jumper } from 'svelte-loading-spinners'
+    import Jumper   from './spinner/Jumper.svelte'
 </script>
 
 <aside transition:fade|global>

@@ -17,32 +17,31 @@ Les tableaux sont adaptés en Français. Ils incluent une barre de défilement v
 <script>
     import { myData } from './somewhere'
     import { 
-        DataHandler, 
+        TableHandler, 
         Datatable, 
-        Th, 
+        ThSort, 
         ThFilter 
     } from 'gros/datatable'
 
-    const handler = new DataHandler(myData, { rowsPerPage: 50 })
-    const rows = handler.getRows()
+    const table = new TableHandler(myData, { rowsPerPage: 50 })
 </script>
 
-<Datatable {handler}>
+<Datatable {table} basic>
     <table>
         <thead>
             <tr>
-                <Th {handler} orderBy="first_name">First Name</Th>
-                <Th {handler} orderBy="last_name">Last Name</Th>
-                <Th {handler} orderBy="email">Email</Th>
+                <ThSort {table} field="first_name">First Name</ThSort>
+                <ThSort {table} field="last_name">Last Name</ThSort>
+                <ThSort {table} field="email">Email</ThSort>
             </tr>
             <tr>
-                <ThFilter {handler} filterBy="first_name"/>
-                <ThFilter {handler} filterBy="last_name"/>
-                <ThFilter {handler} filterBy="email"/>
+                <ThFilter {table} field="first_name"/>
+                <ThFilter {table} field="last_name"/>
+                <ThFilter {table} field="email"/>
             </tr>
         </thead>
         <tbody>
-            {#each $rows as row}
+            {#each table.rows as row}
                 <tr>
                     <td>{row.first_name}</td>
                     <td>{row.last_name}</td>
