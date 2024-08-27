@@ -4,7 +4,7 @@
 </script>
 
 <section>
-    <Checkbox {checked} size={20} margin={[0,8,0,0]}>
+    <Checkbox bind:checked size={20} margin={[0,8,0,0]}>
         J'approuve les conditions générales d'utilisation
     </Checkbox>
 </section>

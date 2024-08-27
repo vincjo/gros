@@ -13,7 +13,7 @@
 
 <br><br><br>
 
-Le contenu du menu déroulant est placé dans un `slot="content"`, qui peut être n'importe quel élément `HTML`.
+Le contenu du menu déroulant est placé dans le `#snippet content()`.
 
 ````svelte
 <script>
@@ -57,9 +57,9 @@ Le placement du menu s'adapte à l'espace disponible dans la fenêtre.
 ````svelte
 <Dropdown position="bottom-start">
     <button>Click</button>
-    <aside slot="content">
+    {#snippet content()}
         <!-- stuff -->
-    </aside>
+    {/snippet}
 </Dropdown>
 ````
 
@@ -80,12 +80,14 @@ On peut définir un ou plusieurs éléments de fermeture en attributant la `clas
 ````svelte
 <Dropdown preventClosing>
     <button>Drop me!</button>
-    <ul slot="content">
-        <li>No closure</li>
-        <li class="close-dropdown">Close</li>
-        <li>No closure</li>
-        <li class="close-dropdown">Close</li>
-    </ul>
+    {#snippet content()}
+        <ul>
+            <li>No closure</li>
+            <li class="close-dropdown">Close</li>
+            <li>No closure</li>
+            <li class="close-dropdown">Close</li>
+        </ul>
+    {/snippet}
 </Dropdown>
 ````
 <br><br>
@@ -107,12 +109,14 @@ On passe le paramètre `fixedWidth` pour empêcher le redimensionnement du menu.
     <button>
         Drop me!
     </button>
-    <ul slot="content">
-        <li>Option 1</li>
-        <li>Option 2</li>
-        <li>Option 3</li>
-        <li>Option 4</li>
-    </ul>
+    {#snippet content()}
+        <ul slot="content">
+            <li>Option 1</li>
+            <li>Option 2</li>
+            <li>Option 3</li>
+            <li>Option 4</li>
+        </ul>
+    {/snippet}
 </Dropdown>
 ````
 

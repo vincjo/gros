@@ -1,11 +1,25 @@
 <script lang="ts">
     import type { Snippet } from 'svelte'
     import { scale } from 'svelte/transition'
-    type Props = { checked: boolean, size: number, margin: number[], children?: Snippet, before?: Snippet }
-    let { checked, size, margin, children, before }: Props = $props()
+    type Props = { 
+        checked     : boolean, 
+        size       ?: number, 
+        margin     ?: number[], 
+        children   ?: Snippet,
+        before     ?: Snippet
+        onclick    ?: () => void
+    }
+    let { 
+        checked     = $bindable(), 
+        size        = 18, 
+        margin      = [4, 4], 
+        onclick     = () => {},
+        children, 
+        before 
+    }: Props = $props()
 </script>
 
-<button type="button" class="checkbox" onclick={() => (checked = !checked)}>
+<button type="button" class="checkbox" onclick={() => {(checked = !checked); onclick()}}>
     {#if before}{@render before()}{/if}
     <span
         style:height={size + 'px'}

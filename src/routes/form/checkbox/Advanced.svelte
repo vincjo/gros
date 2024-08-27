@@ -6,7 +6,7 @@
 </script>
 
 <section>
-    <Checkbox checked={isVisible} size={22} margin={[16,8]}>
+    <Checkbox bind:checked={isVisible} size={22} margin={[16,8]}>
         {#snippet before()}
         <aside class:active={isVisible}>
             <i class="micon s24">{isVisible ? 'visibility' : 'visibility_off'}</i>
@@ -14,7 +14,7 @@
         </aside>
         {/snippet}
     </Checkbox>
-    <Checkbox checked={hasElevation} size={22} margin={[16,8]}>
+    <Checkbox bind:checked={hasElevation} size={22} margin={[16,8]}>
         {#snippet before()}
         <aside class:active={hasElevation}>
             <i class="micon s24">landscape</i>
@@ -22,7 +22,7 @@
         </aside>
         {/snippet}
     </Checkbox>
-    <Checkbox checked={hasCadastre} size={22} margin={[16,8]}>
+    <Checkbox bind:checked={hasCadastre} size={22} margin={[16,8]}>
         {#snippet before()}
         <aside class:active={hasCadastre}>
             <i class="micon s24">view_quilt</i>

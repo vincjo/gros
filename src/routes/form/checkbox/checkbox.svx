@@ -36,7 +36,7 @@
 
 ## Placement
 
-Les contenus peuvent-êtes situés avant la `checkbox` en utilisant le paramètre `slot="before"`
+Les contenus peuvent-êtes situés avant la `checkbox` en utilisant `#snippet before()`
 
 <Advanced/>
 
@@ -44,10 +44,12 @@ Les contenus peuvent-êtes situés avant la `checkbox` en utilisant le paramètr
 
 ````svelte
 <Checkbox bind:checked={isVisible} size={22} margin={[16,8]}>
-    <aside slot="before" class:active={isVisible}>
-        <i class="micon">{isVisible ? 'visibility' : 'visibility_off'}</i>
-        <span>Visible</span>
-    </aside>
+    {#snippet before()}
+        <aside class:active={isVisible}>
+            <i class="micon s24">{isVisible ? 'visibility' : 'visibility_off'}</i>
+            <span>Visible</span>
+        </aside>
+    {/snippet}
 </Checkbox>
 
 ````

@@ -19,7 +19,7 @@
     <Input small={true} label={'Message'} bind:value={form.message}/>
     <Input small={true} label={'Submessage'} bind:value={form.submessage}/>
     
-    <button class="btn" on:click={launch}>
+    <button class="btn" onclick={launch}>
         <i class="micon">play_circle_outline</i>
         Run Process 3 seconds
     </button>

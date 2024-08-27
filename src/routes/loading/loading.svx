@@ -32,10 +32,11 @@ Le composant `<Loading process/>` est placé une seule fois à la racine du proj
 
 ````svelte
 <script>
+    let { children } = $props()
     import { Loading } from 'gros/loading'
 </script>
 
-<slot/>
+{@render children}
 <Loading process/>
 ````
 <br>
@@ -59,7 +60,7 @@ En paramètre de la fonction `start`, on peut préciser un message et un sous-me
     }
 </script>
 
-<button on:click={handleClick}>CLICK ME</button>
+<button onclick={handleClick}>CLICK ME</button>
 
 ````
 <br><br>
