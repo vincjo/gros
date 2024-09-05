@@ -1,7 +1,8 @@
-<script>
+<script lang="ts">
     import { slide, fade } from 'svelte/transition'
     import pages from './Nav'
-    import { getPath, url } from '$lib/page'
+    import { getPath, createURL } from '$lib/page'
+    const url = createURL()
 </script>
 
 <section>
@@ -25,16 +26,13 @@
 
     <a href={getPath('/home')}>
         <h2 class:active={$url === getPath('/home')}>
-            <i class="material-icons" />
+            <i class="micon"></i>
             home
         </h2>
     </a>
     {#each pages as page}
         <a href={getPath(page.path)}>
-            <h3
-                class:active={$url === getPath(page.path) ||
-                    (getPath(page.path) !== '/' && $url.includes(getPath(page.path)))}
-            >
+            <h3 class:active={$url.startsWith(getPath(page.path))}>
                 {page.name}
             </h3>
         </a>

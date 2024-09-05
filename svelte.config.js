@@ -1,12 +1,12 @@
 import { mdsvex } from 'mdsvex'
 import mdsvexConfig from './mdsvex.config.js'
 import adapter from '@sveltejs/adapter-node'
-import preprocess from 'svelte-preprocess'
+import { sveltePreprocess } from 'svelte-preprocess'
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
     extensions: ['.svelte', ...mdsvexConfig.extensions],
-    preprocess: [preprocess(), mdsvex(mdsvexConfig)],
+    preprocess: [sveltePreprocess(), mdsvex(mdsvexConfig)],
     // compilerOptions: {
     //     runes: true
     // },

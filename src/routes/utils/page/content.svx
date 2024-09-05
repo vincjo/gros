@@ -1,12 +1,13 @@
 <script>
-    import { url, getPath } from '$lib/page'
+    import { createURL, getPath } from '$lib/page'
+    const url = createURL()
 </script>
 
 # Navigation
 
 ````svelte
 <script>
-    import { url, getPath } from 'gros/page'
+    import { getPath, createURL } from 'gros/page'
 </script>
 ````
 <br>
@@ -14,7 +15,11 @@
 ## URL courante
 
 ````svelte
-<span> {$url} </span>
+<script>
+    const url = createURL()
+</script>
+
+<span>{$url}</span>
 ````
 
 {$url}
