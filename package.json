@@ -1,6 +1,6 @@
 {
     "name": "gros",
-    "version": "1.0.0-runes.19",
+    "version": "1.0.0-runes.20",
     "keywords": [
         "Jeu de composants Svelte réutilisables"
     ],
@@ -99,7 +99,7 @@
             "svelte": "./dist/page/index.js"
         },
         "./theme": {
-            "types": "./dist/page/index.d.ts",
+            "types": "./dist/theme/index.d.ts",
             "svelte": "./dist/theme/index.js"
         },
         "./toast": {
