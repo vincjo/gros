@@ -1,8 +1,8 @@
 <script lang="ts">
     import { Dropdown } from '$lib/dropdown'
     // import { modal } from '$lib/modal'
-    export let folder: any 
-    export let level: number
+
+    let { folder, level }: { folder: any, level: number } = $props()
 </script>
 
 
@@ -14,22 +14,24 @@
     <button class="dropdown btn option">
         <i class="micon">more_vert</i>
     </button>
-    <aside slot="content" class="z-depth-2">
-        {#if level === 0}
-        <button class="btn" on:click={() => console.log(`modal.open(Modal_CreateFolder)`, folder)}>
-            <i class="micon">create_new_folder</i>
-            New folder...
-        </button>
-        {/if}
-        <button class="btn" on:click={() => console.log(`modal.open(Modal_CreateFile)`)}>
-            <i class="micon">note_add</i>
-            New file...
-        </button>
-        <button class="btn delete" on:click={() => console.log(`modal.open(Modal_DeleteFolder)`)}>
-            <i class="micon">delete_forever</i>
-            Delete
-        </button>
-    </aside>
+    {#snippet content()}
+        <aside class="z-depth-2">
+            {#if level === 0}
+            <button class="btn" onclick={() => console.log(`modal.open(Modal_CreateFolder)`, folder)}>
+                <i class="micon">create_new_folder</i>
+                New folder...
+            </button>
+            {/if}
+            <button class="btn" onclick={() => console.log(`modal.open(Modal_CreateFile)`)}>
+                <i class="micon">note_add</i>
+                New file...
+            </button>
+            <button class="btn delete" onclick={() => console.log(`modal.open(Modal_DeleteFolder)`)}>
+                <i class="micon">delete_forever</i>
+                Delete
+            </button>
+        </aside>
+    {/snippet}
 </Dropdown>
 
 

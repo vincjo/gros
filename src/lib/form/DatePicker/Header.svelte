@@ -80,8 +80,9 @@
         align-items: center;
         padding:0 4px;
         height:40px;
-        border-bottom: 1px solid #eee;
-        background:#fafafa;
+        border-radius: 4px 4px 0 0;
+        border-bottom: 1px solid var(--grey-lighten, #eee);
+        background:var(--grey-lighten-3, #fafafa);
     }
 
     div.flex-around{
@@ -94,27 +95,40 @@
         justify-content: center;
         align-items: center;
     }
-    button.nav{height:24px;width:24px !important;border-radius:50%;color:#757575;}
-    button.nav:hover{background:#eee;}
+    button.nav{
+        height:24px;
+        width:24px !important;
+        border-radius:50%;
+        color:var(--font-grey, #757575);
+    }
+    button.nav:hover{
+        background: var(--grey-lighten, #eee);
+    }
     aside.month, aside.year{
         justify-content:space-between;
-        height:32px;border:1px solid #e0e0e0;
+        height:32px;
+        border:1px solid var(--grey, #e0e0e0);
+        color: var(--font, #424242);
         padding:0 4px 0 8px;
         height:24px;
         font-size:13px;
-        background:#fff;
+        background:var(--bg-darken, #fff);
         margin-right:2px;
         transition: all, 0.2s;
         border-radius: 4px;
     }
-    aside.month i, aside.year i{color:#757575;font-size:20px;margin-left:4px;}
+    aside.month i, aside.year i{
+        color:var(--font-grey, #757575);
+        font-size:20px;
+        margin-left:4px;
+    }
     .month{width:96px;}
     .year{width:64px;}
 
     div.select{
-        background:#fff;
-        border:1px solid #e0e0e0;
-        border-top:1px solid #eee;
+        background:var(--bg-darken, #fff);
+        border:1px solid var(--grey, #e0e0e0);
+        border-top:1px solid var(--grey-lighten, #eee);
         border-radius:4px;
         margin-top: 2px;
         padding:4px 4px;
@@ -122,12 +136,13 @@
     div.select button{
         justify-content:flex-start;
         font-size:12px;
+        color: var(--font, #424242);
         width:100%;
         height:20px;
         padding:0 8px;
     }
     div.select button:hover{
-        background:#eee;
+        background:var(--grey-lighten, #eee);
     }
     div.select button.active{
         background:#424242;

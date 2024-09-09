@@ -10,7 +10,6 @@
         footer: Snippet
     }
     let { icon = 'chevron_right', title = '', children, footer }: Props = $props()
-
 </script>
 
 <header class="handle modal">
@@ -37,7 +36,7 @@
         display:flex;
         justify-content:space-between;
         align-items:center;
-        background:#f5f5f5;
+        background: var(--grey-lighten-2, #f5f5f5);
         cursor:move;
         border-radius:4px 4px 0 0;
         user-select: none;
@@ -61,13 +60,13 @@
         line-height:32px;
     }
     header aside{
-        color:#616161;
+        color: var(--grey-font, #757575);
         font-weight:normal;
         font-size:16px;
     }
     header aside i{
         margin:0 4px;
-        color:#757575;
+        color: var(--grey-font, #757575);
     }
 
     aside{
@@ -80,35 +79,35 @@
     }
     footer{
         height:56px;
-        border-top:1px solid #eee;
+        border-top:1px solid var(--grey-lighten, #eee);
         display:flex;
         justify-content:flex-end;
         align-items:center;
         padding:0;
-        background:#fdfdfd;
+        background:var(--grey-lighten-3, #fafafa);
         border-radius:0 0 4px 4px;
         user-select: none;
     }
 
     footer :global(button){
-        border:1px solid #e0e0e0;
+        border:1px solid var(--grey, #e0e0e0);
         outline:none;
         width:auto;
         height:34px;
-        background:#eee;
+        background:var(--grey-lighten, #eee);
         transition:all,0.5s;
         cursor:pointer;
         margin-right:12px;
         padding:0 16px;
-        color:#212121;
+        color: var(--font, #212121);
         border-radius:2px;
         font-size:14px;
     }
     footer :global(button):hover{
         border:1px solid var(--primary);
-        background:#fafafa;
+        background:var(--grey-lighten-3, #fafafa);
     }
     footer :global(button):active{
-        background:#e0e0e0;
+        background:var(--grey, #e0e0e0);
     }
 </style>

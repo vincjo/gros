@@ -1,9 +1,7 @@
-<script>
-    import { Modal } from '$lib/modal'
+<script lang="ts">
+    import { Modal, type ModalProps } from '$lib/modal'
 
-    let { close, props } = $props()
-
-    const user = props 
+    let { close, props }: ModalProps = $props()
 
     const save = () => {
         close()
@@ -15,9 +13,9 @@
     <p>Some content</p>
     <b>User</b>
     <ul>
-        <li>{user.id}</li>
-        <li>{user.name}</li>
-        <li>{user.email}</li>
+        <li>{props.id}</li>
+        <li>{props.name}</li>
+        <li>{props.email}</li>
     </ul>
     {#snippet footer()}
         <button onclick={save}>Save</button>

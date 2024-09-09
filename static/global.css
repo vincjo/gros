@@ -1,43 +1,220 @@
-@font-face {font-family:"Gros";src: url('./fonts/Chango-Regular.ttf');}
-pre{border-radius:2px;}
+@font-face {
+    font-family: "Gros";
+    src: url('./fonts/Chango-Regular.ttf');
+}
 
-.svx p, .svx ol, .svx ul{font-family:Roboto; letter-spacing: .01em;}
+pre {
+    border-radius: 2px;
+}
 
-.svx h1, .svx h2, .svx h3{font-family:-apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;letter-spacing: .01em;}
+.svx p,
+.svx ol,
+.svx ul {
+    font-family: Roboto;
+    letter-spacing: .01em;
+}
 
-.svx h1:first-child{width:100%;display:block;height:96px;border-bottom:1px dotted var(--primary);line-height:96px;color:var(--primary)}
-.svx h2{color:var(--secondary)}
-.svx p{font-size:18px;margin-bottom:16px;color:#424242;}
-.svx code{background:#f5f5f5;border:1px solid #e0e0e0;border-radius:2px;padding:0 2px;}
-.svx pre code{border:none;}
-.svx blockquote{background:#f5f5f5;margin:0;padding:8px;border:1px solid #e0e0e0;border-bottom:none;border-radius:8px 8px 0 0;}
-.svx blockquote p{margin:0;color:var(--secondary-darken);font-family:Arial, sans-serif;}
-.svx pre{margin-top:0 !important;}
+.svx h1,
+.svx h2,
+.svx h3 {
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    letter-spacing: .01em;
+}
 
-.svx .table table {text-align:center;}
-.svx .table tr {width:100%;}
-.svx .table table tbody td{padding:4px 8px;}
-.svx .table table tbody td {border-bottom:1px solid #f5f5f5;}
-.svx .table table thead {background:#f5f5f5;border-radius:8px 8px 0 0;}
-.svx .table table thead th {padding:8px 8px;font-size:18px;color:var(--secondary)}
+.svx h1:first-child {
+    width: 100%;
+    display: block;
+    height: 96px;
+    font-family: Gros;
+    font-weight: bold;
+    font-size: 48px;
+    letter-spacing: -2px;
+    border-bottom: 4px dotted var(--primary);
+    line-height: 96px;
+    color: var(--primary);
+    margin-bottom: 48px;
+}
 
-.svx .ul ul{list-style-type: circle;margin-left:24px;}
-.svx .ul li{margin:16px;font-size:16px;}
-.svx a{color:var(--secondary);text-decoration:underline;}
+.svx h2 {
+    color: var(--secondary);
+    margin-top: 40px;
+}
+
+.svx p {
+    font-size: 18px;
+    margin-bottom: 16px;
+    color: var(--font);
+}
+
+.svx code {
+    background: var(--grey-lighten-2);
+    border: 1px solid var(--grey);
+    color: var(--font-grey);
+    border-radius: 2px;
+    padding: 0 2px;
+}
+
+.svx pre code {
+    border: none;
+}
+
+.svx blockquote {
+    background: var(--grey-lighten-2);
+    margin: 0;
+    padding: 8px;
+    border-bottom: none;
+    border-radius: 8px 8px 0 0;
+}
+
+.svx blockquote p {
+    margin: 0;
+    color: var(--secondary-darken);
+    font-family: Arial, sans-serif;
+}
+
+.svx pre {
+    margin-top: 0 !important;
+}
+
+.svx .table table {
+    text-align: center;
+}
+
+.svx .table tr {
+    width: 100%;
+}
+
+.svx .table table tbody td {
+    padding: 4px 8px;
+}
+
+.svx .table table tbody td {
+    border-bottom: 1px solid var(--grey-lighten);
+}
+
+.svx .table table thead {
+    background: var(--grey-lighten);
+    border-radius: 8px 8px 0 0;
+}
+
+.svx .table table thead th {
+    padding: 8px 8px;
+    font-size: 18px;
+    color: var(--primary)
+}
+
+.svx .ul ul {
+    list-style-type: circle;
+    margin-left: 24px;
+}
+
+.svx .ul li {
+    margin: 16px;
+    font-size: 16px;
+}
+
+.svx a {
+    color: var(--secondary);
+    text-decoration: underline;
+}
 
 
-.scale-in {-webkit-animation:scaleIn 0.2s;animation:scaleIn 0.2s}
-@-webkit-keyframes scaleIn{from{-webkit-transform:scale(0)} to{-webkit-transform:scale(1)}}
-@keyframes scaleIn{from{transform:scale(0)} to{transform:scale(1)}}
+.scale-in {
+    -webkit-animation: scaleIn 0.2s;
+    animation: scaleIn 0.2s
+}
 
-.scale-out {-webkit-animation:scaleOut 0.2s;animation:scaleOut 0.2s}
-@-webkit-keyframes scaleOut{from{-webkit-transform:scale(1)} to{-webkit-transform:scale(0)}}
-@keyframes scaleOut{from{transform:scale(1)} to{transform:scale(0)}}
+@-webkit-keyframes scaleIn {
+    from {
+        -webkit-transform: scale(0)
+    }
 
-.fade-in{-webkit-animation:fadeIn 0.2s;animation:fadeIn 0.2s}
-@-webkit-keyframes fadeIn{from{opacity:0} to{opacity:1}}
-@keyframes fadeIn{from{opacity:0} to{opacity:1}}
+    to {
+        -webkit-transform: scale(1)
+    }
+}
 
-.fade-out{-webkit-animation:fadeOut 0.2s;animation:fadeOut 0.2s}
-@-webkit-keyframes fadeOut{from{opacity:1} to{opacity:0}}
-@keyframes fadeOut{from{opacity:1} to{opacity:0}}
+@keyframes scaleIn {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+
+.scale-out {
+    -webkit-animation: scaleOut 0.2s;
+    animation: scaleOut 0.2s
+}
+
+@-webkit-keyframes scaleOut {
+    from {
+        -webkit-transform: scale(1)
+    }
+
+    to {
+        -webkit-transform: scale(0)
+    }
+}
+
+@keyframes scaleOut {
+    from {
+        transform: scale(1)
+    }
+
+    to {
+        transform: scale(0)
+    }
+}
+
+.fade-in {
+    -webkit-animation: fadeIn 0.2s;
+    animation: fadeIn 0.2s
+}
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+.fade-out {
+    -webkit-animation: fadeOut 0.2s;
+    animation: fadeOut 0.2s
+}
+
+@-webkit-keyframes fadeOut {
+    from {
+        opacity: 1
+    }
+
+    to {
+        opacity: 0
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1
+    }
+
+    to {
+        opacity: 0
+    }
+}

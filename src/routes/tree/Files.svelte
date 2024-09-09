@@ -1,7 +1,6 @@
-<script>
-    import { Sortable, File } from '$lib/treestructure'
-    export let folder
-    export let handler
+<script lang="ts">
+    import { Sortable, File, type TreeHandler } from '$lib/tree'
+    let { folder, tree }: { folder: any, tree: TreeHandler } = $props()
 </script>
 
 
@@ -9,7 +8,7 @@
 
 <Sortable type="file" scope={folder.id}>
     {#each folder.files as file (file.id)}
-        <File identifier={file.id} {handler} parent={folder.id} >
+        <File identifier={file.id} {tree} parent={folder.id} >
             <article class="flex">
                 <i class="micon">widgets</i>
                 {file.title}

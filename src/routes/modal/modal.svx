@@ -3,7 +3,7 @@
 </script>
 
 
-# Modals
+# Modal
 
 <Button/>
 
@@ -36,11 +36,11 @@ Il faut donc importer le conteneur de boîte pour activer le fonctionnement du s
 
 Pour l'exemple nous créons un composant de type boîte de dialogue nommé `ExampleModal.svelte`
 
-````svelte
-<script>
-    import { Modal } from 'gros/modal'
-    let { close, props } = $props()
-    const user = props
+```svelte
+<script lang="ts"> 
+    import { Modal, type ModalProps } from '$lib/modal'
+
+    let { close, props }: ModalProps = $props()
 
     const save = () => {
         close()
@@ -52,18 +52,16 @@ Pour l'exemple nous créons un composant de type boîte de dialogue nommé `Exam
     <p>Some content</p>
     <b>User</b>
     <ul>
-        <li>{user.id}</li>
-        <li>{user.name}</li>
-        <li>{user.email}</li>
+        <li>{props.id}</li>
+        <li>{props.name}</li>
+        <li>{props.email}</li>
     </ul>
-
     {#snippet footer()}
         <button onclick={save}>Save</button>
         <button onclick={close}>Cancel</button>
     {/snippet}
 </Modal>
-
-````
+```
 
 <br><br>
 

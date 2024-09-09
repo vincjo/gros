@@ -1,16 +1,21 @@
 <script lang="ts">
-    import { Folder } from '$lib/treestructure'
+    import { Folder, type TreeHandler } from '$lib/tree'
     import Files from './Files.svelte'
     import Folder_Option from './Folder_Option.svelte'
-    import Sortable from '$lib/treestructure/Sortable.svelte';
-    export let folder: any
-    export let handler
-    export let level = 0
-    export let parent = 0
+    import Sortable from '$lib/tree/Sortable.svelte';
+
+    type Props = { folder: any, tree: TreeHandler, level: number, parent: number }
+
+    let {
+        folder,
+        tree,
+        level = 0,
+        parent = 0,
+    }: Props = $props()
 </script>
 
 
-<Folder level={level} identifier={folder.id} {handler} parent={parent}>
+<Folder level={level} identifier={folder.id} {tree} parent={parent}>
     <section class="flex">
         {#if folder.icon && folder.id !== 0}
             <i class="icon">{@html folder.icon}</i>
@@ -25,21 +30,24 @@
         </h1>
     </section>
 
-    <aside slot="option" class="flex">
-        {#if folder.id !== 0}
-            <Folder_Option {folder} {level}/>
-        {/if}
-    </aside>
+    {#snippet option()}
+        <aside class="flex">
+            {#if folder.id !== 0}
+                <Folder_Option {folder} {level}/>
+            {/if}
+        </aside>
+    {/snippet}
+    {#snippet nested()}
+        <article>
+            <Sortable type="folder" scope={folder.id}>
+            {#each folder.folders as subfolder (subfolder.id)}
+                <svelte:self folder={subfolder} level={level + 1} {tree} parent={folder.id}/>
+            {/each}
+            </Sortable>
+            <Files {tree} {folder}/>
+        </article>
+    {/snippet}
 
-    <article slot="nested">
-        <Sortable type="folder" scope={folder.id}>
-        {#each folder.folders as subfolder (subfolder.id)}
-            <svelte:self folder={subfolder} level={level + 1} {handler} parent={folder.id}/>
-        {/each}
-        </Sortable>
-
-        <Files {handler} {folder}/>
-    </article>
 
 </Folder>
 
@@ -65,7 +73,7 @@
         font-size: 14px;
     }
     h1 span{
-        color:#9e9e9e;
+        color:var(--font-grey);
         font-size: 12px;
         font-family: monospace;
         letter-spacing: -1px;

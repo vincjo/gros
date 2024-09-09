@@ -1,16 +1,29 @@
+import { onMount } from 'svelte'
 
-export default class Site
+export default class Theme
 {
-    public theme    = $state('dark')
+    public value = $state('dark')
 
-    public setTheme = (theme: string) => {
+    public init()
+    {
+        onMount(() => this.set(this.get()))
+    }
+
+    public switch()
+    {
+        this.set(this.value === 'dark' ? 'light' : 'dark')
+    }
+
+    public set(theme: string)
+    {
         document.documentElement.dataset.theme = theme
         document.cookie = `siteTheme=${theme}; max-age=31536000; path="/"`
-        this.theme = theme
+        this.value = theme
         return theme
     }
 
-    public getTheme = () => {
+    public get()
+    {
         const regex = new RegExp(`(^| )siteTheme=([^;]+)`)
         const match = document.cookie.match(regex)
         if (match) {

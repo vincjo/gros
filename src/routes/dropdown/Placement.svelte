@@ -51,13 +51,13 @@
         min-width: 260px;
         margin: 0;
         overflow: hidden;
-        border: 1px solid #eee;
-        background: #fff;
+        border: 1px solid var(--grey-lighten);
+        background: var(--bg);
         border-radius: 4px;
     }
     li i {
         font-size: 20px;
-        color: #757575;
+        color: var(--font-grey);
         margin: 0 12px 0 8px;
     }
     li {
@@ -66,16 +66,16 @@
         align-items: center;
         min-height: 36px;
         font-size: 13px;
-        color: #424242;
-        border-bottom: 1px solid #eee;
+        color: var(--font);
+        border-bottom: 1px solid var(--grey-lighten);
         cursor: pointer;
         transition: all, 0.2s;
     }
     li:hover {
-        background: #f5f5f5;
+        background: var(--grey-lighten);
     }
     li.opacity {
-        background: #f5f5f5;
+        background: var(--grey-lighten-2);
         cursor: default;
         display: flex;
         justify-content: flex-start;

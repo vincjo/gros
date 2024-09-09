@@ -1,6 +1,6 @@
 <script lang="ts">
     import type { ColorHandler } from '$lib/form'
-    import { preventDefault, stopPropagation } from '$lib/event'
+    import { preventDefault, stopPropagation } from '$lib/event-modifier'
     type Props = { handler: ColorHandler }
     let { handler }: Props = $props()
 
@@ -97,7 +97,7 @@
         position: relative;
         border-radius: 4px;
         background: linear-gradient(transparent, #000000), linear-gradient(0.25turn, #ffffff, transparent), var(--hue-color);
-        border: 1px solid #e0e0e0;
+        border: 1px solid var(--grey, #e0e0e0);
     }
 
     div.handle {
@@ -106,7 +106,7 @@
         position: absolute;
         transform: translate(-50%, -50%);
         border-radius: 50%;
-        border: 2px solid #ffffff;
+        border: 2px solid #fff;
         box-shadow: 0px 0px 3px 0px hsla(0, 0%, 0%, 0.5);
     }
 </style>

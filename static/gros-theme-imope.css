@@ -6,11 +6,33 @@
   --primary-lighten-3: rgba(166,124,0,0.3);
   --primary-darken: #624400;
 
-  --secondary: #A22626;
+  --secondary: #a22626;
   --secondary-lighten: #C98080;
+  --primary-lighten-1: rgba(162, 38, 38, 0.1);
+  --primary-lighten-2: rgba(162, 38, 38, 0.2);
+  --primary-lighten-3: rgba(162, 38, 38, 0.3);
   --secondary-darken: #750000;
 
   --ternary: #366E7B;
+}
+
+[data-theme="dark"], 
+.dark-theme {
+  --primary:#8a783c;
+  --primary-lighten: #c8af5f;
+  --primary-lighten-1: rgba(138, 120, 60, 0.1);
+  --primary-lighten-2: rgba(138, 120, 60, 0.2);
+  --primary-lighten-3: rgba(138, 120, 60, 0.3);
+  --primary-darken: #927826;
+
+  --secondary: #b53737;
+  --secondary-lighten: #C98080;
+  --primary-lighten-1: rgba(181, 55, 55, 0.1);
+  --primary-lighten-2: rgba(181, 55, 55, 0.2);
+  --primary-lighten-3: rgba(181, 55, 55, 0.3);
+  --secondary-darken: #a22626;
+
+  --ternary: #458e9e;
 }
 
 ::selection {

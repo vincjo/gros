@@ -1,10 +1,10 @@
 <script lang="ts">
-    import { clickOutside } from '$lib/action'
-    import type { Snippet } from 'svelte'
-    import { fade } from 'svelte/transition'
-    import { createPopperActions } from '$lib/tooltip'
-    import type { Placement } from '@popperjs/core'
-    import { onMount } from 'svelte'
+    import { clickOutside }         from '$lib/action'
+    import type { Snippet }         from 'svelte'
+    import { fade }                 from 'svelte/transition'
+    import { createPopperActions }  from '$lib/tooltip'
+    import type { Placement }       from '@popperjs/core'
+    import { onMount }              from 'svelte'
 
     type Props = {
         position        ?: Placement,
@@ -55,8 +55,8 @@
         if (event.target instanceof HTMLElement || event.target instanceof SVGElement) {
             return {
                 keep: event.target.closest('.open-dropdown') === null ? false : true,
-                leave: event.target.closest('.close-dropdown') === null ? false : true,
-                contains: dropdownElement && dropdownElement.firstChild && dropdownElement.firstChild.contains(event.target),
+                close: event.target.closest('.close-dropdown') === null ? false : true,
+                contains: element && element.contains(event.target),
                 preventOpening: event.target.closest('.prevent-opening') === null ? false : true
             }
         }
@@ -73,14 +73,14 @@
     }
 
     const close = (event: Event) => {
-        const { keep, leave, contains } = getTarget(event)
+        const { keep, close } = getTarget(event)
         if (keep) {
             return
         }
-        else if (preventClosing && !contains) {
+        else if (preventClosing === false) {
             return active = false
         }
-        else if (preventClosing === true && leave === false) {
+        else if (preventClosing === true && close === false) {
             return
         }
         return active = false 
@@ -90,10 +90,11 @@
 
 <button 
     type="button"
-    class="dropdown-trigger" 
-    class:block={isBlock} 
-    onclick={(event) => open(event)} bind:this={element}
-    use:popperRef 
+    class="dropdown-trigger"
+    class:block={isBlock}
+    onclick={(event) => open(event)} 
+    bind:this={element}
+    use:popperRef
     use:clickOutside={close}
 >
     {@render children()}
@@ -101,8 +102,13 @@
 
 {#if active && !disabled}
     <div
-        transition:fade={{ duration:120 }}
+        transition:fade={{ duration: 120 }}
         use:popperContent={extraOpts}
+        use:clickOutside={(event) => {
+            const { contains } = getTarget(event)
+            if (contains) return
+            active = false
+        }}
         bind:this={dropdownElement}
         style:min-width={minWidth}
         class="dropdown"

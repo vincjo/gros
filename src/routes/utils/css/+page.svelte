@@ -1,12 +1,11 @@
 <script>
     import ThinScrollbar from './ThinScrollbar.svelte'
-    import ThinScrollbarDarken from './ThinScrollbarDarken.svelte'
     import ZDepth from './ZDepth.svelte'
     import Flex from './Flex.svelte'
 </script>
 
 <div class="svx">
-    <h1>Classes utiles</h1>
+    <h1>CSS</h1>
 </div>
 
 
@@ -17,11 +16,6 @@
 
 <br><br>
 
-<div class="svx"><h2>.thin-scrollbar-darken</h2></div>
-
-<ThinScrollbarDarken/>
-
-<br><br>
 
 <div class="svx"><h2>.alt-font</h2></div>
 

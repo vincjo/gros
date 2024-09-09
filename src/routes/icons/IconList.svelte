@@ -25,10 +25,11 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        border: 1px solid #e0e0e0;
+        border: 1px solid var(--grey);
         border-radius: 8px;
         margin: 32px auto;
         max-width: 640px;
+        background: var(--bg-darken);
     }
     article i {
         color: var(--secondary-lighten);
@@ -38,6 +39,7 @@
         border: none;
         font-size: 16px;
         color: var(--secondary-lighten);
+        border-radius: inherit;
     }
 
     aside {
@@ -60,19 +62,18 @@
         border: 1px solid transparent;
     }
     div:hover {
-        background: #f5f5f5;
-        border: 1px solid #eee;
+        background: var(--grey-lighten-2);
+        border: 1px solid var(--grey-lighten);
     }
     div i {
         display: block;
         font-size: 48px;
-        color: #424242;
+        color: var(--font);
         margin: 16px 0;
     }
     span {
         color: var(--primary);
-        font-size: 12px;
-        font-family: Arial, Helvetica, sans-serif;
+        font-size: 11px;
     }
 
 </style>

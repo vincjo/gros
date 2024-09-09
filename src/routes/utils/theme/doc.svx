@@ -1,0 +1,39 @@
+
+# Theme
+
+
+## Initialisation
+
+> src/routes/layout.svelte
+
+```svelte
+<script>
+    import { theme } from 'gros/theme'
+
+    theme.init()
+</script>
+```
+
+Vérifie et applique les préférences de l'utilisateur (défini dans les options du navigateur ou dans les cookies).
+
+## Switch
+
+```svelte
+<script>
+    import { theme } from 'gros/theme'
+</script>
+
+<button onclick={() => theme.switch()} class="btn">
+    {#if theme.value === 'dark'}
+        🌙
+    {:else}
+        ☀️
+    {/if}
+</button>
+
+```
+
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>

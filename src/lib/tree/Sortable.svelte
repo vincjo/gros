@@ -1,17 +1,24 @@
 <script lang="ts">
-    import { onMount } from 'svelte'
+    import { onMount, type Snippet } from 'svelte'
     import Sortable from 'sortablejs'
-    export let type: 'file' | 'folder' = 'file'
-    export let scope: number | string
-
-    export let onSort = async (order: Order) => { console.log(order) }
-
 
     type Order = { id: string | number, sort: number }[]
+    type Props = {
+        onSort?: (order: Order) => Promise<void>,
+        type?: 'file' | 'folder',
+        scope?: number | string,
+        children: Snippet
+    }
 
-    onMount( () => sort() )
+    let { 
+        onSort = async (order: Order) => { console.log(order) },
+        type = 'file',
+        scope,
+        children
+    }: Props = $props()
 
-    const sort = () => {
+
+    onMount( () => {
         const element = document.querySelector(`.sortable-${type}-${scope}`)
         new Sortable(element, {
             preventOnFilter: false,
@@ -37,9 +44,9 @@
                 await onSort(order)
             },
         })
-    } 
+    })
 </script>
 
 <div class="sortable-{type}-{scope}">
-    <slot/>
+    {@render children()}
 </div>

@@ -36,9 +36,9 @@
 
     ul {
         padding: 4px;
-        background: #fff;
+        background: var(--bg);
         border-radius: 4px;
-        border: 1px solid #eee;
+        border: 1px solid var(--grey);
         width: 160px;
         margin: 0;
     }
@@ -49,7 +49,7 @@
         border-radius: 2px;
     }
     li:hover {
-        background: #eee;
+        background: var(--grey);
     }
     div :global(.dropdown) {
         background: var(--primary-lighten-2);

@@ -34,13 +34,13 @@
     }
     div.label svg {
         width: 20px;
-        color: #616161;
+        color: var(--font-grey, #757575);
     }
     div.color {
         height: 32px;
         width: 32px;
         border-radius: 4px;
-        border: 1px solid #e0e0e0;
+        border: 1px solid var(--grey, #e0e0e0);
         padding: 4px;
         margin-right: 12px;
     }

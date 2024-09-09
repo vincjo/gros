@@ -33,9 +33,9 @@
 
     ul {
         padding: 4px;
-        background: #fff;
+        background: var(--bg-darken);
         border-radius: 4px;
-        border: 1px solid #eee;
+        border: 1px solid var(--grey);
     }
     li {
         cursor: pointer;
@@ -44,7 +44,7 @@
         border-radius: 2px;
     }
     li:hover {
-        background: #eee;
+        background: var(--grey);
     }
     li b {
         color: var(--secondary);

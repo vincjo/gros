@@ -36,7 +36,7 @@
 
 <style>
     section{
-        border: 1px solid #e0e0e0;
+        border: 1px solid var(--grey);
         border-radius:8px;
         padding: 40px 40px;
     }
@@ -46,12 +46,12 @@
         width: 176px;
     }
     aside span {
-        color: #616161;
+        color: var(--font-grey);
         font-size: 14px;
     }
     aside i {
         margin-right: 8px;
-        color: #9e9e9e;
+        color: var(--font-grey);
     }
     aside.active span {
         font-weight: bold;
@@ -59,9 +59,5 @@
     aside.active span, 
     aside.active i {
         color: var(--primary);
-    }
-    section :global(button:not(.checkbox)) {
-        border-bottom: 1px solid #e0e0e0;
-        padding: 8px;
     }
 </style>

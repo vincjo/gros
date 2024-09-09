@@ -107,8 +107,8 @@
         font-size:22px;
     }
     input{ 
-        color:#626262;
-        background: #fff;
+        color:var(--font, #424242);
+        background: var(--bg-darken, #fff);
     }
 
     section.small{
@@ -134,7 +134,7 @@
     }
     section.small input{
         font-size:14px;
-        color:#424242;
+        color:var(--font, #424242);
         height:32px;
     }
 </style>

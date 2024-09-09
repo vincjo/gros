@@ -110,15 +110,18 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        color: #626262;
-        border: 1px solid #d1d1d1;
-        border-radius: 0.4rem;
-        padding: 0.6rem 1rem 0.7rem;
+        color: var(--font, #424242);
+        border: 1px solid var(--grey-darken, #d1d1d1);
+        background: var(--bg-darken, #fff);
+        border-radius: 4px;
+        padding: 6px 10px;
         font-size: 14px;
+        height: 32px;
     }
     aside.big {
         width: 100%;
         justify-content: space-between;
+        height: 38px;
     }
     section:not(.small) :global(button.dropdown-trigger) {
         width: 100%;
@@ -129,7 +132,6 @@
     aside:focus {
         border-color: var(--primary-lighten);
     }
-
     section.small {
         display: flex;
         justify-content: flex-start;
@@ -153,7 +155,6 @@
     }
     section.small aside {
         font-size: 14px;
-        color: #424242;
         height: 32px;
         width: auto;
     }

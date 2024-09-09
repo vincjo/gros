@@ -16,16 +16,7 @@
     --secondary-darken: #004058;
 
     --ternary: #fbc02d;
-
-    --grey: #e0e0e0;
-    --grey-lighten: #eee;
-    --grey-lighten-2: #f5f5f5;
-    --grey-lighten-3: #fafafa;
-    --bg: #fff;
-    --font: #424242;
-    --font-grey: #757575;
     --bg-gradient: linear-gradient(180deg, #dfe8eb 0%, #feffff 40%, #fff 100%);
-    --bg-code: #f5f7ff;
 }
 .thin-scrollbar::-webkit-scrollbar, 
 pre::-webkit-scrollbar {

@@ -35,18 +35,18 @@
     }
     div.label svg {
         width: 20px;
-        color: #616161;
+        color: var(--font-grey, #757575);
     }
     div.color {
         height: 32px;
         width: 32px;
         border-radius: 4px;
-        border: 1px solid #e0e0e0;
+        border: 1px solid var(--grey, #e0e0e0);
         padding: 4px;
         margin-right: 12px;
         
-		background-image: linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%),
-			linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%);
+		background-image: linear-gradient(45deg, var(--grey-lighten, #eee) 25%, transparent 25%, transparent 75%, var(--grey-lighten, #eee) 75%),
+			linear-gradient(45deg, var(--grey-lighten, #eee) 25%, transparent 25%, transparent 75%, var(--grey-lighten, #eee) 75%);
 		background-size: var(--pattern-size-2x, 12px) var(--pattern-size-2x, 12px);
 		background-position: 0 0, var(--pattern-size, 6px) var(--pattern-size, 6px);
     }

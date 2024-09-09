@@ -70,13 +70,14 @@
         font-size: 12px;
         line-height: 24px;
         margin: 2px 0 0 0;
+        color: var(--font, #424242);
     }
     button.selected {
         background: #424242;
         color: #fff;
     }
     button.other-month {
-        color: #bdbdbd;
+        color: var(--font-grey, #757575);
     }
     button:hover {
         background: #424242;

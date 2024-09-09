@@ -16,8 +16,9 @@
         left:0;
         bottom:0;
         right:0;
-        background:rgba(255,255,255,0.3);
+        background:var(--bg-opac, rgba(255,255,255,0.3));
         display:flex;
+        border-radius: inherit;
         align-items:center;
         justify-content:center;
     }

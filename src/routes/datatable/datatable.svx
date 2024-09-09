@@ -2,7 +2,7 @@
     import DatatableExample from './DatatableExample.svelte'
 </script>
 
-# Datatables
+# Datatable
 <br>
 
 <div class="example">

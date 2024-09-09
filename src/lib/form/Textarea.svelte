@@ -96,9 +96,9 @@
         font-size: 22px;
     }
     textarea {
-        color: #626262;
+        color: var(--font, #424242);
         resize: none;
-        background: #fff;
+        background: var(--bg-darken, #fff);
     }
 
     section.small {
@@ -125,6 +125,6 @@
     }
     section.small textarea {
         font-size: 14px;
-        color: #424242;
+        color: var(--font);
     }
 </style>

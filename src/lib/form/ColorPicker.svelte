@@ -1,12 +1,12 @@
 <script lang="ts">
-    import Gradient from './ColorPicker/Gradient.svelte'
-    import Hue from './ColorPicker/Hue.svelte'
-    import Opacity from './ColorPicker/Opacity.svelte'
-    import Hex from './ColorPicker/Hex.svelte'
-    import Rgba from './ColorPicker/Rgba.svelte'
-    import Hsla from './ColorPicker/Hsla.svelte'
-    import { preventDefault } from '$lib/event'
-    import type { ColorHandler } from '$lib/form'
+    import Gradient                 from './ColorPicker/Gradient.svelte'
+    import Hue                      from './ColorPicker/Hue.svelte'
+    import Opacity                  from './ColorPicker/Opacity.svelte'
+    import Hex                      from './ColorPicker/Hex.svelte'
+    import Rgba                     from './ColorPicker/Rgba.svelte'
+    import Hsla                     from './ColorPicker/Hsla.svelte'
+    import { preventDefault }       from '$lib/event-modifier'
+    import type { ColorHandler }    from '$lib/form'
     type Props = { handler: ColorHandler }
     let { handler }: Props = $props()
 </script>
@@ -26,8 +26,8 @@
   
 <style>
     section {
-        border: 1px solid #e0e0e0;
-        background-color:#fff;
+        border: 1px solid var(--grey);
+        background-color:var(--bg);
         border-radius: 4px;
         padding: 12px;
         display: inline-block;

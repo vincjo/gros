@@ -37,12 +37,12 @@
 
 <style>
     aside{
-        color:#757575;
+        color:var(--font-grey, #757575);
         line-height:32px;
         font-size:13px;
         margin: 16px;
     }
     aside :global(b) {
-        color: #616161;
+        color: var(--font-grey, #757575);
     }
 </style>

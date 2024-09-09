@@ -33,7 +33,7 @@
 
 <style>
     section{
-        border: 1px solid #e0e0e0;
+        border: 1px solid var(--grey);
         border-radius:8px;
         padding: 16px 24px;
     }

@@ -78,13 +78,13 @@
         background:inherit;
         height:26px;
         width:26px;
-        color:#616161;
+        color: var(--font-grey, #757575);
         cursor:pointer;
         font-size:13px;
         margin:2px;
         padding:0;
         line-height:26px;
-        border:1px solid #e0e0e0;
+        border:1px solid var(--grey, #e0e0e0);
         border-radius: 4px;
         outline:none;
     }
@@ -98,7 +98,7 @@
         height: 18px;
     }
     button:not(.active):hover {
-        background: #fafafa;
+        background: var(--grey-lighten-3, #fafafa);
     }
     button.ellipse {
         padding: 5px;
@@ -111,7 +111,7 @@
     button.active {
         color: #eee;
         background: #616161;
-        border: 1px solid #fff;
+        border: 1px solid var(--bg-darken, #fff);
         cursor: default;
     }
     button.disabled:hover {
@@ -119,6 +119,6 @@
         cursor: default;
     }
     button.disabled {
-        color: #9e9e9e;
+        color: var(--grey, #9e9e9e);
     }
 </style>

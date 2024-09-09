@@ -5,4 +5,4 @@ export { default as Sortable } from './Sortable.svelte'
 export { default as Folder } from './Folder.svelte'
 export { default as File } from './File.svelte'
 
-export { default as TreeHandler } from './TreeHandler'
+export { default as TreeHandler } from './TreeHandler.svelte'

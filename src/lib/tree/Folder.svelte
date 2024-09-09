@@ -1,55 +1,68 @@
 <script lang="ts">
     import { slide } from 'svelte/transition'
-    import type TreeHandler from './TreeHandler'
+    import type { Snippet } from 'svelte'
+    import type TreeHandler from './TreeHandler.svelte'
     import Droppable from './Droppable.svelte'
-    export let handler: TreeHandler
-    export let identifier: string | number
-    export let level: number
-    export let parent: number | string
 
-    export let onDrop = async (data: Object, event: DragEvent) => { console.log(data, event) }
+    type Props = {
+        children: Snippet,
+        option?: Snippet,
+        nested?: Snippet,
+        tree: TreeHandler,
+        identifier: string | number,
+        level?: number,
+        parent?: number | string,
+        onDrop?: (data: Object, event: DragEvent) => Promise<void>
+    }
+    let { 
+        children,
+        option,
+        nested,
+        tree, 
+        identifier, 
+        level = 0, 
+        parent = 0,
+        onDrop = async (data: Object, event: DragEvent) => { console.log(data, event) }
+    }: Props = $props()
 
-    const active = handler.getActive('folder')
-    const current = handler.getCurrent('folder')
-
-    $: isActive = $active.includes(identifier) 
+    const isActive = $derived(tree.active.folder.includes(identifier))
 
     const dragstart = (event: DragEvent) => {
         const target = event.target as HTMLElement
-        handler.drag({ type: 'folder', identifier: identifier, origin: parent })
+        tree.drag({ type: 'folder', identifier: identifier, origin: parent })
         target.style.opacity = '0.5'
     }
     const dragend = (event: DragEvent) => {
         const target = event.target as HTMLElement
         target.style.opacity = ''
-        handler.drop()
+        tree.drop()
     }
 </script>
 
 
 <section data-id={identifier} class="folder-{level} unselectable folder">
     <article class="flex" class:active={isActive}>
-        <Droppable {handler} {identifier} {onDrop}/>
+        <Droppable {tree} {identifier} {onDrop}/>
+        <!-- svelte-ignore a11y_no_static_element_interactions -->
         <div class="drop"
             draggable="true"
-            on:dragstart={(event) => dragstart(event)}
-            on:dragend={(event) => dragend(event)}
+            ondragstart={(event) => dragstart(event)}
+            ondragend={(event) => dragend(event)}
         >
-            <button class="flex" on:click={() => handler.setActive('folder', identifier)}>
+            <button class="flex" onclick={() => tree.setActive('folder', identifier)}>
                 <div class="flex">
                     <i class="micon rotate">keyboard_arrow_right</i>
                     <i class="micon">{isActive ? 'folder_open' : 'folder'}</i>
                 </div>
-                <slot/>
+                {@render children()}
             </button>
         </div>
-
-        <slot name="option"/>
+        {#if option}{@render option()}{/if}
     </article>
 
     {#if isActive}
-        <aside transition:slide={{ duration: 200 }} class:current={$current === identifier}>
-            <slot name="nested"/>
+        <aside transition:slide={{ duration: 200 }} class:current={tree.current.folder === identifier}>
+            {#if nested}{@render nested()}{/if}
         </aside>
     {/if}
 </section>
@@ -62,7 +75,6 @@
     article {
         width: 100%;
         border-radius:2px;
-        border-bottom: 1px solid #fff;
         transition: background, 0.2s;
         position: relative;
     }
@@ -85,11 +97,11 @@
         background:transparent;
     }
     article:not(.current):hover{
-        background: #f5f5f5;
+        background: var(--grey-lighten-2, #f5f5f5);
     }
     i.micon{
         font-size:18px;
-        color:#757575;
+        color:var(--font-grey, #757575);
     }
     i:not(.rotate) {
         font-size: 16px;
@@ -97,7 +109,7 @@
         color:#fbc02d;
     }
     aside {
-        border-left: 1px solid #e0e0e0;
+        border-left: 1px solid var(--grey, #e0e0e0);
         margin-left: 10px;
         padding-left: 8px;
         transition: border, 0.2s;

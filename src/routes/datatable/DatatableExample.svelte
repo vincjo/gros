@@ -37,9 +37,9 @@
 <style>
     div.example{
         height:408px;
-        border:1px solid #e0e0e0;
+        border:1px solid var(--grey);
         border-radius:8px;
-        background: #fff;
+        background: var(--bg-darken);
     }
 
 </style>

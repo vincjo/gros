@@ -77,15 +77,6 @@
         width: 6px;
         height: 6px;
     }
-    article::-webkit-scrollbar-track {
-        background: #f5f5f5;
-    }
-    article::-webkit-scrollbar-thumb {
-        background: #c2c2c2;
-    }
-    article::-webkit-scrollbar-thumb:hover {
-        background: #9e9e9e;
-    }
 
     article :global(table) {
         border-collapse: separate;

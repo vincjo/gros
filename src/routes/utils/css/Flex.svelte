@@ -25,7 +25,7 @@
     aside {
         padding: 16px;
         border-radius: 8px;
-        border: 1px solid #e0e0e0;
+        border: 1px solid var(--grey);
         margin-bottom: 24px;
     }
     p, i, h1, div, span {
@@ -42,7 +42,7 @@
         font-size: 16px;
     }
     div {
-        color: #616161;
+        color: var(--font-grey);
         font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
     }
     span {

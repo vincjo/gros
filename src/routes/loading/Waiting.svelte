@@ -3,9 +3,15 @@
 </script>
 
 <section>
-    <Loading/>
+    <Loading />
 </section>
 
 <style>
-    section{height:200px;width:200px;border:1px solid #e0e0e0;border-radius:8px;position:relative;}
+    section {
+        height: 200px;
+        width: 200px;
+        border: 1px solid var(--grey);
+        border-radius: 8px;
+        position: relative;
+    }
 </style>

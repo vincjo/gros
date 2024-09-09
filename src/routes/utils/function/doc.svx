@@ -1,0 +1,76 @@
+
+# Function
+
+Quelques fonctions utiles.
+
+## initDownload
+
+Force le téléchargement d'un fichier dans le navigateur.
+
+```ts
+import { initDownload } from 'gros/function'
+
+initDownload('https://my-site.com/some-file.pdf')
+```
+
+## s
+
+Gestion basique du pluriel : ajoute un "s" si le nombre passé en paramètre est supérieur à 1.
+
+Le paramètre peut être `undefined` ou `string`.
+```svelte
+<script>
+    import { s } from 'gros/function'
+
+    let { items } = $props()
+</script>
+
+<p>item{s(items.length)}</p>
+```
+
+## formatNumber
+
+Formalise les nombres en français (virgule avant les décimales, espace entre les milliers). 
+
+```svelte
+<script>
+    import { formatNumber } from 'gros/function'
+
+    let { value } = $props()
+</script>
+
+<p>{formatNumber(value)}</p>
+```
+
+## isNull
+
+Vérifie si un valeur vaut `null`, `undefined` ou `''`.
+
+```svelte
+<script>
+    import { formatNumber } from 'gros/function'
+
+    let { value } = $props()
+</script>
+
+<p>{formatNumber(value)}</p>
+```
+
+## round
+
+Renvoie un nombre de type `number` avec la précision fournie en second paramètre.
+
+```svelte
+<script>
+    import { round } from 'gros/function'
+
+    let { value } = $props()
+</script>
+
+<p>{round(value, 3)}</p>
+```
+
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>

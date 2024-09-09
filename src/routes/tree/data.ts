@@ -1,4 +1,4 @@
-export const tree = {
+export const data = {
     "folders": [
         {
             "id": 1,

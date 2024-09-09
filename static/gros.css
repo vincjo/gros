@@ -15,7 +15,7 @@ html {
 }
 
 body {
-    color: #424242;
+    color: var(--font, #424242);
     font-family: Roboto, 'Helvetica', 'Arial', sans-serif;
     font-size: 14px; 
     line-height: 1.5;
@@ -43,6 +43,7 @@ input[type='submit'] {
     outline: none;
     padding: 0;
     margin: 0;
+    color: var(--font, #424242);
 }
 button:active {
     transform: translateY(0.8px);
@@ -83,13 +84,15 @@ select {
     appearance: none;
     -webkit-appearance: none;
     background-color: transparent;
-    border: .1rem solid #d1d1d1;
+    border: .1rem solid var(--grey-darken, #d1d1d1);
     border-radius: .4rem;
     box-shadow: none;
     box-sizing: border-box;
     height: 38px;
-    padding: .6rem 1.0rem .7rem;
+    padding: 6px 10px;
     width: 100%;
+    color: var(--font, #424242);
+    background: var(--bg-darken, #fff);
 }
 
 input[type='color']:focus,
@@ -216,29 +219,6 @@ img {
     max-width: 100%;
 }
 
-.thin-scrollbar {
-    /* scrollbar-width: thin; */
-    scrollbar-color: #e0e0e0;
-}
-
-.thin-scrollbar-darken {
-    scrollbar-width: thin;
-    scrollbar-color: #212121;
-}
-
-
-.thin-scrollbar::-webkit-scrollbar {width: 6px;height: 6px;}
-.thin-scrollbar::-webkit-scrollbar-track {background: #fafafa;}
-.thin-scrollbar::-webkit-scrollbar-thumb {background: #bdbdbd;}
-.thin-scrollbar::-webkit-scrollbar-thumb:hover {background: #9e9e9e;}
-.thin-scrollbar::-webkit-scrollbar-track-piece:start {top: 40px;}
-
-.thin-scrollbar-darken::-webkit-scrollbar {width:8px;height:8px;}
-.thin-scrollbar-darken::-webkit-scrollbar-track {background:#424242;}
-.thin-scrollbar-darken::-webkit-scrollbar-thumb {background:#000;}
-.thin-scrollbar-darken::-webkit-scrollbar-thumb:hover {background: #212121;}
-.thin-scrollbar-darken::-webkit-scrollbar-track-piece:start {top:40px;}
-
 i.material-icons, i.micon {
     font-family: 'Material Icons';
     font-weight: normal;
@@ -267,6 +247,45 @@ i.micon.s32 { font-size: 32px; }
 .z-depth-3 {-webkit-box-shadow: 0 8px 17px 2px rgba(189,189,189, 0.14), 0 3px 14px 2px rgba(189,189,189, 0.12), 0 5px 5px -3px rgba(189,189,189, 0.2);box-shadow: 0 8px 17px 2px rgba(189,189,189, 0.14), 0 3px 14px 2px rgba(189,189,189, 0.12), 0 5px 5px -3px rgba(189,189,189, 0.2);}
 .z-depth-4 {-webkit-box-shadow: 0 16px 24px 2px rgba(189,189,189, 0.14), 0 6px 30px 5px rgba(189,189,189, 0.12), 0 8px 10px -7px rgba(189,189,189, 0.2);box-shadow: 0 16px 24px 2px rgba(189,189,189, 0.14), 0 6px 30px 5px rgba(189,189,189, 0.12), 0 8px 10px -7px rgba(189,189,189, 0.2);}
 .z-depth-5 {-webkit-box-shadow: 0 24px 38px 3px rgba(189,189,189, 0.14), 0 9px 46px 8px rgba(189,189,189, 0.12), 0 11px 15px -7px rgba(189,189,189, 0.2);box-shadow: 0 24px 38px 3px rgba(189,189,189, 0.14), 0 9px 46px 8px rgba(189,189,189, 0.12), 0 11px 15px -7px rgba(189,189,189, 0.2);}
+
+
+[data-theme="dark"] .z-depth-1,
+.dark-theme .z-depth-1 {
+    box-shadow: 0 2px 2px 0 rgba(28, 28, 28, 0.74), 
+                0 3px 1px -2px rgba(28, 28, 28, 0.72),
+                0 1px 5px 0 rgba(28, 28, 28, 0.90);
+}
+[data-theme="dark"] .z-depth-1-half,
+.dark-theme .z-depth-1-half {
+    box-shadow: 0 3px 3px 0 rgba(28, 28, 28, 0.14), 
+                0 1px 7px 0 rgba(28, 28, 28, 0.12), 
+                0 3px 1px -1px rgba(28, 28, 28, 0.2);}
+
+[data-theme="dark"] .z-depth-2,
+.dark-theme .z-depth-2 {
+    box-shadow: 0 4px 5px 0 rgba(28, 28, 28, 0.74), 
+                0 1px 10px 0 rgba(28, 28, 28, 0.72),
+                0 2px 4px -1px rgba(28, 28, 28, 0.90);
+}
+[data-theme="dark"] .z-depth-3,
+.dark-theme .z-depth-3 {
+    box-shadow: 0 8px 17px 2px rgba(28, 28, 28, 0.74), 
+                0 3px 14px 2px rgba(28, 28, 28, 0.72),
+                0 5px 5px -3px rgba(28, 28, 28, 0.90);
+}
+[data-theme="dark"] .z-depth-4,
+.dark-theme .z-depth-4 {
+    box-shadow: 0 16px 24px 2px rgba(28, 28, 28, 0.74), 
+                0 6px 30px 5px rgba(28, 28, 28, 0.72),
+                0 8px 10px -7px rgba(28, 28, 28, 0.90);
+}
+[data-theme="dark"] .z-depth-5,
+.dark-theme .z-depth-5 {
+    box-shadow: 0 24px 38px 3px rgba(28, 28, 28, 0.74), 
+                0 9px 46px 8px rgba(28, 28, 28, 0.72),
+                0 11px 15px -7px rgba(28, 28, 28, 0.90);
+}
+
 
 .tooltip{position:relative;}
 

@@ -1,43 +1,48 @@
 <script lang="ts">
-    import type TreeHandler from './TreeHandler'
+    import type TreeHandler from './TreeHandler.svelte'
+    import type { Snippet } from 'svelte'
 
-    export let handler: TreeHandler
-    export let identifier: string | number
-    export let parent: number | string
-    export let onClick = () => {}
-    const current = handler.getCurrent('file')
+    type Props = { 
+        children: Snippet,
+        option?: Snippet, 
+        tree: TreeHandler, 
+        identifier: string | number,
+        parent: number | string,
+        onclick?: () => void
+    }
+    let { children, option, tree, identifier, parent, onclick = () => {} }: Props = $props()
 
     const handleClick = () => {
-        handler.setCurrent('file', identifier)
-        handler.setCurrent('folder', parent)
-        onClick()
+        tree.setCurrent('file', identifier)
+        tree.setCurrent('folder', parent)
+        onclick()
     }
 
     const dragstart = (event: DragEvent) => {
-        handler.drag({ type: 'file', identifier: identifier, origin: parent })
+        tree.drag({ type: 'file', identifier: identifier, origin: parent })
         const target = event.target as HTMLElement
         target.style.opacity = '0.5'
     }
     const dragend = (event: DragEvent) => {
         const target = event.target as HTMLElement
         target.style.opacity = ''
-        handler.drop()
+        tree.drop()
     }
 </script>
 
 
 <section data-id="{identifier}" class="file">
     <article 
-        class:active={$current === identifier}
+        class:active={tree.current.file === identifier}
         class="flex"
         draggable="true"
-        on:dragstart={(event) => dragstart(event)}
-        on:dragend={(event) => dragend(event)}
+        ondragstart={(event) => dragstart(event)}
+        ondragend={(event) => dragend(event)}
     >
-        <button class="flex" on:click={handleClick}>
-            <slot/>
+        <button class="flex" onclick={handleClick}>
+            {@render children()}
         </button>
-        <slot name="option"/>
+        {#if option}{@render option()}{/if}
     </article>
 </section>
 
@@ -46,7 +51,6 @@
         min-height:24px;
         margin-left:0px;
         border-radius:2px;
-        border-bottom: 1px solid #fff;
     }
     article {
         transition: background, 0.2s;

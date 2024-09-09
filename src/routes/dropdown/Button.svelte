@@ -18,7 +18,7 @@
     aside {
         padding: 12px 24px;
         background: var(--primary);
-        color: #fff;
+        color: #eee;
         font-size: 16px;
         border-radius: 4px;
         transition: all, 0.2s;
@@ -33,9 +33,9 @@
 
     ul {
         padding: 4px;
-        background: #fff;
+        background: var(--bg-darken);
         border-radius: 4px;
-        border: 1px solid #eee;
+        border: 1px solid var(--grey-lighten);
     }
     li {
         cursor: pointer;
@@ -44,6 +44,6 @@
         border-radius: 2px;
     }
     li:hover {
-        background: #eee;
+        background: var(--grey-lighten);
     }
 </style>

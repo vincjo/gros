@@ -13,8 +13,8 @@
 <style>
     section {
         border-radius: 8px;
-        border: 1px solid #e0e0e0;
-        background: #f5f5f5;
+        border: 1px solid var(--grey);
+        background: var(--bg);
         flex-wrap: wrap;
         padding: 16px;
     }
@@ -22,7 +22,7 @@
     div {
         width: 120px;
         height: 120px;
-        background :#fff;
+        background :var(--bg-darken);
         margin: 24px;
         display:flex; justify-content: space-around; align-items: center;
         color: var(--secondary);

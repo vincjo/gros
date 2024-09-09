@@ -28,7 +28,7 @@
 
 <style>
     th {
-        border-bottom: 1px solid #e0e0e0;
+        border-bottom: 1px solid var(--grey, #e0e0e0);
     }
     input {
         width: 100%;
@@ -43,7 +43,7 @@
         font-family:Arial, Helvetica, sans-serif;
     }
     input::placeholder {
-        color: #bdbdbd;
+        color: var(--grey, #e0e0e0);
         /* font-style: italic; */
         font-size: 13px;
     }

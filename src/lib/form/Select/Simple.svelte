@@ -128,13 +128,14 @@
         font-size:22px;
     }
     div.open { 
-        color:#626262;
-        border: 0.1rem solid #d1d1d1;
+        color:var(--font, #424242);
+        border: 1px solid var(--grey-darken, #d1d1d1);
+        background: var(--bg-darken, #fff);
         justify-content: space-between;
         text-align: left;
         width: 100%;
-        border-radius: 0.4rem;
-        padding: 0.6rem 1rem 0.7rem;
+        border-radius: 4px;
+        padding: 6px 4px 6px 10px;
         user-select: none;
     }
     div.open:active, div.open:focus {
@@ -142,8 +143,8 @@
     }
 
     aside {
-        background: #fff;
-        border: 1px solid #e0e0e0;
+        background: var(--bg-darken, #fff);
+        border: 1px solid var(--grey, #e0e0e0);
         border-radius:4px;
         padding: 4px;
         position: relative;
@@ -156,10 +157,11 @@
         width: 100%;
         padding: 8px 8px;
         text-align: left;
+        color: var(--font);
         justify-content: space-between;
     }
     aside button.active {
-        background: #fafafa;
+        background: var(--grey-lighten-3, #fafafa);
     }
     aside button:hover {
         background: var(--primary-lighten-1);
@@ -187,17 +189,20 @@
     }
     section.small div.open{
         font-size:14px;
-        color:#424242;
+        color:var(--font, #424242);
         height:32px;
     }
+    section:not(.small) div.open{
+        height:38px;
+    }
     em {
-        color: #9e9e9e;
+        color: var(--grey-darken, #d1d1d1);
         font-size: 12px;
         font-style: normal;
     }
 
     i.checked {
         font-size: 16px;
-        color: #424242;
+        color: var(--font, #424242);
     }
 </style>

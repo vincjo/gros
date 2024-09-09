@@ -29,7 +29,7 @@
         position: absolute; top:6px; left: 4px;
         width: 16px;
         height: 16px;
-        color: #757575;
+        color: var(--font-grey, #757575);
         margin-left: 2px;
     }
     input{
@@ -41,15 +41,15 @@
         background:transparent;
         width: 100%;
         transition:border, 0.1s;
-        border:1px solid #e0e0e0;
+        border:1px solid var(--grey, #e0e0e0);
         /* border-radius:4px; */
         border-radius: 6px;
     }
     input:focus {
-        border:1px solid #e0e0e0;
+        border:1px solid var(--grey, #e0e0e0);
     }
     input::placeholder {
-        color:#9e9e9e;
+        color:var(--grey, #e0e0e0);
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         line-height:24px;
         font-weight: 200;

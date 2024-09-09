@@ -1,0 +1,19 @@
+
+# Event modifier
+
+```svelte
+<script>
+    import { once, preventDefault, stropPropagation } from 'gros/event-modifier'
+
+    const click = () => { alert('clicked') }
+</script>
+
+<button onclick={() => once(click())}>once</button>
+<button onclick={() => preventDefault(click())}>preventDefault</button>
+<button onclick={() => stropPropagation(click())}>stropPropagation</button>
+
+
+<button onclick={() => preventDefault(stropPropagation(click()))}>
+    preventDefault + stropPropagation
+<button>
+```

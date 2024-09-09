@@ -21,8 +21,9 @@
     section{
         width: 240px;
         padding:4px;
-        border:1px solid #e0e0e0;
+        margin-top: 2px;
+        border:1px solid var(--grey, #e0e0e0);
         border-radius:4px;
-        background: #fff;
+        background: var(--bg-darken, #fff);
     }
 </style>

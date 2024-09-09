@@ -4,7 +4,7 @@
 </script>
 
 
-# Tooltips
+# Tooltip
 
 Les info-bulles sont créées grâce au composant `Tooltip`.
 

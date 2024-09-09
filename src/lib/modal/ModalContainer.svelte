@@ -1,6 +1,6 @@
 
 <script lang="ts">
-    import { fadeScale }    from '$lib/transition'
+    import { fadescale }    from '$lib/transition'
     import { modal }        from '$lib/modal'
     import { fade }         from 'svelte/transition'
     import { cubicInOut }   from 'svelte/easing'
@@ -11,13 +11,14 @@
 </script>
 
 {#if modal.isActive}
+    {@const Component = modal.component}
     <section transition:fade|global={{ duration: 150 }}>
         <article 
             use:draggable={{ handle: '.modal.handle' }} 
             use:clickOutside={close}
-            transition:fadeScale|global={{ duration: 150, easing: cubicInOut, baseScale: 0.5 }}
+            transition:fadescale|global={{ duration: 150, easing: cubicInOut, baseScale: 0.5 }}
         >
-           <svelte:component this={modal.component} props={modal.props} {close}/>
+            <Component props={modal.props} {close}/>
         </article>
 
     </section>
@@ -34,12 +35,13 @@
         left:0;
         bottom:0;
         right:0;
-        background:rgba(0,0,0,0.4);z-index:9999;
+        background:rgba(0,0,0,0.4);
+        z-index:9999;
     }
 
     article{
         max-height:80vh;
-        background:#fff;
+        background:var(--bg-darken, #fff);
         margin:calc(auto - 4vh) auto;
         position: relative;
         border-radius:4px;

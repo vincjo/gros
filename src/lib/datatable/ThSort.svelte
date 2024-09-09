@@ -46,7 +46,7 @@
         padding:8px 4px;
         font-size:13px;
         user-select: none;
-        border-bottom:1px solid #e0e0e0;
+        border-bottom:1px solid var(--grey, #e0e0e0);
         cursor :pointer;
     }
     th strong {
@@ -66,10 +66,10 @@
         transition: transform, 0.2s;
         height: 12px;
         width: 12px;
-        color: #616161;
+        color: var(--font-grey, #757575);
     }
     em {
-        color: #bdbdbd;
+        color: var(--grey-darken, #d1d1d1);
         height: 14px;
         width: 14px;
     }

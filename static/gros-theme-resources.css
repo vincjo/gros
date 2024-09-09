@@ -1,17 +1,40 @@
 :root {
-    --primary:#00796b;
+    --primary: #00796b;
     --primary-lighten: #4db6ac;
-    --primary-lighten-1: rgba(0,121,107,0.1);
-    --primary-lighten-2: rgba(0,121,107,0.2);
-    --primary-lighten-3: rgba(0,121,107,0.3);
+    --primary-lighten-1: rgba(0, 121, 107, 0.1);
+    --primary-lighten-2: rgba(0, 121, 107, 0.2);
+    --primary-lighten-3: rgba(0, 121, 107, 0.3);
     --primary-darken: #004c40;
 
     --secondary: #0288d1;
     --secondary-lighten: #03a9f4;
+    --secondary-lighten-1: rgba(2, 136, 209, 0.1);
+    --secondary-lighten-2: rgba(2, 136, 209, 0.2);
+    --secondary-lighten-3: rgba(2, 136, 209, 0.3);
     --secondary-darken: #005b9f;
 
     --ternary: #e64a19;
-  }
+}
+
+[data-theme="dark"],
+.dark-theme {
+    --primary: #019b89;
+    --primary-lighten: #019987;
+    --primary-lighten-1: rgba(1, 138, 122, 0.1);
+    --primary-lighten-2: rgba(1, 138, 122, 0.2);
+    --primary-lighten-3: rgba(1, 138, 122, 0.3);
+    --primary-darken: #00796b;
+
+    --secondary: #0288d1;
+    --secondary-lighten: #03a9f4;
+    --secondary-lighten-1: rgba(2, 136, 209, 0.1);
+    --secondary-lighten-2: rgba(2, 136, 209, 0.2);
+    --secondary-lighten-3: rgba(2, 136, 209, 0.3);
+    --secondary-darken: #005b9f;
+
+    --ternary: #f7c953;
+    --bg-gradient: linear-gradient(4deg, rgba(38, 52, 57, 1) 0%, rgba(20, 23, 24, 1) 100%);
+}
 
 ::selection {
     background: #00796b;

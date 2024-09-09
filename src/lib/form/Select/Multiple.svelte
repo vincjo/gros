@@ -1,10 +1,10 @@
 
 <script lang="ts">
-    import { Dropdown } from '$lib/dropdown'
-    import { preventDefault } from '$lib/event'
-    import ErrorMessage from '../ErrorMessage.svelte'
-    import ErrorAlert from '../ErrorAlert.svelte'
-    import type { Error, Option } from '../index'
+    import { Dropdown }             from '$lib/dropdown'
+    import { preventDefault }       from '$lib/event-modifier'
+    import ErrorMessage             from '../ErrorMessage.svelte'
+    import ErrorAlert               from '../ErrorAlert.svelte'
+    import type { Error, Option }   from '../index'
 
 
     type Props = {
@@ -143,25 +143,27 @@
         font-size:22px;
     }
     div.open { 
-        color:#626262;
-        border: 0.1rem solid #d1d1d1;
+        color:var(--font-grey, #757575);
+        border: 1px solid var(--grey-darken, #d1d1d1);
+        background: var(--bg-darken, #fff);
         justify-content: space-between;
         text-align: left;
         width: 100%;
-        border-radius: 0.4rem;
+        border-radius: 4px;
         padding: 0 0 4px 0;
         user-select: none;
     }
     div.open i.dd {
-        padding: 4px 10px 0 0;
+        padding: 4px 4px 0 0;
+        color:var(--font, #424242);
     }
     div.open:active, div.open:focus {
         border: 1px solid var(--primary-lighten)
     }
 
     aside {
-        background: #fff;
-        border: 1px solid #e0e0e0;
+        background: var(--bg, #fff);
+        border: 1px solid var(--grey, #e0e0e0);
         border-radius:4px;
         padding: 4px;
         position: relative;
@@ -174,6 +176,7 @@
         width: 100%;
         padding: 8px 8px;
         text-align: left;
+        color: var(--font);
         justify-content: space-between;
     }
     aside button.active {
@@ -205,11 +208,11 @@
     }
     section.small div.open{
         font-size:14px;
-        color:#424242;
+        color:var(--font, #424242);
         min-height:32px;
     }
-    section:not(.small) div.open{
-        min-height:40px;
+    section:not(.small) div.open {
+        min-height:38px;
     }
     em {
         color: #9e9e9e;
@@ -220,26 +223,28 @@
 
     i.checked {
         font-size: 16px;
-        color: #424242;
+        color: var(--font, #424242);
     }
     article {
         flex-wrap: wrap;
     }
     article .button {
         font-size: 12px;
-        margin: 0;
-        background: #f5f5f5; 
+        background: var(--grey-lighten-2, #f5f5f5); 
         padding: 2px 4px;
-        border: 1px solid #e0e0e0;
+        border: 1px solid var(--grey, #e0e0e0);
         margin: 4px 0 0 4px;
         border-radius: 2px;
     }
     article .button i {
         height: 16px;
         width: 16px;
-        color: #9e9e9e;
+        font-size: 16px;
+        line-height: 16px;
+        margin-left: 4px;
+        color: var(--grey-darken, #9e9e9e);
     }
     article .button:hover i {
-        color: #e57373;
+        color: var(--grey-lighten);
     }
 </style>

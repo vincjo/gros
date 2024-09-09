@@ -21,16 +21,16 @@
         overflow: auto;
         height: 200px;
         width: 200px;
-        background: #eee;
+        background: var(--bg-darken);
         padding: 24px;
         border-radius: 2px;
-        border: 1px solid #e0e0e0;
+        border: 1px solid var(--grey);
         margin-right: 24px;
     }
     aside {
         height: 400px;
         width: 400px;
-        background: #fff;
+        background: var(--bg);
         padding: 16px;
     }
     h1 {

@@ -1,7 +1,7 @@
 
 <script lang="ts">
     import type { ColorHandler } from '$lib/form'
-    import { preventDefault, stopPropagation } from '$lib/event'
+    import { preventDefault, stopPropagation } from '$lib/event-modifier'
     type Props = { handler: ColorHandler }
     let { handler }: Props = $props()
 
@@ -61,7 +61,7 @@
         width: 32px;
         height: 200px;
         border-radius: 4px;
-        border: 1px solid #e0e0e0;
+        border: 1px solid var(--grey, #e0e0e0);
         margin-right: 12px;
         --gradient: #ff0000, #ffff00 17.2%, #ffff00 18.2%, #00ff00 33.3%, #00ffff 49.5%, #00ffff 51.5%,
             #0000ff 67.7%, #ff00ff 83.3%, #ff0000;

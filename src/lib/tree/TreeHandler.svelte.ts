@@ -26,7 +26,7 @@ export default class TreeHandler
     public setActive(type: 'folder' | 'file' = 'folder', identifier: string | number )
     {
         if (this.active[type].includes(identifier)) {
-            this.active[type].filter(value => value !== identifier)
+            this.active[type] = this.active[type].filter(value => value !== identifier)
         }
         else {
             this.active[type].push(identifier)
@@ -45,28 +45,28 @@ export default class TreeHandler
 
     public setURLParams()
     {
-        const $page = get(page)
+        const { url } = get(page)
         const folders = this.active.folder
         const folder = this.current.folder
         const file = this.current.file
-        $page.url.searchParams.set('folders', folders.join('-'))
-        $page.url.searchParams.set('folder', folder)
-        $page.url.searchParams.set('file', file)
-        return $page.url.toString()
+        url.searchParams.set('folders', folders.join('-'))
+        url.searchParams.set('folder', folder)
+        url.searchParams.set('file', file)
+        return url.toString()
     }
 
     public getURLParams()
     {
-        const $page = get(page)
+        const { url }= get(page)
         const [folders, folder, file] = this.parse([
-            $page.url.searchParams.get('folders'),
-            $page.url.searchParams.get('folder'),
-            $page.url.searchParams.get('file'),
+            url.searchParams.get('folders'),
+            url.searchParams.get('folder'),
+            url.searchParams.get('file'),
         ])
         this.active.folder = folders as (string|number)[]
         this.current.folder = folder
         this.current.file = file
-        return $page.url.toString()
+        return url.toString()
     }
 
     private parse(params: [folders: string, folder: string, file: string])

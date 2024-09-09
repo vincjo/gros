@@ -15,6 +15,10 @@ const config = {
         paths: {
             base:  '/gros',
         },
+        alias: {
+			$utils: 'src/utils',
+			$utils: 'src/utils/*',
+		}
     },
     vitePlugin: {
         inspector: {

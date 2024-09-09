@@ -1,0 +1,6 @@
+
+# Transition
+
+```ts
+import { fadescale, flipboard } from 'gros/transition'
+```
