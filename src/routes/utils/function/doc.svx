@@ -44,16 +44,16 @@ Formalise les nombres en français (virgule avant les décimales, espace entre l
 
 ## isNull
 
-Vérifie si un valeur vaut `null`, `undefined` ou `''`.
+Vérifie si une valeur vaut `null`, `undefined` ou `''`.
 
 ```svelte
 <script>
-    import { formatNumber } from 'gros/function'
+    import { isNull } from 'gros/function'
 
     let { value } = $props()
 </script>
 
-<p>{formatNumber(value)}</p>
+<p>{isNull(value)}</p>
 ```
 
 ## round

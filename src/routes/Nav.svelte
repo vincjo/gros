@@ -63,7 +63,6 @@
 </script>
 
 <section>
-
     <a href={getPath('/home')}>
         <h2 class:active={$url === getPath('/home')}>
             <i class="micon"></i>
@@ -88,6 +87,7 @@
             </ul>
         {/if}
     {/each}
+    <div style:height="64px"></div>
 </section>
 
 <style>
@@ -139,7 +139,6 @@
     ul {
         margin: 0 0 0 0;
         padding: 0 16px 0 0;
-        padding-bottom: 64px;
     }
     ul li {
         display: block;

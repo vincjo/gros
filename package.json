@@ -1,6 +1,6 @@
 {
     "name": "gros",
-    "version": "1.0.0-runes.18",
+    "version": "1.0.0-runes.19",
     "keywords": [
         "Jeu de composants Svelte réutilisables"
     ],
@@ -78,9 +78,9 @@
             "types": "./dist/dropdown/index.d.ts",
             "svelte": "./dist/dropdown/index.js"
         },
-        "./event": {
-            "types": "./dist/event/index.d.ts",
-            "svelte": "./dist/event/index.js"
+        "./event-modifier": {
+            "types": "./dist/event-modifier/index.d.ts",
+            "svelte": "./dist/event-modifier/index.js"
         },
         "./form": {
             "types": "./dist/form/index.d.ts",
@@ -98,6 +98,10 @@
             "types": "./dist/page/index.d.ts",
             "svelte": "./dist/page/index.js"
         },
+        "./theme": {
+            "types": "./dist/page/index.d.ts",
+            "svelte": "./dist/theme/index.js"
+        },
         "./toast": {
             "types": "./dist/toast/index.d.ts",
             "svelte": "./dist/toast/index.js"
@@ -110,9 +114,9 @@
             "types": "./dist/transition/index.d.ts",
             "svelte": "./dist/transition/index.js"
         },
-        "./treestructure": {
-            "types": "./dist/treestructure/index.d.ts",
-            "svelte": "./dist/treestructure/index.js"
+        "./tree": {
+            "types": "./dist/tree/index.d.ts",
+            "svelte": "./dist/tree/index.js"
         }
     }
 }

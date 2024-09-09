@@ -6,5 +6,5 @@
     import { clickOutside } from 'gros/action'
 </script>
 
-<div use:clickOutside={() => console.log('missed!')}>
+<div use:clickOutside={() => console.log('missed!')}></div>
 ```
