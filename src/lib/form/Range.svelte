@@ -1,63 +1,185 @@
 <script lang="ts">
-    import { draggable } from '@neodrag/svelte'
-    let {
-        min     = 0,
-        max     = 100,
-        step    = 10,
-        value   = 0
-    }: { min?: number, max?: number, step?: number, value?: number } = $props()
+    import { fly, fade } from 'svelte/transition'
+    import { onMount } from 'svelte'
+    import RangeHandler from './RangeHandler.svelte'
+
+    let { value, min, max }: { value: number, min: number, max: number } = $props()
     let element: HTMLElement
+    let container: HTMLElement
+    let thumb: HTMLElement
+    let progressBar: HTMLElement
 
-    let current = $state<number>(value)
-    let position = $state({ x: value, y: 0 })
+    const range = new RangeHandler(value, min, max)
 
-    const test = (offsetX: number, rootNode: HTMLElement) => {
-        const calc = (offsetX * max) / element.getBoundingClientRect().width
-        current = Number(calc.toFixed(step))
-    }
+    onMount(() => range.setup(element, container, thumb, progressBar))
 
-    const set = (e: MouseEvent) => {
-        position = { x: e.offsetX - 8, y: 0 }
-    }
+    $effect(() => {
+        if (range.progressBar && range.thumb) {
+            // Limit value min -> max
+            range.value = range.value > range.min ? range.value : range.min
+            range.value = range.value < range.max ? range.value : range.max
+
+            const percent = ((range.value - range.min) * 100) / (range.max - range.min)
+            const offsetLeft = (range.container.clientWidth - 10) * (percent / 100) + 5
+
+            // Update thumb position + active range track width
+            range.thumb.style.left = `${offsetLeft}px`
+            range.progressBar.style.width = `${offsetLeft}px`
+        }
+    })
+    // Update progressbar and thumb styles to represent value
+    
 </script>
 
-<button bind:this={element} onclick={(e) => set(e)}>
-    <aside use:draggable={{
-        axis: 'x',
-        grid: [step, step],
-        bounds: 'parent',
-        position: position,
-        onDrag: ({ offsetX, rootNode }) => test(offsetX, rootNode)
-    }}>
-        <div class="label">{current}</div>
-    </aside>
-</button>
+<svelte:window
+    ontouchmove={(e) => range.updateValueOnEvent(e)}
+    ontouchcancel={(e) => range.onDragEnd(e)}
+    ontouchend={(e) => range.onDragEnd(e)}
+    onmousemove={(e) => range.updateValueOnEvent(e)}
+    onmouseup={(e) => range.onDragEnd(e)}
+    onresize={() => range.resizeWindow()}
+/>
+<div class="range">
+    <div
+        class="range__wrapper"
+        tabindex="0"
+        onkeydown={(e) => range.onKeyPress(e)}
+        bind:this={element}
+        role="slider"
+        aria-valuemin={range.min}
+        aria-valuemax={range.max}
+        aria-valuenow={range.value}
+        onmousedown={(e) => range.onTrackEvent(e)}
+        ontouchstart={(e) => range.onTrackEvent(e)}
+    >
+        <div class="range__track" bind:this={container}>
+            <div class="range__track--highlighted" bind:this={progressBar}></div>
+            <!-- svelte-ignore a11y_no_static_element_interactions -->
+            <!-- svelte-ignore a11y_mouse_events_have_key_events -->
+            <div
+                class="range__thumb"
+                class:range__thumb--holding={range.holding}
+                bind:this={thumb}
+                ontouchstart={(e) => range.onDragStart(e)}
+                onmousedown={(e) => range.onDragStart(e)}
+                onmouseover={() => (range.thumbHover = true)}
+                onmouseout={() => (range.thumbHover = false)}
+            >
+                {#if range.holding || range.thumbHover}
+                    <div
+                        class="range__tooltip"
+                        in:fly={{ y: 7, duration: 200 }}
+                        out:fade={{ duration: 100 }}
+                    >
+                        {range.value}
+                    </div>
+                {/if}
+            </div>
+        </div>
+    </div>
+</div>
+
+<svelte:head>
+    <style>
+        .mouse-over-shield {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(255, 0, 0, 0);
+            z-index: 10000;
+            cursor: grabbing;
+        }
+    </style>
+</svelte:head>
 
 <style>
-    button {
-        height: 8px;
-        width: 100%;
-        border-radius: 4px;
-        background: #eee;
-        cursor: default;
-        transform: none;
-    }
-    aside {
-        height: 16px;
-        width: 16px;
-        margin-top: -4px;
-        border-radius: 50%;
-        background: #212121;
-        cursor: pointer;
+    .range {
         position: relative;
+        flex: 1;
     }
-    div.label {
+
+    .range__wrapper {
+        min-width: 100%;
+        position: relative;
+        padding: 0.5rem;
+        box-sizing: border-box;
+        outline: none;
+    }
+
+    .range__wrapper:focus-visible > .range__track {
+        box-shadow:
+            0 0 0 2px white,
+            0 0 0 3px var(--track-focus, #6185ff);
+    }
+
+    .range__track {
+        height: 6px;
+        background-color: var(--track-bgcolor, #d0d0d0);
+        border-radius: 999px;
+    }
+
+    .range__track--highlighted {
+        background-color: var(--track-highlight-bgcolor, #6185ff);
+        background: var(--track-highlight-bg, linear-gradient(90deg, #6185ff, #9c65ff));
+        width: 0;
+        height: 6px;
         position: absolute;
-        top: -24px;
-        padding: 4px;
+        border-radius: 999px;
+    }
+
+    .range__thumb {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-color: var(--thumb-bgcolor, white);
+        cursor: pointer;
+        border-radius: 999px;
+        margin-top: -8px;
+        transition: box-shadow 100ms;
+        user-select: none;
+        box-shadow: var(
+            --thumb-boxshadow,
+            0 1px 1px 0 rgba(0, 0, 0, 0.14),
+            0 0px 2px 1px rgba(0, 0, 0, 0.2)
+        );
+    }
+
+    .range__thumb--holding {
+        box-shadow:
+            0 1px 1px 0 rgba(0, 0, 0, 0.14),
+            0 1px 2px 1px rgba(0, 0, 0, 0.2),
+            0 0 0 6px var(--thumb-holding-outline, rgba(113, 119, 250, 0.3));
+    }
+
+    .range__tooltip {
+        pointer-events: none;
+        position: absolute;
+        top: -33px;
+        color: var(--tooltip-text, white);
+        width: 38px;
+        padding: 4px 0;
         border-radius: 4px;
-        background: #212121;
-        color: #eee;
-        margin: 0 auto;
+        text-align: center;
+        background-color: var(--tooltip-bgcolor, #6185ff);
+        background: var(--tooltip-bg, linear-gradient(45deg, #6185ff, #9c65ff));
+    }
+
+    .range__tooltip::after {
+        content: '';
+        display: block;
+        position: absolute;
+        height: 7px;
+        width: 7px;
+        background-color: var(--tooltip-bgcolor, #6185ff);
+        bottom: -3px;
+        left: calc(50% - 3px);
+        clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
+        transform: rotate(-45deg);
+        border-radius: 0 0 0 3px;
     }
 </style>

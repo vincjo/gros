@@ -38,25 +38,33 @@
 <style>
     aside {
         min-width:160px;
-        background: #fff;
-        border: 1px solid #eee;
+        background: var(--bg-darken);
+        border: 1px solid var(--grey);
         border-radius: 4px;
     }
     aside button {
         justify-content: flex-start;
-        border-bottom: 1px solid #eee;
+        border-bottom: 1px solid var(--grey);
         padding:0 4px;
-        color:#616161;
+        color:var(--font-grey);
         font-size:13px;
         width: 100%;
         text-transform: none;
         padding: 8px;
+        border-radius: 0;
+    }
+    aside button:first-child {
+        border-radius: 4px 4px 0 0;
+    }
+    aside button:last-child {
+        border-bottom: none;
+        border-radius: 0 0 4px 4px;
     }
     aside button:hover {
-        background :#f5f5f5;
+        background :var(--grey-lighten-2);
     }
     aside button i{
-        color:#757575;
+        color:var(--font-grey);
         font-size:18px;
         margin-right:8px;
     }

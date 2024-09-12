@@ -1,10 +1,11 @@
 
-export type Format = {
-    year    ?: 'numeric' | '2-digit'
-    month   ?: 'numeric' | '2-digit' | 'narrow' | 'short' | 'long'
-    day     ?: 'numeric' | '2-digit'
-    weekday ?: 'narrow'  | 'short'   | 'long'
-}
+// export type Format = {
+//     year    ?: 'numeric' | '2-digit'
+//     month   ?: 'numeric' | '2-digit' | 'narrow' | 'short' | 'long'
+//     day     ?: 'numeric' | '2-digit'
+//     weekday ?: 'narrow'  | 'short'   | 'long'
+// }
+export type Format = Intl.DateTimeFormatOptions
 export type Unit = 'day' | 'month' | 'year' | 'week'
 
 export const DateTime = (date: string | Date) => new Handler(date)
