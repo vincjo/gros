@@ -60,13 +60,13 @@
         line-height:32px;
     }
     header aside{
-        color: var(--grey-font, #757575);
+        color: var(--font-grey, #757575);
         font-weight:normal;
         font-size:16px;
     }
     header aside i{
         margin:0 4px;
-        color: var(--grey-font, #757575);
+        color: var(--font-grey, #757575);
     }
 
     aside{
@@ -79,22 +79,22 @@
     }
     footer{
         height:56px;
-        border-top:1px solid var(--grey-lighten, #eee);
         display:flex;
         justify-content:flex-end;
         align-items:center;
         padding:0;
-        background:var(--grey-lighten-3, #fafafa);
+        border-top: 1px solid var(--grey-lighten, #eee);
+        background:var(--grey-lighten-2, #f5f5f5);
         border-radius:0 0 4px 4px;
         user-select: none;
     }
 
     footer :global(button){
-        border:1px solid var(--grey, #e0e0e0);
+        border:1px solid var(--grey-darken, #d1d1d1);
         outline:none;
         width:auto;
         height:34px;
-        background:var(--grey-lighten, #eee);
+        background:var(--bg, #fff);
         transition:all,0.5s;
         cursor:pointer;
         margin-right:12px;

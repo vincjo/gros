@@ -1,5 +1,5 @@
 
-export const initDownload = (url: string, name = '') => {
+export const download = (url: string, name = '') => {
     const a = document.createElement('a')
     document.body.appendChild(a)
     a.setAttribute('href', url)

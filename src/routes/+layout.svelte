@@ -9,7 +9,6 @@
     import Header               from './Header.svelte'
 
     let { children }: { children: Snippet } = $props()
-
     let element: HTMLElement
     afterNavigate(() => {
         if (element) element.scrollTop = 0

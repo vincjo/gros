@@ -3,14 +3,14 @@
 
 Quelques fonctions utiles.
 
-## initDownload
+## download
 
 Force le téléchargement d'un fichier dans le navigateur.
 
 ```ts
-import { initDownload } from 'gros/function'
+import { download } from 'gros/function'
 
-initDownload('https://my-site.com/some-file.pdf')
+download('https://my-site.com/some-file.pdf')
 ```
 
 ## s

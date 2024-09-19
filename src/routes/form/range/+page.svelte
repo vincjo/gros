@@ -1,5 +1,5 @@
 <script>
-    import { Range }  from '$lib/form'
+    import { Range }  from '$lib/form/Range/Range.svelte'
 </script>
 
 <section>

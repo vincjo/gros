@@ -68,8 +68,8 @@ pre {
 
 .svx blockquote p {
     margin: 0;
-    color: var(--secondary-darken);
-    font-family: Arial, sans-serif;
+    color: var(--ternary);
+    font-family: JetBrains;
 }
 
 .svx pre {

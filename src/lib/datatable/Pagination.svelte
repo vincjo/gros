@@ -110,7 +110,7 @@
     }
     button.active {
         color: #eee;
-        background: #616161;
+        background: #424242;
         border: 1px solid var(--bg-darken, #fff);
         cursor: default;
     }

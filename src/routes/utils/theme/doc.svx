@@ -25,13 +25,42 @@ Vérifie et applique les préférences de l'utilisateur (défini dans les option
 
 <button onclick={() => theme.switch()} class="btn">
     {#if theme.value === 'dark'}
-        🌙
-    {:else}
         ☀️
+    {:else}
+        🌙
     {/if}
 </button>
 
 ```
+
+## Flashbang
+
+Définir la préférence de l'utilisateur côté serveur à l'aide du cookie "siteTheme".
+
+> src/hooks.server.ts
+
+```ts
+export const handle = async ({ event, resolve }) => {
+    const theme = event.cookies.get('siteTheme')
+    if (theme) {
+        return await resolve(event, {
+            transformPageChunk: ({ html }) => html.replace(`data-theme=""`, `data-theme="${theme}"`)
+        })
+    }
+
+    return await resolve(event)
+}
+```
+
+> src/app.html
+
+```html
+<!DOCTYPE html>
+<html data-theme="">
+    <head>
+        [...]
+```
+
 
 <br><br><br><br>
 <br><br><br><br>

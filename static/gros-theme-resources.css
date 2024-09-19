@@ -13,7 +13,7 @@
     --secondary-lighten-3: rgba(2, 136, 209, 0.3);
     --secondary-darken: #005b9f;
 
-    --ternary: #e64a19;
+    --ternary: #e619a9;
 }
 
 [data-theme="dark"],
@@ -32,7 +32,7 @@
     --secondary-lighten-3: rgba(2, 136, 209, 0.3);
     --secondary-darken: #005b9f;
 
-    --ternary: #f7c953;
+    --ternary: #e637b2;
     --bg-gradient: linear-gradient(4deg, rgba(38, 52, 57, 1) 0%, rgba(20, 23, 24, 1) 100%);
 }
 

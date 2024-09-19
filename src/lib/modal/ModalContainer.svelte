@@ -16,6 +16,7 @@
         <article 
             use:draggable={{ handle: '.modal.handle' }} 
             use:clickOutside={close}
+            class="z-depth-2"
             transition:fadescale|global={{ duration: 150, easing: cubicInOut, baseScale: 0.5 }}
         >
             <Component props={modal.props} {close}/>
@@ -35,7 +36,7 @@
         left:0;
         bottom:0;
         right:0;
-        background:rgba(0,0,0,0.4);
+        background:rgba(40,40,40,0.56);
         z-index:9999;
     }
 
@@ -45,7 +46,5 @@
         margin:calc(auto - 4vh) auto;
         position: relative;
         border-radius:4px;
-        -webkit-box-shadow: 0 24px 38px 3px rgba(0,0,0, 0.14), 0 9px 46px 8px rgba(0,0,0, 0.12), 0 11px 15px -7px rgba(0,0,0, 0.2);
-        box-shadow: 0 24px 38px 3px rgba(0,0,0, 0.14), 0 9px 46px 8px rgba(0,0,0, 0.12), 0 11px 15px -7px rgba(0,0,0, 0.2);
     }
 </style>

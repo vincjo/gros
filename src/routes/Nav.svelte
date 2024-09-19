@@ -55,8 +55,8 @@
                 { name: 'event modifier', path: '/event-modifier' },
                 { name: 'function', path: '/function' },
                 { name: 'page', path: '/page' },
-                { name: 'transition', path: '/transition' },
                 { name: 'theme', path: '/theme' },
+                { name: 'transition', path: '/transition' },
             ],
         },
     ]

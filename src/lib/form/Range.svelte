@@ -57,7 +57,7 @@
             <!-- svelte-ignore a11y_no_static_element_interactions -->
             <!-- svelte-ignore a11y_mouse_events_have_key_events -->
             <div
-                class="range__thumb"
+                class="range__thumb z-depth-2"
                 class:range__thumb--holding={range.holding}
                 bind:this={thumb}
                 ontouchstart={(e) => range.onDragStart(e)}
@@ -116,13 +116,13 @@
 
     .range__track {
         height: 6px;
-        background-color: var(--track-bgcolor, #d0d0d0);
+        background-color: var(--grey-lighten, #eee);
         border-radius: 999px;
     }
 
     .range__track--highlighted {
-        background-color: var(--track-highlight-bgcolor, #6185ff);
-        background: var(--track-highlight-bg, linear-gradient(90deg, #6185ff, #9c65ff));
+        background: linear-gradient(90deg, var(--primary-lighten), var(--primary-darken));
+        background: var(--grey-darken, #d1d1d1);
         width: 0;
         height: 6px;
         position: absolute;
@@ -136,37 +136,31 @@
         position: absolute;
         width: 20px;
         height: 20px;
-        background-color: var(--thumb-bgcolor, white);
+        background-color: #212121;
         cursor: pointer;
         border-radius: 999px;
         margin-top: -8px;
         transition: box-shadow 100ms;
         user-select: none;
-        box-shadow: var(
-            --thumb-boxshadow,
-            0 1px 1px 0 rgba(0, 0, 0, 0.14),
-            0 0px 2px 1px rgba(0, 0, 0, 0.2)
-        );
     }
 
     .range__thumb--holding {
         box-shadow:
             0 1px 1px 0 rgba(0, 0, 0, 0.14),
             0 1px 2px 1px rgba(0, 0, 0, 0.2),
-            0 0 0 6px var(--thumb-holding-outline, rgba(113, 119, 250, 0.3));
+            0 0 0 6px rgba(40,40,40,0.4);
     }
 
     .range__tooltip {
         pointer-events: none;
         position: absolute;
         top: -33px;
-        color: var(--tooltip-text, white);
+        color: #fff;
         width: 38px;
         padding: 4px 0;
         border-radius: 4px;
         text-align: center;
-        background-color: var(--tooltip-bgcolor, #6185ff);
-        background: var(--tooltip-bg, linear-gradient(45deg, #6185ff, #9c65ff));
+        background: linear-gradient(45deg, #242424, #212121);
     }
 
     .range__tooltip::after {
@@ -175,7 +169,7 @@
         position: absolute;
         height: 7px;
         width: 7px;
-        background-color: var(--tooltip-bgcolor, #6185ff);
+        background-color: #212121;
         bottom: -3px;
         left: calc(50% - 3px);
         clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
