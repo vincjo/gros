@@ -1,5 +1,6 @@
 <script lang="ts">
     import { Folder, type TreeHandler } from '$lib/tree'
+    import Self from './Folder.svelte'
     import Files from './Files.svelte'
     import Folder_Option from './Folder_Option.svelte'
     import Sortable from '$lib/tree/Sortable.svelte';
@@ -41,7 +42,7 @@
         <article>
             <Sortable type="folder" scope={folder.id}>
             {#each folder.folders as subfolder (subfolder.id)}
-                <svelte:self folder={subfolder} level={level + 1} {tree} parent={folder.id}/>
+                <Self folder={subfolder} level={level + 1} {tree} parent={folder.id}/>
             {/each}
             </Sortable>
             <Files {tree} {folder}/>
