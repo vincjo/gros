@@ -10,7 +10,8 @@
         max?: number,
         precision?: number,
         prefix?: string,
-        suffix?: string
+        suffix?: string,
+        oninput?: (event?: Event) => void
     }
 
     let { 
@@ -19,14 +20,15 @@
         max = 100,
         precision = 0,
         prefix = '',
-        suffix = ''
+        suffix = '',
+        oninput = () => { return }
     }: Props = $props()
     let element: HTMLElement
     let container: HTMLElement
     let thumb: HTMLElement
     let progressBar: HTMLElement
 
-    const range = new RangeHandler(value, min, max)
+    const range = new RangeHandler(value, min, max, oninput)
 
     onMount(() => range.setup(element, container, thumb, progressBar))
 

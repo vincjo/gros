@@ -31,6 +31,7 @@ Exemple :
 |  **precision** | *0*  | false  |
 | **suffix** | *''* | false
 | **prefix** | *''* | false
+| **oninput** | *() => void* | false
 
 </div>
 <!-- |  **step** | *1*  | false  | -->
