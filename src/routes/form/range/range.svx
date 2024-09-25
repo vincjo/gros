@@ -1,0 +1,43 @@
+<script>
+    import Range from './Range.svelte'
+</script>
+
+# Range
+
+<Range/>
+
+<br><br>
+
+
+Exemple :
+
+````svelte
+<script>
+    import { Range } from 'gros/form'
+    let value = 14
+</script>
+
+<Range bind:value min={0} max={50} precision={1} suffix="kg"/>
+````
+<br><br>
+
+<div class="table">
+
+| param  | default  | required  | 
+|---|---|---|
+| **value**  |  *undefined* | true  |
+|  **min** | *0*  | false  |
+|  **max** | *100*  | false  |
+|  **precision** | *0*  | false  |
+| **suffix** | *''* | false
+| **prefix** | *''* | false
+
+</div>
+<!-- |  **step** | *1*  | false  | -->
+
+
+
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>

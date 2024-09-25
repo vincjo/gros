@@ -1,9 +1,26 @@
 <script lang="ts">
     import { fly, fade } from 'svelte/transition'
     import { onMount } from 'svelte'
+    import { round, formatNumber } from '$lib/function'
     import RangeHandler from './RangeHandler.svelte'
 
-    let { value, min, max }: { value: number, min: number, max: number } = $props()
+    type Props = {
+        value: number, 
+        min?: number,
+        max?: number,
+        precision?: number,
+        prefix?: string,
+        suffix?: string
+    }
+
+    let { 
+        value = $bindable(), 
+        min = 100, 
+        max = 100,
+        precision = 0,
+        prefix = '',
+        suffix = ''
+    }: Props = $props()
     let element: HTMLElement
     let container: HTMLElement
     let thumb: HTMLElement
@@ -15,20 +32,18 @@
 
     $effect(() => {
         if (range.progressBar && range.thumb) {
-            // Limit value min -> max
             range.value = range.value > range.min ? range.value : range.min
             range.value = range.value < range.max ? range.value : range.max
 
             const percent = ((range.value - range.min) * 100) / (range.max - range.min)
             const offsetLeft = (range.container.clientWidth - 10) * (percent / 100) + 5
 
-            // Update thumb position + active range track width
             range.thumb.style.left = `${offsetLeft}px`
             range.progressBar.style.width = `${offsetLeft}px`
+
+            value = round(range.value, precision)
         }
     })
-    // Update progressbar and thumb styles to represent value
-    
 </script>
 
 <svelte:window
@@ -71,7 +86,9 @@
                         in:fly={{ y: 7, duration: 200 }}
                         out:fade={{ duration: 100 }}
                     >
-                        {range.value}
+                        {prefix}
+                        {formatNumber(round(range.value, precision))}
+                        {suffix}
                     </div>
                 {/if}
             </div>
@@ -115,16 +132,16 @@
     }
 
     .range__track {
-        height: 6px;
-        background-color: var(--grey-lighten, #eee);
+        height: 4px;
+        background-color: var(--grey, #e0e0e0);
         border-radius: 999px;
     }
 
     .range__track--highlighted {
         background: linear-gradient(90deg, var(--primary-lighten), var(--primary-darken));
-        background: var(--grey-darken, #d1d1d1);
+        background: #757575;
         width: 0;
-        height: 6px;
+        height: 4px;
         position: absolute;
         border-radius: 999px;
     }
@@ -134,12 +151,12 @@
         align-items: center;
         justify-content: center;
         position: absolute;
-        width: 20px;
-        height: 20px;
-        background-color: #212121;
+        width: 14px;
+        height: 14px;
+        background-color: #424242;
         cursor: pointer;
         border-radius: 999px;
-        margin-top: -8px;
+        margin-top: -5px;
         transition: box-shadow 100ms;
         user-select: none;
     }
@@ -156,8 +173,9 @@
         position: absolute;
         top: -33px;
         color: #fff;
-        width: 38px;
-        padding: 4px 0;
+        width: fit-content;
+        white-space: nowrap;
+        padding: 2px 4px;
         border-radius: 4px;
         text-align: center;
         background: linear-gradient(45deg, #242424, #212121);
