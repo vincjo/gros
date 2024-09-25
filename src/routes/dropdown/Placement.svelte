@@ -12,11 +12,11 @@
             <i class="micon">grid_on</i>
             Show attribute table
         </li>
-        <li class="opacity open-dropdown">
+        <li class="opacity">
             <i class="micon">opacity</i>
             <span>Opacity</span>
             <div class="open-dropdown">
-                <Range min={0} max={100} value={[100]} suffix="%" />
+                <Range min={0} max={100} value={100} suffix="%" />
             </div>
         </li>
         <li>

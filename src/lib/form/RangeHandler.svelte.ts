@@ -23,15 +23,15 @@ export default class RangeHandler
 
     public mouseEventShield: HTMLDivElement
 
-    public oninput: (event?: Event) => void
+    public onchange: (event?: Event) => void
 
-    constructor(value: number = 0, min: number = 0, max: number = 100, oninput = () => {})
+    constructor(value: number = 0, min: number = 0, max: number = 100, onchange = () => {})
     {
         this.value = value
         this.initialValue = value
         this.min = min
         this.max = max
-        this.oninput = oninput
+        this.onchange = onchange
     }
 
 
@@ -159,11 +159,11 @@ export default class RangeHandler
         // Get client's x cord either touch or mouse
         if (event.type === 'touchmove' || event.type === 'touchstart') {
             this.calculateNewValue(event.touches[0].clientX)
-            this.oninput(event)
+            this.onchange(event)
         }
         else {
             this.calculateNewValue(event.clientX)
-            this.oninput(event)
+            this.onchange(event)
         }
     }
 }

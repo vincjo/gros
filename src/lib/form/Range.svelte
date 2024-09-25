@@ -11,24 +11,24 @@
         precision?: number,
         prefix?: string,
         suffix?: string,
-        oninput?: (event?: Event) => void
+        onchange?: (event?: Event) => void
     }
 
     let { 
         value = $bindable(), 
-        min = 100, 
+        min = 0, 
         max = 100,
         precision = 0,
         prefix = '',
         suffix = '',
-        oninput = () => { return }
+        onchange = () => { return }
     }: Props = $props()
     let element: HTMLElement
     let container: HTMLElement
     let thumb: HTMLElement
     let progressBar: HTMLElement
 
-    const range = new RangeHandler(value, min, max, oninput)
+    const range = new RangeHandler(value, min, max, onchange)
 
     onMount(() => range.setup(element, container, thumb, progressBar))
 
