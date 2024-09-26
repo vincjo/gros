@@ -10,7 +10,7 @@
     type Props = {
         value: string, 
         opacity?: number,
-        onchange: (handler: ColorHandler) => void
+        onchange?: (handler: ColorHandler) => void
     }
     let { value = $bindable(), opacity = 1, onchange = () => {} }: Props = $props()
 
