@@ -10,13 +10,15 @@ export default class ColorHandler
     public hsv      = $state<HSV>()
     public hsl      = $state<HSL>()
     public opacity  = $state(1)
+    public onchange: (handler: ColorHandler) => void
 
-    constructor(hex = '#ff0000', opacity = 1) {
+    constructor(hex = '#ff0000', opacity = 1, onchange = (handler: ColorHandler) => {}) {
         this.hex = hex
         this.rgb = HEX_to_RGB(this.hex)
         this.hsv = RGB_to_HSV(this.rgb)
         this.hsl = RGB_to_HSL(this.rgb)
         this.opacity = opacity
+        this.onchange = onchange
     }
 
     public setHEX(hex: HEX)
@@ -25,6 +27,7 @@ export default class ColorHandler
         this.rgb = HEX_to_RGB(this.hex)
         this.hsv = RGB_to_HSV(this.rgb)
         this.hsl = RGB_to_HSL(this.rgb)
+        this.onchange(this)
     }
 
     public setRGB(rgb: RGB)
@@ -33,6 +36,7 @@ export default class ColorHandler
         this.hex = RGB_to_HEX(this.rgb)
         this.hsv = RGB_to_HSV(this.rgb)
         this.hsl = RGB_to_HSL(this.rgb)
+        this.onchange(this)
     }
 
     public setHSV(hsv: HSV)
@@ -41,6 +45,7 @@ export default class ColorHandler
         this.rgb = HSV_to_RGB(this.hsv)
         this.hex = RGB_to_HEX(this.rgb)
         this.hsl = RGB_to_HSL(this.rgb)
+        this.onchange(this)
     }
 }
 

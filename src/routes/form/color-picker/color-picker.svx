@@ -1,25 +1,22 @@
 <script>
-    import { ColorPicker, ColorHandler } from '$lib/form'
-
-    const handler = new ColorHandler('#248a79', 0.58)
+    import Example from './Example.svelte'
 </script>
 
 # Color picker
 
-<ColorPicker {handler}/>
+<Example/>
 
 <br><br>
 <br><br>
 
 ````svelte
 <script>
-    import { ColorPicker, ColorHandler } from 'gros/form'
+    import { ColorPicker } from 'gros/form'
 
-    const handler = new ColorHandler('#006064', 0.58)
-    const hex = handler.getHEX()
+    let value = $state('#cc1760')
 </script>
 
-<ColorPicker {handler}/>
+<ColorPicker bind:value opacity={0.4}/>
 ````
 
 <br><br><br><br>
