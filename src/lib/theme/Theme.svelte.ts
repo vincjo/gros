@@ -17,7 +17,7 @@ export default class Theme
     public set(theme: string)
     {
         document.documentElement.dataset.theme = theme
-        document.cookie = `siteTheme=${theme}; max-age=31536000; path="/"`
+        document.cookie = `siteTheme=${theme};max-age=31536000;path=/`
         this.value = theme
         return theme
     }
