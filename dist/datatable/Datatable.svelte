@@ -1,0 +1,118 @@
+<script lang="ts">import Search from './Search.svelte';
+import RowCount from './RowCount.svelte';
+import Pagination from './Pagination.svelte';
+let { table, basic = false, header = undefined, footer = undefined, children } = $props();
+table.on('change', () => table.element ? table.element.scrollTop = 0 : '');
+</script>
+
+<section bind:clientWidth={table.clientWidth} class="svelte-simple-datatable">
+
+    <header class:container={basic || header}>
+        {#if basic === true}
+            <Search {table}/>
+        {:else if header}
+            {@render header()}
+        {/if}
+    </header>
+
+    <article bind:this={table.element} class="thin-scrollbar">
+        {@render children()}
+    </article>
+
+    <footer class:container={basic || footer}>
+        {#if basic}
+            <RowCount {table}/>
+            <Pagination {table}/>
+        {:else if footer}
+            {@render footer()}
+        {/if}
+    </footer>
+
+</section>
+
+<style>
+    section {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        background: inherit;
+        border-radius: inherit;
+    }
+
+    header, footer {
+        min-height: 4px;
+        padding: 0;
+    }
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+    footer.container {
+        border-top: 1px solid var(--grey, #e0e0e0);
+    }
+    article {
+        position: relative;
+        height: 100%;
+        overflow: auto;
+        background: inherit;
+        /* scrollbar-width: thin; */
+    }
+    article::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+
+    article :global(table) {
+        border-collapse: separate;
+        border-spacing: 0;
+        width: 100%;
+        background: inherit;
+    }
+    article :global(table thead) {
+        position: sticky;
+        inset-block-start: 0;
+        background: inherit;
+        z-index: 1;
+    }
+    article :global(thead tr) {
+        background: inherit;
+    }
+    article :global(thead tr th) {
+        background: inherit;
+    }
+    article :global(thead tr:first-child th) {
+        padding: 8px 20px;
+        background: inherit;
+    }
+    article :global(tbody) {
+        background: inherit;
+    }
+    article :global(tbody tr) {
+        transition: background, 0.2s;
+        background: inherit;
+    }
+    article :global(tbody tr:hover) {
+        background: var(--grey-lighten-3, #fafafa);
+    }
+    article :global(tbody td) {
+        padding: 4px 20px;
+        border-right: 1px solid var(--grey-lighten, #eee);
+        border-bottom: 1px solid var(--grey-lighten, #eee);
+        background: inherit;
+    }
+    article :global(tbody td:first-child) {
+        border-left: 1px solid var(--grey-lighten, #eee);
+    }
+
+    article :global(.hidden) {
+        display: none;
+    }
+    article :global(u.highlight) {
+        text-decoration: none;
+        background: rgba(251, 192, 45, 0.6);
+        border-radius: 2px;
+    }
+</style>
