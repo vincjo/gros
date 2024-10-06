@@ -6,7 +6,7 @@ module.exports = {
         max_restarts   : 10,
         env            : {
             NODE_ENV : 'production',
-            PORT : 3021,
+            PORT : 3020,
         },
     }],
     deploy : {
@@ -15,7 +15,7 @@ module.exports = {
             host          : [ "vincjo.fr -p 625" ],
             ref           : "origin/runes",
             repo          : "git@github.com:vincjo/gros.git",
-            path          : "/home/vincjo/www/gros-runes",
+            path          : "/home/vincjo/www/gros",
             "post-deploy" : "npm install && npm run build && pm2 startOrRestart ecosystem.config.cjs --env production"
         },
     }

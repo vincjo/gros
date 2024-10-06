@@ -13,7 +13,7 @@ const config = {
     kit: {
         adapter: adapter({ out: 'build' }),
         paths: {
-            base:  '/gros-runes',
+            base:  '/gros',
         },
         alias: {
 			$utils: 'src/utils',

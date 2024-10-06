@@ -42,11 +42,12 @@
 </script>
 
 {#if tree.dragging.status === true && tree.dragging.data.identifier !== identifier}
-    <!-- svelte-ignore a11y_no_static_element_interactions -->
     <div class="droppable" transition:fade={{ duration:200 }}
         ondragenter={(event) => dragenter(event)}
         ondragleave={(event) => dragleave(event)}
         ondrop={(event) => drop(event)}
+        role="button"
+        tabindex="0"
     ></div>
 {/if}
 

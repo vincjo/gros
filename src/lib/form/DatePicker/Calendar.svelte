@@ -30,8 +30,7 @@
             <tr>
                 {#each handler.calendar.slice(weekIndex * 7, weekIndex * 7 + 7) as day}
                     <td>
-                        <button
-                            type="button"
+                        <button type="button"
                             class="close-dropdown"
                             onclick={() => handleClick(day)}
                             class:selected={day.year === handler.date.getFullYear() &&

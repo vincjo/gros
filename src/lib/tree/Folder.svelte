@@ -49,7 +49,7 @@
             ondragstart={(event) => dragstart(event)}
             ondragend={(event) => dragend(event)}
         >
-            <button class="flex" onclick={() => tree.setActive('folder', identifier)}>
+            <button type="button" class="flex" onclick={() => tree.setActive('folder', identifier)}>
                 <div class="flex">
                     <i class="micon rotate">keyboard_arrow_right</i>
                     <i class="micon">{isActive ? 'folder_open' : 'folder'}</i>

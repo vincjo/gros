@@ -33,7 +33,6 @@
 
     let minWidth = $state('auto')
     let element: HTMLButtonElement
-    let dropdownElement: HTMLDivElement = $state(undefined)
 
     onMount(() => {
         if (element && !fixedWidth) {
@@ -88,8 +87,7 @@
 </script>
 
 
-<button 
-    type="button"
+<button type="button"
     class="dropdown-trigger"
     class:block={isBlock}
     onclick={(event) => open(event)} 
@@ -109,7 +107,6 @@
             if (contains) return
             active = false
         }}
-        bind:this={dropdownElement}
         style:min-width={minWidth}
         class="dropdown"
         data-position="{position}"

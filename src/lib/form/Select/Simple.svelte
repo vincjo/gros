@@ -7,7 +7,7 @@
 
     type Props = {
         big         ?: boolean,
-        value       ?:  string | number |boolean,
+        value       ?: string | number |boolean,
         label       ?: string,
         icon        ?: string,
         required    ?: boolean,

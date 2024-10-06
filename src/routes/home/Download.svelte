@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     const download = async () => {
 
         const response = await fetch(`/gros/home`, {
@@ -21,7 +21,7 @@
 
 
 
-<button on:click={download} class="btn">
+<button onclick={download} class="btn">
     <i class="micon s24">file_download</i>
     <span>CSS</span>
 </button>

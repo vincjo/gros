@@ -11,7 +11,7 @@ export { default as Range }         from './Range.svelte'
 
 export type Error = { field: string; message: string }
 export type Locale = { weekdays: string[]; months: string[] }
-export type Option = { value?: string, label?: string, icon?: string }
+export type Option = { value?: string | number | boolean, label?: string, icon?: string }
 
 export const check = (data: Object, fields: string[], message = 'Information requise') => {
     let errors = []

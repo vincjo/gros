@@ -39,7 +39,7 @@
         ondragstart={(event) => dragstart(event)}
         ondragend={(event) => dragend(event)}
     >
-        <button class="flex" onclick={handleClick}>
+        <button type="button" class="flex" onclick={handleClick}>
             {@render children()}
         </button>
         {#if option}{@render option()}{/if}

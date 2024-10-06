@@ -1,5 +1,6 @@
-<script>
+<script lang="ts">
     import { Select, Input } from '$lib/form'
+    import { preventDefault } from '$lib/event-modifier'
     let form = {
         name: null,
         fruit: null,
@@ -100,13 +101,13 @@
         bind:value={form.isSleeping}
     />
 
-    <button class="btn z-depth-1" type="submit" on:click|preventDefault={handleClick}>
+    <button class="btn z-depth-1" type="submit" onclick={preventDefault(handleClick)}>
         <i class="micon">save</i>
         Register
         <i class="micon">chevron_right</i>
     </button>
 
-    <button class="reset" on:click={reset}>reset</button>
+    <button class="reset" onclick={reset}>reset</button>
 </section>
 
 <style>

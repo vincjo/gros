@@ -1,8 +1,8 @@
 <script lang="ts">
-    import { fade } from 'svelte/transition'
-    import { createPopperActions } from '$lib/tooltip'
-    import type { Placement } from '@popperjs/core'
-    import type { Snippet } from 'svelte'
+    import { fade }                 from 'svelte/transition'
+    import { createPopperActions }  from '$lib/tooltip'
+    import type { Placement }       from '@popperjs/core'
+    import type { Snippet }         from 'svelte'
 
     type Props = {
         position?: Placement,
@@ -21,7 +21,6 @@
         ],
     }
     let minWidth = 'auto'
-
 </script>
 
 

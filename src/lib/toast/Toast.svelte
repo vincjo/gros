@@ -98,8 +98,7 @@
             <div class="message">{@html alert.message}</div>
 
             {#if alert.dismiss_button}
-                <button
-                    type="button"
+                <button type="button"
                     aria-label="Dismiss"
                     class="dismiss-btn"
                     on:click={() => toast.dismiss(alert)}

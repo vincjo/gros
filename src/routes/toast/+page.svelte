@@ -48,17 +48,17 @@
 
         <div style="display:flex; gap:0.5rem">
             <button
-                on:click={() =>
+                onclick={() =>
                     toast.info(
                         `Participate in the first <a href="https://hack.sveltesociety.dev/" target="_blank" rel="noreferer" style="color: white; font-weight: 700; text-decoration: underline;">Svelte hackathon</a>.`
                     )}
                 >Info
             </button>
-            <button on:click={() => toast.success('Your settings have been saved.')}
+            <button onclick={() => toast.success('Your settings have been saved.')}
                 >Success</button
             >
-            <button on:click={() => toast.failure('Invalid email or password.')}>Failure</button>
-            <button on:click={() => toast.dismiss_all()}>Dismiss All</button>
+            <button onclick={() => toast.failure('Invalid email or password.')}>Failure</button>
+            <button onclick={() => toast.dismiss_all()}>Dismiss All</button>
         </div>
     </article>
 </main>

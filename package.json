@@ -1,6 +1,6 @@
 {
     "name": "gros",
-    "version": "1.0.0-runes.28",
+    "version": "1.0.0-runes.30",
     "keywords": [
         "Jeu de composants Svelte réutilisables"
     ],
@@ -28,18 +28,18 @@
         "deploy:setup": "pm2 deploy ecosystem.config.cjs production setup"
     },
     "devDependencies": {
-        "@sveltejs/adapter-node": "^5.2.2",
-        "@sveltejs/package": "^2.3.4",
+        "@sveltejs/adapter-node": "^5.2.5",
+        "@sveltejs/package": "^2.3.5",
         "@sveltejs/vite-plugin-svelte": "^4.0.0-next.7",
-        "@types/node": "^22.5.1",
+        "@types/node": "^22.7.4",
         "mdsvex": "^0.12.3",
         "prism-svelte": "^0.5.0",
-        "svelte": "^5.0.0-next.257",
-        "svelte-check": "^4.0.1",
-        "svelte-preprocess": "^6.0.2",
+        "svelte": "^5.0.0-next.262",
+        "svelte-check": "^4.0.4",
+        "svelte-preprocess": "^6.0.3",
         "tslib": "^2.7.0",
-        "typescript": "^5.5.4",
-        "vite": "^5.4.3"
+        "typescript": "^5.6.2",
+        "vite": "^5.4.8"
     },
     "type": "module",
     "files": [
@@ -49,9 +49,9 @@
         "@neodrag/svelte": "^2.0.6",
         "@popperjs/core": "^2.11.8",
         "sortablejs": "^1.15.3",
-        "@sveltejs/kit": "^2.5.26",
-        "@vincjo/datatables": "^2.0.0-runes.32",
-        "svelte": "^5.0.0-next.238"
+        "@sveltejs/kit": "^2.6.1",
+        "@vincjo/datatables": "^2.0.0-runes.38",
+        "svelte": "^5.0.0-next.240"
     },
     "svelte": "./dist/index.js",
     "exports": {

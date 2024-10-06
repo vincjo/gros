@@ -12,22 +12,24 @@
 </script>
 
 <section>
-    <button on:click={() => left  = left === '40px' ? '80px' : '40px'}>slide</button>
+    <button onclick={() => left  = left === '40px' ? '80px' : '40px'}>slide</button>
     <aside style:margin-left="{left}">
         <Autocomplete>
             <input
                 type="text" spellcheck="false"
                 bind:value
-                on:input={() => show()}
+                oninput={() => show()}
             />
-            <ul slot="content">
-                {#if visible}
-                    <li>Result 1</li>
-                    <li>Result 2</li>
-                    <li>Result 3</li>
-                    <li>Result 4</li>
-                {/if}
-            </ul>
+            {#snippet content()}
+                <ul >
+                    {#if visible}
+                        <li>Result 1</li>
+                        <li>Result 2</li>
+                        <li>Result 3</li>
+                        <li>Result 4</li>
+                    {/if}
+                </ul>
+            {/snippet}
         </Autocomplete>
     </aside>
 </section>

@@ -25,7 +25,7 @@
         <i class="icon" style:width="18px" style:height="18px"><svg width="100%" height="100%" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 6v12M18 6l-6 6l6 6"></path></svg></i>
     </button> -->
 
-    <button type="button" onclick={() => handler.setMonth(handler.month - 1)} class="nav">
+    <button type="button" aria-label="previous month" onclick={() => handler.setMonth(handler.month - 1)} class="nav">
         <i class="icon"><svg width="100%" height="100%" viewBox="0 0 24 24"><path fill="currentColor" d="M14.71 6.71a.996.996 0 0 0-1.41 0L8.71 11.3a.996.996 0 0 0 0 1.41l4.59 4.59a.996.996 0 1 0 1.41-1.41L10.83 12l3.88-3.88c.39-.39.38-1.03 0-1.41z"></path></svg></i>
     </button>
     <div class="flex-around">
@@ -63,7 +63,7 @@
     </div>
 
 
-    <button type="button" onclick={() => handler.setMonth(handler.month + 1)} class="nav">
+    <button type="button" aria-label="next month" onclick={() => handler.setMonth(handler.month + 1)} class="nav">
         <i class="icon"><svg width="100%" height="100%" viewBox="0 0 24 24"><path fill="currentColor" d="M9.29 6.71a.996.996 0 0 0 0 1.41L13.17 12l-3.88 3.88a.996.996 0 1 0 1.41 1.41l4.59-4.59a.996.996 0 0 0 0-1.41L10.7 6.7c-.38-.38-1.02-.38-1.41.01z"></path></svg></i>
     </button>
 
