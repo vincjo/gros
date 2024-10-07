@@ -16,6 +16,8 @@
 **[vincjo.fr/gros](https://vincjo.fr/gros)**
 
 
-# >= v1 = ne pas installer. 
 
-Support expérimental pour Svelte 5.
+Support Svelte 5.
+
+## Ancienne documentation:
+**[vincjo.fr/v0gros](https://vincjo.fr/v0gros)**
