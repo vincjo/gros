@@ -1,5 +1,4 @@
 
-
 export const once = (fn: any) => {
     return (event: Event) => {
         if (fn) fn.call(this, event)

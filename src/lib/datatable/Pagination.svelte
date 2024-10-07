@@ -1,7 +1,7 @@
 <script lang="ts">
-    import type { TableHandlerLike } from './'
+    import type { TableHandler } from '$lib/datatable'
     type T = $$Generic<Row>
-    let { table }: { table: TableHandlerLike<T> } = $props()
+    let { table }: { table: TableHandler<T> } = $props()
 </script>
 
 <section>
@@ -69,7 +69,7 @@
     section {
         display:flex;
         user-select: none;
-        margin: 16px;
+        margin: 8px 16px;
     }
     button {
         display: flex;

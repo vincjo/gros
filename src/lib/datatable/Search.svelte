@@ -1,7 +1,7 @@
 <script lang="ts">
-    import type { TableHandlerLike } from './'
+    import type { TableHandler } from '$lib/datatable'
     type T = $$Generic<Row>
-    let { table }: { table: TableHandlerLike<T> } = $props()
+    let { table }: { table: TableHandler<T> } = $props()
     const search = table.createSearch()
 </script>
 

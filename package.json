@@ -50,7 +50,7 @@
         "@popperjs/core": "^2.11.8",
         "sortablejs": "^1.15.3",
         "@sveltejs/kit": "^2.6.1",
-        "@vincjo/datatables": "^2.0.0-runes.38",
+        "@vincjo/datatables": "^2.0.0-runes.43",
         "svelte": "^5.0.0-next.240"
     },
     "svelte": "./dist/index.js",

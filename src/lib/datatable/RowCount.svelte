@@ -1,8 +1,8 @@
 <script lang="ts">
-    import type { TableHandlerLike } from './'
+    import type { TableHandler } from '$lib/datatable'
 
     type T = $$Generic<Row>
-    let { table, selection = false }: { table: TableHandlerLike<T>, selection?: boolean } = $props()
+    let { table, selection = false }: { table: TableHandler<T>, selection?: boolean } = $props()
 
     const { start, end, total, selected } = $derived(table.rowCount)
 </script>
@@ -40,7 +40,7 @@
         color:var(--font-grey, #757575);
         line-height:32px;
         font-size:13px;
-        margin: 16px;
+        margin: 8px 16px;
     }
     aside :global(b) {
         color: var(--font-grey, #757575);

@@ -72,8 +72,9 @@
 
 <svelte:window onmouseup={mouseup} onmousemove={mousemove}/>
 
-<!-- svelte-ignore a11y_no_static_element_interactions -->
 <section
+	role="button"
+	tabindex="0"
     bind:this={element}
     style:--hue-color={`hsl(${Math.ceil(handler.hsv[0])},100%,50%)`}
     onmousedown={preventDefault(stopPropagation(pick))}

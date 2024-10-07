@@ -44,8 +44,9 @@
     onmouseup={mouseup}
     onmousemove={mousemove}
 />
-<!-- svelte-ignore a11y_no_static_element_interactions -->
 <section
+    role="button"
+    tabindex="-1"
     bind:this={element}
     onmousedown={preventDefault(stopPropagation(mousedown))}
     ontouchstart={touch}

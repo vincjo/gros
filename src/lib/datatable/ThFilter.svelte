@@ -1,17 +1,15 @@
 <script lang="ts">
-    import type { TableHandlerLike, FieldLike } from './'
-    import type { Check } from '@vincjo/datatables'
+    import type { TableHandler, Field, Check } from '$lib/datatable'
 
     type T = $$Generic<Row>
     type Props = {
-        table  : TableHandlerLike<T>,
-        field  : FieldLike<T>,
+        table  : TableHandler<T>,
+        field  : Field<T>,
         check ?: Check
     }
     let { table, field, check = undefined }: Props = $props()
 
-    // "field as any" for compatibility between client and server
-    const filter = table.createFilter(field as any, check)
+    const filter = table.createFilter(field, check)
 </script>
 
 

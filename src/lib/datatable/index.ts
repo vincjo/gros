@@ -9,9 +9,4 @@ export { default as Pagination }    from './Pagination.svelte'
 export { default as RowCount }      from './RowCount.svelte'
 export { TableHandler, check }      from '@vincjo/datatables'
 
-import type { Field as ClientField, TableHandler as ClientTableHandler } from '@vincjo/datatables'
-import type { TableHandler as ServerTableHandler } from '@vincjo/datatables/server'
-
-export type TableHandlerLike<Row> = ClientTableHandler<Row> | ServerTableHandler<Row>
-export type FieldLike<Row> = ClientField<Row>
-export type Row = { [key: string]: any }
+export type { Field, Row, Check } from '@vincjo/datatables'
