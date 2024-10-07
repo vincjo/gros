@@ -1,6 +1,6 @@
 module.exports = {
     apps : [{
-        name           : "gros",
+        name           : "v0gros",
         script         : "./build/index.js",
         watch          : false,
         max_restarts   : 10,
