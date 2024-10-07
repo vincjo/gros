@@ -13,7 +13,7 @@ module.exports = {
         production : {
             user          : "vincjo",
             host          : [ "vincjo.fr -p 625" ],
-            ref           : "origin/runes",
+            ref           : "origin/main",
             repo          : "git@github.com:vincjo/gros.git",
             path          : "/home/vincjo/www/gros",
             "post-deploy" : "npm install && npm run build && pm2 startOrRestart ecosystem.config.cjs --env production"
