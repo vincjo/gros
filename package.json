@@ -25,7 +25,8 @@
     "lint": "prettier --plugin-search-dir . --check . && eslint .",
     "format": "prettier --plugin-search-dir . --write .",
     "pack": "npm run package && cd package && npm publish && cd ../",
-    "deploy": "pm2 deploy ecosystem.config.cjs production"
+    "deploy": "pm2 deploy ecosystem.config.cjs production",
+    "deploy:setup": "pm2 deploy ecosystem.config.cjs production setup"
   },
   "devDependencies": {
     "@sveltejs/adapter-node": "^2.0.0",
