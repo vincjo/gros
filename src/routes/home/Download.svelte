@@ -1,7 +1,9 @@
 <script>
+    import { getPath } from '$lib/page'
+
     const download = async () => {
 
-        const response = await fetch(`/gros/home`, {
+        const response = await fetch(getPath('/home'), {
             method: 'GET',
             headers: { 'content-type': 'application/json' }
         })

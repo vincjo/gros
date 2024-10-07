@@ -5,7 +5,7 @@
 
 <header>
 	<div>
-		<a href="https://github.com/vincjo/gros">
+		<a href="https://github.com/vincjo/gros/tree/v0">
 			<img alt="github logo" src="{base}/github.svg"/><span>Github</span>
 		</a>
 	</div>

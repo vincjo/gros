@@ -11,7 +11,7 @@ const config = {
     kit: {
         adapter: adapter({ out: 'build' }),
         paths: {
-            base:  '/gros',
+            base:  '/v0gros',
         },
     },
     vitePlugin: {
