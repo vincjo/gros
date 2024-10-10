@@ -4,7 +4,7 @@
     import type { Snippet } from 'svelte'
 
     type Props = { 
-        icon ?: string, 
+        icon ?: string,
         title ?: string,
         children: Snippet,
         footer: Snippet

@@ -19,4 +19,11 @@ export default class ModalHandler
         this.component  = undefined
         this.props      = undefined
     }
+
+    public closeOnEscape(event: KeyboardEvent)
+    {
+        if (event.key === 'Escape') {
+            this.close()
+        }
+    }
 }

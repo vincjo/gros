@@ -6,8 +6,14 @@
     import { cubicInOut }   from 'svelte/easing'
     import { draggable }    from '@neodrag/svelte'
     import { clickOutside } from '$lib/action'
+    import { onMount }      from 'svelte'
 
     const close = () => modal.close()
+
+    onMount(() => {
+        document.addEventListener('keydown', (event) => modal.closeOnEscape(event))
+        return () => document.removeEventListener('keydown', (event) => modal.closeOnEscape(event))
+    })
 </script>
 
 {#if modal.isActive}
