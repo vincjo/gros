@@ -95,7 +95,7 @@
         width:auto;
         height:34px;
         background:var(--bg, #fff);
-        transition:all,0.5s;
+        transition: background 0.5s, border 0.5s;
         cursor:pointer;
         margin-right:12px;
         padding:0 16px;

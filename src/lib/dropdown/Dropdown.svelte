@@ -5,6 +5,7 @@
     import { createPopperActions }  from '$lib/tooltip'
     import type { Placement }       from '@popperjs/core'
     import { onMount }              from 'svelte'
+    import { browser }              from '$app/environment'
 
     type Props = {
         position        ?: Placement,
@@ -32,7 +33,7 @@
 
 
     let minWidth = $state('auto')
-    let element: HTMLButtonElement
+    let element: HTMLButtonElement = $state(undefined)
 
     onMount(() => {
         if (element && !fixedWidth) {
@@ -86,33 +87,34 @@
     }
 </script>
 
-
-<button type="button"
-    class="dropdown-trigger"
-    class:block={isBlock}
-    onclick={(event) => open(event)} 
-    bind:this={element}
-    use:popperRef
-    use:clickOutside={close}
->
-    {@render children()}
-</button>
-
-{#if active && !disabled}
-    <div
-        transition:fade={{ duration: 120 }}
-        use:popperContent={extraOpts}
-        use:clickOutside={(event) => {
-            const { contains } = getTarget(event)
-            if (contains) return
-            active = false
-        }}
-        style:min-width={minWidth}
-        class="dropdown"
-        data-position="{position}"
+{#if browser}
+    <button type="button"
+        class="dropdown-trigger"
+        class:block={isBlock}
+        onclick={(event) => open(event)} 
+        bind:this={element}
+        use:popperRef
+        use:clickOutside={close}
     >
-        {@render content()}
-    </div>
+        {@render children()}
+    </button>
+
+    {#if active && !disabled}
+        <div
+            transition:fade={{ duration: 120 }}
+            use:popperContent={extraOpts}
+            use:clickOutside={(event) => {
+                const { contains } = getTarget(event)
+                if (contains) return
+                active = false
+            }}
+            style:min-width={minWidth}
+            class="dropdown"
+            data-position="{position}"
+        >
+            {@render content()}
+        </div>
+    {/if}
 {/if}
 
 

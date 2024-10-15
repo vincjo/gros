@@ -6,7 +6,7 @@
     type Props = {
         big         ?: boolean,
         spellcheck  ?: boolean,
-        value       ?: string,
+        value       ?: unknown,
         label       ?: string,
         password    ?: boolean,
         number      ?: boolean,

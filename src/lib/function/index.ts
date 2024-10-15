@@ -1,4 +1,8 @@
 
+import Copy from './Copy.svelte'
+
+export const copy = new Copy()
+
 export const download = (url: string, name = '') => {
     const a = document.createElement('a')
     document.body.appendChild(a)
@@ -27,4 +31,11 @@ export const isNull = (value: unknown) => {
 
 export const round = (value: number, precision = 3) => {
     return Number(value.toFixed(precision))
+}
+
+export const ellipse = (text: string, max: number) => {
+    if (text.length > max) {
+        return text.substring(0, max) + '...'
+    }
+    return text
 }

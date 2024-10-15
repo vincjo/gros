@@ -1,6 +1,6 @@
 <script lang="ts">
     import { onMount, type Snippet } from 'svelte'
-    import Sortable from 'sortablejs'
+    import SortableJS from 'sortablejs'
 
     type Order = { id: string | number, sort: number }[]
     type Props = {
@@ -20,7 +20,7 @@
 
     onMount( () => {
         const element = document.querySelector(`.sortable-${type}-${scope}`)
-        new Sortable(element, {
+        new SortableJS(element, {
             preventOnFilter: false,
             handle: `.handle`,
             animation: 200,
