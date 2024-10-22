@@ -96,9 +96,9 @@
     article.active {
         background:transparent;
     }
-    article:not(.current):hover{
+    /* article:not(.current):hover {
         background: var(--grey-lighten-2, #f5f5f5);
-    }
+    } */
     i.micon{
         font-size:18px;
         color:var(--font-grey, #757575);
