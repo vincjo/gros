@@ -3,7 +3,7 @@
     import { fly, scale } from 'svelte/transition'
     import { toast } from './'
 
-    export let position = 'start'
+    let { position = 'start' } = $props()
 
     function create_timer(cb, delay) {
         let start
@@ -101,7 +101,7 @@
                 <button type="button"
                     aria-label="Dismiss"
                     class="dismiss-btn"
-                    on:click={() => toast.dismiss(alert)}
+                    onclick={() => toast.dismiss(alert)}
                 >
                     <svg aria-hidden="true" viewBox="0 0 24 24" class="icon">
                         <line x1="18" y1="6" x2="6" y2="18" />
