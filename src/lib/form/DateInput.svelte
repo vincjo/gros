@@ -33,7 +33,7 @@
     let date = $derived(DateTime(value).format(format))
 </script>
 
-<section class:small={!big}>
+<section class={{ small: !big }}>
     {#if label}
         <label for={id}>
             <div class="flex">
@@ -56,7 +56,7 @@
     {/if}
 
     <Dropdown position="bottom-start" preventClosing fixedWidth>
-        <aside class:big>
+        <aside class={{ big }}>
             {date}
             <i class="micon">arrow_drop_down</i>
         </aside>

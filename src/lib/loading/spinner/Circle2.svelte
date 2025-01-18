@@ -15,8 +15,7 @@
 </script>
 
 <div
-	class="circle"
-	class:pause-animation={pause}
+	class={[ 'circle', { 'pause-animation': pause }]}
 	style="--size: {size}{unit}; --colorInner: {colorInner}; --colorCenter: {colorCenter}; --colorOuter: {colorOuter}; --durationInner: {durationInner}; --durationCenter: {durationCenter}; --durationOuter: {durationOuter};"
 ></div>
 

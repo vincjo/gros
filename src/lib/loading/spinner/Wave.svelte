@@ -16,8 +16,7 @@
 <div class="wrapper" style="--size: {size}{unit}; --color: {color}; --duration: {duration};">
 	{#each range(10, 0) as version}
 		<div
-			class="bar"
-			class:pause-animation={pause}
+			class={[ 'bar', { 'pause-animation': pause }]}
 			style="left: {version * (+size / 5 + (+size / 15 - +size / 100)) +
 				unit}; animation-delay: {version * (+durationNum / 8.3)}{durationUnit};"
 		></div>

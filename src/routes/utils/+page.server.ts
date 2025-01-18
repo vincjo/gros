@@ -1,6 +1,6 @@
 import { redirect } from '@sveltejs/kit'
-import { getPath }  from '$lib/page'
+import { path }  from '$lib/page'
 
 export const load = () => {
-    redirect(307, getPath('/utils/action'));
+    redirect(307, path.get('/utils/action'));
 }

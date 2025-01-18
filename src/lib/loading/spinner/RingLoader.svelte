@@ -12,7 +12,7 @@
 
 <div class="wrapper" style="--size: {size}{unit}; --color: {color}; --duration: {duration};">
 	{#each range(2, 1) as version}
-		<div class="border {version}" class:pause-animation={pause}></div>
+		<div class={[ 'border', version, { 'pause-animation': pause }]}></div>
 	{/each}
 </div>
 

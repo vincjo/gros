@@ -1,13 +1,5 @@
-import { page } from '$app/stores'
-import { base } from '$app/paths'
-import { derived, fromStore } from 'svelte/store'
+import Path from './Path.svelte'
 
 
-export const path = fromStore(derived(page, $page => $page?.url?.pathname ?? ''))
+export const path = new Path()
 
-export const getPath = (name: string) => {
-    if (base) {
-        return `${base}${name}`.replace('//', '/').replace(/\/$/, '')
-    }
-    return name
-}

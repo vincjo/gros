@@ -44,7 +44,7 @@
 </script>
 
 
-<section class:small={!big}>
+<section class={{ small: !big }}>
     <label for="{id}">
         <div class="flex">
             {#if icon}
@@ -85,7 +85,7 @@
         {#snippet content()}
         <aside class="z-depth-3 thin-scrollbar" >
             {#each options as option}
-                <button type="button" class="flex" onclick={() => set(option)} class:active={selected.includes(option)}>
+                <button type="button" class={['flex', { active: selected.includes(option) }]} onclick={() => set(option)}>
                     <div class="flex">
                         {#if option.icon}
                             <i class="micon">{option.icon}</i>

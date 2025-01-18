@@ -16,8 +16,7 @@
 <div class="wrapper" style="--size:{size}{unit}; --duration: {duration};">
 	{#each range(3, 1) as i}
 		<div
-			class="dot"
-			class:pause-animation={pause}
+			class={[ 'dot', { 'pause-animation': pause }]}
 			style="--dotSize:{+size * 0.25}{unit}; --color:{color}; animation-delay:  {i *
 				(+durationNum / 10)}{durationUnit};"
 		></div>

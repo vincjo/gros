@@ -32,7 +32,7 @@
     const id = 'id' + (Math.random() + 1).toString(36).substring(7)
 </script>
 
-<section class:small={!big}>
+<section class={{ small: !big }}>
     <label for={id}>
         <div class="flex">
             {#if icon}

@@ -10,8 +10,7 @@
 </script>
 
 <div
-	class="circle"
-	class:pause-animation={pause}
+	class={[ 'circle', { 'pause-animation': pause }]}
 	style="--size: {size}{unit}; --color: {color}; --duration: {duration}"
 ></div>
 

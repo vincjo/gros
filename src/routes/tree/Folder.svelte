@@ -21,7 +21,7 @@
         {#if folder.icon && folder.id !== 0}
             <i class="icon">{@html folder.icon}</i>
         {/if}
-        <h1 class="level-{level}" class:uncategorized={folder.id === 0}>
+        <h1 class={[ `level-${level}`, { uncategorized: folder.id === 0 }]}>
             {folder.title}
             {#if folder.files && folder.files.length > 0}
                 <span>({folder.files.length})</span>

@@ -31,12 +31,14 @@
                 {#each handler.calendar.slice(weekIndex * 7, weekIndex * 7 + 7) as day}
                     <td>
                         <button type="button"
-                            class="close-dropdown"
                             onclick={() => handleClick(day)}
-                            class:selected={day.year === handler.date.getFullYear() &&
-                                day.month === handler.date.getMonth() &&
-                                day.number === handler.date.getDate()}
-                            class:other-month={day.month !== handler.navDate.getMonth()}
+                            class={[ 
+                                'close-dropdown', {
+                                'selected': day.year === handler.date.getFullYear() &&
+                                            day.month === handler.date.getMonth() &&
+                                            day.number === handler.date.getDate(),
+                                'other-month': day.month !== handler.navDate.getMonth()
+                            }]}
                         >
                             {day.number}
                         </button>

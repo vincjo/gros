@@ -11,13 +11,13 @@
     </aside>
     {#snippet content()}
         <nav>
-            <button class:active={$theme === 'onb'} onclick={() => ($theme = 'onb')} class="btn">
+            <button onclick={() => ($theme = 'onb')} class={['btn', { active: $theme === 'onb' }]}>
                 Cyan-pink
             </button>
-            <button class:active={$theme === 'resources'} onclick={() => ($theme = 'resources')} class="btn">
+            <button onclick={() => ($theme = 'resources')} class={['btn', { active: $theme === 'resources' }]}>
                 Teal-blue
             </button>
-            <button class:active={$theme === 'imope'} onclick={() => ($theme = 'imope')} class="btn">
+            <button onclick={() => ($theme = 'imope')} class={['btn', { active: $theme === 'imope' }]}>
                 Gold-red
             </button>
         </nav>

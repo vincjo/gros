@@ -10,7 +10,7 @@
 </script>
 
 <div class="wrapper" style="--size: {size}{unit}; --color: {color}; --duration: {duration};">
-	<div class="firework" class:pause-animation={pause}></div>
+	<div class={[ 'firework', { 'pause-animation': pause }]}></div>
 </div>
 
 <style>

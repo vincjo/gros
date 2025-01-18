@@ -1,12 +1,12 @@
 <script>
-    import { path, getPath } from '$lib/page'
+    import { path } from '$lib/page'
 </script>
 
 # Navigation
 
 ````svelte
 <script>
-    import { path, getPath } from 'gros/page'
+    import { path } from 'gros/page'
 </script>
 ````
 <br>
@@ -15,24 +15,24 @@
 
 ````svelte
 
-<span>{path.current}</span>
+<span>{path.name}</span>
 ````
 
-{path.current}
+{path.name}
 
 <br>
 
 ## Liens
 
 ````svelte
-<a href="{getPath('/home')}">
+<a href="{path.get('/home')}">
     Lien qui fonctionne en environnement
     de développement et en production
 </a>
 
 ````
 
-<a href="{getPath('/home')}">
+<a href="{path.get('/home')}">
     Lien qui fonctionne en environnement
     de développement et en production
 </a>

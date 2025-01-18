@@ -33,8 +33,7 @@
 
 <section data-id="{identifier}" class="file">
     <article 
-        class:active={tree.current.file === identifier}
-        class="flex"
+        class={[ 'flex', { active: tree.current.file === identifier }]}
         draggable="true"
         ondragstart={(event) => dragstart(event)}
         ondragend={(event) => dragend(event)}

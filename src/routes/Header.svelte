@@ -3,11 +3,11 @@
     import Github       from './Header_Github.svelte'
     import Theme        from './Header_Theme.svelte'
     import Logo         from '$utils/Logo.svelte'
-    import { getPath }  from '$lib/page'
+    import { path }     from '$lib/page'
 </script>
 
 <header class="flex">
-    <a class="flex logo" href="{getPath('/')}">
+    <a class="flex logo" href="{path.get('/')}">
         <Logo size="40px"/>
         <b class="desktop">GROS</b>
     </a>

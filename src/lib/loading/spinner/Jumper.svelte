@@ -16,8 +16,7 @@
 <div class="wrapper" style="--size: {size}{unit}; --color: {color}; --duration: {duration};">
 	{#each range(3, 1) as version}
 		<div
-			class="circle"
-			class:pause-animation={pause}
+			class={[ 'circle', { 'pause-animation': pause }]}
 			style="animation-delay: {(+durationNum / 3) * (version - 1) + durationUnit};"
 		></div>
 	{/each}

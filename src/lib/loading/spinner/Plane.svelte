@@ -16,10 +16,10 @@
 </script>
 
 <div
-	class="wrapper"
+	class={[ 'wrapper', { 'pause-animation': pause }]}
 	style="--size: {size}{unit}; --color: {color}; --rgba: {rgba}; --duration: {duration};"
 >
-	<div class="spinner-inner" class:pause-animation={pause}>
+	<div class={[ 'spinner-inner', { 'pause-animation': pause }]}>
 		<div id="top" class="mask">
 			<div class="plane"></div>
 		</div>

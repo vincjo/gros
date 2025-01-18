@@ -35,7 +35,7 @@
 </script>
 
 
-<section class:small={!big}>
+<section class={{ small: !big }}>
     <label for="{id}">
         <div class="flex">
             {#if icon}

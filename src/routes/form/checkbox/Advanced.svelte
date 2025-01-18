@@ -8,7 +8,7 @@
 <section>
     <Checkbox bind:checked={isVisible} size={22} margin={[16,8]}>
         {#snippet before()}
-        <aside class:active={isVisible}>
+        <aside class={{ active: isVisible }}>
             <i class="micon s24">{isVisible ? 'visibility' : 'visibility_off'}</i>
             <span>Visible</span>
         </aside>
@@ -16,7 +16,7 @@
     </Checkbox>
     <Checkbox bind:checked={hasElevation} size={22} margin={[16,8]}>
         {#snippet before()}
-        <aside class:active={hasElevation}>
+        <aside class={{ active: hasElevation }}>
             <i class="micon s24">landscape</i>
             <span>Elevation</span>
         </aside>
@@ -24,7 +24,7 @@
     </Checkbox>
     <Checkbox bind:checked={hasCadastre} size={22} margin={[16,8]}>
         {#snippet before()}
-        <aside class:active={hasCadastre}>
+        <aside class={{ active: hasCadastre }}>
             <i class="micon s24">view_quilt</i>
             <span>Cadastre</span>
         </aside>

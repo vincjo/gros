@@ -10,8 +10,7 @@
 </script>
 
 <div
-	class="square"
-	class:pause-animation={pause}
+	class={[ 'square', { 'pause-animation': pause }]}
 	style="--size: {size}{unit}; --color: {color}; --duration: {duration};"
 ></div>
 

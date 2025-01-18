@@ -14,11 +14,10 @@
 </script>
 
 <div class="wrapper" style="--size: {size}{unit}; --color: {color}; --duration: {duration};">
-	<div class="spinner" class:pause-animation={pause}>
+	<div class={[ 'spinner', { 'pause-animation': pause }]}>
 		{#each range(2, 0) as version}
 			<div
-				class="dot"
-				class:pause-animation={pause}
+				class={[ 'dot', { 'pause-animation': pause }]}
 				style="animation-delay: {version === 1
 					? `${+durationNum / 2}${durationUnit}`
 					: '0s'}; {version === 1 ? 'bottom: 0;' : ''} {version === 1 ? 'top: auto;' : ''}"

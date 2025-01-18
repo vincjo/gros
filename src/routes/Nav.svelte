@@ -1,6 +1,6 @@
 <script lang="ts">
     import { slide } from 'svelte/transition'
-    import { path, getPath }  from '$lib/page'
+    import { path }  from '$lib/page'
 
     const pages = [
         {
@@ -62,23 +62,23 @@
 </script>
 
 <section>
-    <a href={getPath('/home')}>
-        <h2 class:active={path.current === getPath('/home')}>
+    <a href={path.get('/home')}>
+        <h2 class={{ active: path.name === path.get('/home') }}>
             <i class="micon"></i>
             home
         </h2>
     </a>
     {#each pages as page}
-        <a href={getPath(page.path)}>
-            <h3 class:active={path.current.startsWith(getPath(page.path))}>
+        <a href={path.get(page.path)}>
+            <h3 class={{ active: path.name.startsWith(path.get(page.path)) }}>
                 {page.name}
             </h3>
         </a>
-        {#if page.pages && path.current.includes(page.path)}
+        {#if page.pages && path.name.includes(page.path)}
             <ul transition:slide|global={{ duration: 200 }}>
                 {#each page.pages as subpage}
-                    <a href={getPath(page.path + subpage.path)}>
-                        <li class:active={path.current === getPath(page.path + subpage.path)}>
+                    <a href={path.get(page.path + subpage.path)}>
+                        <li class={{ active: path.name === path.get(page.path + subpage.path)}}>
                             {subpage.name}
                         </li>
                     </a>

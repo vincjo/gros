@@ -37,7 +37,7 @@
             {#snippet content()}
             <div class="select month z-depth-2">
                 {#each locale.months as month, i}
-                    <button type="button" onclick={() => handler.setMonth(i)} class:active={handler.month === i}>
+                    <button type="button" onclick={() => handler.setMonth(i)} class={{ active: handler.month === i }}>
                         {month}
                     </button>
                 {/each}
@@ -53,7 +53,7 @@
             {#snippet content()}
             <div class="year select z-depth-2">
                 {#each getYears() as year}
-                    <button type="button" onclick={() => handler.setYear(year)} class:active={handler.year === year}>
+                    <button type="button" onclick={() => handler.setYear(year)} class={{ active: handler.year === year }}>
                         {year}
                     </button>
                 {/each}

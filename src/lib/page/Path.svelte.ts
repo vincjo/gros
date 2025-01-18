@@ -1,13 +1,10 @@
-import { page } from '$app/stores'
+import { page } from '$app/state'
 import { base } from '$app/paths'
-import { derived, fromStore } from 'svelte/store'
 
 
 export default class Path
 {
-    public name = fromStore(derived(page, $page => $page?.url?.pathname ?? ''))
-    // public name = $derived(this.fromStore.current)
-
+    public name = $derived(page.url.pathname)
 
     public get(name: string) 
     {

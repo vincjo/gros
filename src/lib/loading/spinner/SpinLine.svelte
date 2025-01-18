@@ -14,7 +14,7 @@
 	class="wrapper"
 	style="--size: {size}{unit}; --color: {color}; --stroke: {stroke}; --floatSize: {size}; --duration: {duration}"
 >
-	<div class="line" class:pause-animation={pause}></div>
+	<div class={[ 'line', { 'pause-animation': pause }]}></div>
 </div>
 
 <style>

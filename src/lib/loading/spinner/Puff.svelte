@@ -20,13 +20,12 @@
 </script>
 
 <span
-	class="wrapper"
+	class={[ 'wrapper', { 'pause-animation': pause }]}
 	style="--size: {size}{unit}; --color: {color}; --rgba: {rgba}; --duration: {duration}"
 >
 	{#each range(2, 1) as version}
 		<span
-			class="circle"
-			class:pause-animation={pause}
+			class={[ 'circle', { 'pause-animation': pause }]}
 			style="animation-delay: {version === 1 ? '-1s' : '0s'}; animation-duration: {2 /
 				+durationNum +
 				durationUnit};"

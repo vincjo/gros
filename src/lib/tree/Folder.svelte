@@ -41,7 +41,7 @@
 
 
 <section data-id={identifier} class="folder-{level} unselectable folder">
-    <article class="flex" class:active={isActive}>
+    <article class={[ 'flex', { active: isActive }]}>
         <Droppable {tree} {identifier} {onDrop}/>
         <!-- svelte-ignore a11y_no_static_element_interactions -->
         <div class="drop"
@@ -61,7 +61,7 @@
     </article>
 
     {#if isActive}
-        <aside transition:slide={{ duration: 200 }} class:current={tree.current.folder === identifier}>
+        <aside transition:slide={{ duration: 200 }} class={{ current: tree.current.folder === identifier }}>
             {#if nested}{@render nested()}{/if}
         </aside>
     {/if}

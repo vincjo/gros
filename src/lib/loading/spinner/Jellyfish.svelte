@@ -21,8 +21,7 @@
 >
 	{#each range(6, 0) as version}
 		<div
-			class="ring"
-			class:pause-animation={pause}
+			class={[ 'ring', { 'pause-animation': pause }]}
 			style="animation-delay: {version * (+durationNum / 25)}{durationUnit}; width: {version *
 				(+size / 6) +
 				unit}; height: {(version * (+size / 6)) / 2 + unit}; "

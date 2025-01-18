@@ -18,8 +18,7 @@
 <div class="wrapper" style="--size: {size}{unit}; --rgba:{rgba}">
     {#each range(2, 1) as version}
         <div
-            class="lines small-lines {version}"
-            class:pause-animation={pause}
+            class={[ 'lines', 'small-lines', version, { 'pause-animation': pause }]}
             style="--color: {color}; --duration: {duration};"
         ></div>
     {/each}

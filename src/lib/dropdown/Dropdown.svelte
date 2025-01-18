@@ -89,8 +89,7 @@
 
 {#if browser}
     <button type="button"
-        class="dropdown-trigger"
-        class:block={isBlock}
+        class={['dropdown-trigger', { block: isBlock }]}
         onclick={(event) => open(event)} 
         bind:this={element}
         use:popperRef

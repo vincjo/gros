@@ -13,7 +13,7 @@
 	class="wrapper"
 	style="--size: {size}{unit}; --color: {color}; --duration: {duration}; --duration: {duration};"
 >
-	<div class="circle" class:pause-animation={pause}></div>
+	<div class={[ 'circle', { 'pause-animation': pause }]}></div>
 </div>
 
 <style>

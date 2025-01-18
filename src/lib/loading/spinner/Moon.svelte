@@ -12,12 +12,11 @@
 </script>
 
 <div
-	class="wrapper"
-	class:pause-animation={pause}
+	class={[ 'wrapper', { 'pause-animation': pause }]}
 	style="--size: {size}{unit}; --color: {color}; --moonSize: {top}{unit}; --duration: {duration};"
 >
-	<div class="circle-one" class:pause-animation={pause}></div>
-	<div class="circle-two" class:pause-animation={pause}></div>
+	<div class={[ 'circle-one', { 'pause-animation': pause }]}></div>
+	<div class={[ 'circle-two', { 'pause-animation': pause }]}></div>
 </div>
 
 <style>

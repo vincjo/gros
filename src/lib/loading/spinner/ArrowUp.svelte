@@ -11,8 +11,7 @@
 
 
 <div
-	class="wrapper"
-	class:pause-animation={pause}
+	class={[ 'wrapper', { 'pause-animation': pause }]}
 	style="--size: {size}{unit}; --color: {color}; --duration: {duration};"
 ></div>
 

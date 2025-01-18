@@ -13,22 +13,22 @@
 </script>
 
 <div
-	class="wrapper"
+	class={[ 'wrapper', { 'pause-animation': pause }]}
 	style="--size: {size}{unit}; --floatSize: {size}; --ballTopLeftColor: {ballTopLeft}; --ballTopRightColor: {ballTopRight}; --ballBottomLeftColor: {ballBottomLeft}; --ballBottomRightColor: {ballBottomRight}; --duration: {duration};"
 >
 	<div class="inner">
-		<div class="ball-container" class:pause-animation={pause}>
+		<div class={[ 'ball-container', { 'pause-animation': pause }]}>
 			<div class="single-ball">
-				<div class="ball ball-top-left" class:pause-animation={pause}>&nbsp;</div>
+				<div class={[ 'ball', 'ball-top-left', { 'pause-animation': pause }]}>&nbsp;</div>
 			</div>
 			<div class="contener_mixte">
-				<div class="ball ball-top-right" class:pause-animation={pause}>&nbsp;</div>
+				<div class={[ 'ball', 'ball-top-right', { 'pause-animation': pause }]}>&nbsp;</div>
 			</div>
 			<div class="contener_mixte">
-				<div class="ball ball-bottom-left" class:pause-animation={pause}>&nbsp;</div>
+				<div class={[ 'ball', 'ball-bottom-left', { 'pause-animation': pause }]}>&nbsp;</div>
 			</div>
 			<div class="contener_mixte">
-				<div class="ball ball-bottom-right" class:pause-animation={pause}>&nbsp;</div>
+				<div class={[ 'ball', 'ball-bottom-right', { 'pause-animation': pause }]}>&nbsp;</div>
 			</div>
 		</div>
 	</div>

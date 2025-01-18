@@ -11,7 +11,7 @@
 
 <div
 	style="--size: {size}{unit}; --color:{color}; --duration:{duration}"
-	class:pause-animation={pause}
+	class={{ 'pause-animation': pause }}
 ></div>
 
 <style>

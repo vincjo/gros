@@ -74,8 +74,7 @@
             <!-- svelte-ignore a11y_no_static_element_interactions -->
             <!-- svelte-ignore a11y_mouse_events_have_key_events -->
             <div
-                class="range__thumb z-depth-2"
-                class:range__thumb--holding={range.holding}
+                class={[ 'range__thumb z-depth-2', { 'range__thumb--holding': range.holding }]}
                 bind:this={thumb}
                 ontouchstart={(e) => range.onDragStart(e)}
                 onmousedown={(e) => range.onDragStart(e)}

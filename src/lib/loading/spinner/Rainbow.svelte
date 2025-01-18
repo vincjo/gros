@@ -10,7 +10,7 @@
 </script>
 
 <div class="wrapper" style="--size: {size}{unit}; --color: {color}; --duration: {duration};">
-	<div class="rainbow" class:pause-animation={pause}></div>
+	<div class={[ 'rainbow', { 'pause-animation': pause }]}></div>
 </div>
 
 <style>
