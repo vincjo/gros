@@ -1,6 +1,6 @@
 {
     "name": "gros",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "keywords": [
         "Jeu de composants Svelte réutilisables"
     ],
@@ -46,7 +46,7 @@
         "dist"
     ],
     "dependencies": {
-        "@neodrag/svelte": "=2.0.6",
+        "@neodrag/svelte": "^2.3.1",
         "@popperjs/core": "^2.11.8",
         "sortablejs": "^1.15.6",
         "@sveltejs/kit": "^2.17.2",
@@ -69,7 +69,7 @@
         },
         "./datatable/legacy": {
             "types": "./dist/datatable/legacy/index.d.ts",
-            "svelte": "./dist/datatable/legacy/index.js"
+            "svelte": "./dist/dataable/legacy/index.js"
         },
         "./date": {
             "types": "./dist/date/index.d.ts",
