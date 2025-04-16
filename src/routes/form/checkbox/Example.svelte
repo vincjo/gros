@@ -1,6 +1,6 @@
 <script lang="ts">
     import { Checkbox } from '$lib/form'
-    let checked = false
+    let checked = $state(false)
 </script>
 
 <section>

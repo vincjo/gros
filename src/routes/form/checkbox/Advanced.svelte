@@ -1,8 +1,8 @@
 <script lang="ts">
     import { Checkbox } from '$lib/form'
-    let isVisible = true
-    let hasElevation = false
-    let hasCadastre = false
+    let isVisible = $state(true)
+    let hasElevation = $state(false)
+    let hasCadastre = $state(false)
 </script>
 
 <section>
