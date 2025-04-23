@@ -24,7 +24,7 @@
 
     const [popperRef, popperContent] = createPopperActions({
         placement: position,
-        strategy: 'fixed',
+        strategy: 'absolute',
     })
     const extraOpts = {
         modifiers: [
