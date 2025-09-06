@@ -41,7 +41,7 @@
         font-family:Arial, Helvetica, sans-serif;
     }
     input::placeholder {
-        color: var(--grey, #e0e0e0);
+        color: var(--placeholder, #e0e0e0);
         /* font-style: italic; */
         font-size: 13px;
     }

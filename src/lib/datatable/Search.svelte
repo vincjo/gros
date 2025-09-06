@@ -49,7 +49,7 @@
         border:1px solid var(--grey, #e0e0e0);
     }
     input::placeholder {
-        color:var(--grey, #e0e0e0);
+        color:var(--placeholder, #e0e0e0);
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         line-height:24px;
         font-weight: 200;

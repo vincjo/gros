@@ -11,6 +11,8 @@
     --bg-gradient: linear-gradient(180deg, #dfe8eb 0%, #feffff 40%, #fff 100%);
     --bg-code: #f5f7ff;
     --bg-opac: rgba(255, 255, 255, 0.8);
+
+    --placeholder: #bdbdbd;
 }
 .thin-scrollbar::-webkit-scrollbar, 
 pre::-webkit-scrollbar {
@@ -55,6 +57,8 @@ pre::-webkit-scrollbar-thumb:hover {
     --bg-code: #212121;
     --bg-gradient: linear-gradient(4deg, rgba(38,52,57,1) 0%, rgba(20,23,24,1) 100%);
     --bg-opac: rgba(33, 33, 33, 0.85);
+
+    --placeholder: #616161;
 }
 [data-theme="dark"] .thin-scrollbar::-webkit-scrollbar-track, 
 [data-theme="dark"] pre::-webkit-scrollbar-track, 

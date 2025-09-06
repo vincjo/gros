@@ -14,6 +14,7 @@
         required    ?: boolean,
         errors      ?: Error[],
         field       ?: string | null,
+        placeholder ?: string
         oninput     ?: (event: Event) => any,
     }
 
@@ -28,6 +29,7 @@
         required    = false,
         errors      = [],
         field       = '',
+        placeholder = '',
         oninput     = () => { return },
     }: Props = $props()
 
@@ -62,7 +64,7 @@
     {:else if number}
         <input type="number"   id="{id}" bind:value={value} {oninput} spellcheck="false" />
     {:else}
-        <input type="text"     id="{id}" bind:value={value} {oninput} spellcheck={spellcheck} />
+        <input type="text"     id="{id}" bind:value={value} {oninput} spellcheck={spellcheck} placeholder={placeholder}/>
     {/if}
 
     {#if !big}
@@ -136,5 +138,8 @@
         font-size:14px;
         color:var(--font, #424242);
         height:32px;
+    }
+    input::placeholder {
+        color: var(--placeholder);
     }
 </style>

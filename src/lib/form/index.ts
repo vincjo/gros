@@ -8,6 +8,7 @@ export { default as ColorPicker }   from './ColorPicker.svelte'
 export { default as ColorHandler }  from './ColorPicker/ColorHandler.svelte'
 export { default as Select }        from './Select.svelte'
 export { default as Range }         from './Range.svelte'
+export { default as Custom }        from './Custom.svelte'
 
 export type Error = { field: string; message: string }
 export type Locale = { weekdays: string[]; months: string[] }
