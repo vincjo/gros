@@ -1,6 +1,6 @@
 {
     "name": "gros",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "keywords": [
         "Jeu de composants Svelte réutilisables"
     ],
@@ -50,7 +50,7 @@
         "@popperjs/core": "=2.11.8",
         "sortablejs": "^1.15.6",
         "@sveltejs/kit": "^2.17.2",
-        "@vincjo/datatables": "^2.5.0",
+        "@vincjo/datatables": "^2.6.3",
         "svelte": "^5.20.2"
     },
     "svelte": "./dist/index.js",
