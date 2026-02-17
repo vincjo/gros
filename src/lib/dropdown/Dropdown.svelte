@@ -14,6 +14,7 @@
         isBlock         ?: boolean,
         active          ?: boolean,
         disabled        ?: boolean,
+        strategy        ?: 'fixed' | 'absolute',
         onclick         ?: () => any
         content          : Snippet,
         children         : Snippet
@@ -26,6 +27,7 @@
         isBlock         = false,
         active          = false,
         disabled        = false,
+        strategy        = 'absolute',
         onclick         = () => { return },
         content,
         children,
@@ -43,7 +45,7 @@
 
     const [popperRef, popperContent] = createPopperActions({
         placement: position,
-        strategy: 'absolute',
+        strategy: strategy,
     })
     const extraOpts = {
         modifiers: [

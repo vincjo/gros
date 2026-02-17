@@ -15,7 +15,7 @@
         field       ?: string | null,
         oninput     ?: (event: Event) => any,
         children     : import('svelte').Snippet
-        align        : string
+        align       ?: string
     }
 
     let {
